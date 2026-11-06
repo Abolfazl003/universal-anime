@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "meta": {
+    "note": "Reference index for the Reference-First pipeline. Only sources that were actually opened/read during this session are listed. 'imageReviewed' is false everywhere: the build environment could not retrieve or display reference images, so no image was visually inspected and no design was derived from one.",
+    "retrievedOn": "2026-11-06",
+    "tooling": {
+      "pageFetch": "available (fetched naruto.fandom.com text)",
+      "imageSearch": "unavailable in this environment (returned no images)",
+      "binaryDownload": "unavailable for non-allowlisted hosts"
+    }
+  },
+  "entries": [
+    {
+      "characterId": 1,
+      "characterName": "Naruto Uzumaki",
+      "kind": "text_source",
+      "title": "Narutopedia — Naruto Uzumaki (Appearance / Abilities)",
+      "url": "https://naruto.fandom.com/wiki/Naruto_Uzumaki",
+      "retrievedOn": "2026-11-06",
+      "imageReviewed": false,
+      "notes": "Canonical wiki page. Page text opened in this session; the Appearance section describes the Part II outfit. No image files were downloaded or viewed."
+    },
+    {
+      "characterId": 1,
+      "characterName": "Naruto Uzumaki",
+      "kind": "text_source",
+      "title": "Heroes Wiki — Naruto Uzumaki (Appearance)",
+      "url": "https://hero.fandom.com/wiki/Naruto_Uzumaki",
+      "retrievedOn": "2026-11-06",
+      "imageReviewed": false,
+      "notes": "Search-result excerpt used to cross-check the Part II outfit description (orange form-fitting tracksuit, black collar/shoulder/zip trim, black bandanna headband, black sandals, shuriken holster on right knee)."
+    },
+    {
+      "characterId": 1,
+      "characterName": "Naruto Uzumaki",
+      "kind": "text_source",
+      "title": "Character profile — Naruto Uzumaki (Part I vs Part II outfit comparison)",
+      "url": "https://saint-knights.fandom.com/wiki/Naruto_Uzumaki",
+      "retrievedOn": "2026-11-06",
+      "imageReviewed": false,
+      "notes": "Used to confirm the Part I / Part II differences so the two versions are never mixed in one design."
+    }
+  ]
+}

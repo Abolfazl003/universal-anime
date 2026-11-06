@@ -1,0 +1,51 @@
+{
+  "characterId": 1,
+  "characterName": "Naruto Uzumaki",
+  "status": "REFERENCE_PENDING",
+  "imagesReviewed": false,
+  "designLocked": false,
+  "versionDecision": {
+    "chosen": "Naruto Shippuden (Part II) — default outfit, before the Pain arc coat",
+    "rationale": "The brief asks for the usual Shippuden look unless the user approves another version.",
+    "explicitlyExcludedForThisDesign": [
+      "Naruto Part I outfit (blue shoulder/waist panels, blue headband, goggles)",
+      "Pain-arc short-sleeved red coat with flame hem and summoning scroll",
+      "Nine-Tails / Kurama Chakra Mode and Six Paths Sage Mode (separate forms, separate approval)",
+      "Blank period / The Last / Hokage-era outfits"
+    ]
+  },
+  "outfitChecklist": [
+    "Orange, form-fitting tracksuit jacket; black colouring starts at the collar, covers the shoulders and sleeves and runs down the front zip",
+    "Black colouring also extends around the waist and across half of the back",
+    "White circular design on the left shoulder (no tassel in Part II); red Uzumaki swirl on the back",
+    "Plain white T-shirt visible at the neckline",
+    "Orange trousers with a shuriken holster on the right knee (he is right-handed)",
+    "Black shinobi sandals, ankle height",
+    "Long black forehead-protector bandanna with the metal plate at the front"
+  ],
+  "bodyChecklist": [
+    "Blond, spiky hair",
+    "Blue eyes",
+    "Three whisker marks on each cheek",
+    "Fair/tan skin",
+    "Part II proportions: about 166 cm, lean build"
+  ],
+  "openQuestions": [
+    "Exact arc for the default version (start-of-Shippuden vs Pain-arc vs war arc)?",
+    "Is the red Pain-arc coat wanted as a second costume later, or excluded entirely?",
+    "Which Rasengan visual variant (base, Big Ball, Sage Mode) should the special use?",
+    "Should Kurama Chakra Mode be a transformation with its own animation set, or a cosmetic Ultimate only?",
+    "Are minor non-canon liberties acceptable (e.g. exact fabric folds) given the engine's 2D rig?"
+  ],
+  "blockers": [
+    "No reference image could be retrieved or displayed in the build environment, therefore no image was inspected.",
+    "No design proposal, reference sheet or animation frame exists yet.",
+    "Design lock and animation remain blocked until the user supplies reference images and approves the proposal."
+  ],
+  "powerNamesFromUserBrief": [
+    "Rasengan",
+    "Kurama Chakra Mode",
+    "Tailed Beast Rasenshuriken"
+  ],
+  "powerNamesNote": "These names come from the user's brief. The authoritative characters.json is not in the repository, so the game does not claim these are the record's exact strings. Once the file is present the loader copies the power names verbatim."
+}

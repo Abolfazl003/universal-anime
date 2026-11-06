@@ -1,0 +1,174 @@
+{
+  "characterId": "lab_dummy_b",
+  "status": "PLACEHOLDER",
+  "note": "Timing data for the procedural placeholder rig. No image frames exist: the rig is drawn with code and is explicitly labelled TEMPORARY ART in-game. These numbers only drive pose interpolation and the animation review tool.",
+  "canvas": {
+    "width": 320,
+    "height": 320,
+    "origin": "bottom_center",
+    "foot_contact_y": 300
+  },
+  "pivot": {
+    "x": 160,
+    "y": 300,
+    "anchor": "feet"
+  },
+  "clips": {
+    "idle": {
+      "frames": 4,
+      "fps": 8,
+      "loop": true,
+      "status": "PLACEHOLDER"
+    },
+    "walk": {
+      "frames": 6,
+      "fps": 10,
+      "loop": true,
+      "status": "PLACEHOLDER"
+    },
+    "run": {
+      "frames": 6,
+      "fps": 14,
+      "loop": true,
+      "status": "PLACEHOLDER"
+    },
+    "jump_start": {
+      "frames": 3,
+      "fps": 12,
+      "loop": false,
+      "status": "PLACEHOLDER"
+    },
+    "jump_loop": {
+      "frames": 2,
+      "fps": 10,
+      "loop": true,
+      "status": "PLACEHOLDER"
+    },
+    "landing": {
+      "frames": 3,
+      "fps": 14,
+      "loop": false,
+      "status": "PLACEHOLDER"
+    },
+    "crouch": {
+      "frames": 2,
+      "fps": 10,
+      "loop": false,
+      "status": "PLACEHOLDER"
+    },
+    "block": {
+      "frames": 2,
+      "fps": 10,
+      "loop": true,
+      "status": "PLACEHOLDER"
+    },
+    "block_hit": {
+      "frames": 2,
+      "fps": 14,
+      "loop": false,
+      "status": "PLACEHOLDER"
+    },
+    "light_attack": {
+      "frames": 4,
+      "fps": 16,
+      "loop": false,
+      "status": "PLACEHOLDER"
+    },
+    "heavy_attack": {
+      "frames": 5,
+      "fps": 14,
+      "loop": false,
+      "status": "PLACEHOLDER"
+    },
+    "special": {
+      "frames": 5,
+      "fps": 12,
+      "loop": false,
+      "status": "PLACEHOLDER"
+    },
+    "ultimate": {
+      "frames": 6,
+      "fps": 12,
+      "loop": false,
+      "status": "PLACEHOLDER"
+    },
+    "hit_reaction": {
+      "frames": 3,
+      "fps": 12,
+      "loop": false,
+      "status": "PLACEHOLDER"
+    },
+    "knockdown": {
+      "frames": 4,
+      "fps": 10,
+      "loop": false,
+      "status": "PLACEHOLDER"
+    },
+    "get_up": {
+      "frames": 4,
+      "fps": 10,
+      "loop": false,
+      "status": "PLACEHOLDER"
+    },
+    "victory": {
+      "frames": 4,
+      "fps": 8,
+      "loop": true,
+      "status": "PLACEHOLDER"
+    },
+    "defeat": {
+      "frames": 3,
+      "fps": 8,
+      "loop": false,
+      "status": "PLACEHOLDER"
+    },
+    "intro": {
+      "frames": 4,
+      "fps": 8,
+      "loop": false,
+      "status": "PLACEHOLDER"
+    },
+    "outro": {
+      "frames": 4,
+      "fps": 8,
+      "loop": false,
+      "status": "PLACEHOLDER"
+    },
+    "d_idle_down": {
+      "frames": 4,
+      "fps": 8,
+      "loop": true,
+      "status": "PLACEHOLDER"
+    },
+    "d_walk_down": {
+      "frames": 6,
+      "fps": 10,
+      "loop": true,
+      "status": "PLACEHOLDER"
+    },
+    "d_idle_up": {
+      "frames": 4,
+      "fps": 8,
+      "loop": true,
+      "status": "PLACEHOLDER"
+    },
+    "d_walk_up": {
+      "frames": 6,
+      "fps": 10,
+      "loop": true,
+      "status": "PLACEHOLDER"
+    },
+    "d_idle_side": {
+      "frames": 4,
+      "fps": 8,
+      "loop": true,
+      "status": "PLACEHOLDER"
+    },
+    "d_walk_side": {
+      "frames": 6,
+      "fps": 10,
+      "loop": true,
+      "status": "PLACEHOLDER"
+    }
+  }
+}

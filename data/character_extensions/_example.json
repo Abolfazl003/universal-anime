@@ -1,0 +1,10 @@
+{
+  "characterId": 1,
+  "source": "https://example.org/verify-before-use",
+  "retrieved": "2026-11-06",
+  "notes": "Example only — not loaded (filenames starting with '_' are skipped). Never fill this with invented data.",
+  "data": {
+    "height_cm": null,
+    "outfit_version": "unverified"
+  }
+}

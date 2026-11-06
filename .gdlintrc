@@ -1,0 +1,8 @@
+# gdtoolkit linter configuration for this project.
+# Style rules are relaxed where the project intentionally uses data tables and
+# wide drawing calls; correctness rules stay on.
+max-line-length: 130
+max-returns: 12
+disable:
+  - class-definitions-order
+  - max-public-methods

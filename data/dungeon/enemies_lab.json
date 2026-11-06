@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "meta": {
+    "note": "TEMPORARY dungeon enemy definitions for the mechanics lab. They are abstract shapes with labels, NOT anime characters. Final enemies and bosses require valid reference data + user approval before they can be used.",
+    "temporary": true
+  },
+  "enemies": {
+    "lab_chaser": {
+      "displayName": "TEMP CHASER",
+      "temporary": true,
+      "behavior": "approacher",
+      "hp": 24,
+      "speed": 130.0,
+      "touch_damage": 8,
+      "radius": 20.0,
+      "color": "#e5484d",
+      "shape": "triangle"
+    },
+    "lab_shooter": {
+      "displayName": "TEMP SHOOTER",
+      "temporary": true,
+      "behavior": "ranged",
+      "hp": 18,
+      "speed": 85.0,
+      "touch_damage": 6,
+      "projectile_damage": 7,
+      "projectile_speed": 320.0,
+      "preferred_range": 340.0,
+      "cooldown_ticks": 90,
+      "radius": 18.0,
+      "color": "#8b5cf6",
+      "shape": "circle"
+    },
+    "lab_guard": {
+      "displayName": "TEMP GUARD",
+      "temporary": true,
+      "behavior": "defender",
+      "hp": 34,
+      "speed": 70.0,
+      "touch_damage": 10,
+      "block_chance": 0.55,
+      "radius": 22.0,
+      "color": "#22c55e",
+      "shape": "square"
+    },
+    "lab_warden": {
+      "displayName": "TEMP WARDEN",
+      "temporary": true,
+      "is_boss": true,
+      "behavior": "boss",
+      "hp": 180,
+      "speed": 105.0,
+      "touch_damage": 12,
+      "radius": 40.0,
+      "color": "#f5a623",
+      "shape": "hexagon",
+      "patterns": [
+        {
+          "id": "slam",
+          "kind": "radial_burst",
+          "period_ticks": 210,
+          "telegraph_ticks": 50,
+          "projectiles": 8,
+          "damage": 10,
+          "speed": 240.0
+        },
+        {
+          "id": "charge",
+          "kind": "charge",
+          "period_ticks": 330,
+          "telegraph_ticks": 45,
+          "damage": 14,
+          "speed": 620.0,
+          "duration_ticks": 40
+        },
+        {
+          "id": "ring",
+          "kind": "ring",
+          "period_ticks": 420,
+          "telegraph_ticks": 60,
+          "projectiles": 14,
+          "damage": 8,
+          "speed": 200.0
+        }
+      ]
+    }
+  },
+  "rooms": {
+    "start": {
+      "kind": "start",
+      "clear_required": false
+    },
+    "combat": {
+      "kind": "combat",
+      "clear_required": true,
+      "spawns": [
+        "lab_chaser",
+        "lab_chaser",
+        "lab_shooter"
+      ]
+    },
+    "trap": {
+      "kind": "trap",
+      "clear_required": true,
+      "spawns": [
+        "lab_guard"
+      ],
+      "trap_damage": 10,
+      "trap_telegraph_ticks": 45
+    },
+    "loot": {
+      "kind": "loot",
+      "clear_required": false,
+      "loot_table": "lab_cache"
+    },
+    "rest": {
+      "kind": "rest",
+      "clear_required": false,
+      "heal": 25
+    },
+    "boss": {
+      "kind": "boss",
+      "clear_required": true,
+      "boss": "lab_warden"
+    }
+  },
+  "loot": {
+    "lab_cache": [
+      {
+        "name": "TEMP SHARD",
+        "value": 15
+      },
+      {
+        "name": "TEMP FLASK",
+        "value": 5,
+        "heal": 20
+      }
+    ]
+  }
+}

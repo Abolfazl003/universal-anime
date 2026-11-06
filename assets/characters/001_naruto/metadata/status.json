@@ -1,0 +1,18 @@
+{
+  "characterId": 1,
+  "characterName": "Naruto Uzumaki",
+  "status": "REFERENCE_PENDING",
+  "version": "Naruto Shippuden (Part II), default outfit — proposed, unconfirmed",
+  "imagesReviewed": false,
+  "referenceImagesPresent": 0,
+  "designLocked": false,
+  "designApprovedBy": null,
+  "designApprovedOn": null,
+  "animationBlocked": true,
+  "movesetBound": false,
+  "stageOwned": "konoha_pending (PENDING, not approved)",
+  "notes": [
+    "No reference image could be retrieved or inspected in the build environment.",
+    "Approval metadata is kept here, in the repository, and never in the player save."
+  ]
+}

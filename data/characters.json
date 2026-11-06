@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "meta": {
+    "status": "SOURCE_FILE_NOT_PRESENT_IN_REPOSITORY",
+    "capacityTarget": 600,
+    "recordsInThisFile": 0,
+    "note": "This repository (branch arena/c66d4db8-universal-anime, base commit 719bc6f) contained no characters.json when phase 0 was executed. The character database is the source of truth and was therefore NOT fabricated: no records were invented, no ids were reserved, no names were altered. Put the authoritative file at data/characters.json (or at data/characters.local.json, which is git-ignored and takes precedence) and reload the game. The loader accepts either a bare JSON array of records or an object with a 'characters' array.",
+    "expectedShape": {
+      "id": "integer, unique",
+      "name": "string (canonical, never translated by the game)",
+      "series": "string",
+      "city": "string",
+      "element": "string",
+      "role": "string",
+      "rarity": "string",
+      "powers": "array of {name, description} or array of strings",
+      "status": "optional, one of the status names in docs/CHARACTER_DATA_SPEC.md"
+    }
+  },
+  "characters": []
+}

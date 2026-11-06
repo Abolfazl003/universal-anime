@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "anime-saga/characters.schema.json",
+  "title": "Anime Saga character record",
+  "description": "Shape the game expects. Fields in the source file are copied verbatim; optional fields are never invented by the loader.",
+  "type": "object",
+  "required": ["characters"],
+  "properties": {
+    "schemaVersion": { "type": "integer", "minimum": 1 },
+    "characters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "series", "city", "element", "role", "rarity", "powers"],
+        "properties": {
+          "id": { "type": "integer", "minimum": 0, "description": "Unique identifier. Duplicates are reported as errors." },
+          "name": { "type": "string", "minLength": 1 },
+          "series": { "type": "string" },
+          "city": { "type": "string" },
+          "element": { "type": "string" },
+          "role": { "type": "string" },
+          "rarity": { "type": "string" },
+          "world": { "type": "string", "description": "Optional. Absent in many records; never inferred." },
+          "architecture": { "type": "string" },
+          "description": { "type": "string" },
+          "status": {
+            "type": "string",
+            "enum": [
+              "DATA_ONLY",
+              "REFERENCE_PENDING",
+              "REFERENCE_APPROVED",
+              "ANIMATION_IN_PROGRESS",
+              "IMPLEMENTED",
+              "QA_PASSED",
+              "PLAYABLE"
+            ],
+            "description": "Optional. Records without a status are treated as DATA_ONLY."
+          },
+          "powers": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                { "type": "string" },
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": { "type": "string" },
+                    "description": { "type": "string" }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+# Godot
+.godot/
+*.import
+export.cfg
+export_presets.cfg
+build/
+dist/
+*.translation
+
+# Local-only character data: the real characters.json can live here without
+# touching the committed placeholder. The loader prefers this file.
+data/characters.local.json
+
+# Test / tool output
+tests/output/
+*.log

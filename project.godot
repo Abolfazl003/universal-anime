@@ -1,0 +1,71 @@
+; Anime Saga — Godot 4 project
+; Strictly 2D. Data / logic / visual assets are kept separate.
+; Input actions are registered at runtime by InputService (scripts/input/input_service.gd)
+; so that remapping and per-player bindings stay in one authoritative place.
+
+config_version=5
+
+[application]
+
+config/name="Anime Saga"
+config/description="Strictly 2D anime fighting (versus) + top-down dungeon action. Data-driven, reference-first."
+config/version="0.1.0-phase2"
+run/main_scene="res://scenes/boot/boot.tscn"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/show_image=false
+boot_splash/bg_color=Color(0.043, 0.051, 0.078, 1)
+
+[autoload]
+
+SaveManager="*res://scripts/save/save_manager.gd"
+SettingsService="*res://scripts/core/settings_service.gd"
+InputService="*res://scripts/input/input_service.gd"
+Loc="*res://scripts/core/localization_service.gd"
+GameData="*res://scripts/core/game_data.gd"
+Session="*res://scripts/core/session.gd"
+SceneRouter="*res://scripts/core/scene_router.gd"
+GameDebug="*res://scripts/debug/debug_overlay.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/vsync/vsync_mode=1
+
+[dotnet]
+
+project/assembly_name="AnimeSaga"
+
+[filesystem]
+
+import/blender/enabled=false
+import/fbx2gltf/enabled=false
+
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=false
+
+[physics]
+
+common/physics_ticks_per_second=60
+2d/default_gravity=1800.0
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.043, 0.051, 0.078, 1)
+anti_aliasing/quality/msaa_2d=1
+
+[application_run]
+
+auto_accept_quit=true

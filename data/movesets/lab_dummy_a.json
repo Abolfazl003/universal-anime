@@ -1,0 +1,113 @@
+{
+  "movesetId": "lab_dummy_a",
+  "characterId": null,
+  "displayName": "LAB DUMMY A (temporary test entity)",
+  "temporary": true,
+  "note": "Temporary mechanics-lab entity. Not an anime character, not final art, not a moveset for any real character. Used only to validate hitboxes, frames, block, combo/cancel windows and AI.",
+  "fighter": {
+    "hp": 100,
+    "walk_speed": 260.0,
+    "run_speed": 430.0,
+    "jump_velocity": -720.0,
+    "hurtbox_width": 48.0,
+    "hurtbox_height": 122.0,
+    "weight": 1.0,
+    "primary": "#4f8cff",
+    "secondary": "#1b2f57",
+    "accent": "#cfe0ff"
+  },
+  "moves": {
+    "light_attack": {
+      "id": "light_attack",
+      "animation_id": "light_attack",
+      "startup": 5,
+      "active": 3,
+      "recovery": 9,
+      "damage": 6,
+      "hitstun": 12,
+      "blockstun": 7,
+      "knockback": { "x": 120.0, "y": -20.0 },
+      "energy_cost": 0.0,
+      "energy_gain": 6.0,
+      "ultimate_gain": 5.0,
+      "cooldown": 0,
+      "hitbox": { "offset_x": 52.0, "offset_y": -72.0, "size_x": 66.0, "size_y": 36.0 },
+      "cancel_windows": [
+        { "from_frame": 8, "to_frame": 15, "into": ["light_attack", "heavy_attack"], "requires_hit": true }
+      ]
+    },
+    "heavy_attack": {
+      "id": "heavy_attack",
+      "animation_id": "heavy_attack",
+      "startup": 11,
+      "active": 5,
+      "recovery": 18,
+      "damage": 14,
+      "hitstun": 20,
+      "blockstun": 12,
+      "knockback": { "x": 300.0, "y": -140.0 },
+      "energy_cost": 0.0,
+      "energy_gain": 9.0,
+      "ultimate_gain": 8.0,
+      "cooldown": 0,
+      "hitbox": { "offset_x": 64.0, "offset_y": -76.0, "size_x": 92.0, "size_y": 50.0 },
+      "multi_hit": [
+        { "start": 11, "length": 2, "damage": 8 },
+        { "start": 14, "length": 2, "damage": 7 }
+      ],
+      "cancel_windows": [
+        { "from_frame": 26, "to_frame": 33, "into": ["special"], "requires_hit": false }
+      ]
+    },
+    "special": {
+      "id": "special",
+      "animation_id": "special",
+      "type": "projectile",
+      "startup": 14,
+      "active": 2,
+      "recovery": 20,
+      "damage": 11,
+      "hitstun": 16,
+      "blockstun": 10,
+      "knockback": { "x": 260.0, "y": -60.0 },
+      "energy_cost": 25.0,
+      "ultimate_gain": 0.0,
+      "cooldown": 45,
+      "hitbox": { "offset_x": 58.0, "offset_y": -70.0, "size_x": 36.0, "size_y": 36.0 },
+      "projectile": {
+        "speed": 760.0,
+        "range": 720.0,
+        "radius": 26.0,
+        "spawn_offset_x": 58.0,
+        "spawn_offset_y": -70.0,
+        "visual": "orb"
+      }
+    },
+    "ultimate": {
+      "id": "ultimate",
+      "animation_id": "ultimate",
+      "type": "projectile",
+      "startup": 22,
+      "active": 3,
+      "recovery": 30,
+      "damage": 26,
+      "hitstun": 30,
+      "blockstun": 16,
+      "knockback": { "x": 420.0, "y": -120.0 },
+      "energy_cost": 0.0,
+      "meter_required": 100.0,
+      "ultimate_gain": 0.0,
+      "cooldown": 0,
+      "hitbox": { "offset_x": 60.0, "offset_y": -74.0, "size_x": 60.0, "size_y": 60.0 },
+      "invulnerable_frames": 8,
+      "projectile": {
+        "speed": 540.0,
+        "range": 900.0,
+        "radius": 46.0,
+        "spawn_offset_x": 60.0,
+        "spawn_offset_y": -74.0,
+        "visual": "big_orb"
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "konoha_pending",
+  "name": "Konohagakure — Hidden Leaf Village",
+  "anime": "Naruto",
+  "city": "Konohagakure",
+  "world": "Shinobi World",
+  "architecture": "Japanese-inspired shinobi village: tiled roofs, wooden facades, the Hokage Rock cliff face with carved stone faces, street lanterns and forest on the horizon.",
+  "status": "PENDING",
+  "temporaryGeometry": true,
+  "palette": {
+    "sky_top": "#2b4b7a",
+    "sky_bottom": "#c9d7e6",
+    "ground": "#4a4235",
+    "ground_line": "#5d5343",
+    "roof": "#8b3a2f",
+    "wood": "#6b4f33",
+    "stone": "#8d8a80",
+    "leaf": "#3f6b3a",
+    "accent": "#f5a623"
+  },
+  "floor_y": 820.0,
+  "bounds": { "left": 120.0, "right": 1800.0 },
+  "spawn": { "p1_x": 620.0, "p2_x": 1300.0 },
+  "notes": "DATA ONLY. No environment art has been produced. Per the spec the environment must be shown to the user and explicitly approved before it can be used as the final Naruto stage. Unlike lab_arena this is world-specific data, but it is not an approved or official location yet."
+}

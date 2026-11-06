@@ -1,0 +1,22 @@
+{
+  "id": "lab_arena",
+  "name": "LAB ARENA",
+  "anime": "TEMP",
+  "city": "TEMP",
+  "world": "Mechanics Lab",
+  "architecture": "Flat training ground with ruler markings and a plain horizon. Deliberately abstract so nothing here can be mistaken for an approved anime location.",
+  "status": "TEMPORARY",
+  "temporaryGeometry": true,
+  "palette": {
+    "sky_top": "#101725",
+    "sky_bottom": "#1b2436",
+    "ground": "#222c3d",
+    "ground_line": "#31405a",
+    "accent": "#f5a623",
+    "hazard": "#e5484d"
+  },
+  "floor_y": 820.0,
+  "bounds": { "left": 120.0, "right": 1800.0 },
+  "spawn": { "p1_x": 620.0, "p2_x": 1300.0 },
+  "notes": "Phase 2 placeholder stage. Not final art. Readability of both fighters and hitboxes is the only goal."
+}
