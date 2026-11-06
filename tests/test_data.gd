@@ -33,6 +33,7 @@ func run(t) -> void:
 	await _test_movesets(t)
 	await _test_animations(t)
 	await _test_stages(t)
+	await _test_environments(t)
 	await _test_localization(t)
 	await _test_resources(t)
 
@@ -212,6 +213,39 @@ func _test_stages(t) -> void:
 		str(loader.approved_stage_ids()))
 	for stage in loader.list_stages():
 		t.ok("stage %s has valid geometry" % str(stage["id"]), float(stage["floor_y"]) > 0.0)
+
+
+func _test_environments(t) -> void:
+	t.suite("data / environments (derived index)")
+	var path: String = "res://data/environments/derived.json"
+	if not FileAccess.file_exists(path):
+		t.ok("environment index is optional", true)
+		return
+	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+	t.ok("environment index parses", typeof(parsed) == TYPE_DICTIONARY)
+	var data: Dictionary = parsed as Dictionary
+	var worlds: Array = data.get("worlds", [])
+	var totals: Dictionary = data.get("totals", {})
+	t.eq("world count matches totals", worlds.size(), int(totals.get("worlds", -1)))
+	var city_count: int = 0
+	var character_count: int = 0
+	var missing_architecture: int = 0
+	var missing_palette: int = 0
+	for world in worlds:
+		var entry: Dictionary = world
+		character_count += int(entry.get("characters", 0))
+		if not (entry.get("palette") as Dictionary).has("sky"):
+			missing_palette += 1
+		for city in (entry.get("cities", []) as Array):
+			city_count += 1
+			if str((city as Dictionary).get("architecture", "")).strip_edges().is_empty():
+				missing_architecture += 1
+	t.eq("city count matches totals", city_count, int(totals.get("cities", -1)))
+	t.eq("no record is lost in the index", character_count, int(totals.get("cities", -1)))
+	t.eq("every city keeps its architecture line", missing_architecture, 0)
+	t.eq("every world has a derived palette", missing_palette, 0)
+	var first: Dictionary = worlds[0]
+	t.eq("entries are explicitly unapproved", str(first.get("stageStatus", "")), "ENVIRONMENT_DATA_ONLY")
 
 
 func _test_localization(t) -> void:

@@ -1,0 +1,6456 @@
+{
+ "schemaVersion": 1,
+ "kind": "derived_environment_index",
+ "generatedFrom": {
+  "path": "data/characters.local.json",
+  "sha256": "4758efface62c580397722195d99caa742dda0362651661c2f8d913b14e0844e"
+ },
+ "note": "Derived, not authored. Every city, world and architecture string is copied from the character dataset; palettes are deterministic hashes of the world name. This is not art and not an approved stage set: stageStatus stays ENVIRONMENT_DATA_ONLY until a stage is designed, shown and approved.",
+ "totals": {
+  "worlds": 180,
+  "cities": 500,
+  "series": 90
+ },
+ "worlds": [
+  {
+   "world": "Konohagakure",
+   "series": [
+    "Boruto: Naruto Next Generations",
+    "Naruto",
+    "Naruto Shippuden"
+   ],
+   "cities": [
+    {
+     "city": "Aburame Insect Grove",
+     "architecture": "dark hive-grove of hollow trees humming with chakra-eating beetles",
+     "characterId": 19,
+     "characterName": "Shino Aburame"
+    },
+    {
+     "city": "Akimichi Expansion Grill",
+     "architecture": "round food-hall of steaming griddles and expanding barrel-shaped dining pods",
+     "characterId": 17,
+     "characterName": "Choji Akimichi"
+    },
+    {
+     "city": "Founders' Forest Hall",
+     "architecture": "great wooden hall grown from living trees, roots forming bridges and stairways",
+     "characterId": 30,
+     "characterName": "Hashirama Senju"
+    },
+    {
+     "city": "Haruno Blossom Clinic",
+     "architecture": "white medical cloister with cherry blossom courtyard and red paper umbrella roofs",
+     "characterId": 3,
+     "characterName": "Sakura Haruno"
+    },
+    {
+     "city": "Hatake Ridge Watchtower",
+     "architecture": "storm-grey watchtower with kunai weathervanes and a memorial stone garden",
+     "characterId": 4,
+     "characterName": "Kakashi Hatake"
+    },
+    {
+     "city": "Hokage Rock Terrace",
+     "architecture": "tiered cliffside citadel, giant carved stone faces, ochre tile roofs and cedar green",
+     "characterId": 1,
+     "characterName": "Naruto Uzumaki"
+    },
+    {
+     "city": "Hyuga Main House Compound",
+     "architecture": "severe white-and-indigo walled compound with a caged-bird crest courtyard",
+     "characterId": 13,
+     "characterName": "Neji Hyuga"
+    },
+    {
+     "city": "Hyuga Moonlit Garden",
+     "architecture": "quiet moon-viewing garden of pale stone, wisteria and still reflecting pools",
+     "characterId": 14,
+     "characterName": "Hinata Hyuga"
+    },
+    {
+     "city": "Inuzuka Kennel Ridge",
+     "architecture": "wooden hillside kennel runs with carved dog totems and bone-drying racks",
+     "characterId": 18,
+     "characterName": "Kiba Inuzuka"
+    },
+    {
+     "city": "Karma Containment Wing",
+     "architecture": "sterile white detention wing of sealing rings and a giant Karma crest floor",
+     "characterId": 36,
+     "characterName": "Kawaki"
+    },
+    {
+     "city": "Konoha Armory Tower",
+     "architecture": "weapon-stacked tower bristling with scroll racks and a giant summoning crane beam",
+     "characterId": 20,
+     "characterName": "Tenten"
+    },
+    {
+     "city": "Konoha New Era Plaza",
+     "architecture": "neon-lit plaza where old tile roofs meet billboards and monorail lines",
+     "characterId": 35,
+     "characterName": "Boruto Uzumaki"
+    },
+    {
+     "city": "Konoha Training Yard",
+     "architecture": "green-bowl practice ground ringed with straw dummies and leg-weight racks",
+     "characterId": 11,
+     "characterName": "Rock Lee"
+    },
+    {
+     "city": "Naka Shrine Lab",
+     "architecture": "subterranean shrine-laboratory of water channels, seals and forbidden scroll vaults",
+     "characterId": 31,
+     "characterName": "Tobirama Senju"
+    },
+    {
+     "city": "Namikaze Kunai Plaza",
+     "architecture": "open plaza of flying-thunder markers, teleport circles inlaid in pale stone",
+     "characterId": 9,
+     "characterName": "Minato Namikaze"
+    },
+    {
+     "city": "Nara Deer Park",
+     "architecture": "shaded deer sanctuary with a shogi pavilion and antler-lantern paths",
+     "characterId": 15,
+     "characterName": "Shikamaru Nara"
+    },
+    {
+     "city": "Senju Slug Shrine",
+     "architecture": "formal senju estate with a giant statue of a slug and gold-leafed healing halls",
+     "characterId": 8,
+     "characterName": "Tsunade"
+    },
+    {
+     "city": "Uchiha Cliffside Enclave",
+     "architecture": "abandoned black-and-crimson fan-crest compound on a cliff, paper lanterns and pagoda roofs",
+     "characterId": 2,
+     "characterName": "Sasuke Uchiha"
+    },
+    {
+     "city": "Uchiha New Estate",
+     "architecture": "rebuilt fan-crest estate with a red-roofed training deck and glasses-shaped window frames",
+     "characterId": 37,
+     "characterName": "Sarada Uchiha"
+    },
+    {
+     "city": "Uchiha Shadow Manor",
+     "architecture": "dim manor of black lacquer and crows under a blood-red moon mural",
+     "characterId": 5,
+     "characterName": "Itachi Uchiha"
+    },
+    {
+     "city": "Yamanaka Flower Atelier",
+     "architecture": "bright flower shop terraces with hanging baskets and perfume-drying lofts",
+     "characterId": 16,
+     "characterName": "Ino Yamanaka"
+    },
+    {
+     "city": "Youth Fist Dojo",
+     "architecture": "bright green dojo shaped like a fist, with a flaming youth banner and springtime-of-youth statues",
+     "characterId": 12,
+     "characterName": "Might Guy"
+    }
+   ],
+   "characters": 22,
+   "id": "world_001",
+   "palette": {
+    "hue": 0.075,
+    "sky": "#4c3624",
+    "mid": "#8b774b",
+    "accent": "#69a4d3",
+    "ground": "#332a1f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Japan",
+   "series": [
+    "My Hero Academia"
+   ],
+   "cities": [
+    {
+     "city": "Aizawa Erasure Gym",
+     "architecture": "dim gym of sleeping-bag corners, capture tape racks and a single cold fluorescent tube",
+     "characterId": 106,
+     "characterName": "Shota Aizawa"
+    },
+    {
+     "city": "All For One Underground Vault",
+     "architecture": "black vault beneath a hospital, lined with stolen quirk capsules and life-support pods",
+     "characterId": 97,
+     "characterName": "All For One"
+    },
+    {
+     "city": "Asui Rainwater Roost",
+     "architecture": "frog-pond district of lily-pad walkways and rain-collecting rooftops",
+     "characterId": 100,
+     "characterName": "Tsuyu Asui"
+    },
+    {
+     "city": "Dabi Blue Flame Alley",
+     "architecture": "soot-black alley where the walls are scorched in blue and the drains hiss",
+     "characterId": 109,
+     "characterName": "Dabi"
+    },
+    {
+     "city": "Endeavor Agency Flame HQ",
+     "architecture": "towering agency wrapped in flame fins and a constantly burning sign",
+     "characterId": 95,
+     "characterName": "Endeavor"
+    },
+    {
+     "city": "Hawks Skyward Agency",
+     "architecture": "glass tower agency of feather-shaped louvers and rooftop perches above the clouds",
+     "characterId": 108,
+     "characterName": "Hawks"
+    },
+    {
+     "city": "Iida Engine Courtyard",
+     "architecture": "courtyard paved like a racetrack with exhaust vents in the calves of the statues",
+     "characterId": 99,
+     "characterName": "Tenya Iida"
+    },
+    {
+     "city": "Jiro Sound Basement",
+     "architecture": "basement studio of amps, vinyl stacks and earjack cables strung like vines",
+     "characterId": 105,
+     "characterName": "Kyoka Jiro"
+    },
+    {
+     "city": "Kaminari Charge Station",
+     "architecture": "neon charge station of battery stacks, tesla coils and a dazed-warning sign",
+     "characterId": 104,
+     "characterName": "Denki Kaminari"
+    },
+    {
+     "city": "Kirishima Hardening Yard",
+     "architecture": "scrap-metal training yard of red banners and a mural of an unbreakable shield",
+     "characterId": 101,
+     "characterName": "Eijiro Kirishima"
+    },
+    {
+     "city": "League of Villains Decay Bar",
+     "architecture": "derelict hideout bar with hand-prints on every wall and flickering static screens",
+     "characterId": 96,
+     "characterName": "Tomura Shigaraki"
+    },
+    {
+     "city": "Might Tower Monument",
+     "architecture": "golden skyscraper crowned with a giant smiling statue and a rehabilitation deck",
+     "characterId": 94,
+     "characterName": "All Might"
+    },
+    {
+     "city": "Overhaul Sterile Underworld",
+     "architecture": "white-tiled underground lair of masks, surgical trays and a fear-of-dirt airlock",
+     "characterId": 112,
+     "characterName": "Kai Chisaki (Overhaul)"
+    },
+    {
+     "city": "Stain's Bloodstained Shrine",
+     "architecture": "ruined shrine of broken hero posters and a rusted blade altar",
+     "characterId": 113,
+     "characterName": "Stain"
+    },
+    {
+     "city": "Todoroki Frost Hearth",
+     "architecture": "half-frozen, half-charred estate with a split rock garden down the middle",
+     "characterId": 93,
+     "characterName": "Shoto Todoroki"
+    },
+    {
+     "city": "Toga Blade Mirror Room",
+     "architecture": "pink mirror room of collected knives, masks and stolen reflections",
+     "characterId": 110,
+     "characterName": "Himiko Toga"
+    },
+    {
+     "city": "Togata Permeation Deck",
+     "architecture": "open training deck of glass walkways and a statue of a sinking golden hero",
+     "characterId": 107,
+     "characterName": "Mirio Togata"
+    },
+    {
+     "city": "Tokoyami Dark Shadow Perch",
+     "architecture": "gothic rooftop perch of black feathers, candles and a birdcage belfry",
+     "characterId": 103,
+     "characterName": "Fumikage Tokoyami"
+    },
+    {
+     "city": "Twice Doubling Warehouse",
+     "architecture": "cluttered warehouse of mannequin parts, masks and endless identical toolboxes",
+     "characterId": 111,
+     "characterName": "Twice"
+    },
+    {
+     "city": "Uraraka Gravity Patio",
+     "architecture": "small family patio with construction cranes beyond and a floating tea set",
+     "characterId": 98,
+     "characterName": "Ochaco Uraraka"
+    },
+    {
+     "city": "Yaoyorozu Creation Workshop",
+     "architecture": "orderly workshop of molecular diagrams, material racks and a forge of manifest objects",
+     "characterId": 102,
+     "characterName": "Momo Yaoyorozu"
+    }
+   ],
+   "characters": 21,
+   "id": "world_002",
+   "palette": {
+    "hue": 0.392,
+    "sky": "#244c32",
+    "mid": "#4b8b71",
+    "accent": "#d369ae",
+    "ground": "#1f3328",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Taisho-era Japan",
+   "series": [
+    "Demon Slayer: Kimetsu no Yaiba"
+   ],
+   "cities": [
+    {
+     "city": "Akaza's Snowflake Dojo",
+     "architecture": "bare dojo where snowflake tiles crack underfoot and a strong opponent is always invited in",
+     "characterId": 148,
+     "characterName": "Akaza"
+    },
+    {
+     "city": "Boar Ridge Wrestling Rock",
+     "architecture": "wild boar ridge of mud pits, bone trophies and a torn-mask shrine",
+     "characterId": 134,
+     "characterName": "Inosuke Hashibira"
+    },
+    {
+     "city": "Eternal Paradise Temple",
+     "architecture": "gold-and-glass cult temple of lotus fans, rainbow glass and a frozen offering hall",
+     "characterId": 149,
+     "characterName": "Doma"
+    },
+    {
+     "city": "Genya Devourer's Shack",
+     "architecture": "rough shack of shotgun shells, demon meat hooks and a broken Nichirin blade",
+     "characterId": 145,
+     "characterName": "Genya Shinazugawa"
+    },
+    {
+     "city": "Himejima Stone Temple",
+     "architecture": "mountain temple of prayer beads, a giant chained flail and a waterfall of purification",
+     "characterId": 142,
+     "characterName": "Gyomei Himejima"
+    },
+    {
+     "city": "Iguro Serpent Ravine",
+     "architecture": "narrow ravine of coiled snake paths and a bandaged shrine with mismatched eyes",
+     "characterId": 140,
+     "characterName": "Obanai Iguro"
+    },
+    {
+     "city": "Kanroji Love Ribbon Hall",
+     "architecture": "pink hall of flowing ribbons, heart lanterns and a very strong woman's dinner table",
+     "characterId": 139,
+     "characterName": "Mitsuri Kanroji"
+    },
+    {
+     "city": "Kocho Butterfly Mansion",
+     "architecture": "white medical mansion of butterfly screens, a wisteria garden and poison apothecary",
+     "characterId": 136,
+     "characterName": "Shinobu Kocho"
+    },
+    {
+     "city": "Kokushibo's Six-Eye Keep",
+     "architecture": "shattered castle keep of six-eyed crests, moon mirrors and severed blade trophies",
+     "characterId": 147,
+     "characterName": "Kokushibo"
+    },
+    {
+     "city": "Mount Sagiri Cedar Home",
+     "architecture": "mountain cabin of cedar beams, a charcoal kiln and snow-lanterns along the path",
+     "characterId": 131,
+     "characterName": "Tanjiro Kamado"
+    },
+    {
+     "city": "Muzan's Shifting Labyrinth",
+     "architecture": "impossible corridor city that rearranges itself, paper-white and lit by a single red lamp",
+     "characterId": 146,
+     "characterName": "Muzan Kibutsuji"
+    },
+    {
+     "city": "Nezuko's Bamboo Box Inn",
+     "architecture": "cozy inn with a sun-proof sliding door and a rope-tied bamboo muzzle on the sign",
+     "characterId": 132,
+     "characterName": "Nezuko Kamado"
+    },
+    {
+     "city": "Rengoku Flame Manor",
+     "architecture": "warm manor of flame-crest banners, scorched tatami and a breakfast table set for guests",
+     "characterId": 137,
+     "characterName": "Kyojuro Rengoku"
+    },
+    {
+     "city": "Shinazugawa Windmill Field",
+     "architecture": "windmill field of ohagi stalls, scarred training dummies and slashed banners",
+     "characterId": 141,
+     "characterName": "Sanemi Shinazugawa"
+    },
+    {
+     "city": "Thunder Pillar Training Post",
+     "architecture": "cracked training post split down the middle by a single iai strike",
+     "characterId": 133,
+     "characterName": "Zenitsu Agatsuma"
+    },
+    {
+     "city": "Tokito Cloud Forest",
+     "architecture": "high forest wrapped in cloud, with drifting wooden platforms and forget-me-not lanterns",
+     "characterId": 143,
+     "characterName": "Muichiro Tokito"
+    },
+    {
+     "city": "Tomioka Still Water Cliff",
+     "architecture": "cliff shrine above a lake that never ripples, with a single haori drying line",
+     "characterId": 135,
+     "characterName": "Giyu Tomioka"
+    },
+    {
+     "city": "Tsuyuri Coin Garden",
+     "architecture": "quiet garden of pink spider lilies with a coin-flip stone basin",
+     "characterId": 144,
+     "characterName": "Kanao Tsuyuri"
+    },
+    {
+     "city": "Uzui Flashfire Festival Ground",
+     "architecture": "festival ground of fireworks racks, mirrored ceilings and a ninja training tunnel",
+     "characterId": 138,
+     "characterName": "Tengen Uzui"
+    }
+   ],
+   "characters": 19,
+   "id": "world_003",
+   "palette": {
+    "hue": 0.835,
+    "sky": "#4c244b",
+    "mid": "#8b4b7b",
+    "accent": "#69d36a",
+    "ground": "#331f30",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Tokyo",
+   "series": [
+    "Baki",
+    "Chainsaw Man",
+    "Death Note",
+    "Detective Conan",
+    "Detective Conan / Magic Kaito",
+    "Haikyu!!",
+    "Jujutsu Kaisen",
+    "Kuroko's Basketball",
+    "Tokyo Ghoul",
+    "Tokyo Ghoul:re"
+   ],
+   "cities": [
+    {
+     "city": "Amane Gothic Stage",
+     "architecture": "black-lace stage of candles, crosses and a mirror lined with heart stickers",
+     "characterId": 201,
+     "characterName": "Misa Amane"
+    },
+    {
+     "city": "Aogiri Tree Hollow",
+     "architecture": "hollow beneath a dead tree, stacked with banned manuscripts and a one-eyed owl's feathers",
+     "characterId": 213,
+     "characterName": "Eto Yoshimura"
+    },
+    {
+     "city": "Aomine's Streetball Court",
+     "architecture": "an outdoor court of chain-link fence, worn asphalt and a hoop with no net",
+     "characterId": 302,
+     "characterName": "Daiki Aomine"
+    },
+    {
+     "city": "Kagami's Meteor Jam Gym",
+     "architecture": "a gym with a cracked hoop, red sneaker marks on the wall and a jumping silhouette painted high",
+     "characterId": 301,
+     "characterName": "Taiga Kagami"
+    },
+    {
+     "city": "Kaito Kid's Clock Tower",
+     "architecture": "a clock tower of a white cape, a card-gun and a hundred jewel heists announced in advance",
+     "characterId": 429,
+     "characterName": "Kaito Kid"
+    },
+    {
+     "city": "Kuroko's Phantom Court",
+     "architecture": "a court where the light bends strangely and a very plain player stands where no one looks",
+     "characterId": 300,
+     "characterName": "Tetsuya Kuroko"
+    },
+    {
+     "city": "Midorima's Full-Court Range",
+     "architecture": "a half-court painted with arc lines stretching past the ceiling and a lucky item shelf",
+     "characterId": 303,
+     "characterName": "Shintaro Midorima"
+    },
+    {
+     "city": "Mori Detective Agency Stair",
+     "architecture": "a detective agency of a bow-tie display case, a football belt and a very small suit on the hanger",
+     "characterId": 426,
+     "characterName": "Shinichi Kudo (Conan Edogawa)"
+    },
+    {
+     "city": "Mouri Karate Dojo Roof",
+     "architecture": "a karate dojo roof of a phone that never gets answered and a very strong girl's punching bag",
+     "characterId": 428,
+     "characterName": "Ran Mouri"
+    },
+    {
+     "city": "Nanami Overtime Office",
+     "architecture": "grey salaryman office of time cards, glass partitions and a 7:3 curtain rail",
+     "characterId": 124,
+     "characterName": "Kento Nanami"
+    },
+    {
+     "city": "Nekoma's Read Block Net",
+     "architecture": "a net-side den of cat banners, tactical notes and a captain who watches everyone at once",
+     "characterId": 294,
+     "characterName": "Tetsuro Kuroo"
+    },
+    {
+     "city": "Reze's Bomb Cafe",
+     "architecture": "a quiet cafe with a pin pulled on the sugar bowl and a school uniform on the hook",
+     "characterId": 246,
+     "characterName": "Reze"
+    },
+    {
+     "city": "Shinshinkai Karate Dojo",
+     "architecture": "a dojo of handprints in the concrete, a very old karate scroll and a bear's claw marks on the post",
+     "characterId": 486,
+     "characterName": "Doppo Orochi"
+    },
+    {
+     "city": "Takizawa Owl Perch",
+     "architecture": "burnt-out perch of half-eaten CCG files and a cracked owl mask",
+     "characterId": 211,
+     "characterName": "Seidou Takizawa"
+    },
+    {
+     "city": "Tsukiyama Gourmet Hall",
+     "architecture": "ornate dining hall of chandeliers, plated human cuisine and a waiter who calls everyone monsieur",
+     "characterId": 210,
+     "characterName": "Shuu Tsukiyama"
+    },
+    {
+     "city": "Yagami Desk of Judgment",
+     "architecture": "tidy bedroom-study of law books, a locked drawer and a shelf hiding a black notebook",
+     "characterId": 198,
+     "characterName": "Light Yagami"
+    },
+    {
+     "city": "Yujiro's Ogre Chamber",
+     "architecture": "a hotel chamber of a father's back muscles carved by a war-god's hands and a single untouched glass",
+     "characterId": 485,
+     "characterName": "Yujiro Hanma"
+    }
+   ],
+   "characters": 17,
+   "id": "world_004",
+   "palette": {
+    "hue": 0.925,
+    "sky": "#4c2436",
+    "mid": "#8b4b58",
+    "accent": "#69d3a4",
+    "ground": "#331f25",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Clover Kingdom",
+   "series": [
+    "Black Clover"
+   ],
+   "cities": [
+    {
+     "city": "Black Bulls Ruin Hideout",
+     "architecture": "a wrecked headquarters of beer barrels, a smoking porch and a captain who naps through meetings",
+     "characterId": 275,
+     "characterName": "Yami Sukehiro"
+    },
+    {
+     "city": "Enoteca Red Thread Lounge",
+     "architecture": "a wine-cellar lounge where red threads drift in the air and a cat guides every fate",
+     "characterId": 281,
+     "characterName": "Vanessa Enoteca"
+    },
+    {
+     "city": "Faust Shadow Manor",
+     "architecture": "a dark manor of chained devil portraits and a vice-captain who knows every name in the underworld",
+     "characterId": 282,
+     "characterName": "Nacht Faust"
+    },
+    {
+     "city": "Golden Dawn Sky Spire",
+     "architecture": "a golden spire open to the wind, with a four-leaf grimoire pedestal and a very quiet rival",
+     "characterId": 274,
+     "characterName": "Yuno"
+    },
+    {
+     "city": "Hage Church Black Bull Yard",
+     "architecture": "a broken church on the edge of a village with a dumbbell rack, a sword shrine and a devil's grimoire",
+     "characterId": 273,
+     "characterName": "Asta"
+    },
+    {
+     "city": "Novachrono Time Vault",
+     "architecture": "a vault of stopped clocks and stolen seconds, where a wizard king hoards borrowed time",
+     "characterId": 278,
+     "characterName": "Julius Novachrono"
+    },
+    {
+     "city": "Roselei Brier Rose Court",
+     "architecture": "a court of thorned rose arches where the Blue Rose knights train between petals",
+     "characterId": 280,
+     "characterName": "Charlotte Roselei"
+    },
+    {
+     "city": "Silva Water Valkyrie Terrace",
+     "architecture": "a royal terrace of fountains held mid-air by a girl who refuses to be called a failure",
+     "characterId": 276,
+     "characterName": "Noelle Silva"
+    },
+    {
+     "city": "Vermillion Volcano Hot Spring",
+     "architecture": "a volcanic hot spring training ground where the water boils and the captain laughs",
+     "characterId": 277,
+     "characterName": "Mereoleona Vermillion"
+    },
+    {
+     "city": "Voltia Thunder Ring",
+     "architecture": "a lightning-scarred training ring with a grin painted on the floor and bandages on the posts",
+     "characterId": 279,
+     "characterName": "Luck Voltia"
+    }
+   ],
+   "characters": 10,
+   "id": "world_005",
+   "palette": {
+    "hue": 0.071,
+    "sky": "#4c3524",
+    "mid": "#8b764b",
+    "accent": "#69a6d3",
+    "ground": "#332a1f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Seireitei",
+   "series": [
+    "Bleach",
+    "Bleach: Thousand-Year Blood War"
+   ],
+   "cities": [
+    {
+     "city": "First Division Blaze Keep",
+     "architecture": "ancient keep wrapped in flame banners with a scorched training courtyard",
+     "characterId": 63,
+     "characterName": "Genryusai Yamamoto"
+    },
+    {
+     "city": "Fourth Division Bone Hell",
+     "architecture": "healing ward over a sunken arena of blood-red water and drifting bone lotus",
+     "characterId": 62,
+     "characterName": "Retsu Unohana"
+    },
+    {
+     "city": "Hitsugaya Ice District",
+     "architecture": "frozen ward of ice-sculpted roofs, chained dragon fountains and frost-covered court",
+     "characterId": 44,
+     "characterName": "Toshiro Hitsugaya"
+    },
+    {
+     "city": "Kuchiki Sakura Keep",
+     "architecture": "immaculate keep above a river of drifting cherry petals and silver noble banners",
+     "characterId": 42,
+     "characterName": "Byakuya Kuchiki"
+    },
+    {
+     "city": "Kuchiki Snow Manor",
+     "architecture": "noble estate of whitewashed halls and a frozen plum garden under eternal snowfall",
+     "characterId": 40,
+     "characterName": "Rukia Kuchiki"
+    },
+    {
+     "city": "Onmitsukido Shadow Steeple",
+     "architecture": "black steeple of hidden doors, silk ropes and a bell-less belfry",
+     "characterId": 64,
+     "characterName": "Soi Fon"
+    },
+    {
+     "city": "Seireitei Research Institute",
+     "architecture": "surgical white institute of vats, prosthetic limbs and a labyrinth of specimen vaults",
+     "characterId": 60,
+     "characterName": "Mayuri Kurotsuchi"
+    },
+    {
+     "city": "Seireitei Serpent Court",
+     "architecture": "narrow court of pale snake-murals and a mile-long spear rack",
+     "characterId": 48,
+     "characterName": "Gin Ichimaru"
+    },
+    {
+     "city": "Shihoin Thunder Estate",
+     "architecture": "noble estate of polished black wood with a cat-shaped roof and lightning-scarred training poles",
+     "characterId": 46,
+     "characterName": "Yoruichi Shihoin"
+    },
+    {
+     "city": "Zaraki Wild Barracks",
+     "architecture": "half-ruined barracks of splintered wood, caged-beast pens and a bell that rings for battle",
+     "characterId": 43,
+     "characterName": "Kenpachi Zaraki"
+    }
+   ],
+   "characters": 10,
+   "id": "world_006",
+   "palette": {
+    "hue": 0.922,
+    "sky": "#4c2437",
+    "mid": "#8b4b5a",
+    "accent": "#69d3a1",
+    "ground": "#331f26",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Earth",
+   "series": [
+    "Dragon Ball Super",
+    "Dragon Ball Super: Broly",
+    "Dragon Ball Z"
+   ],
+   "cities": [
+    {
+     "city": "Babidi's Circus Ship",
+     "architecture": "pink striped flying circus ship with candy-cane chimneys and a trapeze deck",
+     "characterId": 73,
+     "characterName": "Majin Buu"
+    },
+    {
+     "city": "Cell Games Arena",
+     "architecture": "bare rock arena ringed by floating broadcast booths and cracked earth",
+     "characterId": 72,
+     "characterName": "Cell"
+    },
+    {
+     "city": "Crane School Terrace",
+     "architecture": "high mountain terrace of crane statues and a dangerously cracked training floor",
+     "characterId": 85,
+     "characterName": "Tien Shinhan"
+    },
+    {
+     "city": "Fusion Dance Arena",
+     "architecture": "bright arena with a giant pose-timer clock and mirrored fusion dance pads",
+     "characterId": 83,
+     "characterName": "Gotenks"
+    },
+    {
+     "city": "Kame House Lagoon",
+     "architecture": "tiny island hut with a beach bar, a giant turtle and a crystal-ball gazebo",
+     "characterId": 86,
+     "characterName": "Master Roshi"
+    },
+    {
+     "city": "Kami's Lookout Pavilion",
+     "architecture": "floating disc of green lawn, a curved palace and the hyperbolic time chamber door",
+     "characterId": 70,
+     "characterName": "Piccolo"
+    },
+    {
+     "city": "Metamoran Fusion Hall",
+     "architecture": "mirror hall with a pose-platform and a dance-timer hourglass",
+     "characterId": 90,
+     "characterName": "Gogeta"
+    },
+    {
+     "city": "Monster Island Ranger Post",
+     "architecture": "ranger tower over a jungle reserve, with solar panels and a poacher-alarm mast",
+     "characterId": 87,
+     "characterName": "Android 17"
+    },
+    {
+     "city": "Turtle School Sandbar",
+     "architecture": "tiny sandbar dojo with a turtle shell roof, boxing gloves drying on a line",
+     "characterId": 84,
+     "characterName": "Krillin"
+    }
+   ],
+   "characters": 9,
+   "id": "world_007",
+   "palette": {
+    "hue": 0.718,
+    "sky": "#30244c",
+    "mid": "#6e4b8b",
+    "accent": "#b3d369",
+    "ground": "#271f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Hueco Mundo",
+   "series": [
+    "Bleach"
+   ],
+   "cities": [
+    {
+     "city": "Hueco Mundo Crown Necropolis",
+     "architecture": "crumbling necropolis of thrones, skull arches and withered golden banners",
+     "characterId": 54,
+     "characterName": "Baraggan Louisenbairn"
+    },
+    {
+     "city": "Hueco Mundo Nine Aspect Hall",
+     "architecture": "blindfolded hall of nine whispering masks and sound-absorbing black velvet",
+     "characterId": 49,
+     "characterName": "Kaname Tosen"
+    },
+    {
+     "city": "Hueco Mundo Pantera Ridge",
+     "architecture": "bone-white jaguar ridge of clawed arches and a moonlit hunting arena",
+     "characterId": 50,
+     "characterName": "Grimmjow Jaegerjaquez"
+    },
+    {
+     "city": "Las Noches Bat Cloister",
+     "architecture": "silent bone cloister of folded bat wings and a single green lantern of despair",
+     "characterId": 51,
+     "characterName": "Ulquiorra Cifer"
+    },
+    {
+     "city": "Las Noches Iron Arena",
+     "architecture": "circular arena of rusted iron plates and chained scythe racks",
+     "characterId": 52,
+     "characterName": "Nnoitra Gilga"
+    },
+    {
+     "city": "Las Noches Obsidian Throne",
+     "architecture": "white desert palace of bone-white towers with a black throne suspended over nothing",
+     "characterId": 47,
+     "characterName": "Sosuke Aizen"
+    },
+    {
+     "city": "Las Noches Rage Coliseum",
+     "architecture": "coliseum of cracked sand where the walls are gouged by fists",
+     "characterId": 66,
+     "characterName": "Yammy Llargo"
+    },
+    {
+     "city": "Las Noches Shark Trench",
+     "architecture": "flooded trench of shark-fin towers and water-worn bone bridges",
+     "characterId": 65,
+     "characterName": "Tier Halibel"
+    },
+    {
+     "city": "Los Lobos Wolf Hollow",
+     "architecture": "barren den painted with wolf murals and scattered ceros scorches",
+     "characterId": 53,
+     "characterName": "Coyote Starrk"
+    }
+   ],
+   "characters": 9,
+   "id": "world_008",
+   "palette": {
+    "hue": 0.604,
+    "sky": "#24334c",
+    "mid": "#4b548b",
+    "accent": "#d3ab69",
+    "ground": "#1f2433",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Fuyuki City",
+   "series": [
+    "Fate/Zero",
+    "Fate/stay night"
+   ],
+   "cities": [
+    {
+     "city": "Bellerophon Riding Stable",
+     "architecture": "a dark stable of blindfolds, chained reins and a winged horse's shadow on the wall",
+     "characterId": 356,
+     "characterName": "Rider (Medusa)"
+    },
+    {
+     "city": "Camelot Excalibur Vault",
+     "architecture": "a stone vault of a round table, a buried sword and a king who never got to rest",
+     "characterId": 349,
+     "characterName": "Saber (Artoria Pendragon)"
+    },
+    {
+     "city": "Gae Bolg Training Yard",
+     "architecture": "a spear yard of rune-inscribed posts, a ruined fortress and a hound's paw prints in the dust",
+     "characterId": 352,
+     "characterName": "Cu Chulainn (Lancer)"
+    },
+    {
+     "city": "Gate of Babylon Treasury",
+     "architecture": "a golden treasury of floating portals, each one holding a weapon not yet invented",
+     "characterId": 351,
+     "characterName": "Gilgamesh"
+    },
+    {
+     "city": "God Hand Twelve Trials",
+     "architecture": "a blackened arena of eleven stone markers, one for each life already spent",
+     "characterId": 354,
+     "characterName": "Berserker (Heracles)"
+    },
+    {
+     "city": "Ionioi Hetairoi Plain",
+     "architecture": "a baked-earth plain where an army of the dead stands in formation behind one laughing king",
+     "characterId": 353,
+     "characterName": "Rider (Iskandar)"
+    },
+    {
+     "city": "Origin Rounds Armory",
+     "architecture": "a cold armory of Thompson Contenders, a magecraft workshop and a promise written on a wall",
+     "characterId": 355,
+     "characterName": "Emiya Kiritsugu"
+    },
+    {
+     "city": "Unlimited Blade Works Hill",
+     "architecture": "an endless hill of buried blades under a red sky, gears turning in the distance",
+     "characterId": 350,
+     "characterName": "Archer (EMIYA)"
+    }
+   ],
+   "characters": 8,
+   "id": "world_009",
+   "palette": {
+    "hue": 0.325,
+    "sky": "#264c24",
+    "mid": "#4b8b57",
+    "accent": "#ce69d3",
+    "ground": "#1f3320",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Tokyo Empire",
+   "series": [
+    "Fire Force"
+   ],
+   "cities": [
+    {
+     "city": "Asakusa Matsuri Shrine",
+     "architecture": "a festival shrine of paper lanterns, a giant mallet and mismatched eyes over a firefighter's coat",
+     "characterId": 287,
+     "characterName": "Benimaru Shinmon"
+    },
+    {
+     "city": "Excalibur Knight's Keep",
+     "architecture": "a hand-built keep of cardboard heraldry where the Holy Sword is definitely, absolutely real",
+     "characterId": 284,
+     "characterName": "Arthur Boyle"
+    },
+    {
+     "city": "Hinawa's Matgun Range",
+     "architecture": "a firing range of brass shells, bullet trajectories and a lieutenant who never misses twice",
+     "characterId": 286,
+     "characterName": "Takehisa Hinawa"
+    },
+    {
+     "city": "Oze Pusu Pusu Garden",
+     "architecture": "a tidy garden with two little fire doll planters and a very strong woman's flower beds",
+     "characterId": 285,
+     "characterName": "Maki Oze"
+    },
+    {
+     "city": "Severed Universe Gray Sky",
+     "architecture": "a gray city suspended between worlds where light stops and the evangelist waits",
+     "characterId": 289,
+     "characterName": "Sho Kusakabe"
+    },
+    {
+     "city": "Special Fire Force 8th Station",
+     "architecture": "a firehouse of training poles, a Shinra Bansho shrine and a boy who kicked fire into a smile",
+     "characterId": 283,
+     "characterName": "Shinra Kusakabe"
+    },
+    {
+     "city": "Voltage Nova Cathedral",
+     "architecture": "an armored cathedral of steam vents where a captain's helmet hides a promise to the sun",
+     "characterId": 288,
+     "characterName": "Leonard Burns"
+    }
+   ],
+   "characters": 7,
+   "id": "world_010",
+   "palette": {
+    "hue": 0.651,
+    "sky": "#24284c",
+    "mid": "#544b8b",
+    "accent": "#d3c969",
+    "ground": "#1f1f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Tokyo Jujutsu High",
+   "series": [
+    "Jujutsu Kaisen"
+   ],
+   "cities": [
+    {
+     "city": "Infinity Prism Chamber",
+     "architecture": "white chamber where nothing quite touches anything else, lit by a six-eye prism",
+     "characterId": 117,
+     "characterName": "Satoru Gojo"
+    },
+    {
+     "city": "Inumaki Word Seal Tower",
+     "architecture": "silent tower of sealed scrolls where speaking is carved, not breathed",
+     "characterId": 121,
+     "characterName": "Toge Inumaki"
+    },
+    {
+     "city": "Kugisaki Straw Doll Studio",
+     "architecture": "bright studio of mirrors, hairpin racks and straw effigies dangling from the ceiling",
+     "characterId": 116,
+     "characterName": "Nobara Kugisaki"
+    },
+    {
+     "city": "Panda's Tricolor Den",
+     "architecture": "bamboo den of cushions with three painted totem faces on the wall",
+     "characterId": 122,
+     "characterName": "Panda"
+    },
+    {
+     "city": "Rika's Binding Lake",
+     "architecture": "still black lake with a wedding-ring island and a chained shrine to a lost friend",
+     "characterId": 119,
+     "characterName": "Yuta Okkotsu"
+    },
+    {
+     "city": "Sukuna's Vessel Dojo",
+     "architecture": "wooden dojo with a cursed finger vault and twin scars burned into the floor",
+     "characterId": 114,
+     "characterName": "Yuji Itadori"
+    },
+    {
+     "city": "Ten Shadows Courtyard",
+     "architecture": "shadowed courtyard of ten stone basins, each holding a different shikigami's shadow",
+     "characterId": 115,
+     "characterName": "Megumi Fushiguro"
+    }
+   ],
+   "characters": 7,
+   "id": "world_011",
+   "palette": {
+    "hue": 0.82,
+    "sky": "#49244c",
+    "mid": "#8b4b81",
+    "accent": "#72d369",
+    "ground": "#331f32",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Athena's Sanctuary",
+   "series": [
+    "Saint Seiya"
+   ],
+   "cities": [
+    {
+     "city": "Andromeda Chain Island",
+     "architecture": "a rocky island of chained sacrifice pillars and a gentle boy who does not want to fight",
+     "characterId": 402,
+     "characterName": "Shun"
+    },
+    {
+     "city": "Cygnus Siberian Ice Field",
+     "architecture": "an endless Siberian ice field with a frozen ship, a mother beneath the ice and a cygnus cloth",
+     "characterId": 401,
+     "characterName": "Hyoga"
+    },
+    {
+     "city": "Pegasus Bronze Sanctuary",
+     "architecture": "a sunlit coliseum of a pegasus statue, broken bronze cloth pieces and stairs to twelve houses",
+     "characterId": 399,
+     "characterName": "Seiya"
+    },
+    {
+     "city": "Phoenix Death Queen Island",
+     "architecture": "a volcanic island of ash, a phoenix's rebirth ash and a training hell no one volunteered for",
+     "characterId": 403,
+     "characterName": "Ikki"
+    },
+    {
+     "city": "Rozan Waterfall Dojo",
+     "architecture": "a mountain dojo where a waterfall runs upward and a dragon is carved into the rock",
+     "characterId": 400,
+     "characterName": "Shiryu"
+    },
+    {
+     "city": "Virgo Temple of the Dead",
+     "architecture": "a golden temple of closed eyes, lotus petals and a wall of faces from the Land of the Dead",
+     "characterId": 404,
+     "characterName": "Shaka"
+    }
+   ],
+   "characters": 6,
+   "id": "world_012",
+   "palette": {
+    "hue": 0.863,
+    "sky": "#4c2445",
+    "mid": "#8b4b70",
+    "accent": "#69d37c",
+    "ground": "#331f2d",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Karakura Town",
+   "series": [
+    "Bleach"
+   ],
+   "cities": [
+    {
+     "city": "Karakura Central Ward",
+     "architecture": "ordinary Japanese suburb rebuilt with a cracked orange sky and a hollow-mask clock tower",
+     "characterId": 39,
+     "characterName": "Ichigo Kurosaki"
+    },
+    {
+     "city": "Karakura Clover Clinic",
+     "architecture": "small clover-tiled clinic with six hairpin wind chimes and a sunny recovery garden",
+     "characterId": 58,
+     "characterName": "Orihime Inoue"
+    },
+    {
+     "city": "Karakura Iron Gym",
+     "architecture": "boxing gym of iron plates, tire racks and a mural of a giant arm",
+     "characterId": 59,
+     "characterName": "Yasutora Sado (Chad)"
+    },
+    {
+     "city": "Karakura Quincy Atelier",
+     "architecture": "tailor's loft of blue cross banners, reishi looms and silver arrow racks",
+     "characterId": 57,
+     "characterName": "Uryu Ishida"
+    },
+    {
+     "city": "Urahara Shoten Arcade",
+     "architecture": "cramped candy-shop arcade hiding an underground training dome of striped tents and gears",
+     "characterId": 45,
+     "characterName": "Kisuke Urahara"
+    },
+    {
+     "city": "Visored Warehouse Hideout",
+     "architecture": "abandoned warehouse of mirrored panels, upside-down signage and vinyl records",
+     "characterId": 61,
+     "characterName": "Shinji Hirako"
+    }
+   ],
+   "characters": 6,
+   "id": "world_013",
+   "palette": {
+    "hue": 0.047,
+    "sky": "#4c3024",
+    "mid": "#8b6d4b",
+    "accent": "#69b5d3",
+    "ground": "#33271f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Marley",
+   "series": [
+    "Attack on Titan"
+   ],
+   "cities": [
+    {
+     "city": "Galliard Jaw Shrine",
+     "architecture": "claw-gouged shrine of broken armor plates and a jaw-shaped stone arch",
+     "characterId": 160,
+     "characterName": "Porco Galliard"
+    },
+    {
+     "city": "Hoover Steam Breach",
+     "architecture": "broken wall district still warm from steam, with a boot-shaped crater in the gate",
+     "characterId": 158,
+     "characterName": "Bertholdt Hoover"
+    },
+    {
+     "city": "Leonhart Crystal Cocoon",
+     "architecture": "silent chamber where a girl is sealed inside a crystal pillar and the floor is polished by pacing",
+     "characterId": 157,
+     "characterName": "Annie Leonhart"
+    },
+    {
+     "city": "Marley Armored Foundry",
+     "architecture": "industrial foundry of riveted plate armor and a bunk where a soldier can never sleep",
+     "characterId": 156,
+     "characterName": "Reiner Braun"
+    },
+    {
+     "city": "Pieck's Cart Terrace",
+     "architecture": "low terrace of supply crates, saddle rails and a tired girl's nap mat",
+     "characterId": 161,
+     "characterName": "Pieck Finger"
+    },
+    {
+     "city": "Zeke's Beast Pitch",
+     "architecture": "open pitch of gravel and sandbags where a catcher endlessly winds up to throw",
+     "characterId": 159,
+     "characterName": "Zeke Yeager"
+    }
+   ],
+   "characters": 6,
+   "id": "world_014",
+   "palette": {
+    "hue": 0.675,
+    "sky": "#26244c",
+    "mid": "#5d4b8b",
+    "accent": "#ced369",
+    "ground": "#221f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Paradis Island",
+   "series": [
+    "Attack on Titan"
+   ],
+   "cities": [
+    {
+     "city": "Ackerman Cabin in the Woods",
+     "architecture": "lonely wooden cabin surrounded by tall pines and a red scarf on the line",
+     "characterId": 151,
+     "characterName": "Mikasa Ackerman"
+    },
+    {
+     "city": "Armin's Sea Cliffs",
+     "architecture": "cliff overlook where a conch shell sits and the sea finally comes into view",
+     "characterId": 152,
+     "characterName": "Armin Arlert"
+    },
+    {
+     "city": "Hange's Titan Lab",
+     "architecture": "messy lab of chained captured titans, notebooks stacked to the ceiling and goggles everywhere",
+     "characterId": 155,
+     "characterName": "Hange Zoe"
+    },
+    {
+     "city": "Levi's Cleanroom Barracks",
+     "architecture": "immaculate underground barracks of polished floors, tea sets and a single cloth over the eyes",
+     "characterId": 153,
+     "characterName": "Levi Ackerman"
+    },
+    {
+     "city": "Scout Legion Command Hall",
+     "architecture": "stone command hall of campaign maps, a green cloak rack and a window facing the wall",
+     "characterId": 154,
+     "characterName": "Erwin Smith"
+    },
+    {
+     "city": "Shiganshina Basement Gate",
+     "architecture": "walled garrison town with a key-shaped cellar and a colossal breach in the gate",
+     "characterId": 150,
+     "characterName": "Eren Yeager"
+    }
+   ],
+   "characters": 6,
+   "id": "world_015",
+   "palette": {
+    "hue": 0.29,
+    "sky": "#2f4c24",
+    "mid": "#4c8b4b",
+    "accent": "#b869d3",
+    "ground": "#21331f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Blue Lock Facility",
+   "series": [
+    "Blue Lock"
+   ],
+   "cities": [
+    {
+     "city": "Bachira's Monster Pitch",
+     "architecture": "a chaotic pitch painted with dribbling trails and a chalk drawing of a grinning monster",
+     "characterId": 308,
+     "characterName": "Meguru Bachira"
+    },
+    {
+     "city": "Blue Lock Spatial Hub",
+     "architecture": "a white corridor of tactical screens where the whole field is drawn in one player's head",
+     "characterId": 304,
+     "characterName": "Yoichi Isagi"
+    },
+    {
+     "city": "Itoshi's Curve Pitch",
+     "architecture": "a pitch with impossible ball-curve lines painted into the grass and a very cold number 10",
+     "characterId": 305,
+     "characterName": "Rin Itoshi"
+    },
+    {
+     "city": "Nagi's One-Touch Slope",
+     "architecture": "a sloped practice pitch where a single trap-kill line is spray-painted into the turf",
+     "characterId": 307,
+     "characterName": "Seishiro Nagi"
+    },
+    {
+     "city": "Shidou's Explosive Box",
+     "architecture": "a penalty box of scuffed chalk, shark-teeth banners and a dive-marks pattern on the turf",
+     "characterId": 306,
+     "characterName": "Ryusei Shidou"
+    }
+   ],
+   "characters": 5,
+   "id": "world_016",
+   "palette": {
+    "hue": 0.647,
+    "sky": "#24294c",
+    "mid": "#534b8b",
+    "accent": "#d3c769",
+    "ground": "#1f1f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Britannia",
+   "series": [
+    "The Seven Deadly Sins"
+   ],
+   "cities": [
+    {
+     "city": "Boar Hat Tavern",
+     "architecture": "a walking tavern on a giant pig, with a broken sword for a sign and cheap ale for everyone",
+     "characterId": 215,
+     "characterName": "Meliodas"
+    },
+    {
+     "city": "Escanor's Noon Fortress",
+     "architecture": "a fortress that glows brighter as the sun climbs, with a lion-shaped sundial at its heart",
+     "characterId": 221,
+     "characterName": "Escanor"
+    },
+    {
+     "city": "Fountain of Youth Grotto",
+     "architecture": "green grotto where a single drinking horn dips into immortal water and a fox waits",
+     "characterId": 216,
+     "characterName": "Ban"
+    },
+    {
+     "city": "Gowther's Marionette Theater",
+     "architecture": "empty theater of hanging puppet strings and a mirror that shows what the heart wants",
+     "characterId": 219,
+     "characterName": "Gowther"
+    },
+    {
+     "city": "Megadozer of the Giant Clan",
+     "architecture": "a giant moving fortress of stone and ore where a small girl keeps a very large hammer",
+     "characterId": 218,
+     "characterName": "Diane"
+    }
+   ],
+   "characters": 5,
+   "id": "world_017",
+   "palette": {
+    "hue": 0.576,
+    "sky": "#243a4c",
+    "mid": "#4b5e8b",
+    "accent": "#d39a69",
+    "ground": "#1f2733",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Capital",
+   "series": [
+    "Akame ga Kill!"
+   ],
+   "cities": [
+    {
+     "city": "Esdeath's Ice Palace",
+     "architecture": "an ice palace of frozen generals, a torture chamber and a love letter written in the snow",
+     "characterId": 468,
+     "characterName": "Esdeath"
+    },
+    {
+     "city": "Incursio Forge Vault",
+     "architecture": "a vault of a living armor's crest, a village boy's broken sword and a promise to the fallen",
+     "characterId": 469,
+     "characterName": "Tatsumi"
+    },
+    {
+     "city": "Kurome's Corpse Puppet Yard",
+     "architecture": "a yard of hanging corpse-puppets, a cursed blade rack and a sister's letter never answered",
+     "characterId": 471,
+     "characterName": "Kurome"
+    },
+    {
+     "city": "Leone's Lionelle Alley",
+     "architecture": "a back alley of a lion-paw crest, street food stalls and a very easy laugh before the fight",
+     "characterId": 470,
+     "characterName": "Leone"
+    },
+    {
+     "city": "Night Raid Blade Cache",
+     "architecture": "a hidden cache of imperial arms, a very quiet assassin's bunk and a giant danger-beast skull",
+     "characterId": 467,
+     "characterName": "Akame"
+    }
+   ],
+   "characters": 5,
+   "id": "world_018",
+   "palette": {
+    "hue": 0.102,
+    "sky": "#4c3c24",
+    "mid": "#8b824b",
+    "accent": "#6992d3",
+    "ground": "#332e1f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "City Z",
+   "series": [
+    "One Punch Man"
+   ],
+   "cities": [
+    {
+     "city": "Bang's Water Stream Dojo",
+     "architecture": "traditional dojo with a waterfall training rock and a floor worn smooth by decades of stances",
+     "characterId": 229,
+     "characterName": "Bang (Silver Fang)"
+    },
+    {
+     "city": "City Z Apartment Z-105",
+     "architecture": "shabby apartment block of cracked walls, a sale flyer wall and a single unremarkable doorbell",
+     "characterId": 225,
+     "characterName": "Saitama"
+    },
+    {
+     "city": "Genos' Cyborg Garage",
+     "architecture": "cluttered garage of spare limbs, oil drums and a maintenance manual annotated by hand",
+     "characterId": 226,
+     "characterName": "Genos"
+    },
+    {
+     "city": "King's Terror Arcade",
+     "architecture": "dim arcade where the machines are unbeaten and the silence terrifies monsters",
+     "characterId": 228,
+     "characterName": "King"
+    },
+    {
+     "city": "Metal Bat's Home Plate",
+     "architecture": "a concrete diamond with a chained bat rack and a little sister's cheering seat",
+     "characterId": 231,
+     "characterName": "Metal Bat"
+    }
+   ],
+   "characters": 5,
+   "id": "world_019",
+   "palette": {
+    "hue": 0.078,
+    "sky": "#4c3724",
+    "mid": "#8b794b",
+    "accent": "#69a1d3",
+    "ground": "#332b1f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Crystal Tokyo",
+   "series": [
+    "Sailor Moon"
+   ],
+   "cities": [
+    {
+     "city": "Hikawa Shrine Fire Bell",
+     "architecture": "a shrine of fire-readings, crow omens and a bell that rings before anything happens",
+     "characterId": 331,
+     "characterName": "Rei Hino (Sailor Mars)"
+    },
+    {
+     "city": "Jupiter Thunder Rose Garden",
+     "architecture": "a rose garden with a lightning rod trellis and a very tall girl's baking window",
+     "characterId": 332,
+     "characterName": "Makoto Kino (Sailor Jupiter)"
+    },
+    {
+     "city": "Mercury Aqua Observatory",
+     "architecture": "a quiet observatory of water-glass lenses, a visor-computer and a swimming pool for thinking",
+     "characterId": 330,
+     "characterName": "Ami Mizuno (Sailor Mercury)"
+    },
+    {
+     "city": "Tuxedo Mask Rose Terrace",
+     "architecture": "a moonlit terrace of red roses, a cape on the balustrade and a pocket watch that stops time for love",
+     "characterId": 334,
+     "characterName": "Mamoru Chiba (Tuxedo Mask)"
+    },
+    {
+     "city": "Venus Love-Me Stage",
+     "architecture": "a glittering stage of chain-link hearts, a cat-agent's microphone and a spotlight that never dims",
+     "characterId": 333,
+     "characterName": "Minako Aino (Sailor Venus)"
+    }
+   ],
+   "characters": 5,
+   "id": "world_020",
+   "palette": {
+    "hue": 0.486,
+    "sky": "#244c49",
+    "mid": "#4b818b",
+    "accent": "#d36972",
+    "ground": "#1f3233",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Edo",
+   "series": [
+    "Gintama"
+   ],
+   "cities": [
+    {
+     "city": "Kiheitai Ghost Ship Dock",
+     "architecture": "a docked ghost ship of bandaged crew, a three-stringed shamisen and a nation's worth of grudge",
+     "characterId": 434,
+     "characterName": "Shinsuke Takasugi"
+    },
+    {
+     "city": "Okita's Sadist Garden",
+     "architecture": "a pretty garden of a sadist's target practice, a sleeping captain's hammock and a very dangerous smile",
+     "characterId": 433,
+     "characterName": "Sougo Okita"
+    },
+    {
+     "city": "Shinsengumi Mayora Barracks",
+     "architecture": "a barracks of a mayonnaise shrine, a vice-commander's cigarette smoke and a very scared second in command",
+     "characterId": 432,
+     "characterName": "Hijikata Toshiro"
+    },
+    {
+     "city": "Yato Umbrella Rooftop",
+     "architecture": "a rooftop of a very strong girl's umbrella, a giant appetite and a sunshade that blocks a whole district",
+     "characterId": 431,
+     "characterName": "Kagura"
+    },
+    {
+     "city": "Yorozuya Odd Jobs Loft",
+     "architecture": "a run-down second-floor office of a wooden bokuto, unpaid rent and a pile of strawberry milk",
+     "characterId": 430,
+     "characterName": "Gintoki Sakata"
+    }
+   ],
+   "characters": 5,
+   "id": "world_021",
+   "palette": {
+    "hue": 0.196,
+    "sky": "#454c24",
+    "mid": "#708b4b",
+    "accent": "#7c69d3",
+    "ground": "#2d331f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Fairy Tail Guild",
+   "series": [
+    "Fairy Tail"
+   ],
+   "cities": [
+    {
+     "city": "Clive Crash Shrine",
+     "architecture": "shrine built where a town was swallowed, with a crater path and a hundred-year mission board",
+     "characterId": 186,
+     "characterName": "Gildarts Clive"
+    },
+    {
+     "city": "Dreyar Thunder Court",
+     "architecture": "court of lightning-scorched flagstones, thunder totems and a raijin drum",
+     "characterId": 185,
+     "characterName": "Laxus Dreyar"
+    },
+    {
+     "city": "Redfox Scrap Yard",
+     "architecture": "iron scrap yard of pipes, a cat-shaped shed and a very loud harmonica",
+     "characterId": 183,
+     "characterName": "Gajeel Redfox"
+    },
+    {
+     "city": "Scarlet Armory Tower",
+     "architecture": "tower of armor racks, a strawberry cake nook and a hundred requipped weapon displays",
+     "characterId": 181,
+     "characterName": "Erza Scarlet"
+    },
+    {
+     "city": "Strauss Cafe Takeover",
+     "architecture": "cozy cafe with a waitress uniform rack and a demon-wing mural behind the counter",
+     "characterId": 187,
+     "characterName": "Mirajane Strauss"
+    }
+   ],
+   "characters": 5,
+   "id": "world_022",
+   "palette": {
+    "hue": 0.435,
+    "sky": "#244c3c",
+    "mid": "#4b8b82",
+    "accent": "#d36992",
+    "ground": "#1f332e",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Great Tomb of Nazarick",
+   "series": [
+    "Overlord"
+   ],
+   "cities": [
+    {
+     "city": "Cocytus Frost Arena",
+     "architecture": "a frozen arena of insectoid weapons racks and ice that never melts around a warrior's code",
+     "characterId": 367,
+     "characterName": "Cocytus"
+    },
+    {
+     "city": "Demiurge's Hellfire Tower",
+     "architecture": "a tower of infernal summoning circles, neatly filed plans and a smiling demon's ledger",
+     "characterId": 366,
+     "characterName": "Demiurge"
+    },
+    {
+     "city": "Ginnungagap Guardian Hall",
+     "architecture": "a black marble hall of a succubus's obsession portraits and a very patient throne",
+     "characterId": 365,
+     "characterName": "Albedo"
+    },
+    {
+     "city": "Nazarick Throne of Bone",
+     "architecture": "an underground throne hall of black banners, undead courtiers and a skull staff raised in greeting",
+     "characterId": 363,
+     "characterName": "Ainz Ooal Gown"
+    },
+    {
+     "city": "Underground Vampire Lake",
+     "architecture": "a gothic chamber of crimson velvet, bloodred chandeliers and an embarrassing collection of memorabilia",
+     "characterId": 364,
+     "characterName": "Shalltear Bloodfallen"
+    }
+   ],
+   "characters": 5,
+   "id": "world_023",
+   "palette": {
+    "hue": 0.133,
+    "sky": "#4c4424",
+    "mid": "#898b4b",
+    "accent": "#697ed3",
+    "ground": "#33311f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Kanto",
+   "series": [
+    "Pokemon"
+   ],
+   "cities": [
+    {
+     "city": "Cerulean Gym Water Stage",
+     "architecture": "a gym built over a pool with a waterfall timer and a bike leaning against the wall",
+     "characterId": 314,
+     "characterName": "Misty"
+    },
+    {
+     "city": "Charicific Volcano Crag",
+     "architecture": "a volcanic training crag of charred rock, flame vents and a very stubborn loyal perch",
+     "characterId": 317,
+     "characterName": "Charizard"
+    },
+    {
+     "city": "Pallet Town Starter Lab",
+     "architecture": "a small lab on a hill with three pokeballs on the table and a cap hung on the door",
+     "characterId": 312,
+     "characterName": "Ash Ketchum"
+    },
+    {
+     "city": "Pewter Rock Gym",
+     "architecture": "a stone gym of boulder ramps, a watering can by the door and a rock-type crest",
+     "characterId": 315,
+     "characterName": "Brock"
+    },
+    {
+     "city": "Thunder Stone Meadow",
+     "architecture": "a sunny meadow of static-charged grass and a thunderstone pedestal nobody wants him to touch",
+     "characterId": 313,
+     "characterName": "Pikachu"
+    }
+   ],
+   "characters": 5,
+   "id": "world_024",
+   "palette": {
+    "hue": 0.337,
+    "sky": "#244c25",
+    "mid": "#4b8b5c",
+    "accent": "#d369d1",
+    "ground": "#1f3322",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Meiji-era Japan",
+   "series": [
+    "Rurouni Kenshin"
+   ],
+   "cities": [
+    {
+     "city": "Kamiya Dojo Sakura Court",
+     "architecture": "a dojo courtyard of cherry blossoms, a reverse-blade rack and a cross-shaped scar on the doorpost",
+     "characterId": 416,
+     "characterName": "Himura Kenshin"
+    },
+    {
+     "city": "Oniwabanshu Rooftop Nest",
+     "architecture": "a tiled rooftop of ninja smoke bombs, a blindfolded okashi's grave and a very heavy debt",
+     "characterId": 420,
+     "characterName": "Aoshi Shinomori"
+    },
+    {
+     "city": "Sekihoutai Memorial Hill",
+     "architecture": "a grassy hill of a fake army's grave markers and a giant zanza banner on a pole",
+     "characterId": 417,
+     "characterName": "Sanosuke Sagara"
+    },
+    {
+     "city": "Shinsengumi Wolf Barracks",
+     "architecture": "a barracks of wolf banners, a police whistle and an enemy who would rather be an ally",
+     "characterId": 418,
+     "characterName": "Hajime Saito"
+    },
+    {
+     "city": "Shishio's Burning Mountain",
+     "architecture": "a mountain fortress of flames, bandaged guards and a man wrapped head to toe in living fire",
+     "characterId": 419,
+     "characterName": "Makoto Shishio"
+    }
+   ],
+   "characters": 5,
+   "id": "world_025",
+   "palette": {
+    "hue": 0.808,
+    "sky": "#46244c",
+    "mid": "#8b4b86",
+    "accent": "#79d369",
+    "ground": "#321f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Mitakihara",
+   "series": [
+    "Puella Magi Madoka Magica"
+   ],
+   "cities": [
+    {
+     "city": "Homura's Looping Shield Vault",
+     "architecture": "a grey vault of a hundred timelines' weapons, a sand-glass hourglass and a very tired heart",
+     "characterId": 494,
+     "characterName": "Homura Akemi"
+    },
+    {
+     "city": "Kyoko's Rosso Fantasma Church",
+     "architecture": "a half-ruined church of a spear rack, stolen convenience-store food and a prayer she stopped saying",
+     "characterId": 497,
+     "characterName": "Kyoko Sakura"
+    },
+    {
+     "city": "Law of Cycles Observatory",
+     "architecture": "an observatory above the sky where every timeline's ribbons gather into one bow",
+     "characterId": 493,
+     "characterName": "Madoka Kaname"
+    },
+    {
+     "city": "Mami's Tiro Finale Teahouse",
+     "architecture": "a teahouse of a very lonely senior's tea set, ribbon-bullet cartridges and a chair set for a guest",
+     "characterId": 495,
+     "characterName": "Mami Tomoe"
+    },
+    {
+     "city": "Sayaka's Cutlass Concert Hall",
+     "architecture": "a concert hall of a favorite violin's case, endless cutlasses and a wish she will not regret",
+     "characterId": 496,
+     "characterName": "Sayaka Miki"
+    }
+   ],
+   "characters": 5,
+   "id": "world_026",
+   "palette": {
+    "hue": 0.071,
+    "sky": "#4c3524",
+    "mid": "#8b764b",
+    "accent": "#69a6d3",
+    "ground": "#332a1f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Miyagi Prefecture",
+   "series": [
+    "Haikyu!!"
+   ],
+   "cities": [
+    {
+     "city": "Kageyama's Setter Circle",
+     "architecture": "a chalk circle at the net where a king sets the ball and no one else is allowed to stand",
+     "characterId": 291,
+     "characterName": "Tobio Kageyama"
+    },
+    {
+     "city": "Karasuno Decoy Court",
+     "architecture": "a small gym with a very high net, orange banners and a bird that runs faster than it should",
+     "characterId": 290,
+     "characterName": "Shoyo Hinata"
+    },
+    {
+     "city": "Nishinoya's Guardian Backcourt",
+     "architecture": "a low backcourt of dive marks on the floor and a libero's handprints on every wall",
+     "characterId": 292,
+     "characterName": "Yu Nishinoya"
+    },
+    {
+     "city": "Shiratorizawa Power Alley",
+     "architecture": "a powerhouse alley of championship banners and a floor scuffed by left-handed serves",
+     "characterId": 295,
+     "characterName": "Wakatoshi Ushijima"
+    },
+    {
+     "city": "Tsukishima's Read Block Wall",
+     "architecture": "a wall of measured tape marks and a scribbled notebook of every opponent's habits",
+     "characterId": 293,
+     "characterName": "Kei Tsukishima"
+    }
+   ],
+   "characters": 5,
+   "id": "world_027",
+   "palette": {
+    "hue": 0.396,
+    "sky": "#244c33",
+    "mid": "#4b8b73",
+    "accent": "#d369ab",
+    "ground": "#1f3329",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Seasoning City",
+   "series": [
+    "Mob Psycho 100"
+   ],
+   "cities": [
+    {
+     "city": "Dimple's Cult Cathedral",
+     "architecture": "a ridiculous self-built cathedral of donation boxes and a chalk drawing of an evil god",
+     "characterId": 239,
+     "characterName": "Dimple"
+    },
+    {
+     "city": "Ritsu's Suppression Closet",
+     "architecture": "a tidy closet where a psychic's power is locked behind a row of homework books",
+     "characterId": 238,
+     "characterName": "Ritsu Kageyama"
+    },
+    {
+     "city": "Salt Middle School Body Improvement Club",
+     "architecture": "a crumbling school clubroom of barbells, push-up charts and a single green onion",
+     "characterId": 235,
+     "characterName": "Shigeo Kageyama (Mob)"
+    },
+    {
+     "city": "Spirits and Such Consultation Office",
+     "architecture": "a rented upstairs office with a paper-thin sign, a massage chair and a bottle of salt",
+     "characterId": 236,
+     "characterName": "Arataka Reigen"
+    },
+    {
+     "city": "Teruki's Black Vinegar Tower",
+     "architecture": "a mirrored student council tower of hair gel, awards and a shattered window of humility",
+     "characterId": 237,
+     "characterName": "Teruki Hanazawa"
+    }
+   ],
+   "characters": 5,
+   "id": "world_028",
+   "palette": {
+    "hue": 0.667,
+    "sky": "#24244c",
+    "mid": "#5a4b8b",
+    "accent": "#d3d369",
+    "ground": "#211f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Tokyo, 2005",
+   "series": [
+    "Tokyo Revengers"
+   ],
+   "cities": [
+    {
+     "city": "Baji's Wild Fang Kennel",
+     "architecture": "a scrapyard kennel of a wolf's howl, a broken nose and a loyalty that runs both directions",
+     "characterId": 456,
+     "characterName": "Keisuke Baji"
+    },
+    {
+     "city": "Draken's Garage Hangout",
+     "architecture": "a motorcycle garage of a dragon tattoo banner, spare parts and a vice-president's calm",
+     "characterId": 455,
+     "characterName": "Ken Ryuguji (Draken)"
+    },
+    {
+     "city": "Hanagaki's Return Station",
+     "architecture": "a railway platform where a crying man keeps waking up twelve years in the past",
+     "characterId": 453,
+     "characterName": "Takemichi Hanagaki"
+    },
+    {
+     "city": "Hanma's Chaos Pier",
+     "architecture": "a pier of a chaotic gang flag, a very long tongue and a fight that he joined just to watch it burn",
+     "characterId": 457,
+     "characterName": "Shuji Hanma"
+    },
+    {
+     "city": "Tokyo Manji Gang Rooftop",
+     "architecture": "a gang rooftop of a black uniform on the line, an empty swing and an invincible captain's silence",
+     "characterId": 454,
+     "characterName": "Manjiro Sano (Mikey)"
+    }
+   ],
+   "characters": 5,
+   "id": "world_029",
+   "palette": {
+    "hue": 0.275,
+    "sky": "#324c24",
+    "mid": "#528b4b",
+    "accent": "#ae69d3",
+    "ground": "#23331f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Tokyo, Public Safety",
+   "series": [
+    "Chainsaw Man"
+   ],
+   "cities": [
+    {
+     "city": "Aki's Contract Room",
+     "architecture": "a bare room with a nail through the palm and a future he has already seen",
+     "characterId": 242,
+     "characterName": "Aki Hayakawa"
+    },
+    {
+     "city": "Beam's Shark Fiend Tank",
+     "architecture": "a flooded glass tank of gill-vents, chewed furniture and a warning about open water",
+     "characterId": 245,
+     "characterName": "Beam"
+    },
+    {
+     "city": "Denji's Chainsaw Flat",
+     "architecture": "a filthy apartment of toast crusts, chainsaw oil and a pull-cord in the chest",
+     "characterId": 240,
+     "characterName": "Denji"
+    },
+    {
+     "city": "Himeno's Ghost Arm Bar",
+     "architecture": "a dim bar where one stool is always saved and an invisible hand reaches for your drink",
+     "characterId": 244,
+     "characterName": "Himeno"
+    },
+    {
+     "city": "Power's Blood Fiend Loft",
+     "architecture": "a bloodstained loft of cat towers, stolen snacks and a fridge of expired pudding",
+     "characterId": 241,
+     "characterName": "Power"
+    }
+   ],
+   "characters": 5,
+   "id": "world_030",
+   "palette": {
+    "hue": 0.729,
+    "sky": "#33244c",
+    "mid": "#734b8b",
+    "accent": "#abd369",
+    "ground": "#291f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Area 11",
+   "series": [
+    "Code Geass"
+   ],
+   "cities": [
+    {
+     "city": "Ashford Academy Zero Tower",
+     "architecture": "school tower of white stone with a hidden black-rebel staircase and a Zero mask vault",
+     "characterId": 203,
+     "characterName": "Lelouch Lamperouge"
+    },
+    {
+     "city": "Geass Assassin's Reflection",
+     "architecture": "cold room of mirrors where a false brother's silhouette never quite matches",
+     "characterId": 207,
+     "characterName": "Rolo Lamperouge"
+    },
+    {
+     "city": "Guren Type-02 Dock",
+     "architecture": "red-painted Knightmare dock of radiant wave surger parts and a rebel pilot's locker",
+     "characterId": 206,
+     "characterName": "Kallen Kozuki"
+    },
+    {
+     "city": "Lancelot Hangar Bay",
+     "architecture": "white hangar of Knightmare repair rigs, a knight's crest and a hangar door facing Britannia",
+     "characterId": 204,
+     "characterName": "Suzaku Kururugi"
+    }
+   ],
+   "characters": 4,
+   "id": "world_031",
+   "palette": {
+    "hue": 0.447,
+    "sky": "#244c3f",
+    "mid": "#4b8b86",
+    "accent": "#d3698b",
+    "ground": "#1f332f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Axel, Belzerg",
+   "series": [
+    "KonoSuba"
+   ],
+   "cities": [
+    {
+     "city": "Aqua's Purification Fountain",
+     "architecture": "a very clean fountain where a useless goddess sits on a pedestal accepting tribute and tequila",
+     "characterId": 369,
+     "characterName": "Aqua"
+    },
+    {
+     "city": "Axel Beginner's Guild",
+     "architecture": "a guild hall of badly drawn job cards, part-time boards and a goddess who refuses to wash up",
+     "characterId": 368,
+     "characterName": "Kazuma Satou"
+    },
+    {
+     "city": "Crimson Magic Clan Spire",
+     "architecture": "a red-roofed village of chuunibyou spell-names, eyepatches and a crater where the lake used to be",
+     "characterId": 370,
+     "characterName": "Megumin"
+    },
+    {
+     "city": "Darkness' Crusader Bastion",
+     "architecture": "a stone bastion of dented armor and a very strange collection of masochistic daydreams",
+     "characterId": 371,
+     "characterName": "Darkness"
+    }
+   ],
+   "characters": 4,
+   "id": "world_032",
+   "palette": {
+    "hue": 0.345,
+    "sky": "#244c27",
+    "mid": "#4b8b5f",
+    "accent": "#d369cc",
+    "ground": "#1f3322",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Central Lands",
+   "series": [
+    "Frieren: Beyond Journey's End"
+   ],
+   "cities": [
+    {
+     "city": "Fern's Ordinary Spell Tower",
+     "architecture": "a tidy tower of a neatly made bed early-riser curtains and a mage's staff by the door",
+     "characterId": 248,
+     "characterName": "Fern"
+    },
+    {
+     "city": "Frieren's Blue Moon Field",
+     "architecture": "a quiet meadow of blue moonweed with a small grave marker and an elf's patient silence",
+     "characterId": 247,
+     "characterName": "Frieren"
+    },
+    {
+     "city": "Himmel's Hero Statue Square",
+     "architecture": "a town square where a smiling statue points down a road of small, kind memories",
+     "characterId": 250,
+     "characterName": "Himmel"
+    },
+    {
+     "city": "Stark's Lightning Forge",
+     "architecture": "a warrior's forge of cold hammers, dented armor and a very frightened dragon's claw",
+     "characterId": 249,
+     "characterName": "Stark"
+    }
+   ],
+   "characters": 4,
+   "id": "world_033",
+   "palette": {
+    "hue": 0.216,
+    "sky": "#404c24",
+    "mid": "#698b4b",
+    "accent": "#8869d3",
+    "ground": "#2b331f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Digital World",
+   "series": [
+    "Digimon Adventure"
+   ],
+   "cities": [
+    {
+     "city": "Angemon's Holy Terrace",
+     "architecture": "a bright terrace of white feathers, cracked eggshells and a single surviving holy ring",
+     "characterId": 322,
+     "characterName": "Patamon"
+    },
+    {
+     "city": "Digital World Flame Nest",
+     "architecture": "a warm nest of lava rocks, roasted fish sticks and a small dinosaur's endless appetite",
+     "characterId": 320,
+     "characterName": "Agumon"
+    },
+    {
+     "city": "Garurumon Ice Ridge",
+     "architecture": "a frozen ridge of fur-lined caves and a shy digimon's borrowed pelt drying on a rock",
+     "characterId": 321,
+     "characterName": "Gabumon"
+    },
+    {
+     "city": "Omnimon's Binary Forge",
+     "architecture": "a fusion forge where two war-gods' weapons hang crossed above a single blue-and-white banner",
+     "characterId": 323,
+     "characterName": "Omnimon"
+    }
+   ],
+   "characters": 4,
+   "id": "world_034",
+   "palette": {
+    "hue": 0.408,
+    "sky": "#244c36",
+    "mid": "#4b8b77",
+    "accent": "#d369a4",
+    "ground": "#1f332a",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Domino City",
+   "series": [
+    "Yu-Gi-Oh! Duel Monsters"
+   ],
+   "cities": [
+    {
+     "city": "KaibaCorp Blue-Eyes Tower",
+     "architecture": "a glass corporate tower with a holographic duel disk arena and a single white dragon statue",
+     "characterId": 325,
+     "characterName": "Seto Kaiba"
+    },
+    {
+     "city": "Marik's Millennium Rod Crypt",
+     "architecture": "a tomb-crypt of hieroglyph murals, a swinging pendulum and a dark personality's second chair",
+     "characterId": 328,
+     "characterName": "Marik Ishtar"
+    },
+    {
+     "city": "Millennium Puzzle Shop",
+     "architecture": "a tiny curio shop of puzzle boxes, a scale model duel arena and a very protective grandfather",
+     "characterId": 324,
+     "characterName": "Yugi Muto"
+    },
+    {
+     "city": "Wheeler's Red-Eyes Diner",
+     "architecture": "a greasy spoon diner of luck-based arcade cabinets, dice trays and a biker jacket on the chair",
+     "characterId": 326,
+     "characterName": "Joey Wheeler"
+    }
+   ],
+   "characters": 4,
+   "id": "world_035",
+   "palette": {
+    "hue": 0.996,
+    "sky": "#4c2425",
+    "mid": "#8b594b",
+    "accent": "#69d3d1",
+    "ground": "#33211f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Feudal Japan",
+   "series": [
+    "Inuyasha"
+   ],
+   "cities": [
+    {
+     "city": "Demon Slayer Village Forge",
+     "architecture": "a village of demon-bone weapons, a forge of Hiraikotsu and a cat demon on the roof",
+     "characterId": 409,
+     "characterName": "Sango"
+    },
+    {
+     "city": "Feudal Bone-Eater's Forest",
+     "architecture": "a forest of demon bones, a sacred tree and a well that opens onto another century",
+     "characterId": 405,
+     "characterName": "Inuyasha"
+    },
+    {
+     "city": "Miroku's Wind Tunnel Temple",
+     "architecture": "a ruined temple of sutra scrolls, a lecherous monk's alms bowl and a bottomless wind hole in his palm",
+     "characterId": 408,
+     "characterName": "Miroku"
+    },
+    {
+     "city": "Sesshomaru's Meido Gate",
+     "architecture": "a misty pass of a demon lord's banner, a giant dog's shadow and a two-headed dragon steed",
+     "characterId": 407,
+     "characterName": "Sesshomaru"
+    }
+   ],
+   "characters": 4,
+   "id": "world_036",
+   "palette": {
+    "hue": 0.608,
+    "sky": "#24324c",
+    "mid": "#4b528b",
+    "accent": "#d3ae69",
+    "ground": "#1f2333",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Fiore",
+   "series": [
+    "Fairy Tail"
+   ],
+   "cities": [
+    {
+     "city": "Fairy Tail Guild Hall",
+     "architecture": "raucous guild hall of a wooden dragon figurehead, a job board and perpetually broken furniture",
+     "characterId": 178,
+     "characterName": "Natsu Dragneel"
+    },
+    {
+     "city": "Fullbuster Ice Lodge",
+     "architecture": "ice-carved lodge where the furniture is frozen mid-motion and a coat is never worn",
+     "characterId": 180,
+     "characterName": "Gray Fullbuster"
+    },
+    {
+     "city": "Heartfilia Star Gate",
+     "architecture": "elegant townhouse of golden keys, a bath with a view and twelve zodiac doors",
+     "characterId": 179,
+     "characterName": "Lucy Heartfilia"
+    },
+    {
+     "city": "Marvell Sky Terrace",
+     "architecture": "airy terrace of wind chimes, cloud-shaped cushions and a tiny dragon's perch",
+     "characterId": 182,
+     "characterName": "Wendy Marvell"
+    }
+   ],
+   "characters": 4,
+   "id": "world_037",
+   "palette": {
+    "hue": 0.843,
+    "sky": "#4c2449",
+    "mid": "#8b4b78",
+    "accent": "#69d36f",
+    "ground": "#331f2f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Honno City",
+   "series": [
+    "Kill la Kill"
+   ],
+   "cities": [
+    {
+     "city": "Grand Couturier Sewing Room",
+     "architecture": "a pastel sewing room of pins, spools and a very cheerful seamstress who unpicks people",
+     "characterId": 383,
+     "characterName": "Nui Harime"
+    },
+    {
+     "city": "Honnoji Academy Scissor Dorm",
+     "architecture": "a burned-out dorm of half a scissor blade buried in the yard and a sailor uniform on the line",
+     "characterId": 381,
+     "characterName": "Ryuko Matoi"
+    },
+    {
+     "city": "Kiryuin Manor Junketsu Vault",
+     "architecture": "a vast manor of a tyrant's wardrobes, a sealed Kamui vault and a mother's approval that never came",
+     "characterId": 382,
+     "characterName": "Satsuki Kiryuin"
+    },
+    {
+     "city": "Shinra-Kotetsu Spire",
+     "architecture": "a tower of living cables where a woman fused with life fibers speaks for the whole planet's clothes",
+     "characterId": 384,
+     "characterName": "Ragyo Kiryuin"
+    }
+   ],
+   "characters": 4,
+   "id": "world_038",
+   "palette": {
+    "hue": 0.204,
+    "sky": "#434c24",
+    "mid": "#6d8b4b",
+    "accent": "#8169d3",
+    "ground": "#2c331f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Jujutsu Underworld",
+   "series": [
+    "Jujutsu Kaisen"
+   ],
+   "cities": [
+    {
+     "city": "Hakari Fever Casino",
+     "architecture": "neon pachinko den of jackpot reels, golden coin fountains and a lucky-idol shrine",
+     "characterId": 130,
+     "characterName": "Kinji Hakari"
+    },
+    {
+     "city": "Kenjaku's Brain Atrium",
+     "architecture": "atrium of floating brains, host body suits stitched across centuries and a surgery altar",
+     "characterId": 129,
+     "characterName": "Kenjaku (Pseudo-Geto)"
+    },
+    {
+     "city": "Shrine of the Disgraced One",
+     "architecture": "bone shrine of twenty fingers, a throne of skulls and a wide eating hall",
+     "characterId": 118,
+     "characterName": "Ryomen Sukuna"
+    },
+    {
+     "city": "Toji's Inverted Spear Cache",
+     "architecture": "black-market vault of cursed tools, wanted boards and a worm-summoning pit",
+     "characterId": 128,
+     "characterName": "Toji Fushiguro"
+    }
+   ],
+   "characters": 4,
+   "id": "world_039",
+   "palette": {
+    "hue": 0.133,
+    "sky": "#4c4424",
+    "mid": "#898b4b",
+    "accent": "#697ed3",
+    "ground": "#33311f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Kanagawa",
+   "series": [
+    "Slam Dunk"
+   ],
+   "cities": [
+    {
+     "city": "Akagi's Paint Fortress",
+     "architecture": "a painted key of scuff marks where a gorilla-shaped captain defends the rim",
+     "characterId": 299,
+     "characterName": "Takenori Akagi"
+    },
+    {
+     "city": "Mitsui's Three-Point Chapel",
+     "architecture": "a gym chapel of arc tape on the floor where a former MVP prays for one more shot",
+     "characterId": 298,
+     "characterName": "Hisashi Mitsui"
+    },
+    {
+     "city": "Rukawa's Solo Fast Break",
+     "architecture": "an empty court at night with one basketball, one hoop and one very quiet boy",
+     "characterId": 297,
+     "characterName": "Kaede Rukawa"
+    },
+    {
+     "city": "Shohoku Rebound Alley",
+     "architecture": "a cramped gym corner with a red wig on the bench and a backboard that has been dunked too hard",
+     "characterId": 296,
+     "characterName": "Hanamichi Sakuragi"
+    }
+   ],
+   "characters": 4,
+   "id": "world_040",
+   "palette": {
+    "hue": 0.78,
+    "sky": "#3f244c",
+    "mid": "#864b8b",
+    "accent": "#8bd369",
+    "ground": "#2f1f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Kunugigaoka",
+   "series": [
+    "Assassination Classroom"
+   ],
+   "cities": [
+    {
+     "city": "Akabane's Knife Terrace",
+     "architecture": "a school terrace of throwing-knife marks, a delinquent's smirk and a perfect test score",
+     "characterId": 437,
+     "characterName": "Karma Akabane"
+    },
+    {
+     "city": "Class 3-E Mountain Classroom",
+     "architecture": "a hillside classroom of assassination manuals, tentacle warning signs and a teacher who cannot be killed",
+     "characterId": 435,
+     "characterName": "Koro-sensei"
+    },
+    {
+     "city": "Kayano's Reaper Greenhouse",
+     "architecture": "a greenhouse of apple candies, a green-haired girl's smile and a reaper's tentacles in the soil",
+     "characterId": 438,
+     "characterName": "Kaede Kayano"
+    },
+    {
+     "city": "Shiota's Ribbon Practice Room",
+     "architecture": "a tidy practice room of a ribbon rack, kill-list notebooks and a mother's very sharp expectations",
+     "characterId": 436,
+     "characterName": "Nagisa Shiota"
+    }
+   ],
+   "characters": 4,
+   "id": "world_041",
+   "palette": {
+    "hue": 0.302,
+    "sky": "#2c4c24",
+    "mid": "#4b8b4e",
+    "accent": "#bf69d3",
+    "ground": "#20331f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Lugunica",
+   "series": [
+    "Re:Zero"
+   ],
+   "cities": [
+    {
+     "city": "Oni Village Morning Star Yard",
+     "architecture": "a quiet yard of a broken horn, a flail rack and a water bucket carried very deliberately",
+     "characterId": 374,
+     "characterName": "Rem"
+    },
+    {
+     "city": "Roswaal Ice Manor Garden",
+     "architecture": "a frozen manor garden of spirit lights, a great cat spirit's paw prints and half-elf prejudice behind hedges",
+     "characterId": 373,
+     "characterName": "Emilia"
+    },
+    {
+     "city": "Roswaal Manor Loop Room",
+     "architecture": "a guest room that resets: the tea is always cold, the candle always lit, the door always at the same angle",
+     "characterId": 372,
+     "characterName": "Subaru Natsuki"
+    },
+    {
+     "city": "Sword Saint's Cathedral",
+     "architecture": "a cathedral of one hundred divine protections and a single sword nobody else can draw",
+     "characterId": 376,
+     "characterName": "Reinhard van Astrea"
+    }
+   ],
+   "characters": 4,
+   "id": "world_042",
+   "palette": {
+    "hue": 0.604,
+    "sky": "#24334c",
+    "mid": "#4b548b",
+    "accent": "#d3ab69",
+    "ground": "#1f2433",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "The Tower",
+   "series": [
+    "Tower of God"
+   ],
+   "cities": [
+    {
+     "city": "Khun's Lighthouse Tower",
+     "architecture": "a tall lighthouse of ice-spear racks, a strategist's map table and a family's knife behind the door",
+     "characterId": 473,
+     "characterName": "Khun Aguero Agnis"
+    },
+    {
+     "city": "Rak's Predator Rock Nest",
+     "architecture": "a rock nest of a spear stuck deep in stone, a very confident lizard's boast and a compression training boulder",
+     "characterId": 474,
+     "characterName": "Rak Wraithraiser"
+    },
+    {
+     "city": "Tower Thunder Floor",
+     "architecture": "a stone arena of floating shinsu, a black March sword and a staircase that keeps going up",
+     "characterId": 472,
+     "characterName": "Twenty-Fifth Bam"
+    },
+    {
+     "city": "Yuri's Green April Terrace",
+     "architecture": "a royal terrace of a Princess's two swords, a lighthouse and a very annoyed escort waiting outside",
+     "characterId": 475,
+     "characterName": "Ha Yuri Zahard"
+    }
+   ],
+   "characters": 4,
+   "id": "world_043",
+   "palette": {
+    "hue": 0.412,
+    "sky": "#244c37",
+    "mid": "#4b8b79",
+    "accent": "#d369a1",
+    "ground": "#1f332b",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Universe 7",
+   "series": [
+    "Dragon Ball Super"
+   ],
+   "cities": [
+    {
+     "city": "Beerus' Planet Palace",
+     "architecture": "floating temple palace of purple domes, a whisk-shaped throne and a sleeping god's hammock",
+     "characterId": 75,
+     "characterName": "Beerus"
+    },
+    {
+     "city": "Frieza Force Flagship Docks",
+     "architecture": "ice-blue imperial docks of capsule pods, hovering chairs and a frozen planet backdrop",
+     "characterId": 71,
+     "characterName": "Frieza"
+    },
+    {
+     "city": "Potara Fusion Sanctum",
+     "architecture": "floating sanctum of two interlocking earrings and a golden halo floor",
+     "characterId": 89,
+     "characterName": "Vegito"
+    },
+    {
+     "city": "Whis' Staff Academy",
+     "architecture": "elegant open-air academy of floating steps, a staff-shaped spire and calm tea decks",
+     "characterId": 76,
+     "characterName": "Whis"
+    }
+   ],
+   "characters": 4,
+   "id": "world_044",
+   "palette": {
+    "hue": 0.694,
+    "sky": "#2b244c",
+    "mid": "#654b8b",
+    "accent": "#c2d369",
+    "ground": "#241f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Valhalla Arena",
+   "series": [
+    "Record of Ragnarok"
+   ],
+   "cities": [
+    {
+     "city": "Buddha's Enlightenment Tree",
+     "architecture": "a tree of six realms, a very relaxed smile and a staff that changes as quickly as his mood",
+     "characterId": 483,
+     "characterName": "Buddha"
+    },
+    {
+     "city": "Jack's London Fog Alley",
+     "architecture": "a foggy London alley of a top hat on a post, a very long knife and a mirror that shows only fear",
+     "characterId": 482,
+     "characterName": "Jack the Ripper"
+    },
+    {
+     "city": "Raiden's Sumo Ring",
+     "architecture": "a clay sumo ring of a hundred-seal banner, cracked stone underfoot and a yokozuna's rope",
+     "characterId": 481,
+     "characterName": "Raiden Tameemon"
+    },
+    {
+     "city": "Zeus' Adamas Coliseum",
+     "architecture": "a Greek coliseum of a clenched fist statue, a titan's broken chains and a grandfather's grin",
+     "characterId": 480,
+     "characterName": "Zeus"
+    }
+   ],
+   "characters": 4,
+   "id": "world_045",
+   "palette": {
+    "hue": 0.016,
+    "sky": "#4c2824",
+    "mid": "#8b604b",
+    "accent": "#69c9d3",
+    "ground": "#33231f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Amestris",
+   "series": [
+    "Fullmetal Alchemist: Brotherhood"
+   ],
+   "cities": [
+    {
+     "city": "Al's Armor Sanctum",
+     "architecture": "quiet sanctum of stacked armor suits and a blood seal drawn on the floor",
+     "characterId": 191,
+     "characterName": "Alphonse Elric"
+    },
+    {
+     "city": "Amestris Nation Circle",
+     "architecture": "the entire capital seen from above, its streets forming one vast transmutation circle",
+     "characterId": 197,
+     "characterName": "Father (Homunculus)"
+    },
+    {
+     "city": "Resembool Rockbell Forge",
+     "architecture": "country forge of automail anvils, a wheat field and a chimney that never stops smoking",
+     "characterId": 190,
+     "characterName": "Edward Elric"
+    }
+   ],
+   "characters": 3,
+   "id": "world_046",
+   "palette": {
+    "hue": 0.792,
+    "sky": "#42244c",
+    "mid": "#8b4b8b",
+    "accent": "#83d369",
+    "ground": "#301f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Assiah",
+   "series": [
+    "Blue Exorcist"
+   ],
+   "cities": [
+    {
+     "city": "Exorcist Supplies Armory",
+     "architecture": "a tidy armory of pistols, chalk circles and a younger brother's very serious glasses",
+     "characterId": 450,
+     "characterName": "Yukio Okumura"
+    },
+    {
+     "city": "Moriyama Herb Greenhouse",
+     "architecture": "a sunlit greenhouse of medicinal herbs, a Greenman's footprints and a girl who is finally allowed outside",
+     "characterId": 451,
+     "characterName": "Shiemi Moriyama"
+    },
+    {
+     "city": "True Cross Academy Flame Dorm",
+     "architecture": "a dorm of blue flame scorch marks, a sealed sword and a very embarrassed half-demon",
+     "characterId": 449,
+     "characterName": "Rin Okumura"
+    }
+   ],
+   "characters": 3,
+   "id": "world_047",
+   "palette": {
+    "hue": 0.173,
+    "sky": "#4a4c24",
+    "mid": "#7a8b4b",
+    "accent": "#6d69d3",
+    "ground": "#30331f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Cairo, Egypt",
+   "series": [
+    "JoJo's Bizarre Adventure: Stardust Crusaders"
+   ],
+   "cities": [
+    {
+     "city": "DIO's World Mansion",
+     "architecture": "a mansion where the clocks run a few seconds behind and the windows never let the sun in",
+     "characterId": 261,
+     "characterName": "DIO"
+    },
+    {
+     "city": "Hierophant Green Greenhouse",
+     "architecture": "a glass greenhouse of emerald vines, hanging cherries and a puzzle only a stand user could solve",
+     "characterId": 260,
+     "characterName": "Noriaki Kakyoin"
+    },
+    {
+     "city": "Star Platinum Bell Tower",
+     "architecture": "a bell tower of stopped clocks where every second hand rests at the same frozen moment",
+     "characterId": 259,
+     "characterName": "Jotaro Kujo"
+    }
+   ],
+   "characters": 3,
+   "id": "world_048",
+   "palette": {
+    "hue": 0.247,
+    "sky": "#394c24",
+    "mid": "#5d8b4b",
+    "accent": "#9c69d3",
+    "ground": "#27331f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Camelot",
+   "series": [
+    "The Seven Deadly Sins"
+   ],
+   "cities": [
+    {
+     "city": "Estarossa's Hall of Love",
+     "architecture": "white hall of cracked commandment tablets and a mirror that reflects only what he believes",
+     "characterId": 223,
+     "characterName": "Estarossa"
+    },
+    {
+     "city": "Merlin's Infinity Tower",
+     "architecture": "tower of endless spell circles, floating books and a chair that never gets cold",
+     "characterId": 220,
+     "characterName": "Merlin"
+    },
+    {
+     "city": "Zeldris' Ominous Nebula Keep",
+     "architecture": "black keep wrapped in swirling nebula, lit only by the glow of a commandment",
+     "characterId": 222,
+     "characterName": "Zeldris"
+    }
+   ],
+   "characters": 3,
+   "id": "world_049",
+   "palette": {
+    "hue": 0.247,
+    "sky": "#394c24",
+    "mid": "#5d8b4b",
+    "accent": "#9c69d3",
+    "ground": "#27331f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Central City, Amestris",
+   "series": [
+    "Fullmetal Alchemist: Brotherhood"
+   ],
+   "cities": [
+    {
+     "city": "Central Command Underground",
+     "architecture": "circular corridor under Central lit by one red eye painted on the floor",
+     "characterId": 196,
+     "characterName": "King Bradley (Wrath)"
+    },
+    {
+     "city": "Hawkeye Sniper Belfry",
+     "architecture": "high belfry of rifle racks, wind charts and a loyal dog bed by the door",
+     "characterId": 194,
+     "characterName": "Riza Hawkeye"
+    },
+    {
+     "city": "Mustang Flame Command",
+     "architecture": "military command office of snapped-finger scorch marks, a promotion ladder and a very tidy desk",
+     "characterId": 192,
+     "characterName": "Roy Mustang"
+    }
+   ],
+   "characters": 3,
+   "id": "world_050",
+   "palette": {
+    "hue": 0.227,
+    "sky": "#3d4c24",
+    "mid": "#648b4b",
+    "accent": "#9069d3",
+    "ground": "#29331f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Cursed Spirit Realm",
+   "series": [
+    "Jujutsu Kaisen"
+   ],
+   "cities": [
+    {
+     "city": "Choso Bloodriver Bastion",
+     "architecture": "bastion of red canals where the bricks are clotted blood and the banners drip",
+     "characterId": 127,
+     "characterName": "Choso"
+    },
+    {
+     "city": "Jogo Volcano Domain",
+     "architecture": "volcanic island of lava canals, obsidian spires and a one-eyed mountain",
+     "characterId": 126,
+     "characterName": "Jogo"
+    },
+    {
+     "city": "Mahito's Soul Warp Gallery",
+     "architecture": "twisted funhouse gallery where the walls are stretched faces and melting hands",
+     "characterId": 125,
+     "characterName": "Mahito"
+    }
+   ],
+   "characters": 3,
+   "id": "world_051",
+   "palette": {
+    "hue": 0.937,
+    "sky": "#4c2433",
+    "mid": "#8b4b54",
+    "accent": "#69d3ab",
+    "ground": "#331f24",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Disboard",
+   "series": [
+    "No Game No Life"
+   ],
+   "cities": [
+    {
+     "city": "Blank's Throne of Elkia",
+     "architecture": "a throne room of game boards stacked to the ceiling and a king who has never lost a match",
+     "characterId": 378,
+     "characterName": "Sora"
+    },
+    {
+     "city": "Flugel Library of the Sky",
+     "architecture": "a floating library of a single winged girl, stolen books and the last architecture of the Flugel",
+     "characterId": 380,
+     "characterName": "Jibril"
+    },
+    {
+     "city": "Shiro's Calculation Cube",
+     "architecture": "a small white cube of floating chess sets, unsolved proofs and a brother's hoodie on the chair",
+     "characterId": 379,
+     "characterName": "Shiro"
+    }
+   ],
+   "characters": 3,
+   "id": "world_052",
+   "palette": {
+    "hue": 0.604,
+    "sky": "#24334c",
+    "mid": "#4b548b",
+    "accent": "#d3ab69",
+    "ground": "#1f2433",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Gunsmoke Planet",
+   "series": [
+    "Trigun"
+   ],
+   "cities": [
+    {
+     "city": "Legato's Puppet Gallery",
+     "architecture": "a white gallery of hanging wires where every visitor's hands move before they decide to",
+     "characterId": 395,
+     "characterName": "Legato Bluesummers"
+    },
+    {
+     "city": "Vash's Desert Windmill",
+     "architecture": "a stranded town of windmills, a sand-buried church and a red coat hanging in the breeze",
+     "characterId": 393,
+     "characterName": "Vash the Stampede"
+    },
+    {
+     "city": "Wolfwood's Punisher Chapel",
+     "architecture": "a desert chapel of an orphanage's dinner bell and a very heavy cross-shaped gun in the pews",
+     "characterId": 394,
+     "characterName": "Nicholas D. Wolfwood"
+    }
+   ],
+   "characters": 3,
+   "id": "world_053",
+   "palette": {
+    "hue": 0.008,
+    "sky": "#4c2624",
+    "mid": "#8b5d4b",
+    "accent": "#69ced3",
+    "ground": "#33221f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Hunter Association",
+   "series": [
+    "Hunter x Hunter (2011)"
+   ],
+   "cities": [
+    {
+     "city": "Knuckle's Debt Office",
+     "architecture": "cheerful debt-collection office of ledgers, IOU slips and a punching-bag wall",
+     "characterId": 175,
+     "characterName": "Knuckle Bine"
+    },
+    {
+     "city": "Netero's Kannon Terrace",
+     "architecture": "mountain terrace with a hundred-handed statue and a single hand-raised prayer platform",
+     "characterId": 169,
+     "characterName": "Isaac Netero"
+    },
+    {
+     "city": "Shoot's Hotel Room",
+     "architecture": "cramped hotel room of cages, a hide-and-seek curtain and a single shaking hand",
+     "characterId": 176,
+     "characterName": "Shoot McMahon"
+    }
+   ],
+   "characters": 3,
+   "id": "world_054",
+   "palette": {
+    "hue": 0.42,
+    "sky": "#244c39",
+    "mid": "#4b8b7c",
+    "accent": "#d3699c",
+    "ground": "#1f332c",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Italy",
+   "series": [
+    "JoJo's Bizarre Adventure: Golden Wind"
+   ],
+   "cities": [
+    {
+     "city": "Gold Experience Colosseum",
+     "architecture": "a sunlit Roman colosseum where the cracked stones have sprouted ivy and dragonflies",
+     "characterId": 265,
+     "characterName": "Giorno Giovanna"
+    },
+    {
+     "city": "King Crimson Throne of Erasure",
+     "architecture": "a throne room with missing seconds: the clocks skip and no one remembers walking in",
+     "characterId": 267,
+     "characterName": "Diavolo"
+    },
+    {
+     "city": "Sticky Fingers Safehouse",
+     "architecture": "a zipped-open hideout where the walls, floor and even the air can be unzipped and resealed",
+     "characterId": 266,
+     "characterName": "Bruno Bucciarati"
+    }
+   ],
+   "characters": 3,
+   "id": "world_055",
+   "palette": {
+    "hue": 0.353,
+    "sky": "#244c29",
+    "mid": "#4b8b62",
+    "accent": "#d369c7",
+    "ground": "#1f3323",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Kengan Association",
+   "series": [
+    "Kengan Ashura"
+   ],
+   "cities": [
+    {
+     "city": "Kengan Match Arena",
+     "architecture": "a bare arena of a Niko style scroll, a broken tournament bracket and an ash-covered breathing pattern",
+     "characterId": 487,
+     "characterName": "Ohma Tokita"
+    },
+    {
+     "city": "Kiryu's Rakshasa Dojo",
+     "architecture": "a dojo of a nervous system diagram, a very thin blade's shadow and a smile that says sorry in advance",
+     "characterId": 489,
+     "characterName": "Setsuna Kiryu"
+    },
+    {
+     "city": "Kure Clan Removal Yard",
+     "architecture": "a walled yard of the Kure clan's kill-marks, a very loud laugh and a hundred percent release banner",
+     "characterId": 488,
+     "characterName": "Raian Kure"
+    }
+   ],
+   "characters": 3,
+   "id": "world_056",
+   "palette": {
+    "hue": 0.361,
+    "sky": "#244c2b",
+    "mid": "#4b8b65",
+    "accent": "#d369c2",
+    "ground": "#1f3324",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Kumogakure",
+   "series": [
+    "Naruto Shippuden"
+   ],
+   "cities": [
+    {
+     "city": "Kumogakure Rapids Stage",
+     "architecture": "cloud-piercing island stage over whitewater, with a giant rap-mic pagoda",
+     "characterId": 21,
+     "characterName": "Killer Bee"
+    },
+    {
+     "city": "Kumogakure Storm Post",
+     "architecture": "storm-beaten courier post with wet-black shingle roofs and crackling gutters",
+     "characterId": 23,
+     "characterName": "Darui"
+    },
+    {
+     "city": "Raikage Thunder Tower",
+     "architecture": "black stone tower wreathed in lightning rods and storm banners",
+     "characterId": 22,
+     "characterName": "A (Fourth Raikage)"
+    }
+   ],
+   "characters": 3,
+   "id": "world_057",
+   "palette": {
+    "hue": 0.435,
+    "sky": "#244c3c",
+    "mid": "#4b8b82",
+    "accent": "#d36992",
+    "ground": "#1f332e",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Meteor City",
+   "series": [
+    "Hunter x Hunter (2011)"
+   ],
+   "cities": [
+    {
+     "city": "Feitan's Torture Chamber",
+     "architecture": "iron chamber of hanging hooks, a china-doll umbrella stand and a stove for heating pain",
+     "characterId": 172,
+     "characterName": "Feitan Portor"
+    },
+    {
+     "city": "Phantom Troupe Book Vault",
+     "architecture": "derelict vault of stolen books, a bandaged statue and twelve spider chairs",
+     "characterId": 167,
+     "characterName": "Chrollo Lucilfer"
+    },
+    {
+     "city": "Uvogin's Brawl Pit",
+     "architecture": "dirt pit ringed with scrap cars and a fridge that doubles as a weapon rack",
+     "characterId": 173,
+     "characterName": "Uvogin"
+    }
+   ],
+   "characters": 3,
+   "id": "world_058",
+   "palette": {
+    "hue": 0.184,
+    "sky": "#484c24",
+    "mid": "#758b4b",
+    "accent": "#7469d3",
+    "ground": "#2e331f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Midland",
+   "series": [
+    "Berserk"
+   ],
+   "cities": [
+    {
+     "city": "Band of the Falcon Ridge",
+     "architecture": "a training ridge of a falcon banner, a commander's tent and a sword rack missing one blade",
+     "characterId": 464,
+     "characterName": "Casca"
+    },
+    {
+     "city": "Black Swordsman's Eclipse Plain",
+     "architecture": "a blasted plain of a branded man's campfire, a giant sword stuck upright and a behelit in the dirt",
+     "characterId": 462,
+     "characterName": "Guts"
+    },
+    {
+     "city": "Zodd's Apostle Cavern",
+     "architecture": "a bone-littered cavern of a war-bull's hoof prints, a broken knight's helm and three hundred years of duels",
+     "characterId": 465,
+     "characterName": "Nosferatu Zodd"
+    }
+   ],
+   "characters": 3,
+   "id": "world_059",
+   "palette": {
+    "hue": 0.078,
+    "sky": "#4c3724",
+    "mid": "#8b794b",
+    "accent": "#69a1d3",
+    "ground": "#332b1f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Morioh, Japan",
+   "series": [
+    "JoJo's Bizarre Adventure: Diamond is Unbreakable"
+   ],
+   "cities": [
+    {
+     "city": "Crazy Diamond Morioh",
+     "architecture": "a quiet seaside suburb of pompadour barbers, broken vases glued back together and friendly ghosts",
+     "characterId": 262,
+     "characterName": "Josuke Higashikata"
+    },
+    {
+     "city": "Heaven's Door Studio",
+     "architecture": "a manga studio of ink pots, deadline clocks and a draft that writes the future by accident",
+     "characterId": 263,
+     "characterName": "Rohan Kishibe"
+    },
+    {
+     "city": "Kira's Quiet Suburb",
+     "architecture": "an impossibly tidy house of hand bags, nail clippers and a shed that no one looks into",
+     "characterId": 264,
+     "characterName": "Yoshikage Kira"
+    }
+   ],
+   "characters": 3,
+   "id": "world_060",
+   "palette": {
+    "hue": 0.667,
+    "sky": "#24244c",
+    "mid": "#5a4b8b",
+    "accent": "#d3d369",
+    "ground": "#211f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Naoetsu Town",
+   "series": [
+    "Bakemonogatari"
+   ],
+   "cities": [
+    {
+     "city": "Araragi's Stairway of Oddities",
+     "architecture": "a suburban stairway of a vampire's shadow, a crab's claw mark and a girl with a stapler on the step",
+     "characterId": 490,
+     "characterName": "Koyomi Araragi"
+    },
+    {
+     "city": "Kiss-Shot's Wasted Shrine",
+     "architecture": "a ruined shrine of a vampire lord's discarded limbs, a doughnut box and five hundred years of regret",
+     "characterId": 491,
+     "characterName": "Kiss-Shot Acerola-Orion Heart-Under-Blade"
+    },
+    {
+     "city": "Shinobu's Shadow Donut Shop",
+     "architecture": "a shuttered cram school of a child-shaped vampire, a shadow pool and an endless supply of doughnuts",
+     "characterId": 492,
+     "characterName": "Shinobu Oshino"
+    }
+   ],
+   "characters": 3,
+   "id": "world_061",
+   "palette": {
+    "hue": 0.655,
+    "sky": "#24274c",
+    "mid": "#564b8b",
+    "accent": "#d3cc69",
+    "ground": "#201f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Neo Tokyo-3",
+   "series": [
+    "Neon Genesis Evangelion"
+   ],
+   "cities": [
+    {
+     "city": "Eva-00 Lilith Chamber",
+     "architecture": "a pale chamber of bandaged glass, plugsuit lockers and a red-eyed girl who knows the schedule",
+     "characterId": 344,
+     "characterName": "Rei Ayanami"
+    },
+    {
+     "city": "Eva-01 Berserk Cage",
+     "architecture": "a flooded hangar cage where a purple giant's jaw hangs open and the lights never come back on",
+     "characterId": 343,
+     "characterName": "Shinji Ikari"
+    },
+    {
+     "city": "Eva-02 Crimson Rig",
+     "architecture": "a red hangar rig of German warning signs, a doll's house on a shelf and a very loud heartbeat",
+     "characterId": 345,
+     "characterName": "Asuka Langley Soryu"
+    }
+   ],
+   "characters": 3,
+   "id": "world_062",
+   "palette": {
+    "hue": 0.114,
+    "sky": "#4c3f24",
+    "mid": "#8b864b",
+    "accent": "#698bd3",
+    "ground": "#332f1f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Stone World",
+   "series": [
+    "Dr. Stone"
+   ],
+   "cities": [
+    {
+     "city": "Asagiri Mentalist Stage",
+     "architecture": "a stage of a magician's cape, a deck of marked cards and a mentalist's very flexible loyalty",
+     "characterId": 444,
+     "characterName": "Gen Asagiri"
+    },
+    {
+     "city": "Ishigami Village Science Lab",
+     "architecture": "a grass-roofed lab of glass beakers, a sulfuric acid pool and a stone wall counting 3,700 years",
+     "characterId": 442,
+     "characterName": "Senku Ishigami"
+    },
+    {
+     "city": "Tsukasa Empire Warrior Camp",
+     "architecture": "a warrior camp of stone spears, a lion's pelt and a statue of a strong man who never grew up",
+     "characterId": 443,
+     "characterName": "Tsukasa Shishio"
+    }
+   ],
+   "characters": 3,
+   "id": "world_063",
+   "palette": {
+    "hue": 0.62,
+    "sky": "#24304c",
+    "mid": "#4b4e8b",
+    "accent": "#d3b569",
+    "ground": "#1f2233",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Tootsuki Academy",
+   "series": [
+    "Food Wars! Shokugeki no Soma"
+   ],
+   "cities": [
+    {
+     "city": "Kurokiba's Seafood Pier",
+     "architecture": "a cold pier of fish crates, a knife rack and a sous-chef who only smiles when the knife is sharp",
+     "characterId": 441,
+     "characterName": "Ryo Kurokiba"
+    },
+    {
+     "city": "Nakiri God's Tongue Hall",
+     "architecture": "a marble tasting hall of a single fork, a hundred sommeliers' notes and a very cold judgment",
+     "characterId": 440,
+     "characterName": "Erina Nakiri"
+    },
+    {
+     "city": "Yukihira Diner Counter",
+     "architecture": "a small diner of a chalkboard specials menu, a very old recipe book and a constant line out the door",
+     "characterId": 439,
+     "characterName": "Soma Yukihira"
+    }
+   ],
+   "characters": 3,
+   "id": "world_064",
+   "palette": {
+    "hue": 0.996,
+    "sky": "#4c2425",
+    "mid": "#8b594b",
+    "accent": "#69d3d1",
+    "ground": "#33211f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Westalis",
+   "series": [
+    "Spy x Family"
+   ],
+   "cities": [
+    {
+     "city": "Anya's Peanut Panic Room",
+     "architecture": "a small pink room of spy cartoons, peanuts and a chalkboard of secrets she refuses to write down",
+     "characterId": 255,
+     "characterName": "Anya Forger"
+    },
+    {
+     "city": "Bond's Precognition Kennel",
+     "architecture": "a doghouse with a futuristic mural painted inside because a big white dog saw it first",
+     "characterId": 256,
+     "characterName": "Bond Forger"
+    },
+    {
+     "city": "Forger Family Parlor",
+     "architecture": "a warm middle-class parlor with a hidden radio cabinet and a very serious stuffed sheep",
+     "characterId": 253,
+     "characterName": "Loid Forger (Twilight)"
+    }
+   ],
+   "characters": 3,
+   "id": "world_065",
+   "palette": {
+    "hue": 0.192,
+    "sky": "#464c24",
+    "mid": "#728b4b",
+    "accent": "#7969d3",
+    "ground": "#2d331f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Aincrad",
+   "series": [
+    "Sword Art Online"
+   ],
+   "cities": [
+    {
+     "city": "Aincrad Black Iron Floor",
+     "architecture": "a floating castle floor of black iron, teleport gates and a duel arena under a red sunset",
+     "characterId": 357,
+     "characterName": "Kirito"
+    },
+    {
+     "city": "Asuna's Lambent Light Terrace",
+     "architecture": "a terrace above the guild hall with a rapier rack and a cooking pot that saves everyone",
+     "characterId": 358,
+     "characterName": "Asuna"
+    }
+   ],
+   "characters": 2,
+   "id": "world_066",
+   "palette": {
+    "hue": 0.537,
+    "sky": "#24434c",
+    "mid": "#4b6d8b",
+    "accent": "#d38169",
+    "ground": "#1f2c33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Amegakure",
+   "series": [
+    "Naruto Shippuden"
+   ],
+   "cities": [
+    {
+     "city": "Amegakure Paper Oratory",
+     "architecture": "light origami hall folded from paper bricks, lit from within like a lantern",
+     "characterId": 33,
+     "characterName": "Konan"
+    },
+    {
+     "city": "Amegakure Rain Tower",
+     "architecture": "black industrial tower city under permanent rain, pierced by signal rods",
+     "characterId": 32,
+     "characterName": "Pain (Nagato)"
+    }
+   ],
+   "characters": 2,
+   "id": "world_067",
+   "palette": {
+    "hue": 0.612,
+    "sky": "#24314c",
+    "mid": "#4b518b",
+    "accent": "#d3b069",
+    "ground": "#1f2333",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "CCG Headquarters",
+   "series": [
+    "Tokyo Ghoul",
+    "Tokyo Ghoul:re"
+   ],
+   "cities": [
+    {
+     "city": "Arima's Quinque Armory",
+     "architecture": "sterile CCG armory of white coats, a single chair and a rack of ghoul-made weapons",
+     "characterId": 212,
+     "characterName": "Kishou Arima"
+    },
+    {
+     "city": "Suzuya Circus Slaughterhouse",
+     "architecture": "a patched-together killing floor of mannequins, stitches and a scythe hung like a toy",
+     "characterId": 214,
+     "characterName": "Juuzou Suzuya"
+    }
+   ],
+   "characters": 2,
+   "id": "world_068",
+   "palette": {
+    "hue": 0.251,
+    "sky": "#384c24",
+    "mid": "#5b8b4b",
+    "accent": "#9f69d3",
+    "ground": "#26331f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Cosmic Era",
+   "series": [
+    "Mobile Suit Gundam SEED"
+   ],
+   "cities": [
+    {
+     "city": "Freedom Gundam Catapult",
+     "architecture": "a launch catapult of a white-and-blue mobile suit and a poster reading the ultimate coordinator",
+     "characterId": 339,
+     "characterName": "Kira Yamato"
+    },
+    {
+     "city": "Justice Gundam Launch Bay",
+     "architecture": "a ZAFT launch bay of a red-orange mobile suit with a detachable flight pack and a hidden doubt",
+     "characterId": 340,
+     "characterName": "Athrun Zala"
+    }
+   ],
+   "characters": 2,
+   "id": "world_069",
+   "palette": {
+    "hue": 0.22,
+    "sky": "#3f4c24",
+    "mid": "#678b4b",
+    "accent": "#8b69d3",
+    "ground": "#2a331f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Earth, Surface",
+   "series": [
+    "Tengen Toppa Gurren Lagann"
+   ],
+   "cities": [
+    {
+     "city": "Kamina's Sunset Bridge",
+     "architecture": "a broken bridge at sunset where a cape still flutters and a drill is planted in the rock",
+     "characterId": 386,
+     "characterName": "Kamina"
+    },
+    {
+     "city": "Littner Village Sniper Hill",
+     "architecture": "a hilltop of shell casings, a very long rifle and a village of survivors under a blue sky",
+     "characterId": 387,
+     "characterName": "Yoko Littner"
+    }
+   ],
+   "characters": 2,
+   "id": "world_070",
+   "palette": {
+    "hue": 0.596,
+    "sky": "#24354c",
+    "mid": "#4b578b",
+    "accent": "#d3a669",
+    "ground": "#1f2533",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "England",
+   "series": [
+    "Vinland Saga"
+   ],
+   "cities": [
+    {
+     "city": "Askeladd's Longship Harbor",
+     "architecture": "a fjord harbor of a hundred loyal Vikings, a Welsh crest hidden under a cloak and a very patient plan",
+     "characterId": 459,
+     "characterName": "Askeladd"
+    },
+    {
+     "city": "Thorkell's Jomsborg Camp",
+     "architecture": "a raider camp of thrown spears stuck in the ground, height-markers and a giant's laughter",
+     "characterId": 460,
+     "characterName": "Thorkell"
+    }
+   ],
+   "characters": 2,
+   "id": "world_071",
+   "palette": {
+    "hue": 0.753,
+    "sky": "#39244c",
+    "mid": "#7c4b8b",
+    "accent": "#9cd369",
+    "ground": "#2c1f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Hero Association HQ",
+   "series": [
+    "One Punch Man"
+   ],
+   "cities": [
+    {
+     "city": "Garou's Monster Den",
+     "architecture": "a ruined training den where a horn has begun to grow out of the wall",
+     "characterId": 232,
+     "characterName": "Garou"
+    },
+    {
+     "city": "Tatsumaki's Floating Spire",
+     "architecture": "a levitating spire held together by willpower, with no stairs and a lot of broken rubble",
+     "characterId": 227,
+     "characterName": "Tatsumaki"
+    }
+   ],
+   "characters": 2,
+   "id": "world_072",
+   "palette": {
+    "hue": 0.365,
+    "sky": "#244c2c",
+    "mid": "#4b8b66",
+    "accent": "#d369bf",
+    "ground": "#1f3325",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Jura Tempest",
+   "series": [
+    "That Time I Got Reincarnated as a Slime"
+   ],
+   "cities": [
+    {
+     "city": "Benimaru's Flame Ogre Village",
+     "architecture": "an ogre village of black-flame lanterns, a very competent mayor's desk and a sword that never cools",
+     "characterId": 499,
+     "characterName": "Benimaru"
+    },
+    {
+     "city": "Tempest Federation Plaza",
+     "architecture": "a bustling plaza of monster stalls, a slime's round guild sign and a very competent administration",
+     "characterId": 498,
+     "characterName": "Rimuru Tempest"
+    }
+   ],
+   "characters": 2,
+   "id": "world_073",
+   "palette": {
+    "hue": 0.412,
+    "sky": "#244c37",
+    "mid": "#4b8b79",
+    "accent": "#d369a1",
+    "ground": "#1f332b",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Kirigakure",
+   "series": [
+    "Naruto Shippuden"
+   ],
+   "cities": [
+    {
+     "city": "Kirigakure Boiling Harbor",
+     "architecture": "steaming harbor terraces of coral stone and boiling vent baths",
+     "characterId": 24,
+     "characterName": "Mei Terumi"
+    },
+    {
+     "city": "Kirigakure Shark Lagoon",
+     "architecture": "half-flooded shark-gill arena with tide gates and gill-slit towers",
+     "characterId": 25,
+     "characterName": "Kisame Hoshigaki"
+    }
+   ],
+   "characters": 2,
+   "id": "world_074",
+   "palette": {
+    "hue": 0.886,
+    "sky": "#4c243f",
+    "mid": "#8b4b67",
+    "accent": "#69d38b",
+    "ground": "#331f2a",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Kukuroo Mountain",
+   "series": [
+    "Hunter x Hunter (2011)"
+   ],
+   "cities": [
+    {
+     "city": "Illumi's Needle Parlor",
+     "architecture": "dim parlor of needle cushions, a pinboard of faces and a pink-haired wig on a stand",
+     "characterId": 168,
+     "characterName": "Illumi Zoldyck"
+    },
+    {
+     "city": "Zoldyck Killer Manor",
+     "architecture": "gothic manor above a gate that weighs 400 tons, with a butler's quarters and a doghouse dungeon",
+     "characterId": 163,
+     "characterName": "Killua Zoldyck"
+    }
+   ],
+   "characters": 2,
+   "id": "world_075",
+   "palette": {
+    "hue": 0.565,
+    "sky": "#243c4c",
+    "mid": "#4b638b",
+    "accent": "#d39269",
+    "ground": "#1f2933",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "London",
+   "series": [
+    "Hellsing"
+   ],
+   "cities": [
+    {
+     "city": "Hellsing ARMS Armory",
+     "architecture": "an armory of anti-tank rifles, a very large Harkonnen and a recruit still getting used to blood",
+     "characterId": 397,
+     "characterName": "Seras Victoria"
+    },
+    {
+     "city": "Hellsing Manor Coffin Vault",
+     "architecture": "a gothic manor of a brick wall of coffins, police-girl cadets and a very old monster in the cellar",
+     "characterId": 396,
+     "characterName": "Alucard"
+    }
+   ],
+   "characters": 2,
+   "id": "world_076",
+   "palette": {
+    "hue": 0.925,
+    "sky": "#4c2436",
+    "mid": "#8b4b58",
+    "accent": "#69d3a4",
+    "ground": "#331f25",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Musutafu, Japan",
+   "series": [
+    "My Hero Academia"
+   ],
+   "cities": [
+    {
+     "city": "Bakugo Blast Crater",
+     "architecture": "urban block scarred by past explosions, with soundproof blast shutters and warning sirens",
+     "characterId": 92,
+     "characterName": "Katsuki Bakugo"
+    },
+    {
+     "city": "Dagobah Municipal Beach Park",
+     "architecture": "reclaimed beach park of scrap piles, tire stacks and a green hopeful sunrise mural",
+     "characterId": 91,
+     "characterName": "Izuku Midoriya"
+    }
+   ],
+   "characters": 2,
+   "id": "world_077",
+   "palette": {
+    "hue": 0.773,
+    "sky": "#3d244c",
+    "mid": "#834b8b",
+    "accent": "#90d369",
+    "ground": "#2e1f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Roswaal Manor",
+   "series": [
+    "Re:Zero"
+   ],
+   "cities": [
+    {
+     "city": "Forbidden Library Gate",
+     "architecture": "an endless library of floating books and a door that opens onto any room in the mansion",
+     "characterId": 377,
+     "characterName": "Beatrice"
+    },
+    {
+     "city": "Ram's Wind Bell Tower",
+     "architecture": "a belfry of wind chimes where one horn is missing and the other sister's voice still echoes",
+     "characterId": 375,
+     "characterName": "Ram"
+    }
+   ],
+   "characters": 2,
+   "id": "world_078",
+   "palette": {
+    "hue": 0.859,
+    "sky": "#4c2446",
+    "mid": "#8b4b72",
+    "accent": "#69d379",
+    "ground": "#331f2d",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Ryuchi Cave",
+   "series": [
+    "Boruto: Naruto Next Generations",
+    "Naruto Shippuden"
+   ],
+   "cities": [
+    {
+     "city": "Ryuchi Cave Annex",
+     "architecture": "pale side-cavern of serpent statues and wind-carved stone flutes",
+     "characterId": 38,
+     "characterName": "Mitsuki"
+    },
+    {
+     "city": "Ryuchi Cave Sanctum",
+     "architecture": "serpent-boned cavern palace lit by green braziers and hanging shed-skin tapestries",
+     "characterId": 7,
+     "characterName": "Orochimaru"
+    }
+   ],
+   "characters": 2,
+   "id": "world_079",
+   "palette": {
+    "hue": 0.157,
+    "sky": "#4c4924",
+    "mid": "#808b4b",
+    "accent": "#696fd3",
+    "ground": "#32331f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Seoul, Korea",
+   "series": [
+    "Solo Leveling"
+   ],
+   "cities": [
+    {
+     "city": "Hunter's Association Sword Hall",
+     "architecture": "a training hall of S-rank certificates, a very fast sword and a scent that most hunters dislike",
+     "characterId": 477,
+     "characterName": "Cha Hae-in"
+    },
+    {
+     "city": "Shadow Monarch's Gate",
+     "architecture": "a dungeon gate of violet shadows, a system window hanging in the air and a very tired hunter",
+     "characterId": 476,
+     "characterName": "Sung Jin-woo"
+    }
+   ],
+   "characters": 2,
+   "id": "world_080",
+   "palette": {
+    "hue": 0.565,
+    "sky": "#243c4c",
+    "mid": "#4b638b",
+    "accent": "#d39269",
+    "ground": "#1f2933",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Shinigami Realm",
+   "series": [
+    "Black Butler",
+    "Death Note"
+   ],
+   "cities": [
+    {
+     "city": "Shinigami Apple Orchard",
+     "architecture": "grey dead orchard of bare trees where a bored god hangs upside down eating red apples",
+     "characterId": 200,
+     "characterName": "Ryuk"
+    },
+    {
+     "city": "Sutcliff's Death Scythe Parlor",
+     "architecture": "a blood-red parlor of a chainsaw scythe on the wall, wig stands and a very dramatic mirror",
+     "characterId": 448,
+     "characterName": "Grell Sutcliff"
+    }
+   ],
+   "characters": 2,
+   "id": "world_081",
+   "palette": {
+    "hue": 0.106,
+    "sky": "#4c3d24",
+    "mid": "#8b834b",
+    "accent": "#6990d3",
+    "ground": "#332e1f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Solar System",
+   "series": [
+    "Cowboy Bebop"
+   ],
+   "cities": [
+    {
+     "city": "Bebop Swordfish Hangar",
+     "architecture": "a beat-up spaceship hangar of a red Swordfish fighter, cigarette smoke and a fridge with nothing in it",
+     "characterId": 390,
+     "characterName": "Spike Spiegel"
+    },
+    {
+     "city": "Faye's Red Tail Dock",
+     "architecture": "a docking bay of unpaid bills, a very fast red ship and a woman who keeps running from her own name",
+     "characterId": 392,
+     "characterName": "Faye Valentine"
+    }
+   ],
+   "characters": 2,
+   "id": "world_082",
+   "palette": {
+    "hue": 0.914,
+    "sky": "#4c2439",
+    "mid": "#8b4b5d",
+    "accent": "#69d39c",
+    "ground": "#331f27",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Spirit World",
+   "series": [
+    "Yu Yu Hakusho"
+   ],
+   "cities": [
+    {
+     "city": "Spirit Detective Alley",
+     "architecture": "a neon city alley of a detective's business card, a broken arcade and a very stubborn soul",
+     "characterId": 410,
+     "characterName": "Yusuke Urameshi"
+    },
+    {
+     "city": "Yoko's Rose Greenhouse",
+     "architecture": "a greenhouse of thorned roses, a fox demon's motherly promise and a human body borrowed on loan",
+     "characterId": 413,
+     "characterName": "Kurama"
+    }
+   ],
+   "characters": 2,
+   "id": "world_083",
+   "palette": {
+    "hue": 0.918,
+    "sky": "#4c2438",
+    "mid": "#8b4b5b",
+    "accent": "#69d39f",
+    "ground": "#331f26",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Steel Ball Run Circuit",
+   "series": [
+    "JoJo's Bizarre Adventure: Steel Ball Run"
+   ],
+   "cities": [
+    {
+     "city": "Ball Breaker Spin Hall",
+     "architecture": "a hall of spinning steel spheres where the walls hum with rotation and a lion sleeps in the rafters",
+     "characterId": 271,
+     "characterName": "Gyro Zeppeli"
+    },
+    {
+     "city": "Tusk Act4 Racetrack",
+     "architecture": "a race track of golden rectangles where the horses run in impossible directions",
+     "characterId": 270,
+     "characterName": "Johnny Joestar"
+    }
+   ],
+   "characters": 2,
+   "id": "world_084",
+   "palette": {
+    "hue": 0.227,
+    "sky": "#3d4c24",
+    "mid": "#648b4b",
+    "accent": "#9069d3",
+    "ground": "#29331f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Sunagakure",
+   "series": [
+    "Naruto",
+    "Naruto Shippuden"
+   ],
+   "cities": [
+    {
+     "city": "Sunagakure Puppet Foundry",
+     "architecture": "dusty foundry of pulley racks, puppet limbs and a thousand hanging control strings",
+     "characterId": 27,
+     "characterName": "Sasori"
+    },
+    {
+     "city": "Sunagakure Sand Vault",
+     "architecture": "windswept desert fortress of gourd-shaped domes and buried sand reservoirs",
+     "characterId": 10,
+     "characterName": "Gaara of the Sand"
+    }
+   ],
+   "characters": 2,
+   "id": "world_085",
+   "palette": {
+    "hue": 0.871,
+    "sky": "#4c2443",
+    "mid": "#8b4b6d",
+    "accent": "#69d381",
+    "ground": "#331f2c",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Toho, Japan",
+   "series": [
+    "Captain Tsubasa"
+   ],
+   "cities": [
+    {
+     "city": "Hyuga's Tiger Shot Hill",
+     "architecture": "a steep training hill of tire marks and a goal frame bent permanently inward",
+     "characterId": 310,
+     "characterName": "Kojiro Hyuga"
+    },
+    {
+     "city": "Wakabayashi's Goal Fortress",
+     "architecture": "a goal mouth of chalk lines, a keeper's gloves on a hook and a handprint in the crossbar",
+     "characterId": 311,
+     "characterName": "Genzo Wakabayashi"
+    }
+   ],
+   "characters": 2,
+   "id": "world_086",
+   "palette": {
+    "hue": 0.776,
+    "sky": "#3e244c",
+    "mid": "#854b8b",
+    "accent": "#8dd369",
+    "ground": "#2e1f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Tokyo, 20th Ward",
+   "series": [
+    "Tokyo Ghoul"
+   ],
+   "cities": [
+    {
+     "city": "Anteiku Coffee Basement",
+     "architecture": "quiet coffee shop basement of bean sacks, bandaged chairs and a single white mask",
+     "characterId": 208,
+     "characterName": "Ken Kaneki"
+    },
+    {
+     "city": "Kirishima Rooftop Nest",
+     "architecture": "windy rooftop of rabbit-shaped rain gutters and a hidden cache of human food",
+     "characterId": 209,
+     "characterName": "Touka Kirishima"
+    }
+   ],
+   "characters": 2,
+   "id": "world_087",
+   "palette": {
+    "hue": 0.137,
+    "sky": "#4c4524",
+    "mid": "#878b4b",
+    "accent": "#697cd3",
+    "ground": "#33321f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Underworld",
+   "series": [
+    "Sword Art Online: Alicization"
+   ],
+   "cities": [
+    {
+     "city": "Central Cathedral Fragrant Olive",
+     "architecture": "a white cathedral of a golden knight's cloak, olive blossoms and a sword that remembers her name",
+     "characterId": 361,
+     "characterName": "Alice Zuberg"
+    },
+    {
+     "city": "Eugeo's Blue Rose Tree",
+     "architecture": "a courtyard where a forbidden blue rose grows through the ice of a sword frozen into a tree",
+     "characterId": 362,
+     "characterName": "Eugeo"
+    }
+   ],
+   "characters": 2,
+   "id": "world_088",
+   "palette": {
+    "hue": 0.424,
+    "sky": "#244c3a",
+    "mid": "#4b8b7d",
+    "accent": "#d3699a",
+    "ground": "#1f332c",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Universal Century",
+   "series": [
+    "Mobile Suit Gundam",
+    "Mobile Suit Zeta Gundam"
+   ],
+   "cities": [
+    {
+     "city": "White Base Hangar Deck",
+     "architecture": "a carrier hangar of a white mobile suit, bullet-scarred armor and a very young ace's helmet",
+     "characterId": 335,
+     "characterName": "Amuro Ray"
+    },
+    {
+     "city": "Zeta Biosensor Chamber",
+     "architecture": "a lab chamber of glowing biosensor rings and a boy's schematics pinned to the wall",
+     "characterId": 341,
+     "characterName": "Kamille Bidan"
+    }
+   ],
+   "characters": 2,
+   "id": "world_089",
+   "palette": {
+    "hue": 0.663,
+    "sky": "#24254c",
+    "mid": "#594b8b",
+    "accent": "#d3d169",
+    "ground": "#211f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Victorian London",
+   "series": [
+    "Black Butler"
+   ],
+   "cities": [
+    {
+     "city": "Phantomhive Demon Manor",
+     "architecture": "a candlelit manor of perfect silverware, a contract sigil on the floor and a butler's smiling shadow",
+     "characterId": 446,
+     "characterName": "Sebastian Michaelis"
+    },
+    {
+     "city": "Phantomhive Watchdog Court",
+     "architecture": "a dark estate of a queen's warrant, a toy company ledger and a boy who sleeps badly",
+     "characterId": 447,
+     "characterName": "Ciel Phantomhive"
+    }
+   ],
+   "characters": 2,
+   "id": "world_090",
+   "palette": {
+    "hue": 0.38,
+    "sky": "#244c30",
+    "mid": "#4b8b6d",
+    "accent": "#d369b5",
+    "ground": "#1f3327",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Wandenreich",
+   "series": [
+    "Bleach: Thousand-Year Blood War"
+   ],
+   "cities": [
+    {
+     "city": "Silbern Balance Court",
+     "architecture": "court of twin scales carved in silver with mirrored floors and hanging pendulum blades",
+     "characterId": 56,
+     "characterName": "Jugram Haschwalth"
+    },
+    {
+     "city": "Silbern Imperial Castle",
+     "architecture": "silver fortress of floating white plinths, shadow-palaces and imperial eagle banners",
+     "characterId": 55,
+     "characterName": "Yhwach"
+    }
+   ],
+   "characters": 2,
+   "id": "world_091",
+   "palette": {
+    "hue": 0.6,
+    "sky": "#24344c",
+    "mid": "#4b558b",
+    "accent": "#d3a969",
+    "ground": "#1f2433",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "West City, Earth",
+   "series": [
+    "Dragon Ball Super"
+   ],
+   "cities": [
+    {
+     "city": "Capsule Corp Family Wing",
+     "architecture": "sunny family wing of the capsule campus with a farm-stand garden",
+     "characterId": 88,
+     "characterName": "Android 18"
+    },
+    {
+     "city": "Capsule Corp Sky Terrace",
+     "architecture": "futuristic capsule headquarters of white domes, gravity towers and a Saiyan crest hangar",
+     "characterId": 68,
+     "characterName": "Vegeta"
+    }
+   ],
+   "characters": 2,
+   "id": "world_092",
+   "palette": {
+    "hue": 0.988,
+    "sky": "#4c2427",
+    "mid": "#8b564b",
+    "accent": "#69d3cc",
+    "ground": "#33201f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "ALfheim Online",
+   "series": [
+    "Sword Art Online II"
+   ],
+   "cities": [
+    {
+     "city": "Yuuki's Sleeping Knights Field",
+     "architecture": "an open field of windmills where a guild of terminally ill players logged their last adventure",
+     "characterId": 359,
+     "characterName": "Yuuki Konno"
+    }
+   ],
+   "characters": 1,
+   "id": "world_093",
+   "palette": {
+    "hue": 0.133,
+    "sky": "#4c4424",
+    "mid": "#898b4b",
+    "accent": "#697ed3",
+    "ground": "#33311f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "After Colony",
+   "series": [
+    "Mobile Suit Gundam Wing"
+   ],
+   "cities": [
+    {
+     "city": "Wing Gundam Zero System",
+     "architecture": "a derelict hangar where a Zero System cockpit projects futures onto the wall",
+     "characterId": 337,
+     "characterName": "Heero Yuy"
+    }
+   ],
+   "characters": 1,
+   "id": "world_094",
+   "palette": {
+    "hue": 0.941,
+    "sky": "#4c2432",
+    "mid": "#8b4b52",
+    "accent": "#69d3ae",
+    "ground": "#331f23",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Ancient Egypt, Memory World",
+   "series": [
+    "Yu-Gi-Oh! Duel Monsters"
+   ],
+   "cities": [
+    {
+     "city": "Pharaoh's Throne of Duel",
+     "architecture": "a stone throne room of_memory tablets and a duel arena carved for a king without a name",
+     "characterId": 327,
+     "characterName": "Yami Yugi (Atem)"
+    }
+   ],
+   "characters": 1,
+   "id": "world_095",
+   "palette": {
+    "hue": 0.51,
+    "sky": "#24494c",
+    "mid": "#4b788b",
+    "accent": "#d36f69",
+    "ground": "#1f2f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Anno Domini",
+   "series": [
+    "Mobile Suit Gundam 00"
+   ],
+   "cities": [
+    {
+     "city": "Exia Trans-Am Field",
+     "architecture": "a field of red particles frozen mid-flight where a sword and a GN Drive hang in the air",
+     "characterId": 338,
+     "characterName": "Setsuna F. Seiei"
+    }
+   ],
+   "characters": 1,
+   "id": "world_096",
+   "palette": {
+    "hue": 0.647,
+    "sky": "#24294c",
+    "mid": "#534b8b",
+    "accent": "#d3c769",
+    "ground": "#1f1f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Auberst",
+   "series": [
+    "Frieren: Beyond Journey's End"
+   ],
+   "cities": [
+    {
+     "city": "Serie's Grimoire Labyrinth",
+     "architecture": "an endless library of floating grimoires where every spell ever written drifts out of reach",
+     "characterId": 251,
+     "characterName": "Serie"
+    }
+   ],
+   "characters": 1,
+   "id": "world_097",
+   "palette": {
+    "hue": 0.631,
+    "sky": "#242d4c",
+    "mid": "#4d4b8b",
+    "accent": "#d3bd69",
+    "ground": "#1f2033",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Beastman Empire",
+   "series": [
+    "Tengen Toppa Gurren Lagann"
+   ],
+   "cities": [
+    {
+     "city": "Enki Beastman Hangar",
+     "architecture": "a hangar of a cat-faced Gunman, a rival's spare sword and a very complicated friendship",
+     "characterId": 388,
+     "characterName": "Viral"
+    }
+   ],
+   "characters": 1,
+   "id": "world_098",
+   "palette": {
+    "hue": 0.827,
+    "sky": "#4a244c",
+    "mid": "#8b4b7e",
+    "accent": "#6dd369",
+    "ground": "#331f31",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Cape Canaveral",
+   "series": [
+    "JoJo's Bizarre Adventure: Stone Ocean"
+   ],
+   "cities": [
+    {
+     "city": "Made in Heaven Observatory",
+     "architecture": "a domed observatory where the stars visibly accelerate and the seasons race across the floor",
+     "characterId": 269,
+     "characterName": "Enrico Pucci"
+    }
+   ],
+   "characters": 1,
+   "id": "world_099",
+   "palette": {
+    "hue": 0.125,
+    "sky": "#4c4224",
+    "mid": "#8b8b4b",
+    "accent": "#6983d3",
+    "ground": "#33301f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "China",
+   "series": [
+    "Shaman King"
+   ],
+   "cities": [
+    {
+     "city": "Tao Family Spirit Crypt",
+     "architecture": "a dark crypt of a Chinese general's armor, a family grudge and a very heavy hammer",
+     "characterId": 423,
+     "characterName": "Ren Tao"
+    }
+   ],
+   "characters": 1,
+   "id": "world_100",
+   "palette": {
+    "hue": 0.063,
+    "sky": "#4c3324",
+    "mid": "#8b734b",
+    "accent": "#69abd3",
+    "ground": "#33291f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "City A",
+   "series": [
+    "One Punch Man"
+   ],
+   "cities": [
+    {
+     "city": "Atomic Samurai's Blade Shrine",
+     "architecture": "minimalist shrine of a single sword rack, a tatami floor and a perfectly clean cutting mat",
+     "characterId": 230,
+     "characterName": "Atomic Samurai"
+    }
+   ],
+   "characters": 1,
+   "id": "world_101",
+   "palette": {
+    "hue": 0.455,
+    "sky": "#244c41",
+    "mid": "#4b8b89",
+    "accent": "#d36986",
+    "ground": "#1f3330",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Code Geass World",
+   "series": [
+    "Code Geass"
+   ],
+   "cities": [
+    {
+     "city": "Witch's Immortal Chapel",
+     "architecture": "crumbling chapel of green candles, pizza boxes and a chair where a girl has waited centuries",
+     "characterId": 205,
+     "characterName": "C.C."
+    }
+   ],
+   "characters": 1,
+   "id": "world_102",
+   "palette": {
+    "hue": 0.016,
+    "sky": "#4c2824",
+    "mid": "#8b604b",
+    "accent": "#69c9d3",
+    "ground": "#33231f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Crystal Tokyo / Moon Kingdom",
+   "series": [
+    "Sailor Moon"
+   ],
+   "cities": [
+    {
+     "city": "Moon Kingdom Silver Palace",
+     "architecture": "a silver palace of crescent windows, moon-cat murals and a tiara that throws like a discus",
+     "characterId": 329,
+     "characterName": "Usagi Tsukino (Sailor Moon)"
+    }
+   ],
+   "characters": 1,
+   "id": "world_103",
+   "palette": {
+    "hue": 0.31,
+    "sky": "#2a4c24",
+    "mid": "#4b8b51",
+    "accent": "#c469d3",
+    "ground": "#1f331f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Dark Tournament",
+   "series": [
+    "Yu Yu Hakusho"
+   ],
+   "cities": [
+    {
+     "city": "Toguro's 100% Arena",
+     "architecture": "an arena of a bodybuilder's mirrors, a dial that reads one hundred and a crowd that went quiet",
+     "characterId": 414,
+     "characterName": "Younger Toguro"
+    }
+   ],
+   "characters": 1,
+   "id": "world_104",
+   "palette": {
+    "hue": 0.729,
+    "sky": "#33244c",
+    "mid": "#734b8b",
+    "accent": "#abd369",
+    "ground": "#291f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Deep Space",
+   "series": [
+    "One Punch Man"
+   ],
+   "cities": [
+    {
+     "city": "Dark Matter Thieves' Ship",
+     "architecture": "a crashed alien flagship of organic metal, still humming with an unspent release of energy",
+     "characterId": 233,
+     "characterName": "Boros"
+    }
+   ],
+   "characters": 1,
+   "id": "world_105",
+   "palette": {
+    "hue": 0.212,
+    "sky": "#414c24",
+    "mid": "#6a8b4b",
+    "accent": "#8669d3",
+    "ground": "#2b331f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Demon Castle",
+   "series": [
+    "Solo Leveling"
+   ],
+   "cities": [
+    {
+     "city": "Igris's Blood-Red Keep",
+     "architecture": "a red keep of a knight's empty helm, a very straight sword and a bow waiting at his feet",
+     "characterId": 479,
+     "characterName": "Igris"
+    }
+   ],
+   "characters": 1,
+   "id": "world_106",
+   "palette": {
+    "hue": 0.58,
+    "sky": "#24394c",
+    "mid": "#4b5d8b",
+    "accent": "#d39c69",
+    "ground": "#1f2733",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Demon World",
+   "series": [
+    "Yu Yu Hakusho"
+   ],
+   "cities": [
+    {
+     "city": "Jagan Eye Tower",
+     "architecture": "a black tower of a fire-born outcast, a sword rack and a human's soul preserved in a jar",
+     "characterId": 412,
+     "characterName": "Hiei"
+    }
+   ],
+   "characters": 1,
+   "id": "world_107",
+   "palette": {
+    "hue": 0.929,
+    "sky": "#4c2435",
+    "mid": "#8b4b57",
+    "accent": "#69d3a6",
+    "ground": "#331f25",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Demon World Gate",
+   "series": [
+    "Yu Yu Hakusho"
+   ],
+   "cities": [
+    {
+     "city": "Sensui's Chapter Black Gate",
+     "architecture": "a corridor of six painted personalities and a black door that opens onto a world without humans",
+     "characterId": 415,
+     "characterName": "Shinobu Sensui"
+    }
+   ],
+   "characters": 1,
+   "id": "world_108",
+   "palette": {
+    "hue": 0.592,
+    "sky": "#24364c",
+    "mid": "#4b588b",
+    "accent": "#d3a469",
+    "ground": "#1f2533",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Earth, Underground",
+   "series": [
+    "Tengen Toppa Gurren Lagann"
+   ],
+   "cities": [
+    {
+     "city": "Jeeha Village Drill Shaft",
+     "architecture": "a cramped underground shaft of excavated rock, drill bits and a kid who keeps digging anyway",
+     "characterId": 385,
+     "characterName": "Simon"
+    }
+   ],
+   "characters": 1,
+   "id": "world_109",
+   "palette": {
+    "hue": 0.898,
+    "sky": "#4c243c",
+    "mid": "#8b4b63",
+    "accent": "#69d392",
+    "ground": "#331f29",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Earth, Universe 7",
+   "series": [
+    "Dragon Ball Super"
+   ],
+   "cities": [
+    {
+     "city": "Mount Paozu Kame Isle",
+     "architecture": "small island of orange-roof huts, a turtle-shaped dock and a gravity chamber dome",
+     "characterId": 67,
+     "characterName": "Son Goku"
+    }
+   ],
+   "characters": 1,
+   "id": "world_110",
+   "palette": {
+    "hue": 0.675,
+    "sky": "#26244c",
+    "mid": "#5d4b8b",
+    "accent": "#ced369",
+    "ground": "#221f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "England, 1888",
+   "series": [
+    "JoJo's Bizarre Adventure"
+   ],
+   "cities": [
+    {
+     "city": "Joestar Estate Arena",
+     "architecture": "a Victorian estate with a stone-faced training arena and a burning family portrait hall",
+     "characterId": 257,
+     "characterName": "Jonathan Joestar"
+    }
+   ],
+   "characters": 1,
+   "id": "world_111",
+   "palette": {
+    "hue": 1.0,
+    "sky": "#4c2424",
+    "mid": "#8b5a4b",
+    "accent": "#69d3d3",
+    "ground": "#33211f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Fairy King's Forest",
+   "series": [
+    "The Seven Deadly Sins"
+   ],
+   "cities": [
+    {
+     "city": "Fairy King's Forest",
+     "architecture": "ancient forest of glowing mushrooms, a floating throne and a thousand-year-old promise",
+     "characterId": 217,
+     "characterName": "King (Harlequin)"
+    }
+   ],
+   "characters": 1,
+   "id": "world_112",
+   "palette": {
+    "hue": 0.776,
+    "sky": "#3e244c",
+    "mid": "#854b8b",
+    "accent": "#8dd369",
+    "ground": "#2e1f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Falmuth / Jura",
+   "series": [
+    "That Time I Got Reincarnated as a Slime"
+   ],
+   "cities": [
+    {
+     "city": "Milim's Dragon Demon Palace",
+     "architecture": "a candy-colored palace of a dragon-child's toys, a very sleepy demon lord and one destructive tantrum",
+     "characterId": 500,
+     "characterName": "Milim Nava"
+    }
+   ],
+   "characters": 1,
+   "id": "world_113",
+   "palette": {
+    "hue": 0.737,
+    "sky": "#35244c",
+    "mid": "#764b8b",
+    "accent": "#a6d369",
+    "ground": "#2a1f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Funbari Hills",
+   "series": [
+    "Shaman King"
+   ],
+   "cities": [
+    {
+     "city": "Funbari Hills Shaman Tavern",
+     "architecture": "a hillside tavern of an oversoul lantern, a lazy shamans' porch and a Great Spirit's wind chime",
+     "characterId": 421,
+     "characterName": "Yoh Asakura"
+    }
+   ],
+   "characters": 1,
+   "id": "world_114",
+   "palette": {
+    "hue": 0.98,
+    "sky": "#4c2429",
+    "mid": "#8b534b",
+    "accent": "#69d3c7",
+    "ground": "#331f1f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Future Earth",
+   "series": [
+    "Dragon Ball Super"
+   ],
+   "cities": [
+    {
+     "city": "Capsule Corp Ruins Future",
+     "architecture": "half-buried capsule building under a black sky, lit by survival lanterns",
+     "characterId": 82,
+     "characterName": "Trunks (Future)"
+    }
+   ],
+   "characters": 1,
+   "id": "world_115",
+   "palette": {
+    "hue": 0.498,
+    "sky": "#244c4b",
+    "mid": "#4b7d8b",
+    "accent": "#d3696a",
+    "ground": "#1f3133",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Future Earth, Universe 10",
+   "series": [
+    "Dragon Ball Super"
+   ],
+   "cities": [
+    {
+     "city": "Future Rose Cathedral",
+     "architecture": "blackened cathedral of rose windows and a pink-scarred sky",
+     "characterId": 77,
+     "characterName": "Goku Black"
+    }
+   ],
+   "characters": 1,
+   "id": "world_116",
+   "palette": {
+    "hue": 0.031,
+    "sky": "#4c2c24",
+    "mid": "#8b664b",
+    "accent": "#69bfd3",
+    "ground": "#33251f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Gehenna",
+   "series": [
+    "Blue Exorcist"
+   ],
+   "cities": [
+    {
+     "city": "Mephisto's Time-Space Circus",
+     "architecture": "a striped circus tent of impossible size, floating playing cards and a door that opens anywhere",
+     "characterId": 452,
+     "characterName": "Mephisto Pheles"
+    }
+   ],
+   "characters": 1,
+   "id": "world_117",
+   "palette": {
+    "hue": 0.122,
+    "sky": "#4c4124",
+    "mid": "#8b894b",
+    "accent": "#6986d3",
+    "ground": "#33301f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Geo Front, NERV HQ",
+   "series": [
+    "Neon Genesis Evangelion"
+   ],
+   "cities": [
+    {
+     "city": "NERV Command Bridge",
+     "architecture": "a dark hexagonal bridge of steepled fingers, red display panels and a key shaped like Solomon's seal",
+     "characterId": 348,
+     "characterName": "Gendo Ikari"
+    }
+   ],
+   "characters": 1,
+   "id": "world_118",
+   "palette": {
+    "hue": 0.714,
+    "sky": "#30244c",
+    "mid": "#6d4b8b",
+    "accent": "#b5d369",
+    "ground": "#271f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "God Hand Domain",
+   "series": [
+    "Berserk"
+   ],
+   "cities": [
+    {
+     "city": "Femto's Eclipse Cathedral",
+     "architecture": "a cathedral of white feathers, an eclipse on the floor and five thrones that are never all filled",
+     "characterId": 463,
+     "characterName": "Griffith (Femto)"
+    }
+   ],
+   "characters": 1,
+   "id": "world_119",
+   "palette": {
+    "hue": 0.698,
+    "sky": "#2c244c",
+    "mid": "#664b8b",
+    "accent": "#bfd369",
+    "ground": "#251f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Greed Island",
+   "series": [
+    "Hunter x Hunter (2011)"
+   ],
+   "cities": [
+    {
+     "city": "Bisky's Massage Gym",
+     "architecture": "pink training gym of gem displays, muscle rollers and a very small girl's very large dumbbell",
+     "characterId": 171,
+     "characterName": "Bisky Krueger"
+    }
+   ],
+   "characters": 1,
+   "id": "world_120",
+   "palette": {
+    "hue": 0.251,
+    "sky": "#384c24",
+    "mid": "#5b8b4b",
+    "accent": "#9f69d3",
+    "ground": "#26331f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Green Dolphin Street Prison",
+   "series": [
+    "JoJo's Bizarre Adventure: Stone Ocean"
+   ],
+   "cities": [
+    {
+     "city": "Stone Free Prison Green",
+     "architecture": "a prison yard that can be unraveled into string, guarded by a lock made of thread",
+     "characterId": 268,
+     "characterName": "Jolyne Cujoh"
+    }
+   ],
+   "characters": 1,
+   "id": "world_121",
+   "palette": {
+    "hue": 0.435,
+    "sky": "#244c3c",
+    "mid": "#4b8b82",
+    "accent": "#d36992",
+    "ground": "#1f332e",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Gun Gale Online",
+   "series": [
+    "Sword Art Online II"
+   ],
+   "cities": [
+    {
+     "city": "Sinon's Hecate Ridge",
+     "architecture": "a sniper's ridge of bullet casings, wind flags and a girl who counts her own heartbeat",
+     "characterId": 360,
+     "characterName": "Sinon"
+    }
+   ],
+   "characters": 1,
+   "id": "world_122",
+   "palette": {
+    "hue": 0.698,
+    "sky": "#2c244c",
+    "mid": "#664b8b",
+    "accent": "#bfd369",
+    "ground": "#251f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Heavens Arena",
+   "series": [
+    "Hunter x Hunter (2011)"
+   ],
+   "cities": [
+    {
+     "city": "Hisoka's Card Arena",
+     "architecture": "circus-bright arena of floating playing cards, jester banners and a betting balcony",
+     "characterId": 166,
+     "characterName": "Hisoka Morow"
+    }
+   ],
+   "characters": 1,
+   "id": "world_123",
+   "palette": {
+    "hue": 0.635,
+    "sky": "#242c4c",
+    "mid": "#4e4b8b",
+    "accent": "#d3bf69",
+    "ground": "#1f2033",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Hokkaido",
+   "series": [
+    "Shaman King"
+   ],
+   "cities": [
+    {
+     "city": "HoroHoro's Downpour Cave",
+     "architecture": "an icy Ainu cave of a snowboard propped by the fire and a tiny koropokkur's mushroom",
+     "characterId": 424,
+     "characterName": "HoroHoro"
+    }
+   ],
+   "characters": 1,
+   "id": "world_124",
+   "palette": {
+    "hue": 0.631,
+    "sky": "#242d4c",
+    "mid": "#4d4b8b",
+    "accent": "#d3bd69",
+    "ground": "#1f2033",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Iceland / England",
+   "series": [
+    "Vinland Saga"
+   ],
+   "cities": [
+    {
+     "city": "Ketil's Farm Wheat Field",
+     "architecture": "a wide wheat field of a plough left mid-furrow, a slave's shackles in the grass and no sword within reach",
+     "characterId": 458,
+     "characterName": "Thorfinn"
+    }
+   ],
+   "characters": 1,
+   "id": "world_125",
+   "palette": {
+    "hue": 0.584,
+    "sky": "#24384c",
+    "mid": "#4b5b8b",
+    "accent": "#d39f69",
+    "ground": "#1f2633",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Interstice",
+   "series": [
+    "Berserk"
+   ],
+   "cities": [
+    {
+     "city": "Skull Knight's Dream Corridor",
+     "architecture": "a corridor of floating behelits, a horse made of shadow and a sword forged from a swallowed god",
+     "characterId": 466,
+     "characterName": "Skull Knight"
+    }
+   ],
+   "characters": 1,
+   "id": "world_126",
+   "palette": {
+    "hue": 0.4,
+    "sky": "#244c34",
+    "mid": "#4b8b74",
+    "accent": "#d369a9",
+    "ground": "#1f3329",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Iscariot, Vatican",
+   "series": [
+    "Hellsing"
+   ],
+   "cities": [
+    {
+     "city": "Iscariot Bayonet Oratory",
+     "architecture": "a white oratory of blessed bayonets, a priest's laugh and a wall of nail-scarred stone",
+     "characterId": 398,
+     "characterName": "Alexander Anderson"
+    }
+   ],
+   "characters": 1,
+   "id": "world_127",
+   "palette": {
+    "hue": 0.106,
+    "sky": "#4c3d24",
+    "mid": "#8b834b",
+    "accent": "#6990d3",
+    "ground": "#332e1f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Ishigami Village",
+   "series": [
+    "Dr. Stone"
+   ],
+   "cities": [
+    {
+     "city": "Kohaku's Vine Forest",
+     "architecture": "a forest of swinging vines, a hidden hot spring and a guardian who fought a lion bare-handed",
+     "characterId": 445,
+     "characterName": "Kohaku"
+    }
+   ],
+   "characters": 1,
+   "id": "world_128",
+   "palette": {
+    "hue": 0.341,
+    "sky": "#244c26",
+    "mid": "#4b8b5d",
+    "accent": "#d369ce",
+    "ground": "#1f3322",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Ishval",
+   "series": [
+    "Fullmetal Alchemist: Brotherhood"
+   ],
+   "cities": [
+    {
+     "city": "Ishval Ruins Sanctuary",
+     "architecture": "broken Ishvalan ruins of a scarred god-statue and a brother's unfinished research notes",
+     "characterId": 193,
+     "characterName": "Scar"
+    }
+   ],
+   "characters": 1,
+   "id": "world_129",
+   "palette": {
+    "hue": 0.11,
+    "sky": "#4c3e24",
+    "mid": "#8b854b",
+    "accent": "#698dd3",
+    "ground": "#332e1f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Iwagakure",
+   "series": [
+    "Naruto Shippuden"
+   ],
+   "cities": [
+    {
+     "city": "Iwagakure Clay Quarry",
+     "architecture": "sculpted clay pits and kiln towers shaped like exploding birds",
+     "characterId": 26,
+     "characterName": "Deidara"
+    }
+   ],
+   "characters": 1,
+   "id": "world_130",
+   "palette": {
+    "hue": 0.553,
+    "sky": "#243f4c",
+    "mid": "#4b678b",
+    "accent": "#d38b69",
+    "ground": "#1f2a33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Izumo",
+   "series": [
+    "Shaman King"
+   ],
+   "cities": [
+    {
+     "city": "Kyoyama Oracle Bell House",
+     "architecture": "a house of itako prayer beads, a bead-curtain doorway and a very strict training schedule",
+     "characterId": 422,
+     "characterName": "Anna Kyoyama"
+    }
+   ],
+   "characters": 1,
+   "id": "world_131",
+   "palette": {
+    "hue": 0.675,
+    "sky": "#26244c",
+    "mid": "#5d4b8b",
+    "accent": "#ced369",
+    "ground": "#221f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Jeju Island",
+   "series": [
+    "Solo Leveling"
+   ],
+   "cities": [
+    {
+     "city": "Beru's Ant Shadow Nest",
+     "architecture": "a collapsed island cavern of a dead ant king's hollow, now filled with very polite shadows",
+     "characterId": 478,
+     "characterName": "Beru"
+    }
+   ],
+   "characters": 1,
+   "id": "world_132",
+   "palette": {
+    "hue": 0.729,
+    "sky": "#33244c",
+    "mid": "#734b8b",
+    "accent": "#abd369",
+    "ground": "#291f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Kakin",
+   "series": [
+    "Hunter x Hunter (2011)"
+   ],
+   "cities": [
+    {
+     "city": "Kite's Crazy Slots Ranch",
+     "architecture": "open ranch with a numbered slot machine shrine and a fox-like companion statue",
+     "characterId": 174,
+     "characterName": "Kite"
+    }
+   ],
+   "characters": 1,
+   "id": "world_133",
+   "palette": {
+    "hue": 0.741,
+    "sky": "#36244c",
+    "mid": "#774b8b",
+    "accent": "#a4d369",
+    "ground": "#2a1f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Kakin / Whale Island",
+   "series": [
+    "Hunter x Hunter (2011)"
+   ],
+   "cities": [
+    {
+     "city": "Whale Island Fishing Dock",
+     "architecture": "sunlit dock of fishing poles, a giant catch board and a path into the jungle",
+     "characterId": 162,
+     "characterName": "Gon Freecss"
+    }
+   ],
+   "characters": 1,
+   "id": "world_134",
+   "palette": {
+    "hue": 0.365,
+    "sky": "#244c2c",
+    "mid": "#4b8b66",
+    "accent": "#d369bf",
+    "ground": "#1f3325",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Kalos",
+   "series": [
+    "Pokemon the Series: XY"
+   ],
+   "cities": [
+    {
+     "city": "Ninja Village Water Veil",
+     "architecture": "a hidden ninja village of waterfalls, smoke bombs and frog-shaped roof tiles",
+     "characterId": 318,
+     "characterName": "Greninja"
+    }
+   ],
+   "characters": 1,
+   "id": "world_135",
+   "palette": {
+    "hue": 0.643,
+    "sky": "#242a4c",
+    "mid": "#514b8b",
+    "accent": "#d3c469",
+    "ground": "#1f1f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Kamui Dimension",
+   "series": [
+    "Naruto Shippuden"
+   ],
+   "cities": [
+    {
+     "city": "Kamui Dimension Rift",
+     "architecture": "floating stone slabs in a void, connected by warped corridors of white space",
+     "characterId": 28,
+     "characterName": "Obito Uchiha"
+    }
+   ],
+   "characters": 1,
+   "id": "world_136",
+   "palette": {
+    "hue": 0.02,
+    "sky": "#4c2924",
+    "mid": "#8b624b",
+    "accent": "#69c7d3",
+    "ground": "#33231f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Kyoto Jujutsu High",
+   "series": [
+    "Jujutsu Kaisen"
+   ],
+   "cities": [
+    {
+     "city": "Todo Boogie Woogie Stage",
+     "architecture": "mirror-ball training stage with a hand-clap echo chamber",
+     "characterId": 123,
+     "characterName": "Aoi Todo"
+    }
+   ],
+   "characters": 1,
+   "id": "world_137",
+   "palette": {
+    "hue": 0.157,
+    "sky": "#4c4924",
+    "mid": "#808b4b",
+    "accent": "#696fd3",
+    "ground": "#32331f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Land of Darkness",
+   "series": [
+    "One Punch Man"
+   ],
+   "cities": [
+    {
+     "city": "Sonic's Ninja Ravine",
+     "architecture": "a ravine of training ropes, shifted stone markers and a thousand afterimages painted on rock",
+     "characterId": 234,
+     "characterName": "Speed-o'-Sound Sonic"
+    }
+   ],
+   "characters": 1,
+   "id": "world_138",
+   "palette": {
+    "hue": 0.886,
+    "sky": "#4c243f",
+    "mid": "#8b4b67",
+    "accent": "#69d38b",
+    "ground": "#331f2a",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Liones",
+   "series": [
+    "The Seven Deadly Sins"
+   ],
+   "cities": [
+    {
+     "city": "Gilthunder's Thunder Bastion",
+     "architecture": "storm-marked bastion of lightning rods and a knight's oath carved into the gate",
+     "characterId": 224,
+     "characterName": "Gilthunder"
+    }
+   ],
+   "characters": 1,
+   "id": "world_139",
+   "palette": {
+    "hue": 0.616,
+    "sky": "#24304c",
+    "mid": "#4b4f8b",
+    "accent": "#d3b369",
+    "ground": "#1f2233",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Lukso Province",
+   "series": [
+    "Hunter x Hunter (2011)"
+   ],
+   "cities": [
+    {
+     "city": "Kurta Scarlet Grove",
+     "architecture": "quiet grove of painted scarlet leaves with 36 pairs of eyes carved into the trees",
+     "characterId": 164,
+     "characterName": "Kurapika"
+    }
+   ],
+   "characters": 1,
+   "id": "world_140",
+   "palette": {
+    "hue": 0.325,
+    "sky": "#264c24",
+    "mid": "#4b8b57",
+    "accent": "#ce69d3",
+    "ground": "#1f3320",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Mars",
+   "series": [
+    "Cowboy Bebop"
+   ],
+   "cities": [
+    {
+     "city": "Red Dragon Syndicate Hall",
+     "architecture": "a long shadowed hall of a syndicate's long table, a katana at the head and a bird in the rafters",
+     "characterId": 391,
+     "characterName": "Vicious"
+    }
+   ],
+   "characters": 1,
+   "id": "world_141",
+   "palette": {
+    "hue": 0.627,
+    "sky": "#242e4c",
+    "mid": "#4b4b8b",
+    "accent": "#d3ba69",
+    "ground": "#1f2133",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Modern & Feudal Japan",
+   "series": [
+    "Inuyasha"
+   ],
+   "cities": [
+    {
+     "city": "Higurashi Shrine Well",
+     "architecture": "a Shinto shrine of an old family well, a bicycle against the wall and shrine arrows in a bucket",
+     "characterId": 406,
+     "characterName": "Kagome Higurashi"
+    }
+   ],
+   "characters": 1,
+   "id": "world_142",
+   "palette": {
+    "hue": 0.188,
+    "sky": "#474c24",
+    "mid": "#738b4b",
+    "accent": "#7769d3",
+    "ground": "#2e331f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Mount Myoboku",
+   "series": [
+    "Naruto Shippuden"
+   ],
+   "cities": [
+    {
+     "city": "Mount Myoboku Terrace",
+     "architecture": "floating toad-mountain village of hot springs, rope bridges and giant lily pads",
+     "characterId": 6,
+     "characterName": "Jiraiya"
+    }
+   ],
+   "characters": 1,
+   "id": "world_143",
+   "palette": {
+    "hue": 0.655,
+    "sky": "#24274c",
+    "mid": "#564b8b",
+    "accent": "#d3cc69",
+    "ground": "#201f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "NERV / WILLE",
+   "series": [
+    "Rebuild of Evangelion"
+   ],
+   "cities": [
+    {
+     "city": "Eva-08 Wild Hangar",
+     "architecture": "an open hangar of a pink-and-yellow Eva, a jet-pack rack and a pilot who only fights when she wants",
+     "characterId": 347,
+     "characterName": "Mari Illustrious Makinami"
+    }
+   ],
+   "characters": 1,
+   "id": "world_144",
+   "palette": {
+    "hue": 0.62,
+    "sky": "#24304c",
+    "mid": "#4b4e8b",
+    "accent": "#d3b569",
+    "ground": "#1f2233",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "NGL",
+   "series": [
+    "Hunter x Hunter (2011)"
+   ],
+   "cities": [
+    {
+     "city": "Chimera Ant Royal Nest",
+     "architecture": "palace built from consumed flesh and bone, with a throne room of silent waiting",
+     "characterId": 170,
+     "characterName": "Meruem"
+    }
+   ],
+   "characters": 1,
+   "id": "world_145",
+   "palette": {
+    "hue": 0.506,
+    "sky": "#244a4c",
+    "mid": "#4b7a8b",
+    "accent": "#d36d69",
+    "ground": "#1f3033",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Nankatsu",
+   "series": [
+    "Captain Tsubasa"
+   ],
+   "cities": [
+    {
+     "city": "Nankatsu Drive Shot Field",
+     "architecture": "a school field with a bent goalpost, a diving header mark in the dirt and a brother's whistle",
+     "characterId": 309,
+     "characterName": "Tsubasa Ozora"
+    }
+   ],
+   "characters": 1,
+   "id": "world_146",
+   "palette": {
+    "hue": 0.329,
+    "sky": "#254c24",
+    "mid": "#4b8b59",
+    "accent": "#d169d3",
+    "ground": "#1f3321",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "New Island",
+   "series": [
+    "Pokemon"
+   ],
+   "cities": [
+    {
+     "city": "New Island Psychic Cloister",
+     "architecture": "a cloned island citadel of floating armor fragments and a storm that never breaks",
+     "characterId": 316,
+     "characterName": "Mewtwo"
+    }
+   ],
+   "characters": 1,
+   "id": "world_147",
+   "palette": {
+    "hue": 0.369,
+    "sky": "#244c2d",
+    "mid": "#4b8b68",
+    "accent": "#d369bd",
+    "ground": "#1f3325",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "New York, 1938",
+   "series": [
+    "JoJo's Bizarre Adventure"
+   ],
+   "cities": [
+    {
+     "city": "Hermit Purple Vineyard",
+     "architecture": "a sunlit vineyard where thorny purple vines grow through the trellises like an old con man's plans",
+     "characterId": 258,
+     "characterName": "Joseph Joestar"
+    }
+   ],
+   "characters": 1,
+   "id": "world_148",
+   "palette": {
+    "hue": 0.91,
+    "sky": "#4c243a",
+    "mid": "#8b4b5e",
+    "accent": "#69d39a",
+    "ground": "#331f27",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Northern Lands",
+   "series": [
+    "Frieren: Beyond Journey's End"
+   ],
+   "cities": [
+    {
+     "city": "Aura's Scales of Obedience",
+     "architecture": "a black cathedral hung with a giant balance scale and rows of headless swords",
+     "characterId": 252,
+     "characterName": "Aura the Guillotine"
+    }
+   ],
+   "characters": 1,
+   "id": "world_149",
+   "palette": {
+    "hue": 0.522,
+    "sky": "#24474c",
+    "mid": "#4b738b",
+    "accent": "#d37769",
+    "ground": "#1f2e33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Osaka",
+   "series": [
+    "Detective Conan"
+   ],
+   "cities": [
+    {
+     "city": "Hattori's Osaka Kendo Dojo",
+     "architecture": "an Osaka dojo of kendo armor, a high school detective's bike and a very loud rivalry",
+     "characterId": 427,
+     "characterName": "Heiji Hattori"
+    }
+   ],
+   "characters": 1,
+   "id": "world_150",
+   "palette": {
+    "hue": 0.698,
+    "sky": "#2c244c",
+    "mid": "#664b8b",
+    "accent": "#bfd369",
+    "ground": "#251f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Ostania",
+   "series": [
+    "Spy x Family"
+   ],
+   "cities": [
+    {
+     "city": "Thorn Princess Dress Shop",
+     "architecture": "a modest dress shop with poison-resistant gloves and a very long needle hidden in the hem",
+     "characterId": 254,
+     "characterName": "Yor Forger (Thorn Princess)"
+    }
+   ],
+   "characters": 1,
+   "id": "world_151",
+   "palette": {
+    "hue": 0.859,
+    "sky": "#4c2446",
+    "mid": "#8b4b72",
+    "accent": "#69d379",
+    "ground": "#331f2d",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Otogakure",
+   "series": [
+    "Naruto Shippuden"
+   ],
+   "cities": [
+    {
+     "city": "Otogakure Underground Lab",
+     "architecture": "catacomb laboratory of vats, cables and a snake-veined operating table",
+     "characterId": 34,
+     "characterName": "Kabuto Yakushi"
+    }
+   ],
+   "characters": 1,
+   "id": "world_152",
+   "palette": {
+    "hue": 0.235,
+    "sky": "#3c4c24",
+    "mid": "#618b4b",
+    "accent": "#9569d3",
+    "ground": "#28331f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Phantom Lord",
+   "series": [
+    "Fairy Tail"
+   ],
+   "cities": [
+    {
+     "city": "Lockser Rain Garden",
+     "architecture": "garden that is permanently drizzling, with a pink umbrella stand and a rain gauge of love letters",
+     "characterId": 184,
+     "characterName": "Juvia Lockser"
+    }
+   ],
+   "characters": 1,
+   "id": "world_153",
+   "palette": {
+    "hue": 0.302,
+    "sky": "#2c4c24",
+    "mid": "#4b8b4e",
+    "accent": "#bf69d3",
+    "ground": "#20331f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Planet Vampa",
+   "series": [
+    "Dragon Ball Super: Broly"
+   ],
+   "cities": [
+    {
+     "city": "Planet Vampa Wasteland",
+     "architecture": "dead wasteland of wrecked pods, bone drifts and a green emergency beacon",
+     "characterId": 81,
+     "characterName": "Broly"
+    }
+   ],
+   "characters": 1,
+   "id": "world_154",
+   "palette": {
+    "hue": 0.831,
+    "sky": "#4b244c",
+    "mid": "#8b4b7d",
+    "accent": "#6ad369",
+    "ground": "#331f31",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Post Disaster",
+   "series": [
+    "Mobile Suit Gundam: Iron-Blooded Orphans"
+   ],
+   "cities": [
+    {
+     "city": "Barbatos Hangar Tekkadan",
+     "architecture": "a rough hangar of a battered grey frame, oil drums and Tekkadan's graffiti on the shutter",
+     "characterId": 342,
+     "characterName": "Mikazuki Augus"
+    }
+   ],
+   "characters": 1,
+   "id": "world_155",
+   "palette": {
+    "hue": 0.663,
+    "sky": "#24254c",
+    "mid": "#594b8b",
+    "accent": "#d3d169",
+    "ground": "#211f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Public Safety HQ",
+   "series": [
+    "Chainsaw Man"
+   ],
+   "cities": [
+    {
+     "city": "Makima's Control Office",
+     "architecture": "a quiet office of chained dogs, closed curtains and a chair facing the door",
+     "characterId": 243,
+     "characterName": "Makima"
+    }
+   ],
+   "characters": 1,
+   "id": "world_156",
+   "palette": {
+    "hue": 0.29,
+    "sky": "#2f4c24",
+    "mid": "#4c8b4b",
+    "accent": "#b869d3",
+    "ground": "#21331f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "SPK Headquarters",
+   "series": [
+    "Death Note"
+   ],
+   "cities": [
+    {
+     "city": "Near's Toy Pyramid",
+     "architecture": "white room of stacked dice, figurines and a finger-puppet that speaks for a man who never looks up",
+     "characterId": 202,
+     "characterName": "Near"
+    }
+   ],
+   "characters": 1,
+   "id": "world_157",
+   "palette": {
+    "hue": 0.439,
+    "sky": "#244c3d",
+    "mid": "#4b8b83",
+    "accent": "#d36990",
+    "ground": "#1f332e",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Sacred World of the Kai",
+   "series": [
+    "Dragon Ball Z"
+   ],
+   "cities": [
+    {
+     "city": "Supreme Kai Shattered Realm",
+     "architecture": "fragmented floating plateau of destroyed buildings and drifting debris",
+     "characterId": 74,
+     "characterName": "Kid Buu"
+    }
+   ],
+   "characters": 1,
+   "id": "world_158",
+   "palette": {
+    "hue": 0.2,
+    "sky": "#444c24",
+    "mid": "#6f8b4b",
+    "accent": "#7e69d3",
+    "ground": "#2c331f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Sarayashiki",
+   "series": [
+    "Yu Yu Hakusho"
+   ],
+   "cities": [
+    {
+     "city": "Kuwabara Gang Rooftop",
+     "architecture": "a school rooftop of a gang's jackets, a cat feeding station and a very loyal fighter's bench",
+     "characterId": 411,
+     "characterName": "Kazuma Kuwabara"
+    }
+   ],
+   "characters": 1,
+   "id": "world_159",
+   "palette": {
+    "hue": 0.494,
+    "sky": "#244c4a",
+    "mid": "#4b7e8b",
+    "accent": "#d3696d",
+    "ground": "#1f3133",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Satan City, Earth",
+   "series": [
+    "Dragon Ball Super"
+   ],
+   "cities": [
+    {
+     "city": "Orange Star High Ward",
+     "architecture": "suburban district of school rooftops, a bus stop and a Great Saiyaman statue",
+     "characterId": 69,
+     "characterName": "Son Gohan"
+    }
+   ],
+   "characters": 1,
+   "id": "world_160",
+   "palette": {
+    "hue": 0.137,
+    "sky": "#4c4524",
+    "mid": "#878b4b",
+    "accent": "#697cd3",
+    "ground": "#33321f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Shaman Fight Arena",
+   "series": [
+    "Shaman King"
+   ],
+   "cities": [
+    {
+     "city": "Hao's Onmyodo Star Chamber",
+     "architecture": "a chamber of a thousand-year grudge, floating onmyo spells and a star chart of the Great Spirit",
+     "characterId": 425,
+     "characterName": "Hao Asakura"
+    }
+   ],
+   "characters": 1,
+   "id": "world_161",
+   "palette": {
+    "hue": 0.29,
+    "sky": "#2f4c24",
+    "mid": "#4c8b4b",
+    "accent": "#b869d3",
+    "ground": "#21331f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Sinnoh",
+   "series": [
+    "Pokemon"
+   ],
+   "cities": [
+    {
+     "city": "Aura Guardian Temple",
+     "architecture": "a stone temple of aura-reading training halls and a tree where a guardian once stood",
+     "characterId": 319,
+     "characterName": "Lucario"
+    }
+   ],
+   "characters": 1,
+   "id": "world_162",
+   "palette": {
+    "hue": 0.408,
+    "sky": "#244c36",
+    "mid": "#4b8b77",
+    "accent": "#d369a4",
+    "ground": "#1f332a",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Soul Society",
+   "series": [
+    "Bleach"
+   ],
+   "cities": [
+    {
+     "city": "Rukongai Inuzuri Slums",
+     "architecture": "rambling slum of salvaged planks, tattooed banners and a bone-and-rope bridge",
+     "characterId": 41,
+     "characterName": "Renji Abarai"
+    }
+   ],
+   "characters": 1,
+   "id": "world_163",
+   "palette": {
+    "hue": 0.376,
+    "sky": "#244c2f",
+    "mid": "#4b8b6b",
+    "accent": "#d369b8",
+    "ground": "#1f3326",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Task Force HQ",
+   "series": [
+    "Death Note"
+   ],
+   "cities": [
+    {
+     "city": "L's White Chair Room",
+     "architecture": "bare white room of monitors, sugar cubes and a single crouched chair",
+     "characterId": 199,
+     "characterName": "L"
+    }
+   ],
+   "characters": 1,
+   "id": "world_164",
+   "palette": {
+    "hue": 0.667,
+    "sky": "#24244c",
+    "mid": "#5a4b8b",
+    "accent": "#d3d369",
+    "ground": "#211f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Tenrou Island",
+   "series": [
+    "Fairy Tail"
+   ],
+   "cities": [
+    {
+     "city": "Tenrou Island Fairy Glade",
+     "architecture": "sunlit glade of tiny glowing fairies, an eternal-child statue and the First Guild Master's grave",
+     "characterId": 189,
+     "characterName": "Mavis Vermillion"
+    }
+   ],
+   "characters": 1,
+   "id": "world_165",
+   "palette": {
+    "hue": 0.329,
+    "sky": "#254c24",
+    "mid": "#4b8b59",
+    "accent": "#d169d3",
+    "ground": "#1f3321",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Teppelin",
+   "series": [
+    "Tengen Toppa Gurren Lagann"
+   ],
+   "cities": [
+    {
+     "city": "Teppelin Spiral King Throne",
+     "architecture": "a decadent palace of golden spiral crests, chained humans and a king who stopped the sky",
+     "characterId": 389,
+     "characterName": "Lordgenome"
+    }
+   ],
+   "characters": 1,
+   "id": "world_166",
+   "palette": {
+    "hue": 0.004,
+    "sky": "#4c2524",
+    "mid": "#8b5c4b",
+    "accent": "#69d1d3",
+    "ground": "#33221f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Terminal Dogma",
+   "series": [
+    "Neon Genesis Evangelion"
+   ],
+   "cities": [
+    {
+     "city": "Tabris Angel Platform",
+     "architecture": "a white platform descending into Terminal Dogma with a piano no one else can hear",
+     "characterId": 346,
+     "characterName": "Kaworu Nagisa"
+    }
+   ],
+   "characters": 1,
+   "id": "world_167",
+   "palette": {
+    "hue": 0.631,
+    "sky": "#242d4c",
+    "mid": "#4d4b8b",
+    "accent": "#d3bd69",
+    "ground": "#1f2033",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Tokyo, Underground",
+   "series": [
+    "Baki"
+   ],
+   "cities": [
+    {
+     "city": "Hanma Underground Arena",
+     "architecture": "an illegal arena of a cockroach-dash footprint in the floor, an imaginary opponent's outline and a father's shadow",
+     "characterId": 484,
+     "characterName": "Baki Hanma"
+    }
+   ],
+   "characters": 1,
+   "id": "world_168",
+   "palette": {
+    "hue": 0.231,
+    "sky": "#3c4c24",
+    "mid": "#638b4b",
+    "accent": "#9269d3",
+    "ground": "#29331f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Tower of Heaven",
+   "series": [
+    "Fairy Tail"
+   ],
+   "cities": [
+    {
+     "city": "Fernandes Meteor Pillar",
+     "architecture": "ruined tower crowned by a meteor-shaped etherion crystal and a guilty man's kneeling stone",
+     "characterId": 188,
+     "characterName": "Jellal Fernandes"
+    }
+   ],
+   "characters": 1,
+   "id": "world_169",
+   "palette": {
+    "hue": 0.463,
+    "sky": "#244c43",
+    "mid": "#4b8a8b",
+    "accent": "#d36981",
+    "ground": "#1f3331",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "United States",
+   "series": [
+    "JoJo's Bizarre Adventure: Steel Ball Run"
+   ],
+   "cities": [
+    {
+     "city": "Dirty Deeds White House",
+     "architecture": "a presidential hall with doors between every wall, each one opening onto another America",
+     "characterId": 272,
+     "characterName": "Funny Valentine"
+    }
+   ],
+   "characters": 1,
+   "id": "world_170",
+   "palette": {
+    "hue": 0.286,
+    "sky": "#304c24",
+    "mid": "#4e8b4b",
+    "accent": "#b569d3",
+    "ground": "#22331f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Universe 10",
+   "series": [
+    "Dragon Ball Super"
+   ],
+   "cities": [
+    {
+     "city": "Immortal God's Monolith",
+     "architecture": "sterile white monolith city with no doors, lit by a green halo of self-righteousness",
+     "characterId": 78,
+     "characterName": "Zamasu"
+    }
+   ],
+   "characters": 1,
+   "id": "world_171",
+   "palette": {
+    "hue": 0.812,
+    "sky": "#47244c",
+    "mid": "#8b4b84",
+    "accent": "#77d369",
+    "ground": "#331f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Universe 11",
+   "series": [
+    "Dragon Ball Super"
+   ],
+   "cities": [
+    {
+     "city": "Pride Trooper Barracks",
+     "architecture": "red-and-white barracks of discipline halls, a colossal training bell and silent meditation decks",
+     "characterId": 79,
+     "characterName": "Jiren"
+    }
+   ],
+   "characters": 1,
+   "id": "world_172",
+   "palette": {
+    "hue": 0.353,
+    "sky": "#244c29",
+    "mid": "#4b8b62",
+    "accent": "#d369c7",
+    "ground": "#1f3323",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Universe 6",
+   "series": [
+    "Dragon Ball Super"
+   ],
+   "cities": [
+    {
+     "city": "Universe 6 Assassin's Alley",
+     "architecture": "rain-slick alley of neon signs, silent hitman dens and a frozen clock tower",
+     "characterId": 80,
+     "characterName": "Hit"
+    }
+   ],
+   "characters": 1,
+   "id": "world_173",
+   "palette": {
+    "hue": 0.784,
+    "sky": "#40244c",
+    "mid": "#884b8b",
+    "accent": "#88d369",
+    "ground": "#2f1f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Unknown Continent",
+   "series": [
+    "Hunter x Hunter (2011)"
+   ],
+   "cities": [
+    {
+     "city": "Ging's Unmapped Ruins",
+     "architecture": "half-excavated ruins of a lost civilization, mapped only on a wall he refuses to explain",
+     "characterId": 177,
+     "characterName": "Ging Freecss"
+    }
+   ],
+   "characters": 1,
+   "id": "world_174",
+   "palette": {
+    "hue": 0.098,
+    "sky": "#4c3c24",
+    "mid": "#8b804b",
+    "accent": "#6995d3",
+    "ground": "#332d1f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Valley of the End",
+   "series": [
+    "Naruto Shippuden"
+   ],
+   "cities": [
+    {
+     "city": "Valley of the End Shrine",
+     "architecture": "twin colossus statues over a roaring canyon, ringed by chained war banners",
+     "characterId": 29,
+     "characterName": "Madara Uchiha"
+    }
+   ],
+   "characters": 1,
+   "id": "world_175",
+   "palette": {
+    "hue": 0.816,
+    "sky": "#48244c",
+    "mid": "#8b4b83",
+    "accent": "#74d369",
+    "ground": "#331f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Wales",
+   "series": [
+    "Vinland Saga"
+   ],
+   "cities": [
+    {
+     "city": "Bjorn's Berserker Glade",
+     "architecture": "a quiet glade of a bear-skin cloak, a mushroom ring and a berserker's last request",
+     "characterId": 461,
+     "characterName": "Bjorn the Ironside"
+    }
+   ],
+   "characters": 1,
+   "id": "world_176",
+   "palette": {
+    "hue": 0.047,
+    "sky": "#4c3024",
+    "mid": "#8b6d4b",
+    "accent": "#69b5d3",
+    "ground": "#33271f",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Xing",
+   "series": [
+    "Fullmetal Alchemist: Brotherhood"
+   ],
+   "cities": [
+    {
+     "city": "Xing Emperor's Audience Hall",
+     "architecture": "gold-and-red audience hall of clan banners, a bowl of dumplings and a philosopher's stone crest",
+     "characterId": 195,
+     "characterName": "Ling Yao (Greed)"
+    }
+   ],
+   "characters": 1,
+   "id": "world_177",
+   "palette": {
+    "hue": 0.62,
+    "sky": "#24304c",
+    "mid": "#4b4e8b",
+    "accent": "#d3b569",
+    "ground": "#1f2233",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Yorknew City",
+   "series": [
+    "Hunter x Hunter (2011)"
+   ],
+   "cities": [
+    {
+     "city": "Leorio's Free Clinic",
+     "architecture": "cramped free clinic of donated chairs, a stethoscope hook and a punch-through wall",
+     "characterId": 165,
+     "characterName": "Leorio Paladiknight"
+    }
+   ],
+   "characters": 1,
+   "id": "world_178",
+   "palette": {
+    "hue": 0.761,
+    "sky": "#3b244c",
+    "mid": "#7f4b8b",
+    "accent": "#97d369",
+    "ground": "#2d1f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Zenin Estate",
+   "series": [
+    "Jujutsu Kaisen"
+   ],
+   "cities": [
+    {
+     "city": "Zenin Armory of the Cursed",
+     "architecture": "weapon hall of black blades and a broken scoreboard of clan grudges",
+     "characterId": 120,
+     "characterName": "Maki Zenin"
+    }
+   ],
+   "characters": 1,
+   "id": "world_179",
+   "palette": {
+    "hue": 0.647,
+    "sky": "#24294c",
+    "mid": "#534b8b",
+    "accent": "#d3c769",
+    "ground": "#1f1f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  },
+  {
+   "world": "Zeon, Universal Century",
+   "series": [
+    "Mobile Suit Gundam"
+   ],
+   "cities": [
+    {
+     "city": "Red Comet Zaku Dock",
+     "architecture": "a crimson hangar of a red custom mobile suit, a mask rack and a rose left on the workbench",
+     "characterId": 336,
+     "characterName": "Char Aznable"
+    }
+   ],
+   "characters": 1,
+   "id": "world_180",
+   "palette": {
+    "hue": 0.675,
+    "sky": "#26244c",
+    "mid": "#5d4b8b",
+    "accent": "#ced369",
+    "ground": "#221f33",
+    "derived": true
+   },
+   "stageStatus": "ENVIRONMENT_DATA_ONLY"
+  }
+ ]
+}
