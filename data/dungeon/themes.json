@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "kind": "dungeon_themes",
+  "note": "Art-direction data for dungeon runs. Palettes are authored, not derived from any source art. Themes are selected deterministically from the run seed so a seed always yields the same look. Nothing here is character art and no copyrighted material is referenced.",
+  "themes": [
+    {
+      "id": "stone_halls",
+      "name": "Stone Halls",
+      "blurb": "grey masonry, cold torchlight, standing water on the floor",
+      "keywords": ["stone", "village", "academy", "keep", "fortress", "courtyard", "clinic", "plaza", "tower"],
+      "palette": {"wall": "#2b3242", "floor": "#1d2433", "accent": "#7f8ca8", "hazard": "#e5484d"},
+      "props": ["pillar", "banner", "brazier"]
+    },
+    {
+      "id": "cedar_shrine",
+      "name": "Cedar Shrine",
+      "blurb": "cedar bark, paper lanterns, moss and tiled shrine roofs",
+      "keywords": ["konoha", "shrine", "grove", "forest", "myoboku", "clan", "cliffside", "blossom", "hatake"],
+      "palette": {"wall": "#25301f", "floor": "#1b2618", "accent": "#8fbf6a", "hazard": "#d9822b"},
+      "props": ["torii", "lantern", "cedar_trunk"]
+    },
+    {
+      "id": "sand_vault",
+      "name": "Sand Vault",
+      "blurb": "packed sand, sun-bleached stone, buried seals",
+      "keywords": ["sunagakure", "sand", "desert", "vault", "dune", "oasis", "mirage"],
+      "palette": {"wall": "#3a2d1d", "floor": "#2b2115", "accent": "#e0b062", "hazard": "#c24a2c"},
+      "props": ["urn", "sandfall", "blade_rack"]
+    },
+    {
+      "id": "frozen_cavern",
+      "name": "Frozen Cavern",
+      "blurb": "blue ice, hanging crystals, breath freezing in the air",
+      "keywords": ["ice", "frost", "snow", "winter", "glacier", "mist", "kiri", "hidden mist"],
+      "palette": {"wall": "#20323c", "floor": "#16252d", "accent": "#8fd3e8", "hazard": "#5a7fd6"},
+      "props": ["icicle", "frozen_pool", "crystal"]
+    },
+    {
+      "id": "ember_forge",
+      "name": "Ember Forge",
+      "blurb": "cracked basalt, ember light, heat shimmer",
+      "keywords": ["fire", "volcano", "forge", "lava", "ember", "ash", "flame", "uchiha"],
+      "palette": {"wall": "#33201c", "floor": "#241514", "accent": "#f0762b", "hazard": "#ff3b30"},
+      "props": ["anvil", "ember_pit", "chain"]
+    },
+    {
+      "id": "spirit_void",
+      "name": "Spirit Void",
+      "blurb": "violet dark, drifting motes, no clear floor line",
+      "keywords": ["hueco", "mundo", "void", "spirit", "soul", "seireitei", "realm", "curse", "domain"],
+      "palette": {"wall": "#2a2036", "floor": "#1c1526", "accent": "#b48ce8", "hazard": "#8a4df0"},
+      "props": ["rune_circle", "floating_shard", "gate"]
+    },
+    {
+      "id": "ruined_city",
+      "name": "Ruined City",
+      "blurb": "broken concrete, dead signage, wires hanging loose",
+      "keywords": ["tokyo", "city", "urban", "school", "academy", "street", "japan", "earth", "station"],
+      "palette": {"wall": "#26303a", "floor": "#1a222a", "accent": "#63b3b8", "hazard": "#e5484d"},
+      "props": ["wrecked_car", "sign_board", "rubble"]
+    },
+    {
+      "id": "tidal_depths",
+      "name": "Tidal Depths",
+      "blurb": "wet basalt, bioluminescence, tidal water rising through grates",
+      "keywords": ["ocean", "sea", "trench", "harbour", "harbor", "island", "water", "bay", "coast"],
+      "palette": {"wall": "#1b2f36", "floor": "#122228", "accent": "#57c9c1", "hazard": "#2f8fbf"},
+      "props": ["grate", "coral", "broken_mast"]
+    }
+  ]
+}

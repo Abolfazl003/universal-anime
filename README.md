@@ -58,6 +58,7 @@ any failed check.
 | Rounds, rounds-to-win, optional timer, K.O./time-up, winner, rematch, return to menu | working |
 | AI opponent (approach, spacing, attack, block, meter usage) with delayed perception | working |
 | Dungeon: seeded layout, connectivity validation, rooms, doors that lock during fights, trap with telegraph, loot, rest pad, boss with 3 readable patterns, win/lose/restart | working (temporary shapes) |
+| Dungeon environments: 8 authored room themes, chosen deterministically from the run seed, hinted by the selected character's world | working (palettes and accents, no room art yet) |
 | Pause menu (resume / restart / controls / character select / main menu) | working |
 | Settings: separate master/music/SFX, window mode, resolution, text scale, screen shake, flash intensity, reduced motion, language (en/fa) | working |
 | Controls screen with rebinding, persisted per profile | working |

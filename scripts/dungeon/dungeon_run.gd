@@ -13,6 +13,7 @@ const Generator = preload("res://scripts/dungeon/dungeon_generator.gd")
 const AvatarScript = preload("res://scripts/dungeon/avatar.gd")
 const EnemyScript = preload("res://scripts/dungeon/dungeon_enemy.gd")
 const ProjectileScript = preload("res://scripts/dungeon/dungeon_projectile.gd")
+const DungeonThemes = preload("res://scripts/dungeon/dungeon_themes.gd")
 const DungeonHUD = preload("res://scripts/ui/dungeon_hud.gd")
 const UIKit = preload("res://scripts/ui/ui_kit.gd")
 
@@ -31,6 +32,9 @@ const ROOM_NAME_KEYS: Dictionary = {
 var layout: Dictionary = {}
 var generator
 var seed_value: int = 0
+## Chosen from the run seed (or the selected character's world) so a run has one
+## consistent look and stays reproducible.
+var theme: Dictionary = {}
 
 var world
 var camera
@@ -66,6 +70,7 @@ func _ready() -> void:
 	if seed_value == 0:
 		seed_value = int(Time.get_unix_time_from_system()) % 100000
 	Session.dungeon_seed = seed_value
+	theme = DungeonThemes.pick(seed_value, _theme_hint())
 	_load_data()
 	generator = Generator.new()
 	layout = generator.generate(seed_value, 7)
@@ -561,6 +566,12 @@ func _draw() -> void:
 		var tint: Color = _room_tint(room_type)
 		draw_rect(rect, tint, true)
 		draw_rect(rect.grow(-WALL_THICKNESS), Color(tint.r * 1.15, tint.g * 1.15, tint.b * 1.15, 1.0), true)
+		if not theme.is_empty():
+			# A thin accent band reads as the theme at a glance without needing art.
+			var accent: Color = DungeonThemes.color_of(theme, "accent", "#7f8ca8")
+			draw_rect(
+				Rect2(rect.position + Vector2(WALL_THICKNESS, WALL_THICKNESS), Vector2(rect.size.x - WALL_THICKNESS * 2.0, 3.0)),
+				Color(accent.r, accent.g, accent.b, 0.5), true)
 		# Door gaps, drawn as openings in the wall band.
 		for entry in (door_bodies.get(int(room["id"]), []) as Array):
 			var door_rect: Rect2 = entry["rect"]
@@ -585,7 +596,26 @@ func _draw() -> void:
 		draw_arc(position, 44.0, 0.0, TAU, 32, color, 3.0)
 
 
+## The selected character's world is only a hint: a Sand Village run leans sandy,
+## but the seed still decides when the hint does not match any theme.
+func _theme_hint() -> String:
+	var entry: Dictionary = Session.p1
+	var character_id: int = int(entry.get("id", 0))
+	if str(entry.get("kind", "")) != "character" or character_id <= 0:
+		return ""
+	var character: Dictionary = GameData.get_character(character_id)
+	return str(character.get("world", ""))
+
+
 func _room_tint(room_type: String) -> Color:
+	var base: Color = _room_tint_base(room_type)
+	if theme.is_empty():
+		return base
+	var floor_color: Color = DungeonThemes.color_of(theme, "floor", "#1d2433")
+	return base.lerp(floor_color, 0.45)
+
+
+func _room_tint_base(room_type: String) -> Color:
 	match room_type:
 		"start":
 			return Color("1d2433")

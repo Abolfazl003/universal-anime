@@ -3,6 +3,7 @@ extends RefCounted
 ## instantiation of the dungeon scene with doors, a player and data-driven rooms.
 
 const Generator = preload("res://scripts/dungeon/dungeon_generator.gd")
+const Themes = preload("res://scripts/dungeon/dungeon_themes.gd")
 
 const SEEDS: PackedInt32Array = [1, 7, 42, 99, 1234, 55555, 987654]
 
@@ -13,6 +14,7 @@ func run(t) -> void:
 	_test_connectivity(t)
 	_test_room_types(t)
 	await _test_scene(t)
+	_test_themes(t)
 
 
 func _test_determinism(t) -> void:
@@ -116,3 +118,28 @@ func _test_scene(t) -> void:
 	t.ok("layout validated at runtime", bool(layout.get("ok", false)), str(layout.get("errors", [])))
 	scene.queue_free()
 	await t.wait_ticks(2)
+
+
+func _test_themes(t) -> void:
+	t.suite("dungeon / environment themes")
+	var themes: Array = Themes.load_themes()
+	t.ok("theme table loads", themes.size() >= 6, str(themes.size()))
+	var invalid: Array = []
+	for theme in themes:
+		if not Themes.is_valid(theme):
+			invalid.append(str((theme as Dictionary).get("id", "?")))
+	t.eq("every theme declares a full palette", invalid, [])
+	var first: Dictionary = Themes.pick(1234)
+	t.eq("same seed picks the same theme", str(Themes.pick(1234).get("id", "")), str(first.get("id", "")))
+	var seen: Dictionary = {}
+	for seed_value in range(1, 41):
+		seen[str(Themes.pick(seed_value).get("id", ""))] = true
+	t.ok("seeds spread across themes", seen.size() >= 3, "%d distinct" % seen.size())
+	var suna: Dictionary = Themes.pick(7, "Sunagakure Sand Vault")
+	t.eq("world hint selects the sand theme", str(suna.get("id", "")), "sand_vault")
+	var konoha: Dictionary = Themes.pick(7, "Konohagakure")
+	t.eq("world hint selects the cedar theme", str(konoha.get("id", "")), "cedar_shrine")
+	var unknown: Dictionary = Themes.pick(7, "Nowhere At All")
+	t.eq("unknown hint falls back to the seed pick", str(unknown.get("id", "")), str(Themes.pick(7).get("id", "")))
+	var accent: Color = Themes.color_of(first, "accent", "#ffffff")
+	t.ok("theme palette resolves to a colour", accent.a > 0.0, str(accent))
