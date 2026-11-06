@@ -3,7 +3,7 @@
   "characterName": "Naruto Uzumaki",
   "status": "REFERENCE_PENDING",
   "version": "Naruto Shippuden (Part II), default outfit — proposed, unconfirmed",
-  "imagesReviewed": false,
+  "imagesReviewed": true,
   "referenceImagesPresent": 0,
   "designLocked": false,
   "designApprovedBy": null,
@@ -12,7 +12,14 @@
   "movesetBound": false,
   "stageOwned": "konoha_pending (PENDING, not approved)",
   "notes": [
-    "No reference image could be retrieved or inspected in the build environment.",
-    "Approval metadata is kept here, in the repository, and never in the player save."
-  ]
+    "Two external reference images were downloaded and viewed in full on 2026-11-07 (see docs/02_REFERENCE_NARUTO.md and data/references.json); they are kept outside the repository, so referenceImagesPresent stays 0.",
+    "Gap: the turnaround I saw is the blank-period (The Last) outfit; the Shippuden costume was read from a foreshortened colour render, so the proposal extrapolates between them.",
+    "A design proposal image has been shown to the user; it is NOT approved and NOT final.",
+    "Approval metadata is kept here, in the repository, and never in the player save.",
+    "Proposal v1 was generated and displayed; my own review lists nine off-model corrections in proposals/README.md. No approval has been given, so nothing is locked."
+  ],
+  "proposalShown": true,
+  "proposalVersion": 1,
+  "proposalFile": "assets/characters/001_naruto/proposals/proposal_v1.png",
+  "proposalApproved": false
 }

@@ -14,3 +14,6 @@ data/characters.local.json
 # Test / tool output
 tests/output/
 *.log
+
+# Local image-search cache (external, copyrighted references - never committed)
+image-search/

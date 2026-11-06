@@ -1,44 +1,64 @@
 {
-  "schemaVersion": 1,
-  "meta": {
-    "note": "Reference index for the Reference-First pipeline. Only sources that were actually opened/read during this session are listed. 'imageReviewed' is false everywhere: the build environment could not retrieve or display reference images, so no image was visually inspected and no design was derived from one.",
-    "retrievedOn": "2026-11-06",
-    "tooling": {
-      "pageFetch": "available (fetched naruto.fandom.com text)",
-      "imageSearch": "unavailable in this environment (returned no images)",
-      "binaryDownload": "unavailable for non-allowlisted hosts"
-    }
+ "schemaVersion": 1,
+ "meta": {
+  "note": "Reference index for the Reference-First pipeline. Only sources actually opened/read in this session are listed. On 2026-11-07 image search worked and two reference images were downloaded and viewed in full; everything else is text. The downloaded images are kept outside the repository (no copyrighted art is packaged with the project).",
+  "retrievedOn": "2026-11-07",
+  "tooling": {
+   "pageFetch": "available",
+   "imageSearch": "available since 2026-11-07",
+   "binaryDownload": "unavailable for non-allowlisted hosts"
+  }
+ },
+ "entries": [
+  {
+   "characterId": 1,
+   "characterName": "Naruto Uzumaki",
+   "kind": "text_source",
+   "title": "Narutopedia — Naruto Uzumaki (Appearance / Abilities)",
+   "url": "https://naruto.fandom.com/wiki/Naruto_Uzumaki",
+   "retrievedOn": "2026-11-06",
+   "imageReviewed": false,
+   "notes": "Canonical wiki page. Page text opened in this session; the Appearance section describes the Part II outfit. No image files were downloaded or viewed."
   },
-  "entries": [
-    {
-      "characterId": 1,
-      "characterName": "Naruto Uzumaki",
-      "kind": "text_source",
-      "title": "Narutopedia — Naruto Uzumaki (Appearance / Abilities)",
-      "url": "https://naruto.fandom.com/wiki/Naruto_Uzumaki",
-      "retrievedOn": "2026-11-06",
-      "imageReviewed": false,
-      "notes": "Canonical wiki page. Page text opened in this session; the Appearance section describes the Part II outfit. No image files were downloaded or viewed."
-    },
-    {
-      "characterId": 1,
-      "characterName": "Naruto Uzumaki",
-      "kind": "text_source",
-      "title": "Heroes Wiki — Naruto Uzumaki (Appearance)",
-      "url": "https://hero.fandom.com/wiki/Naruto_Uzumaki",
-      "retrievedOn": "2026-11-06",
-      "imageReviewed": false,
-      "notes": "Search-result excerpt used to cross-check the Part II outfit description (orange form-fitting tracksuit, black collar/shoulder/zip trim, black bandanna headband, black sandals, shuriken holster on right knee)."
-    },
-    {
-      "characterId": 1,
-      "characterName": "Naruto Uzumaki",
-      "kind": "text_source",
-      "title": "Character profile — Naruto Uzumaki (Part I vs Part II outfit comparison)",
-      "url": "https://saint-knights.fandom.com/wiki/Naruto_Uzumaki",
-      "retrievedOn": "2026-11-06",
-      "imageReviewed": false,
-      "notes": "Used to confirm the Part I / Part II differences so the two versions are never mixed in one design."
-    }
-  ]
+  {
+   "characterId": 1,
+   "characterName": "Naruto Uzumaki",
+   "kind": "text_source",
+   "title": "Heroes Wiki — Naruto Uzumaki (Appearance)",
+   "url": "https://hero.fandom.com/wiki/Naruto_Uzumaki",
+   "retrievedOn": "2026-11-06",
+   "imageReviewed": false,
+   "notes": "Search-result excerpt used to cross-check the Part II outfit description (orange form-fitting tracksuit, black collar/shoulder/zip trim, black bandanna headband, black sandals, shuriken holster on right knee)."
+  },
+  {
+   "characterId": 1,
+   "characterName": "Naruto Uzumaki",
+   "kind": "text_source",
+   "title": "Character profile — Naruto Uzumaki (Part I vs Part II outfit comparison)",
+   "url": "https://saint-knights.fandom.com/wiki/Naruto_Uzumaki",
+   "retrievedOn": "2026-11-06",
+   "imageReviewed": false,
+   "notes": "Used to confirm the Part I / Part II differences so the two versions are never mixed in one design."
+  },
+  {
+   "characterId": 1,
+   "characterName": "Naruto Uzumaki",
+   "kind": "image_source",
+   "title": "Character setting sheet (production model sheet, JP annotations) - blank period / The Last outfit",
+   "url": "https://pinterest.com/ivyrose00/naruto-design-sheets",
+   "retrievedOn": "2026-11-07",
+   "imageReviewed": true,
+   "notes": "Front / three-quarter / side / back turnaround with hands, sandal, bag and height marker. Used for body proportions, silhouette construction, face and limb shapes. IMPORTANT: outfit is the blank-period coat, not the Shippuden tracksuit, so costume details were NOT taken from this sheet. File: naruto-uzumaki-shippuden-full-body-chara-1.jpg (outside repo)."
+  },
+  {
+   "characterId": 1,
+   "characterName": "Naruto Uzumaki",
+   "kind": "image_source",
+   "title": "Naruto Shippuden coloured render (dynamic pose)",
+   "url": "https://ja.best-wallpaper.net/naruto-shippuden-hd_wallpapers.html",
+   "retrievedOn": "2026-11-07",
+   "imageReviewed": true,
+   "notes": "Coloured Shippuden look: orange jacket with black shoulders and zip, black forehead-protector cloth, orange trousers, grey knee holster, blond spiky hair, blue eyes, whisker marks. Used for palette and costume read only - the pose is strongly foreshortened, so no proportions were measured from it. File: naruto-shippuden-2.jpg."
+  }
+ ]
 }
