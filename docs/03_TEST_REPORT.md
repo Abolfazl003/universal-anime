@@ -34,6 +34,10 @@ $ echo $?
 0
 ```
 
+That was the state on the first clean run (252 checks). Eight alias checks were
+added afterwards when the real dataset arrived, so the current suite is **260
+checks**, still at 0 failures — see "Second run" below.
+
 The runner itself prints `RESULT: PASSED`, and the process exit code is `0`
 (the runner calls `quit(1)` on any failure, so a shell/CI gate can rely on it).
 
@@ -52,11 +56,11 @@ cache — the project uses `preload()` paths everywhere, so nothing depends on i
 
 Warning count in the passing run: **0** `WARNING`, **0** `SCRIPT ERROR`.
 
-## What the 252 checks cover
+## What the 260 checks cover
 
 | Suite | Coverage |
 |---|---|
-| `data / validator` | duplicate ids, incomplete records, power-name preservation, status normalisation, "absent optional fields are not invented" |
+| `data / validator` | duplicate ids, incomplete records, power-name preservation, status normalisation, "absent optional fields are not invented", **and the `anime`/`signature` aliases of the supplied dataset** |
 | `data / character store` | 600 capacity target, honest empty dataset (no fabricated records), extension loading, references index |
 | `data / capacity + filtering` | synthetic 650-record fixture (never written to disk): search by name/series, element/rarity filters, pagination math, lock rules |
 | `data / movesets`, `animations`, `stages` | every JSON file parses, frame data is internally consistent, per-animation FPS recorded |
@@ -114,6 +118,37 @@ Each scene was started headless for 6 s (`timeout`), capturing only
 and `versus_setup` failed; now all 16 scenes are clean. `dungeon_run`,
 `anim_review` and the menus simply keep running until the timeout kills them,
 which is the expected behaviour for a non-quitting scene.
+
+## Second run — with the real dataset loaded
+
+After `data/characters.local.json` (500 records) was supplied, the same suite and a
+data probe were re-run on the same engine:
+
+```console
+$ godot --headless --path . res://tests/test_runner.tscn
+PASSED: 260   FAILED: 0   TOTAL: 260        # exit 0, real dataset loaded
+$ godot --headless --path . --script /tmp/probe4.gd
+existing=500 prepared=500 playable=0 series=90 statuses={ "DATA_ONLY": 500 }
+validator: ok=true errors=0 warnings=0 incomplete=0
+```
+
+Search and filter probes against the live dataset: `"naruto"` → 38 matches,
+series `Bleach` → 25, element `Fire` → 29, `only_playable` → 0, unfiltered → 500.
+`character_select`, `character_detail` and `boot` scenes start with no script
+errors while holding the real roster.
+
+### Two more defects the real data exposed (fixed)
+
+6. **The boot screen's validator line was hard-wired to "clean".**
+   `GameData.reload_all()` overwrote `validation_report` with its own merged
+   summary, which has no `errors`/`warnings` keys, so the screen always printed
+   "no duplicate ids, no missing required fields" regardless of the file. The
+   validator report and the merged data report are now separate
+   (`validation_report` vs `data_report`).
+7. **"Complete records" counted 0 for every real record.** The boot stat tested
+   raw field names, so a file using `anime`/`signature` looked 100% incomplete.
+   Completeness now goes through the same alias resolution as the validator
+   (`CharacterValidator.is_complete`), and reports 500/500.
 
 ## What is still unverified
 

@@ -58,7 +58,7 @@ Battle data (JSON)  →  Fighter controller  →  CombatManager  →  HUD
 | Check | Result |
 |---|---|
 | Static analysis (`gdlint`, gdtoolkit 4.5.0) | clean, 0 problems |
-| Headless engine run of the whole test suite | **252 / 252 checks pass**, process exit code 0 — full transcript in `docs/03_TEST_REPORT.md` |
+| Headless engine run of the whole test suite | **260 / 260 checks pass**, process exit code 0 — full transcript in `docs/03_TEST_REPORT.md` |
 | Both scenes started directly (F6 style) | all 16 scenes start with 0 `SCRIPT ERROR` after the fixes recorded in `docs/03_TEST_REPORT.md` |
 | Visual check of the running game | **not possible** — the sandbox has no display/GPU, the engine was built headless. Gameplay logic is proven; the *look* is not. |
 | Screenshots / video | none produced |

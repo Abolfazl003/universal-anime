@@ -5,15 +5,18 @@ Strictly 2D anime fighting game in **Godot 4.4 / GDScript** with two modes:
 * **VERSUS** — 1v1 side-view fighting (player vs AI, or local 2 players)
 * **DUNGEON** — top-down action run (rooms, locked doors, traps, loot, boss)
 
-> **Honest status: pre-alpha, Phase 2 (mechanics lab) — now running on a real engine.**
+> **Honest status: pre-alpha, Phase 2 (mechanics lab) — now running on a real engine,
+> and the real roster is loaded.**
 > What is playable now is the *engine*: two temporary `TEMP` dummies fighting in
 > a temporary arena, and one seeded dungeon run with temporary shapes.
-> **No anime character is implemented, approved or playable yet**, because the
-> repository contains no `characters.json` and no reference image could be
-> retrieved to design one. See `docs/00_PHASE0_AUDIT.md`.
+> The character file you supplied is live in the boot report and the roster:
+> **500 records, 90 series, 500 complete, 0 duplicate ids** — and **0 playable**,
+> because every record is still `DATA_ONLY`. Nothing from any anime is
+> implemented, approved or playable; the reference gate for Naruto is open (one
+> proposal shown, unapproved). See `docs/00_PHASE0_AUDIT.md`.
 >
 > Verified on 2026-11-07 with a locally compiled Godot 4.4.1: the headless suite
-> reports `PASSED: 252 FAILED: 0`, exit code `0` (`docs/03_TEST_REPORT.md`).
+> reports `PASSED: 260 FAILED: 0`, exit code `0` (`docs/03_TEST_REPORT.md`).
 > The first run also exposed five real defects — dead state transitions, an
 > unregistered combat manager, unavailable data on direct scene starts, a
 > validator miscount, and two bad test assertions — all fixed and listed there.
@@ -50,7 +53,7 @@ any failed check.
 |---|---|
 | Boot screen with a real data report (source file, records, playable, validator output, save status) | working |
 | Main menu → mode select → character select → versus setup → stage select → match → results → rematch | working |
-| Character select with search, element/role/rarity filters, status badges, lock gating, 600+ paging | working (empty roster until data exists) |
+| Character select with search, element/role/rarity filters, status badges, lock gating, 600+ paging | working — **500 real records / 90 series loaded**, all locked as `DATA_ONLY`, searchable and filterable |
 | Versus fight: move, run, jump, crouch, block, light/heavy/special/ultimate, hitstun, blockstun, knockback, knockdown, get-up, combo counter, cancel windows, input buffer, body collision | working (lab dummies) |
 | Rounds, rounds-to-win, optional timer, K.O./time-up, winner, rematch, return to menu | working |
 | AI opponent (approach, spacing, attack, block, meter usage) with delayed perception | working |
@@ -70,18 +73,18 @@ See `docs/CONTROLS.md`. Defaults: P1 `WASD` + `J K L U I`, P2 arrows + numpad,
 
 ## The two blockers (read this before expecting Naruto)
 
-1. **`data/characters.json` is not in the repository.** Nothing was invented to
-   fill it: no ids, no names, no powers, no fake roster. `data/characters.json`
-   is an explicit empty container; the loaders, filters, paging and locks are all
-   implemented and proven with an in-memory 650-record fixture in the tests.
-   Drop the real file (or the git-ignored `data/characters.local.json`) and the
-   roster appears with no code changes.
-2. **No reference image could be retrieved or viewed** in the build environment
-   (image search returned nothing, image hosts unreachable). Per the
-   reference-first rules, no design proposal, no reference sheet and **no
-   animation frames** were produced for Naruto. Text sources were read and are
-   logged with URLs in `data/references.json` and
-   `docs/02_REFERENCE_NARUTO.md`.
+1. **Dataset is loaded but nothing is playable.** Your file lives at
+   `data/characters.local.json` (git-ignored, source byte-identical, md5
+   `d0ece50b…`), and it uses `anime` + a nested `signature` object instead of this
+   project's `series`/`powers` names. The loader maps those fields **without
+   editing your file**: 500 records, 90 series, 500 complete, 0 duplicates, 0
+   validator errors. Every record is `DATA_ONLY`, so the entire roster is locked
+   by design until characters are approved and animated. The capacity target is
+   600 and the dataset holds 500 — **100 short, and they will not be invented.**
+2. **Art is still gated.** Two external references were viewed on 2026-11-07 and
+   a design proposal has been shown, but nothing is approved and **no animation
+   frame exists**. `designLocked` is `false`, `animationBlocked` is `true`
+   (`docs/02_REFERENCE_NARUTO.md`, `assets/characters/001_naruto/`).
 
 ## Repository layout
 
@@ -99,7 +102,7 @@ scripts/
   ui/                        every screen, built with a shared UIKit
   save/                      SaveService (atomic, versioned, corruption-tolerant)
   debug/                     F3 overlay, animation review tool
-data/                        characters.json, movesets, stages, localization, dungeon data, references
+data/                        characters.json (empty container) + characters.local.json (your 500), movesets, stages, localization, dungeon data, references
 resources/animations/        animation timing metadata (no image frames yet)
 assets/characters/001_naruto/ reference / approved / sprites / effects / metadata folders
 tests/                       headless test suite + runner scene
@@ -128,9 +131,10 @@ does not remove its rights either.
 
 ## Next steps
 
-1. You provide `characters.json` + reference images for Naruto (front, side,
-   back, three-quarter, dungeon views).
-2. I show the reference package and a design proposal for explicit approval.
+1. You approve the Naruto proposal (or send corrections + a Shippuden setting
+   sheet, and the dungeon-camera views).
+2. I revise the proposal and show it again for explicit approval; nothing is
+   locked or animated before that.
 3. After approval: design lock → animation → moveset → both cameras → QA →
    `PLAYABLE`.
 4. Then the Konoha stage, then the next characters in small batches.

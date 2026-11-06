@@ -28,6 +28,7 @@ var role_list: PackedStringArray = PackedStringArray()
 var rarity_list: PackedStringArray = PackedStringArray()
 
 var validation_report: Dictionary = {}
+var data_report: Dictionary = {}
 var source_status: String = "NOT_LOADED"
 var source_path_used: String = ""
 var extensions: Dictionary = {}
@@ -62,11 +63,14 @@ func reload_all() -> Dictionary:
 	load_references()
 
 	_loaded = true
+	# validation_report must stay the validator's own report: the boot screen reads
+	# its errors/warnings, and overwriting it with the merged summary made the
+	# screen claim "no duplicate ids, no missing fields" no matter what.
 	var report := get_report()
 	report["movesets"] = moveset_report
 	report["animations"] = animation_report
 	report["stages"] = stage_report
-	validation_report = report
+	data_report = report
 	data_loaded.emit(report)
 	return report
 
@@ -240,12 +244,7 @@ func stats() -> Dictionary:
 	for character in characters:
 		if int(character["status"]) == Consts.Status.PLAYABLE:
 			playable += 1
-		var complete: bool = true
-		for field in Consts.CHARACTER_REQUIRED_FIELDS:
-			if not character["raw"].has(field) or character["raw"][field] == null:
-				complete = false
-				break
-		if complete:
+		if CharacterValidator.is_complete(character["raw"]):
 			prepared += 1
 		var status_name: String = str(character["status_name"])
 		status_counts[status_name] = int(status_counts.get(status_name, 0)) + 1

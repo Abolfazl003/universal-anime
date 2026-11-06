@@ -21,6 +21,80 @@ func _reset() -> void:
 
 ## Validates an array of raw dictionaries (as parsed from JSON).
 ## Returns a report dictionary that is safe to log and display in UI.
+## Real source files do not always use the field names this project picked.
+## This dataset calls the series "anime" and stores the powers inside a
+## "signature" object (name / description / ultimate). The file is never edited:
+## values are read through these aliases and copied verbatim into the in-memory
+## shape, so the original names, series and power text stay byte-identical.
+const SERIES_ALIASES: PackedStringArray = ["series", "anime"]
+
+
+static func series_of(record: Dictionary) -> String:
+	for key in SERIES_ALIASES:
+		if record.has(key):
+			var value: String = str(record[key]).strip_edges()
+			if not value.is_empty():
+				return value
+	return ""
+
+
+static func powers_of(record: Dictionary) -> Array:
+	var out: Array = []
+	var raw_powers: Variant = record.get("powers", [])
+	if typeof(raw_powers) == TYPE_ARRAY:
+		for power in (raw_powers as Array):
+			if typeof(power) == TYPE_DICTIONARY:
+				out.append({
+					"name": str((power as Dictionary).get("name", "")),
+					"description": str((power as Dictionary).get("description", "")),
+				})
+			else:
+				# Some sources store powers as bare strings. Keep them as names with an
+				# empty description instead of dropping information.
+				out.append({"name": str(power), "description": ""})
+	if out.is_empty():
+		var signature: Variant = record.get("signature")
+		if typeof(signature) == TYPE_DICTIONARY:
+			var sig: Dictionary = signature
+			var sig_name: String = str(sig.get("name", "")).strip_edges()
+			if not sig_name.is_empty():
+				out.append({
+					"name": str(sig.get("name", "")),
+					"description": str(sig.get("description", "")),
+				})
+	return out
+
+
+static func ultimate_of(record: Dictionary) -> String:
+	var signature: Variant = record.get("signature")
+	if typeof(signature) == TYPE_DICTIONARY:
+		return str((signature as Dictionary).get("ultimate", ""))
+	return str(record.get("ultimate", ""))
+
+
+## Required fields, resolved through the alias layer above. Used by the validator
+## and by the boot report, so both agree on what "complete" means.
+static func missing_fields(record: Dictionary) -> Array[String]:
+	var missing: Array[String] = []
+	for field in Consts.CHARACTER_REQUIRED_FIELDS:
+		if field == "series":
+			if series_of(record).is_empty():
+				missing.append(field)
+			continue
+		if field == "powers":
+			# Empty collections are as unusable as missing ones.
+			if powers_of(record).is_empty():
+				missing.append(field)
+			continue
+		if not record.has(field) or record[field] == null:
+			missing.append(field)
+	return missing
+
+
+static func is_complete(record: Dictionary) -> bool:
+	return missing_fields(record).is_empty()
+
+
 func validate(records: Array) -> Dictionary:
 	_reset()
 	var seen_ids: Dictionary = {}
@@ -61,16 +135,7 @@ func validate(records: Array) -> Dictionary:
 			else:
 				seen_names[key] = rec_id
 
-		var missing: Array[String] = []
-		for field in Consts.CHARACTER_REQUIRED_FIELDS:
-			if not record.has(field) or record[field] == null:
-				missing.append(field)
-		# Empty collections are as unusable as missing ones.
-		if record.has("powers"):
-			var powers_value: Variant = record.get("powers")
-			if typeof(powers_value) != TYPE_ARRAY or (powers_value as Array).is_empty():
-				if not missing.has("powers"):
-					missing.append("powers")
+		var missing: Array[String] = missing_fields(record)
 		if not missing.is_empty():
 			incomplete_ids.append(rec_id)
 			errors.append("Record id %d ('%s') is incomplete, missing: %s" % [rec_id, cname, ", ".join(missing)])
@@ -85,7 +150,7 @@ func validate(records: Array) -> Dictionary:
 			status_name = Consts.STATUS_NAMES[Consts.Status.DATA_ONLY]
 		status_counts[status_name] = int(status_counts.get(status_name, 0)) + 1
 
-		var series_name: String = str(record.get("series", "")).strip_edges()
+		var series_name: String = series_of(record)
 		if not series_name.is_empty():
 			series_set[series_name] = true
 
@@ -115,24 +180,19 @@ func normalize(record: Dictionary) -> Dictionary:
 			status_value = int(key)
 			break
 
-	var powers: Array = []
-	var raw_powers: Variant = record.get("powers", [])
-	if typeof(raw_powers) == TYPE_ARRAY:
-		for power in raw_powers:
-			if typeof(power) == TYPE_DICTIONARY:
-				powers.append({
-					"name": str((power as Dictionary).get("name", "")),
-					"description": str((power as Dictionary).get("description", "")),
-				})
-			else:
-				# Some sources store powers as bare strings. Keep them as names
-				# with an empty description instead of dropping information.
-				powers.append({"name": str(power), "description": ""})
+	var powers: Array = powers_of(record)
 
 	return {
 		"id": int(record.get("id", -1)),
 		"name": str(record.get("name", "")),
-		"series": str(record.get("series", "")),
+		"series": series_of(record),
+		"source_series_field": "anime" if (not record.has("series") and record.has("anime")) else "series",
+		"ultimate": ultimate_of(record),
+		"stats": (record.get("stats", {}) as Dictionary) if typeof(record.get("stats", {})) == TYPE_DICTIONARY else {},
+		"element_family": str(record.get("element_family", "")),
+		"unlock_level": int(record.get("unlock_level", 0)),
+		"brick_cost": int(record.get("brick_cost", 0)),
+		"city_pieces": int(record.get("city_pieces", 0)),
 		"city": str(record.get("city", "")),
 		"element": str(record.get("element", Consts.UNKNOWN_LABEL)),
 		"role": str(record.get("role", Consts.UNKNOWN_LABEL)),

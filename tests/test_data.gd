@@ -63,6 +63,27 @@ func _test_validator(t) -> void:
 	t.eq("string powers kept as names", str((string_power["powers"] as Array)[0]["name"]), "P")
 	t.eq("string powers get empty description", str((string_power["powers"] as Array)[0]["description"]), "")
 
+	# The supplied dataset names the series field "anime" and nests the powers in a
+	# "signature" object. The file is never edited, so the aliases must resolve.
+	var aliased: Dictionary = {
+		"id": 7, "name": "ALIAS FIXTURE", "anime": "Anime Series", "city": "C",
+		"element": "E", "role": "R", "rarity": "X",
+		"signature": {"name": "Rasengan / Kurama Chakra Mode", "description": "D",
+			"ultimate": "Tailed Beast Rasenshuriken"},
+	}
+	var alias_report: Dictionary = validator.validate([aliased])
+	t.eq("anime is read as series", int(alias_report["distinct_series"]), 1)
+	t.ok("signature satisfies the powers requirement", (alias_report["incomplete_ids"] as Array).is_empty(),
+		str(alias_report["incomplete_ids"]))
+	var alias_norm: Dictionary = validator.normalize(aliased)
+	t.eq("series comes from anime", str(alias_norm["series"]), "Anime Series")
+	t.eq("source field is recorded", str(alias_norm["source_series_field"]), "anime")
+	t.eq("signature name kept verbatim", str((alias_norm["powers"] as Array)[0]["name"]),
+		"Rasengan / Kurama Chakra Mode")
+	t.eq("ultimate kept separate", str(alias_norm["ultimate"]), "Tailed Beast Rasenshuriken")
+	t.ok("aliased record counts as complete", Validator.is_complete(aliased))
+	t.eq("absent status defaults to DATA_ONLY", str(alias_norm["status_name"]), "DATA_ONLY")
+
 
 func _test_character_store(t) -> void:
 	t.suite("data / character store")
