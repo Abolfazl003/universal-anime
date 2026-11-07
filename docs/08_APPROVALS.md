@@ -9,38 +9,45 @@ does not mean the engine already draws it. Anything still drawn by the procedura
 rig keeps its on-screen `TEMP` tag until the approved art is rebuilt into sprites
 and those sprites are approved too.
 
-## 001 — Naruto Uzumaki, state frames v1 — APPROVED
+Rule learned the hard way: **only a `GRANTED` record unlocks anything.**
+`REVOKED` records stay in the file as an audit trail, and the build tool ignores
+them, so a correction can never be silently overridden by an old message.
 
-| Field | Value |
-|---|---|
-| Approval id | `001_naruto_state_frames_v1` |
-| Date | 2026-11-08 |
-| Given by | user |
-| User's words | «تصاویر تایید شدن» |
-| Character | id 1, Naruto Uzumaki |
-| What was shown | the five state frame sets — walk (4 frames), run (4 frames), special/Rasengan (4), form/Kurama Chakra Mode (3), ultimate/Rasenshuriken (4) — each as a numbered contact sheet plus a looping preview |
-| Covered artifacts | `assets/characters/states/001_naruto/{walk,run,special,form,ultimate}/` and `assets/characters/concepts/001_naruto_v2.png` |
-| Locked | yes (`designLocked: true` for all five state sets and the concept) |
-| Animation | unblocked (`animationBlocked: false`) — more frames may now be produced |
+## 001 — Naruto Uzumaki, state frames v1 — REVOKED (nothing is approved)
 
-**Not covered by this approval:**
+| Event | When | Statement |
+|---|---|---|
+| Granted | 2026-11-08 | «تصاویر تایید شدن» |
+| Withdrawn | 2026-11-08 | «تصویرای انیمیشن تایید نشد» |
 
-* the in-game art — the engine still draws the procedural rig, so the `TEMP` tag
-  in a match is unchanged and correct;
-* sprite sheets, pixel-perfect frames, hit-frame data, effects timing;
-* characters 002–020, which remain `CONCEPT_ONLY` and unapproved;
-* anything not listed under "Covered artifacts" above.
+The user first said the images were approved, then corrected it: the **animation
+images are not approved**. The repository follows the correction:
 
-Where the approval shows up:
+* `assets/characters/approvals.json` — record `001_naruto_state_frames_v1` is kept
+  with `status: "REVOKED"`, `revokedOn`, `revokedBy`, and the verbatim revocation
+  statement. It grants nothing.
+* `assets/characters/states/index.json` — all five states back to
+  `PROPOSAL_V1`, `designLocked: false`, `animationBlocked: true`, no
+  `approvedOn`/`approvedBy`, and every sheet header back to
+  `TEMP / NOT APPROVED`.
+* `assets/characters/001_naruto/metadata/status.json` — `STATE_FRAMES_UNAPPROVED`,
+  `designLocked: false`, `animationBlocked: true`, approval fields cleared.
+* `assets/characters/concepts/index.json` — character 1 back to `CONCEPT_ONLY`
+  (the concept was only ever approved as the shared design of the frames).
+* `docs/07_STATE_FRAMES.md` — status section back to proposal.
 
-| Place | Change |
-|---|---|
-| `assets/characters/approvals.json` | new record `001_naruto_state_frames_v1` |
-| `assets/characters/states/index.json` | every state of character 1 becomes `APPROVED_V1`, `designLocked: true`, `animationBlocked: false`, with `approvedOn`, `approvedBy`, `approvalId`, and an `APPROVED v1` sheet header |
-| `assets/characters/001_naruto/metadata/status.json` | `STATE_FRAMES_APPROVED`, `designLocked: true`, `designApprovedBy/On` filled, `animationBlocked: false` |
-| `assets/characters/concepts/index.json` | character 1 concept is `APPROVED_V1` (it is the design every approved frame shares) |
-| every `<state>_frames.png` | banner switches from `TEMP / NOT APPROVED` to green `APPROVED v1 - 2026-11-08` |
+Nothing else was deleted: the 19 frames, the five sheets, the five looping
+previews and the overview are all still there, just labelled as proposals again.
 
-The pipeline enforces this rather than trusting memory: `tools/build_state_index.py`
-derives lock state **only** from `approvals.json`, and its `--check` mode fails if
-a state is locked without an approval record, or unblocked without one.
+## What the build tool enforces
+
+`tools/build_state_index.py` derives lock state **only** from `approvals.json`
+and only from `GRANTED` entries. `--check` fails when:
+
+* a state is locked without a backing approval record,
+* a state has animation unblocked without an approval,
+* a listed frame, sheet, preview or overview is missing,
+* `frameCount` does not match the frames on disk.
+
+So the art cannot drift into "approved" by accident, and it cannot stay "approved"
+after a correction like this one.

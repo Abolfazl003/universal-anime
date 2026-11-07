@@ -51,6 +51,10 @@ def load_approvals() -> dict[int, list[dict]]:
     data = json.loads(APPROVALS.read_text(encoding="utf-8"))
     by_character: dict[int, list[dict]] = {}
     for entry in data.get("approvals", []):
+        # Only a GRANTED record unlocks anything. A revoked (or status-less)
+        # record is kept for the audit trail but grants nothing.
+        if str(entry.get("status", "")).upper() != "GRANTED":
+            continue
         by_character.setdefault(int(entry.get("characterId", 0)), []).append(entry)
     return by_character
 

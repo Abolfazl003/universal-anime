@@ -4,18 +4,20 @@ Started 2026-11-07. These are the "what does he look like while walking / runnin
 / casting" sheets: ordered frames per state, one shared camera, one shared ground
 line, plus a looping preview so the motion can actually be read.
 
-**Character 001 is approved as of 2026-11-08** (`001_naruto_state_frames_v1`,
-see `docs/08_APPROVALS.md`): all five state sets and the concept they share are
-`APPROVED_V1`, locked, and their sheets carry a green `APPROVED v1` banner.
+**Nothing is approved.** On 2026-11-08 the user first said the images were
+approved and then corrected it — «تصویرای انیمیشن تایید نشد», the animation images
+were *not* approved. The approval record was therefore revoked the same day (it
+stays in `assets/characters/approvals.json` as an audit trail, marked `REVOKED`,
+and grants nothing; see `docs/08_APPROVALS.md`).
 
-Everything else — characters 002 onward — is still **proposal art**:
-`status: PROPOSAL_V1`, `designLocked: false`, `animationBlocked: true`,
-`TEMP / NOT APPROVED` banner. Lock state is derived from
-`assets/characters/approvals.json` only, never hand-typed.
+Every state set is **proposal art** again: `status: PROPOSAL_V1`,
+`designLocked: false`, `animationBlocked: true`, `TEMP / NOT APPROVED` banner on
+every sheet. Lock state is derived from `approvals.json` only, never hand-typed,
+and only `GRANTED` records count.
 
-The in-game rig stays procedural even for approved art: an approval covers the
-look of the frames, not the engine. The `TEMP` tag in a match stays until these
-frames are rebuilt into sprites and approved as sprites.
+The in-game rig stays procedural regardless: an approval would cover the look of
+the frames, not the engine. The `TEMP` tag in a match stays until these frames are
+rebuilt into sprites and those sprites are approved.
 
 ## Where things live
 
@@ -136,16 +138,15 @@ Verified by eye this turn:
    is verified instead by `tools/build_state_index.py --check`, which fails on a
    missing frame, sheet or preview, a frame-count mismatch, or any approval
    claim that is not backed by `approvals.json`.
-5. **Approval ≠ engine.** The strips are now approved *as art*. Turning them into
-   sprites (fixed pixel grid, per-frame hold times taken from the moveset
-   numbers, hit-frame alignment) is the next stage, and it is what will finally
-   let the in-game `TEMP` tag come off.
+5. **Approval ≠ engine.** No strips are approved. Even when one is, turning it
+   into sprites (fixed pixel grid, per-frame hold times from the moveset numbers,
+   hit-frame alignment) is a separate stage, and that is what would finally let
+   the in-game `TEMP` tag come off.
 
 ## Next
 
-1. Turn character 001's approved frames into a sprite stage: fixed 512×512
-   texture grid, per-frame hold counts from the moveset numbers, and an
-   in-engine sprite player that replaces the procedural rig for these states.
+1. Revise character 001's state frames until they are approvable (the user has
+   not said what to change yet), then re-submit them for approval.
 2. Repeat the state frame pipeline for characters 002–005 (each has a concept to
    draw against), one character at a time, and get each approved the same way.
 3. Build the engine-side gallery so these sheets can be reviewed inside the game

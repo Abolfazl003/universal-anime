@@ -32,13 +32,13 @@
             "cast_frames": 26,
             "duration_frames": 600
           },
-          "status": "APPROVED_V1",
-          "designLocked": true,
-          "animationBlocked": false,
-          "approvedOn": "2026-11-08",
-          "approvedBy": "user",
-          "approvalId": "001_naruto_state_frames_v1",
-          "header": "APPROVED v1 - 2026-11-08 - FORM FRAMES (user approval: 001_naruto_state_frames_v1)"
+          "status": "PROPOSAL_V1",
+          "designLocked": false,
+          "animationBlocked": true,
+          "approvedOn": null,
+          "approvedBy": null,
+          "approvalId": null,
+          "header": "TEMP / NOT APPROVED - FORM FRAMES (PROPOSAL v1)"
         },
         "run": {
           "label": "run cycle",
@@ -53,13 +53,13 @@
           "sheet": "assets/characters/states/001_naruto/run/run_frames.png",
           "preview": "assets/characters/states/001_naruto/run/run_preview.gif",
           "movesetTiming": null,
-          "status": "APPROVED_V1",
-          "designLocked": true,
-          "animationBlocked": false,
-          "approvedOn": "2026-11-08",
-          "approvedBy": "user",
-          "approvalId": "001_naruto_state_frames_v1",
-          "header": "APPROVED v1 - 2026-11-08 - RUN FRAMES (user approval: 001_naruto_state_frames_v1)"
+          "status": "PROPOSAL_V1",
+          "designLocked": false,
+          "animationBlocked": true,
+          "approvedOn": null,
+          "approvedBy": null,
+          "approvalId": null,
+          "header": "TEMP / NOT APPROVED - RUN FRAMES (PROPOSAL v1)"
         },
         "special": {
           "label": "special",
@@ -80,13 +80,13 @@
             "active": 6,
             "recovery": 20
           },
-          "status": "APPROVED_V1",
-          "designLocked": true,
-          "animationBlocked": false,
-          "approvedOn": "2026-11-08",
-          "approvedBy": "user",
-          "approvalId": "001_naruto_state_frames_v1",
-          "header": "APPROVED v1 - 2026-11-08 - SPECIAL FRAMES (user approval: 001_naruto_state_frames_v1)"
+          "status": "PROPOSAL_V1",
+          "designLocked": false,
+          "animationBlocked": true,
+          "approvedOn": null,
+          "approvedBy": null,
+          "approvalId": null,
+          "header": "TEMP / NOT APPROVED - SPECIAL FRAMES (PROPOSAL v1)"
         },
         "ultimate": {
           "label": "ultimate",
@@ -107,13 +107,13 @@
             "active": 3,
             "recovery": 34
           },
-          "status": "APPROVED_V1",
-          "designLocked": true,
-          "animationBlocked": false,
-          "approvedOn": "2026-11-08",
-          "approvedBy": "user",
-          "approvalId": "001_naruto_state_frames_v1",
-          "header": "APPROVED v1 - 2026-11-08 - ULTIMATE FRAMES (user approval: 001_naruto_state_frames_v1)"
+          "status": "PROPOSAL_V1",
+          "designLocked": false,
+          "animationBlocked": true,
+          "approvedOn": null,
+          "approvedBy": null,
+          "approvalId": null,
+          "header": "TEMP / NOT APPROVED - ULTIMATE FRAMES (PROPOSAL v1)"
         },
         "walk": {
           "label": "walk cycle",
@@ -128,13 +128,13 @@
           "sheet": "assets/characters/states/001_naruto/walk/walk_frames.png",
           "preview": "assets/characters/states/001_naruto/walk/walk_preview.gif",
           "movesetTiming": null,
-          "status": "APPROVED_V1",
-          "designLocked": true,
-          "animationBlocked": false,
-          "approvedOn": "2026-11-08",
-          "approvedBy": "user",
-          "approvalId": "001_naruto_state_frames_v1",
-          "header": "APPROVED v1 - 2026-11-08 - WALK FRAMES (user approval: 001_naruto_state_frames_v1)"
+          "status": "PROPOSAL_V1",
+          "designLocked": false,
+          "animationBlocked": true,
+          "approvedOn": null,
+          "approvedBy": null,
+          "approvalId": null,
+          "header": "TEMP / NOT APPROVED - WALK FRAMES (PROPOSAL v1)"
         }
       }
     }

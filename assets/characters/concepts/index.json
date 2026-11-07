@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "kind": "character_concepts",
-  "note": "Concept images only. Character 1 (and the state frames built from it) is approved as of 2026-11-08; characters 2-20 are unapproved and were drawn without inspecting any reference image.",
+  "note": "Concept images only. Nothing is approved: character 1's day-old approval was revoked by the user (see assets/characters/approvals.json), and characters 2-20 were drawn without inspecting any reference image.",
   "concepts": [
     {
       "characterId": 1,
@@ -12,14 +12,14 @@
       "rarity": "Mythic",
       "city": "Hokage Rock Terrace",
       "file": "assets/characters/concepts/001_naruto_v2.png",
-      "status": "APPROVED_V1",
-      "designLocked": true,
-      "animationBlocked": false,
+      "status": "CONCEPT_ONLY",
+      "designLocked": false,
+      "animationBlocked": true,
       "reviewedAt": "full size",
-      "approvedOn": "2026-11-08",
-      "approvedBy": "user",
-      "approvalId": "001_naruto_state_frames_v1",
-      "approvalNote": "Approved together with the five state frame sets built from this concept."
+      "approvedOn": null,
+      "approvedBy": null,
+      "approvalId": null,
+      "approvalNote": "Approval was granted and revoked on 2026-11-08; the concept is a proposal again."
     },
     {
       "characterId": 2,

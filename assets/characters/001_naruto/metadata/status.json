@@ -1,14 +1,14 @@
 {
   "characterId": 1,
   "characterName": "Naruto Uzumaki",
-  "status": "STATE_FRAMES_APPROVED",
+  "status": "STATE_FRAMES_UNAPPROVED",
   "version": "Naruto Shippuden (Part II), default outfit — proposed, unconfirmed",
   "imagesReviewed": true,
   "referenceImagesPresent": 0,
-  "designLocked": true,
-  "designApprovedBy": "user",
-  "designApprovedOn": "2026-11-08",
-  "animationBlocked": false,
+  "designLocked": false,
+  "designApprovedBy": null,
+  "designApprovedOn": null,
+  "animationBlocked": true,
   "movesetBound": true,
   "stageOwned": "konoha_pending (PENDING, not approved)",
   "notes": [
@@ -16,21 +16,14 @@
     "Gap: the turnaround I saw is the blank-period (The Last) outfit; the Shippuden costume was read from a foreshortened colour render, so the proposal extrapolates between them.",
     "Approval metadata is kept here, in the repository, and never in the player save.",
     "Proposal v1 was generated and displayed; my own review lists nine off-model corrections in proposals/README.md. No approval has been given, so nothing is locked.",
-    "Approved 2026-11-08: the user answered 'تصاویر تایید شدن' after seeing the five state frame sets (walk, run, special, form, ultimate) built from concept v2. Recorded in assets/characters/approvals.json and docs/08_APPROVALS.md.",
-    "Approval covers the LOOK of the frames and the concept they share. The engine still draws the procedural rig, so the in-game TEMP tag stays until a sprite set is built from these frames and approved as sprites."
+    "Approval covers the LOOK of the frames and the concept they share. The engine still draws the procedural rig, so the in-game TEMP tag stays until a sprite set is built from these frames and approved as sprites.",
+    "2026-11-08: the user first said the images were approved ('تصاویر تایید شدن') and then corrected it: 'تصویرای انیمیشن تایید نشد' (the animation images were NOT approved). The approval record in assets/characters/approvals.json is kept but marked REVOKED, so the state frames are proposals again: designLocked false, animationBlocked true, TEMP banners on every sheet."
   ],
   "proposalShown": true,
   "proposalVersion": 1,
   "proposalFile": "assets/characters/001_naruto/proposals/proposal_v1.png",
-  "approvedArtifacts": [
-    "assets/characters/states/001_naruto/walk/",
-    "assets/characters/states/001_naruto/run/",
-    "assets/characters/states/001_naruto/special/",
-    "assets/characters/states/001_naruto/form/",
-    "assets/characters/states/001_naruto/ultimate/",
-    "assets/characters/concepts/001_naruto_v2.png"
-  ],
-  "approvalId": "001_naruto_state_frames_v1",
+  "approvedArtifacts": [],
+  "approvalId": null,
   "inGameArtStatus": "PROCEDURAL_RIG_STILL_TEMP",
-  "proposalApproved": true
+  "proposalApproved": false
 }
