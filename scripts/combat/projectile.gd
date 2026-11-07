@@ -56,6 +56,9 @@ func despawn() -> void:
 
 
 func _draw() -> void:
+	if visual_kind == "rasenshuriken":
+		_draw_rasenshuriken()
+		return
 	var big: bool = visual_kind == "big_orb"
 	var core := Color("cfe0ff") if not big else Color("ffdca8")
 	var glow := Color("4f8cff") if not big else Color("f5a623")
@@ -64,3 +67,24 @@ func _draw() -> void:
 	draw_circle(Vector2.ZERO, radius * 0.42, core)
 	if big:
 		draw_arc(Vector2.ZERO, radius * 1.15, 0.0, TAU, 32, Color(core.r, core.g, core.b, 0.45), 2.0)
+
+
+## Tailed Beast Rasenshuriken: a four-bladed disc with a hot core and a ring of
+## chakra. Drawn procedurally (placeholder art), spinning with the simulation time
+## so the motion is time-based, not frame-based.
+func _draw_rasenshuriken() -> void:
+	var spin: float = Time.get_ticks_msec() / 1000.0 * 7.0 * float(direction)
+	var core := Color("f4fbff")
+	var ring := Color("ffd45e")
+	var edge := Color("6fa8ff")
+	draw_circle(Vector2.ZERO, radius * 1.12, Color(ring.r, ring.g, ring.b, 0.16))
+	draw_arc(Vector2.ZERO, radius * 1.06, 0.0, TAU, 40, Color(edge.r, edge.g, edge.b, 0.55), 3.0)
+	for blade in range(4):
+		var angle: float = spin + TAU * float(blade) / 4.0
+		var tip: Vector2 = Vector2(cos(angle), sin(angle)) * radius * 1.35
+		var left: Vector2 = Vector2(cos(angle + 0.5), sin(angle + 0.5)) * radius * 0.55
+		var right: Vector2 = Vector2(cos(angle - 0.5), sin(angle - 0.5)) * radius * 0.55
+		draw_colored_polygon(PackedVector2Array([tip, left, right]), Color(edge.r, edge.g, edge.b, 0.75))
+		draw_colored_polygon(PackedVector2Array([tip * 0.98, left * 0.62, right * 0.62]), Color(core.r, core.g, core.b, 0.45))
+	draw_circle(Vector2.ZERO, radius * 0.55, Color(core.r, core.g, core.b, 0.85))
+	draw_circle(Vector2.ZERO, radius * 0.34, core)

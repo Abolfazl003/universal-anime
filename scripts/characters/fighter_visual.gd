@@ -14,6 +14,13 @@ const States = preload("res://scripts/combat/fighter_states.gd")
 
 var fighter = null
 
+## Smoothing: the rig never snaps between clips. Every numeric pose value is
+## blended toward the new target with a frame-rate independent exponential, so a
+## clip change reads as a transition instead of a teleport.
+const POSE_BLEND_SECONDS := 0.07
+
+var _blend_pose: Dictionary = {}
+
 const HURTBOX_COLOR := Color("46a758")
 const HITBOX_COLOR := Color("e5484d")
 
@@ -22,18 +29,34 @@ func _ready() -> void:
 	set_process(true)
 
 
-func _process(_delta: float) -> void:
-	if fighter != null:
-		queue_redraw()
+func _process(delta: float) -> void:
+	if fighter == null:
+		return
+	var target: Dictionary = _pose_for(str(fighter.anim_clip), float(fighter.animation_progress()), int(fighter.facing))
+	_blend_toward(target, delta)
+	queue_redraw()
+
+
+func _blend_toward(target: Dictionary, delta: float) -> void:
+	if _blend_pose.is_empty():
+		_blend_pose = target.duplicate(true)
+		return
+	var weight: float = 1.0 - exp(-maxf(delta, 0.0) / POSE_BLEND_SECONDS)
+	for key in target.keys():
+		var value: Variant = target[key]
+		if typeof(value) == TYPE_BOOL:
+			_blend_pose[key] = value
+		elif typeof(value) == TYPE_INT or typeof(value) == TYPE_FLOAT:
+			_blend_pose[key] = lerpf(float(_blend_pose.get(key, value)), float(value), weight)
 
 
 func _draw() -> void:
 	if fighter == null:
 		return
-	var clip: String = str(fighter.anim_clip)
-	var t: float = float(fighter.animation_progress())
 	var facing: int = int(fighter.facing)
-	var pose: Dictionary = _pose_for(clip, t, facing)
+	var pose: Dictionary = _blend_pose
+	if pose.is_empty():
+		pose = _pose_for(str(fighter.anim_clip), float(fighter.animation_progress()), facing)
 
 	var primary: Color = fighter.fighter_color()
 	var secondary: Color = Color(str(fighter.config.get("secondary", "#1b2f57")))
@@ -47,6 +70,8 @@ func _draw() -> void:
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2(1, 1))
 	draw_circle(Vector2(0, -2), 26.0, Color(0, 0, 0, 0.30))
 
+	_draw_form_aura(shoulder, accent)
+
 	if bool(pose.get("prone", false)):
 		_draw_prone(primary, secondary, accent, outline, facing)
 	else:
@@ -58,11 +83,68 @@ func _draw() -> void:
 		_draw_arm(shoulder, float(pose["arm_front"]), primary.lightened(0.06), outline, facing, 10.0)
 		_draw_head(shoulder, primary, accent, outline, facing, float(pose["head_tilt"]))
 
+	_draw_move_effect(shoulder, float(pose.get("arm_front", 14.0)), facing)
+
 	if fighter.temporary:
 		_draw_tag(accent)
 
 	if GameDebug != null and GameDebug.show_hurtboxes:
 		_draw_boxes()
+
+
+## Smooth 0..1 curve: removes the robotic feel of a linear clamp.
+func _ease(value: float) -> float:
+	var x: float = clampf(value, 0.0, 1.0)
+	return x * x * (3.0 - 2.0 * x)
+
+
+func _hand_of(shoulder: Vector2, angle: float, facing: int) -> Vector2:
+	var elbow := _bend(shoulder, angle * facing, 26.0, 0.20 * facing)
+	return _bend(elbow, (angle * 1.15 + 8.0) * facing, 24.0, 0.30 * facing)
+
+
+## Kurama Chakra Mode placeholder: a pulsing shroud plus the six magatama collar.
+## This is a mechanical placeholder, not the approved form design.
+func _draw_form_aura(shoulder: Vector2, accent: Color) -> void:
+	if fighter == null or not fighter.has_method("is_form_active") or not fighter.is_form_active():
+		return
+	var pulse: float = 0.5 + 0.5 * sin(float(Time.get_ticks_msec()) / 90.0)
+	var centre: Vector2 = Vector2(0, shoulder.y + 46.0)
+	var glow := Color("ffcf3d")
+	draw_circle(centre, 62.0 + pulse * 5.0, Color(glow.r, glow.g, glow.b, 0.10))
+	draw_circle(centre, 52.0 + pulse * 3.0, Color(glow.r, glow.g, glow.b, 0.14))
+	draw_circle(Vector2(0, shoulder.y + 6.0), 17.0, Color(glow.r, glow.g, glow.b, 0.16))
+	for index in range(6):
+		var angle: float = lerpf(-2.6, -0.5, float(index) / 5.0)
+		var point: Vector2 = Vector2(0, shoulder.y) + Vector2(cos(angle), sin(angle)).rotated(0.0) * 26.0
+		draw_circle(point, 3.0, Color(accent.r, accent.g, accent.b, 0.85))
+	draw_arc(Vector2(0, shoulder.y), 27.0, PI * 1.15, PI * 1.85, 18, Color(glow.r, glow.g, glow.b, 0.5), 2.0)
+
+
+## Rasengan placeholder: a spinning sphere in the front hand that grows during
+## startup. Sized and timed from the move data, never from a frame counter.
+func _draw_move_effect(shoulder: Vector2, arm_angle: float, facing: int) -> void:
+	if fighter == null or fighter.current_move_id != "special":
+		return
+	var move: Dictionary = fighter.current_move
+	if move.is_empty():
+		return
+	var startup: int = maxi(1, int(move.get("startup", 1)))
+	var progress: float = clampf(float(fighter.state_tick) / float(startup), 0.0, 1.0)
+	if progress <= 0.05:
+		return
+	var hand: Vector2 = _hand_of(shoulder, arm_angle, facing)
+	var radius: float = lerpf(6.0, 22.0, _ease(progress))
+	var spin: float = float(Time.get_ticks_msec()) / 1000.0 * 9.0
+	var core := Color("dcf0ff")
+	var glow := Color("4f9dff")
+	draw_circle(hand, radius * 1.5, Color(glow.r, glow.g, glow.b, 0.16))
+	draw_circle(hand, radius, Color(glow.r, glow.g, glow.b, 0.55))
+	draw_circle(hand, radius * 0.7, Color(core.r, core.g, core.b, 0.9))
+	for ring in range(3):
+		var start_angle: float = spin + float(ring) * 2.1
+		draw_arc(hand, radius * (0.9 + 0.18 * float(ring)), start_angle, start_angle + 2.0, 10,
+			Color(core.r, core.g, core.b, 0.75), 1.5)
 
 
 func _draw_leg(hip: Vector2, angle: float, color: Color, outline: Color, facing: int) -> void:
@@ -226,26 +308,26 @@ func _pose_for(clip: String, t: float, _facing: int) -> Dictionary:
 			pose["lean"] = -16.0
 			pose["hip_y"] = -40.0
 		"light_attack":
-			var extend: float = clampf(t * 2.2, 0.0, 1.0)
+			var extend: float = _ease(t * 2.2)
 			pose["arm_front"] = lerpf(20.0, 96.0, extend)
 			pose["lean"] = 10.0 * extend
 			pose["leg_front"] = 18.0
 			pose["arm_back"] = -24.0
 		"heavy_attack":
-			var swing: float = clampf(t * 1.6, 0.0, 1.0)
+			var swing: float = _ease(t * 1.6)
 			pose["arm_front"] = lerpf(-10.0, 118.0, swing)
 			pose["lean"] = 16.0 * swing
 			pose["leg_front"] = 28.0
 			pose["leg_back"] = -26.0
 			pose["hip_y"] = -42.0
 		"special":
-			var push: float = clampf((t - 0.35) * 2.4, 0.0, 1.0)
+			var push: float = _ease((t - 0.35) * 2.4)
 			pose["arm_front"] = lerpf(50.0, 92.0, push)
 			pose["arm_back"] = lerpf(30.0, 78.0, push)
 			pose["lean"] = 8.0 * push
 			pose["hip_y"] = -42.0 - 3.0 * push
 		"ultimate":
-			var unleash: float = clampf(t * 1.5, 0.0, 1.0)
+			var unleash: float = _ease(t * 1.5)
 			pose["arm_front"] = lerpf(-40.0, 86.0, unleash)
 			pose["arm_back"] = lerpf(-50.0, 70.0, unleash)
 			pose["lean"] = -10.0 * (1.0 - unleash) + 12.0 * unleash
@@ -264,6 +346,13 @@ func _pose_for(clip: String, t: float, _facing: int) -> Dictionary:
 			pose["leg_front"] = 34.0
 			pose["leg_back"] = -30.0
 			pose["lean"] = 14.0
+		"form_activation":
+			var burst: float = _ease(t * 1.4)
+			pose["arm_front"] = lerpf(30.0, -78.0, burst)
+			pose["arm_back"] = lerpf(10.0, -92.0, burst)
+			pose["lean"] = -8.0 + 18.0 * burst
+			pose["hip_y"] = -44.0 - 4.0 * burst
+			pose["head_tilt"] = -6.0
 		"victory":
 			pose["arm_front"] = -158.0 + wave * 6.0
 			pose["arm_back"] = -150.0 - wave * 6.0

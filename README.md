@@ -16,7 +16,7 @@ Strictly 2D anime fighting game in **Godot 4.4 / GDScript** with two modes:
 > proposal shown, unapproved). See `docs/00_PHASE0_AUDIT.md`.
 >
 > Verified on 2026-11-07 with a locally compiled Godot 4.4.1: the headless suite
-> reports `PASSED: 260 FAILED: 0`, exit code `0` (`docs/03_TEST_REPORT.md`).
+> reports `PASSED: 314 FAILED: 0`, exit code `0` (`docs/03_TEST_REPORT.md`).
 > The first run also exposed five real defects — dead state transitions, an
 > unregistered combat manager, unavailable data on direct scene starts, a
 > validator miscount, and two bad test assertions — all fixed and listed there.
@@ -55,6 +55,7 @@ any failed check.
 | Main menu → mode select → character select → versus setup → stage select → match → results → rematch | working |
 | Character select with search, element/role/rarity filters, status badges, lock gating, 600+ paging | working — **500 real records / 90 series loaded**, all locked as `DATA_ONLY`, searchable and filterable |
 | Versus fight: move, run, jump, crouch, block, light/heavy/special/ultimate, hitstun, blockstun, knockback, knockdown, get-up, combo counter, cancel windows, input buffer, body collision | working (lab dummies) |
+| Character 001 abilities: Rasengan dash, Kurama Chakra Mode timed form, Tailed Beast Rasenshuriken ultimate, plus a smooth pose-blended rig | **mechanics + placeholder visuals** — playable from the LAB row as `NARUTO UZUMAKI [TEMP]`; design still unapproved (`docs/04_NARUTO_ABILITIES.md`) |
 | Rounds, rounds-to-win, optional timer, K.O./time-up, winner, rematch, return to menu | working |
 | AI opponent (approach, spacing, attack, block, meter usage) with delayed perception | working |
 | Dungeon: seeded layout, connectivity validation, rooms, doors that lock during fights, trap with telegraph, loot, rest pad, boss with 3 readable patterns, win/lose/restart | working (temporary shapes) |

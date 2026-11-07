@@ -23,4 +23,5 @@ func poll(_fighter, _opponent) -> Dictionary:
 		"heavy": InputService.pressed_this_tick(player_index, "heavy"),
 		"special": InputService.pressed_this_tick(player_index, "special"),
 		"ultimate": InputService.pressed_this_tick(player_index, "ultimate"),
+		"form": InputService.pressed_this_tick(player_index, "form"),
 	}

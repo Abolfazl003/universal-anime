@@ -98,6 +98,7 @@ func _register(raw: Dictionary, path: String) -> void:
 		"temporary": bool(raw.get("temporary", false)),
 		"fighter": raw.get("fighter", {}),
 		"moves": moves,
+		"forms": raw.get("forms", {}),
 		"source": path,
 	}
 
@@ -124,6 +125,9 @@ func _normalize_move(key: String, raw: Dictionary, moveset_id: String) -> Dictio
 	move["hitstun"] = maxi(0, int(raw.get("hitstun", 0)))
 	move["blockstun"] = maxi(0, int(raw.get("blockstun", 0)))
 	move["type"] = str(raw.get("type", "melee"))
+	move["name"] = str(raw.get("name", ""))
+	var effect: Variant = raw.get("effect", {})
+	move["effect"] = effect if typeof(effect) == TYPE_DICTIONARY else {}
 	move["chip_damage"] = maxi(0, int(raw.get("chip_damage", 0)))
 	move["energy_cost"] = float(raw.get("energy_cost", 0.0))
 	move["energy_gain"] = float(raw.get("energy_gain", 0.0))

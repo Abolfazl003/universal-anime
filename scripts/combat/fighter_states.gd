@@ -24,6 +24,7 @@ enum State {
 	DEFEAT,
 	INTRO,
 	OUTRO,
+	FORM,
 }
 
 const NAMES: Dictionary = {
@@ -44,6 +45,7 @@ const NAMES: Dictionary = {
 	State.DEFEAT: "DEFEAT",
 	State.INTRO: "INTRO",
 	State.OUTRO: "OUTRO",
+	State.FORM: "FORM",
 }
 
 ## animation: clip id played while in the state (may be overridden by a move).
@@ -188,6 +190,14 @@ const TABLE: Dictionary = {
 		"actionable": false,
 		"exits": [],
 	},
+	State.FORM: {
+		"animation": "form_activation",
+		"can_move": false,
+		"vulnerable": false,
+		"grounded_only": true,
+		"actionable": false,
+		"exits": ["IDLE", "HITSTUN", "DEFEAT"],
+	},
 }
 
 ## Fixed durations (ticks) for states that are not driven by a move's frame data.
@@ -196,6 +206,7 @@ const DEFAULT_DURATIONS: Dictionary = {
 	State.GETUP: 24,
 	State.INTRO: 60,
 	State.OUTRO: 60,
+	State.FORM: 0,
 }
 
 

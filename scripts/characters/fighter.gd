@@ -18,6 +18,8 @@ signal energy_changed(special: float, ultimate: float)
 signal state_changed(new_state: int, old_state: int)
 signal move_started(move_id: String, instance_id: int)
 signal projectile_requested(move: Dictionary, instance_id: int)
+signal form_started(form_id: String, duration_ticks: int)
+signal form_ended(form_id: String)
 signal hit_landed(move_id: String, damage: int, blocked: bool)
 signal defeated()
 
@@ -65,6 +67,13 @@ var combo_count: int = 0
 var combo_ticks: int = 0
 var cooldowns: Dictionary = {}
 
+## Data-driven forms (transformations). A form is not a move: it is a timed
+## state of the fighter with its own multipliers, entered through the "form"
+## intent and ended by its duration. Nothing here knows a character's name.
+var forms: Dictionary = {}
+var form_id: String = ""
+var form_ticks: int = 0
+
 ## Arena.
 var floor_y: float = 820.0
 var bounds_left: float = 120.0
@@ -88,6 +97,7 @@ var _last_intent: Dictionary = {}
 func setup(p_moveset: Dictionary, entry: Dictionary, p_player_index: int, p_intent = null) -> void:
 	moveset = p_moveset
 	moves = p_moveset.get("moves", {})
+	forms = p_moveset.get("forms", {})
 	config = p_moveset.get("fighter", {})
 	fighter_key = str(p_moveset.get("id", p_moveset.get("movesetId", "unknown")))
 	display_name = str(entry.get("name", p_moveset.get("display_name", fighter_key)))
@@ -133,6 +143,8 @@ func respawn(x: float) -> void:
 	current_move_id = ""
 	current_phase = 0
 	_projectile_fired = false
+	form_ticks = 0
+	form_id = ""
 	grounded = true
 	if buffer != null:
 		buffer.clear()
@@ -166,6 +178,7 @@ func _physics_process(delta: float) -> void:
 	if not active:
 		return
 	_advance_timers()
+	_tick_form()
 	_last_intent = _poll_intent()
 	_process_state(_last_intent)
 	_apply_physics(delta)
@@ -213,6 +226,8 @@ func _process_state(intent: Dictionary) -> void:
 			_process_air(intent)
 		States.State.ATTACK, States.State.SPECIAL, States.State.ULTIMATE:
 			_process_move(intent)
+		States.State.FORM:
+			_process_form()
 		States.State.HITSTUN:
 			if hitstun_ticks > 0:
 				hitstun_ticks -= 1
@@ -252,6 +267,8 @@ func _process_grounded_neutral(intent: Dictionary) -> void:
 	else:
 		_axis_hold_ticks = 0
 
+	if bool(intent.get("form", false)) and start_form():
+		return
 	if _try_attack(intent):
 		return
 
@@ -302,6 +319,81 @@ func _process_air(intent: Dictionary) -> void:
 		_enter(States.State.FALL)
 
 
+## --- Forms ----------------------------------------------------------------
+
+func is_form_active() -> bool:
+	return form_ticks > 0
+
+
+func form_data() -> Dictionary:
+	if form_id.is_empty():
+		return {}
+	return forms.get(form_id, {})
+
+
+func form_speed_multiplier() -> float:
+	if not is_form_active():
+		return 1.0
+	return float(form_data().get("speed_multiplier", 1.0))
+
+
+func form_damage_multiplier() -> float:
+	if not is_form_active():
+		return 1.0
+	return float(form_data().get("damage_multiplier", 1.0))
+
+
+## Enters the first declared form. Costs energy, locks the fighter for the
+## form's cast frames, and expires on its own after duration_frames.
+func start_form(form_key: String = "") -> bool:
+	if forms.is_empty() or is_form_active():
+		return false
+	if not States.is_actionable(state) or not grounded:
+		return false
+	var key: String = form_key
+	if key.is_empty():
+		key = str(forms.keys()[0])
+	if not forms.has(key):
+		return false
+	var form: Dictionary = forms[key]
+	var cost: float = float(form.get("energy_cost", 0.0))
+	if cost > special_energy:
+		return false
+	special_energy = maxf(0.0, special_energy - cost)
+	energy_changed.emit(special_energy, ultimate_meter)
+	form_id = key
+	form_ticks = maxi(1, int(form.get("duration_frames", 600)))
+	invulnerable_ticks = maxi(invulnerable_ticks, int(form.get("invulnerable_frames", 0)))
+	_enter(States.State.FORM, true)
+	_set_anim(str(form.get("animation_id", "form_activation")), true)
+	form_started.emit(form_id, form_ticks)
+	return true
+
+
+func _process_form() -> void:
+	var cast_frames: int = maxi(1, int(form_data().get("cast_frames", 24)))
+	if state_tick >= cast_frames:
+		_enter(States.State.IDLE)
+
+
+func _tick_form() -> void:
+	if form_ticks <= 0:
+		return
+	form_ticks -= 1
+	if form_ticks == 0:
+		var ended: String = form_id
+		form_id = ""
+		form_ended.emit(ended)
+
+
+func _end_form_now() -> void:
+	if form_ticks <= 0:
+		return
+	form_ticks = 0
+	form_id = ""
+	form_ended.emit("")
+
+
 func _process_move(intent: Dictionary) -> void:
 	var move: Dictionary = current_move
 	if move.is_empty():
@@ -313,7 +405,7 @@ func _process_move(intent: Dictionary) -> void:
 
 	if not _projectile_fired and (move.get("projectile", {}) as Dictionary).size() > 0 and state_tick >= startup:
 		_projectile_fired = true
-		projectile_requested.emit(move, attack_instance)
+		projectile_requested.emit(_scaled_projectile_move(move), attack_instance)
 
 	# Cancel windows: only after the active frames, only into listed moves, and
 	# only when the window's condition (usually "hit confirmed") is satisfied.
@@ -324,6 +416,17 @@ func _process_move(intent: Dictionary) -> void:
 		current_move = {}
 		current_move_id = ""
 		_enter(States.State.IDLE)
+
+
+## Projectiles carry their own damage, so the form multiplier has to travel with
+## the move instead of being applied by the target.
+func _scaled_projectile_move(move: Dictionary) -> Dictionary:
+	var multiplier: float = form_damage_multiplier()
+	if is_equal_approx(multiplier, 1.0):
+		return move
+	var copy: Dictionary = move.duplicate(true)
+	copy["damage"] = int(round(float(move.get("damage", 0)) * multiplier))
+	return copy
 
 
 func _try_attack(intent: Dictionary) -> bool:
@@ -432,7 +535,7 @@ func active_hit() -> Dictionary:
 	if state_tick < startup:
 		return {}
 
-	var damage: int = int(move.get("damage", 0))
+	var damage: int = int(round(float(move.get("damage", 0)) * form_damage_multiplier()))
 	var phase_index: int = 0
 	var phases: Array = move.get("multi_hit", [])
 	if phases.is_empty():
@@ -445,7 +548,7 @@ func active_hit() -> Dictionary:
 			var start: int = int(phase.get("start", 0))
 			var length: int = int(phase.get("length", 1))
 			if state_tick >= start and state_tick < start + length:
-				damage = int(phase.get("damage", damage))
+				damage = int(round(float(phase.get("damage", damage)) * form_damage_multiplier()))
 				phase_index = index
 				found = true
 				break
@@ -561,6 +664,8 @@ func gain_on_hit(move: Dictionary) -> void:
 
 func notify_hit_confirmed() -> void:
 	attack_hit_confirmed = true
+	if float(current_move.get("move_speed", 0.0)) > 0.0:
+		velocity.x = 0.0
 
 
 func register_combo() -> void:
@@ -608,7 +713,9 @@ func _apply_physics(delta: float) -> void:
 		var speed: float = float(config.get("walk_speed", 260.0))
 		if state == States.State.RUN:
 			speed = float(config.get("run_speed", 430.0))
-		velocity.x = axis * speed
+		velocity.x = axis * speed * form_speed_multiplier()
+	elif _rush_active():
+		velocity.x = float(current_move.get("move_speed", 0.0)) * facing
 	elif state == States.State.HITSTUN:
 		velocity.x = move_toward(velocity.x, 0.0, 900.0 * delta)
 	elif state == States.State.KNOCKDOWN or state == States.State.GETUP:
@@ -645,6 +752,23 @@ func _apply_physics(delta: float) -> void:
 		or state == States.State.RUN or state == States.State.CROUCH)
 	if grounded and neutral:
 		_auto_face()
+
+
+## A "rush" move (Rasengan-style) keeps its own forward speed through startup and
+## active frames, and stops dead the moment it connects.
+func _rush_active() -> bool:
+	if current_move.is_empty() or attack_hit_confirmed:
+		return false
+	if state != States.State.ATTACK and state != States.State.SPECIAL and state != States.State.ULTIMATE:
+		return false
+	if float(current_move.get("move_speed", 0.0)) <= 0.0:
+		return false
+	var startup: int = int(current_move.get("startup", 0))
+	var active: int = int(current_move.get("active", 1))
+	var recovery: int = int(current_move.get("recovery", 0))
+	# A rush commits to the whole move: it only stops early on contact, never by
+	# running out of active frames while the body is still travelling.
+	return state_tick >= maxi(0, startup - 4) and state_tick <= startup + active + recovery
 
 
 func _movement_allowed() -> bool:

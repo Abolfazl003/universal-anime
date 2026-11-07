@@ -76,6 +76,7 @@ func poll(fighter, opponent) -> Dictionary:
 		"heavy": false,
 		"special": false,
 		"ultimate": false,
+		"form": false,
 	}
 	if not _pending_attack.is_empty():
 		intent[_pending_attack] = true
@@ -85,6 +86,10 @@ func poll(fighter, opponent) -> Dictionary:
 		_decision["jump_pending"] = false
 	if bool(_decision.get("crouch", false)):
 		intent["crouch"] = true
+	if fighter != null and is_instance_valid(fighter) and fighter.has_method("start_form"):
+		# Transform when the meter allows it and the AI is not mid-pressure.
+		if fighter.special_energy >= 60.0 and not fighter.is_form_active() and randf() < 0.02:
+			intent["form"] = true
 	return intent
 
 

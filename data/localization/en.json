@@ -226,6 +226,7 @@
     "review.step_forward": "Frame ▶",
     "review.speed": "Speed",
     "review.clip": "Clip",
-    "review.placeholder": "Procedural placeholder — cannot prove final animation quality."
+    "review.placeholder": "Procedural placeholder — cannot prove final animation quality.",
+    "input.form": "Form / Transform"
   }
 }

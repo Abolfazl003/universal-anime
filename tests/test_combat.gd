@@ -44,6 +44,7 @@ func run(t) -> void:
 	await _test_projectile(t)
 	await _test_energy_and_meter(t)
 	await _test_grounding(t)
+	await _test_character_abilities(t)
 	_teardown()
 
 
@@ -267,3 +268,99 @@ func _test_grounding(t) -> void:
 	await t.wait_ticks(90)
 	t.close("fighter lands back on the floor", p1.global_position.y, 600.0, 0.5)
 	t.ok("fighter is grounded after landing", p1.grounded)
+
+
+## Character 1 (Naruto) mechanics: Rasengan rush, Kurama Chakra Mode form and the
+## Tailed Beast Rasenshuriken ultimate. Everything here is driven by the moveset
+## data, so the engine still contains no character-name branches.
+func _test_character_abilities(t) -> void:
+	t.suite("combat / character 001 abilities")
+	var moveset: Dictionary = GameData.lab_moveset("001_naruto")
+	t.ok("moveset 001_naruto loads", not moveset.is_empty())
+	if moveset.is_empty():
+		return
+	var moves: Dictionary = moveset.get("moves", {})
+	var forms: Dictionary = moveset.get("forms", {})
+	t.eq("Rasengan is the special", str((moves.get("special", {}) as Dictionary).get("name", "")), "Rasengan")
+	t.eq("Rasengan costs 30 energy", float((moves.get("special", {}) as Dictionary).get("energy_cost", 0.0)), 30.0)
+	t.eq("ultimate is the Rasenshuriken", str((moves.get("ultimate", {}) as Dictionary).get("name", "")),
+		"Tailed Beast Rasenshuriken")
+	t.eq("Rasenshuriken requires a full meter", float((moves.get("ultimate", {}) as Dictionary).get("meter_required", 0.0)), 100.0)
+	t.ok("Kurama Chakra Mode is declared as a form", forms.has("kurama_chakra_mode"))
+	t.ok("the form is flagged as needing its own approval",
+		bool((forms.get("kurama_chakra_mode", {}) as Dictionary).get("requires_separate_reference_approval", false)))
+
+	var arena = CombatManagerScript.new()
+	t.tree.root.add_child(arena)
+	var attacker = _spawn_test_fighter(arena, moveset, 600.0)
+	var target = _spawn_test_fighter(arena, moveset, 900.0)
+	if attacker == null or target == null:
+		t.ok("ability fighters spawned", false)
+		return
+	attacker.facing = 1
+	target.facing = -1
+	await t.wait_ticks(4)
+
+	# --- Rasengan -----------------------------------------------------------
+	attacker.special_energy = 0.0
+	t.ok("Rasengan refused without energy", not attacker.start_move("special"))
+	attacker.special_energy = 80.0
+	var start_x: float = attacker.global_position.x
+	t.ok("Rasengan starts with energy", attacker.start_move("special"))
+	t.eq("Rasengan spent its energy", int(attacker.special_energy), 50)
+	t.eq("Rasengan enters SPECIAL", attacker.state, States.State.SPECIAL)
+	await t.wait_ticks(16)
+	t.ok("Rasengan rushes forward", attacker.global_position.x > start_x + 30.0,
+		"moved %.1f" % (attacker.global_position.x - start_x))
+	await t.wait_ticks(26)
+	t.ok("Rasengan lands damage", target.hp < target.max_hp, "hp %d" % target.hp)
+	t.ok("Rasengan stops on contact", absf(attacker.velocity.x) < 200.0, str(attacker.velocity.x))
+	await t.wait_ticks(40)
+
+	# --- Kurama Chakra Mode -------------------------------------------------
+	attacker.special_energy = 100.0
+	t.ok("form starts with full energy", attacker.start_form())
+	t.eq("form spent its energy", int(attacker.special_energy), 40)
+	t.eq("form state entered", attacker.state, States.State.FORM)
+	t.ok("form is active", attacker.is_form_active())
+	t.ok("form grants speed", attacker.form_speed_multiplier() > 1.0, str(attacker.form_speed_multiplier()))
+	t.ok("form grants damage", attacker.form_damage_multiplier() > 1.0, str(attacker.form_damage_multiplier()))
+	t.ok("form cannot stack", not attacker.start_form())
+	attacker.form_ticks = 2
+	await t.wait_ticks(4)
+	t.ok("form expires on its own", not attacker.is_form_active())
+	t.ok("form returns to a normal multiplier", is_equal_approx(attacker.form_damage_multiplier(), 1.0))
+	# The cast state outlives the buff by design; wait for it before acting again.
+	await t.wait_ticks(30)
+	t.ok("fighter is actionable after the form cast", States.is_actionable(attacker.state),
+		States.name_of(attacker.state))
+
+	# --- Tailed Beast Rasenshuriken ----------------------------------------
+	attacker.ultimate_meter = 0.0
+	t.ok("ultimate refused without meter", not attacker.start_move("ultimate"))
+	attacker.ultimate_meter = 100.0
+	var projectiles_before: int = arena.projectiles.size()
+	t.ok("ultimate starts with a full meter", attacker.start_move("ultimate"))
+	t.eq("ultimate consumed the meter", int(attacker.ultimate_meter), 0)
+	await t.wait_ticks(26)
+	t.eq("ultimate spawned one projectile", arena.projectiles.size(), projectiles_before + 1)
+	if arena.projectiles.size() > projectiles_before:
+		var shot = arena.projectiles[arena.projectiles.size() - 1]
+		t.eq("projectile uses the rasenshuriken visual", str(shot.visual_kind), "rasenshuriken")
+		t.ok("projectile is large", float(shot.radius) >= 48.0, str(shot.radius))
+
+	# --- Cleanup ------------------------------------------------------------
+	target.hp = 0
+	arena.clear()
+	arena.queue_free()
+
+
+func _spawn_test_fighter(parent, moveset: Dictionary, x: float):
+	var fighter: Node = FighterScript.new()
+	fighter.setup(moveset, {"name": "TEST 001", "temporary": true}, 0, ScriptedIntent.new())
+	parent.add_child(fighter)
+	fighter.set_arena(600.0, 0.0, 2000.0)
+	fighter.global_position = Vector2(x, 600.0)
+	fighter.set_active(true)
+	fighter.enter_neutral()
+	return fighter

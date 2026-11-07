@@ -16,7 +16,12 @@ a keyboard binding is changed.
 | Block | `L` (hold) | `Numpad 3` (hold) | LB | LB |
 | Special | `U` | `Numpad 4` | RB | RB |
 | Ultimate | `I` | `Numpad 5` | R3 | R3 |
+| Transform (form) | `O` | `Numpad 6` | L3 | L3 |
 | Pause | `Esc` | `Esc` | Start | Start |
+
+`Transform` only does something on a character whose moveset declares a `forms`
+block (currently character 001, Kurama Chakra Mode). It is refused while a form is
+already active or when the energy cost cannot be paid.
 
 ## Dungeon
 

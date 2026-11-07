@@ -150,6 +150,28 @@ errors while holding the real roster.
    Completeness now goes through the same alias resolution as the validator
    (`CharacterValidator.is_complete`), and reports 500/500.
 
+## Third run — after character 001's abilities
+
+Rasengan, Kurama Chakra Mode and the Tailed Beast Rasenshuriken added 12 combat
+checks plus 5 end-to-end scene checks (`docs/04_NARUTO_ABILITIES.md`).
+
+```console
+$ godot --headless --path . res://tests/test_runner.tscn
+PASSED: 314   FAILED: 0   TOTAL: 314      exit 0
+```
+
+Three defects found while wiring the abilities, all fixed:
+
+8. **The loader silently dropped `forms` and move `name`/`effect`.** The engine
+   looked correct but every transformation was unreachable and abilities had no
+   names, because `MovesetLoader._register` never copied the new keys.
+9. **The rush could not reach.** A dash that only moves during active frames
+   travelled ~96 px, so a Rasengan thrown from 300 px away could never connect.
+   The rush now commits to the whole move and stops only on contact.
+10. **The form cast outlives the buff by design** — the test assumed the fighter
+    became actionable the instant the buff expired, which is wrong; the cast
+    animation still has to finish.
+
 ## What is still unverified
 
 * **Anything visual.** No renderer, no window, no screenshot. Layout, palette,

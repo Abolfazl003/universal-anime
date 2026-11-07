@@ -5,6 +5,8 @@ extends RefCounted
 
 const Validator = preload("res://scripts/data/character_validator.gd")
 const Consts = preload("res://scripts/core/constants.gd")
+const VERSUS_SCENE := preload("res://scenes/versus/versus_stage.tscn")
+const States = preload("res://scripts/combat/fighter_states.gd")
 const CHARACTER_SELECT_PAGE_SIZE: int = 48
 
 
@@ -18,6 +20,7 @@ func run(t) -> void:
 	t.suite("ui / capacity and match flow")
 	await _test_character_select_capacity(t)
 	await _test_versus_scene(t)
+	await _test_naruto_scene(t)
 
 
 func _test_save_roundtrip(t) -> void:
@@ -123,7 +126,7 @@ func _test_versus_scene(t) -> void:
 	Session.rounds_to_win = 3
 	Session.timer_enabled = false
 
-	var packed = load("res://scenes/versus/versus_stage.tscn")
+	var packed = VERSUS_SCENE
 	t.ok("versus stage scene loads", packed != null)
 	var scene = packed.instantiate()
 	t.tree.root.add_child(scene)
@@ -140,5 +143,32 @@ func _test_versus_scene(t) -> void:
 	t.eq("round ends when a fighter is defeated", scene.phase, 2)
 	t.eq("winner gets a round point", int(scene.wins[0]), 1)
 	t.ok("no scene change yet (match not over)", is_instance_valid(scene))
+	scene.queue_free()
+	await t.wait_ticks(2)
+
+
+## The moveset for character 001 must be reachable from the LAB row without
+## marking the character playable: art approval has not happened.
+func _test_naruto_scene(t) -> void:
+	Session.mode = Consts.Mode.LAB
+	Session.p1 = Session.lab_entry("001_naruto", "NARUTO UZUMAKI")
+	Session.p2 = Session.lab_entry("lab_dummy_b", "LAB DUMMY B")
+	Session.p1_control = Consts.PlayerControl.HUMAN
+	Session.p2_control = Consts.PlayerControl.AI
+	Session.stage_id = "lab_arena"
+	Session.rounds_to_win = 2
+	Session.timer_enabled = false
+	var scene = VERSUS_SCENE.instantiate()
+	t.tree.root.add_child(scene)
+	await t.wait_ticks(6)
+	t.eq("naruto moveset bound in a real match", str(scene.p1.moveset.get("id", "")), "001_naruto")
+	t.ok("naruto carries the three abilities",
+		scene.p1.moves.has("special") and scene.p1.moves.has("ultimate") and not scene.p1.forms.is_empty())
+	t.ok("naruto still shows the TEMP tag", bool(scene.p1.temporary))
+	scene.p1.enter_neutral()
+	scene.p1.special_energy = 100.0
+	var started: bool = scene.p1.start_form()
+	t.ok("form can be used in a live match", started)
+	t.eq("form put the fighter in FORM", int(scene.p1.state), States.State.FORM)
 	scene.queue_free()
 	await t.wait_ticks(2)

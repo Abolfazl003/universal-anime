@@ -13,7 +13,7 @@ const Consts = preload("res://scripts/core/constants.gd")
 
 const ACTIONS: PackedStringArray = [
 	"move_left", "move_right", "move_up", "move_down",
-	"jump", "crouch", "light", "heavy", "block", "special", "ultimate",
+	"jump", "crouch", "light", "heavy", "block", "special", "ultimate", "form",
 ]
 
 const GLOBAL_ACTIONS: PackedStringArray = ["pause", "debug_toggle", "restart"]
@@ -30,6 +30,7 @@ const ACTION_LABEL_KEYS: Dictionary = {
 	"block": "input.block",
 	"special": "input.special",
 	"ultimate": "input.ultimate",
+	"form": "input.form",
 	"pause": "input.pause",
 	"debug_toggle": "input.debug_toggle",
 	"restart": "input.restart",
@@ -69,6 +70,7 @@ func _build_defaults() -> void:
 	_defaults["p1_block"] = [_key(KEY_L), _joy_button(JOY_BUTTON_LEFT_SHOULDER, 0)]
 	_defaults["p1_special"] = [_key(KEY_U), _joy_button(JOY_BUTTON_RIGHT_SHOULDER, 0)]
 	_defaults["p1_ultimate"] = [_key(KEY_I), _joy_button(JOY_BUTTON_RIGHT_STICK, 0)]
+	_defaults["p1_form"] = [_key(KEY_O), _joy_button(JOY_BUTTON_LEFT_STICK, 0)]
 
 	# Player 2 — arrows + numpad, second gamepad.
 	_defaults["p2_move_left"] = [_key(KEY_LEFT), _joy_axis(JOY_AXIS_LEFT_X, -1.0, 1)]
@@ -82,6 +84,7 @@ func _build_defaults() -> void:
 	_defaults["p2_block"] = [_key(KEY_KP_3), _joy_button(JOY_BUTTON_LEFT_SHOULDER, 1)]
 	_defaults["p2_special"] = [_key(KEY_KP_4), _joy_button(JOY_BUTTON_RIGHT_SHOULDER, 1)]
 	_defaults["p2_ultimate"] = [_key(KEY_KP_5), _joy_button(JOY_BUTTON_RIGHT_STICK, 1)]
+	_defaults["p2_form"] = [_key(KEY_KP_6), _joy_button(JOY_BUTTON_LEFT_STICK, 1)]
 
 	# Global actions. ui_* navigation stays on Godot defaults so the gamepad and
 	# keyboard can both drive menus without extra work.
