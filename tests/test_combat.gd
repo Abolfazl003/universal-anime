@@ -47,6 +47,8 @@ func run(t) -> void:
 	await _test_character_abilities(t)
 	await _test_sasuke_abilities(t)
 	await _test_sakura_abilities(t)
+	await _test_kakashi_abilities(t)
+	await _test_itachi_abilities(t)
 	_teardown()
 
 
@@ -533,6 +535,143 @@ func _test_sakura_abilities(t) -> void:
 	t.ok("ultimate lands heavy damage", target.hp <= target.max_hp - 30, "hp %d" % target.hp)
 
 	# --- Cleanup -------------------------------------------------------------
+	target.hp = 0
+	arena.clear()
+	arena.queue_free()
+
+
+func _test_kakashi_abilities(t) -> void:
+	t.suite("combat / character 004 abilities")
+	var moveset: Dictionary = GameData.lab_moveset("004_kakashi")
+	t.ok("moveset 004_kakashi loads", not moveset.is_empty())
+	if moveset.is_empty():
+		return
+	var moves: Dictionary = moveset.get("moves", {})
+	var forms: Dictionary = moveset.get("forms", {})
+	t.eq("special is the Sharingan / Kamui warp",
+		str((moves.get("special", {}) as Dictionary).get("name", "")), "Sharingan / Kamui")
+	t.eq("ultimate is the Kamui dimension slash",
+		str((moves.get("ultimate", {}) as Dictionary).get("name", "")), "Kamui: Wrinkle-Dimension Slash")
+	t.ok("sharingan is declared as a form", (moveset.get("forms", {}) as Dictionary).has("sharingan"))
+
+	var arena = CombatManagerScript.new()
+	t.tree.root.add_child(arena)
+	var attacker = _spawn_test_fighter(arena, moveset, 600.0)
+	var target = _spawn_test_fighter(arena, moveset, 940.0)
+	attacker.facing = 1
+	target.facing = -1
+	await t.wait_ticks(4)
+
+	# --- Kamui warp dash ------------------------------------------------------
+	attacker.global_position = Vector2(600.0, 600.0)
+	target.global_position = Vector2(860.0, 600.0)
+	await t.wait_ticks(2)
+	t.ok("skilled ninja scales damage less from raw attack", attacker.damage_scale < 1.1, str(attacker.damage_scale))
+	attacker.special_energy = 100.0
+	var start_x: float = attacker.global_position.x
+	t.ok("warp starts with energy", attacker.start_move("special"))
+	t.eq("warp spent 35 energy", int(attacker.special_energy), 65)
+	t.ok("warp grants invulnerability frames", attacker.invulnerable_ticks > 0, str(attacker.invulnerable_ticks))
+	await t.wait_ticks(14)
+	t.ok("warp covers ground fast", attacker.global_position.x > start_x + 60.0,
+		"moved %.1f" % (attacker.global_position.x - start_x))
+	await t.wait_ticks(30)
+	t.ok("warp lands damage", target.hp < target.max_hp, "hp %d" % target.hp)
+	await t.wait_ticks(30)
+
+	# --- Sharingan ------------------------------------------------------------
+	attacker.special_energy = 100.0
+	t.ok("sharingan form starts", attacker.start_form())
+	t.eq("sharingan costs 30", int(attacker.special_energy), 70)
+	t.ok("sharingan speeds Kakashi up", attacker.form_speed_multiplier() > 1.0)
+	t.ok("sharingan boosts damage", attacker.damage_multiplier() > attacker.damage_scale)
+	attacker.form_ticks = 1
+	await t.wait_ticks(30)
+
+	# --- Kamui: Wrinkle-Dimension Slash --------------------------------------
+	attacker.global_position = Vector2(600.0, 600.0)
+	target.global_position = Vector2(1250.0, 600.0)
+	await t.wait_ticks(2)
+	attacker.ultimate_meter = 0.0
+	t.ok("ultimate refused without meter", not attacker.start_move("ultimate"))
+	attacker.ultimate_meter = 100.0
+	var before: int = arena.projectiles.size()
+	t.ok("ultimate starts with a full meter", attacker.start_move("ultimate"))
+	await t.wait_ticks(26)
+	t.eq("ultimate spawned one rift", arena.projectiles.size(), before + 1)
+	if arena.projectiles.size() > before:
+		var rift = arena.projectiles[arena.projectiles.size() - 1]
+		t.eq("rift uses the kamui visual", str(rift.visual_kind), "kamui_slash")
+		t.ok("rift is large", float(rift.radius) >= 50.0, str(rift.radius))
+
+	target.hp = 0
+	arena.clear()
+	arena.queue_free()
+
+
+func _test_itachi_abilities(t) -> void:
+	t.suite("combat / character 005 abilities")
+	var moveset: Dictionary = GameData.lab_moveset("005_itachi")
+	t.ok("moveset 005_itachi loads", not moveset.is_empty())
+	if moveset.is_empty():
+		return
+	var moves: Dictionary = moveset.get("moves", {})
+	var forms: Dictionary = moveset.get("forms", {})
+	t.eq("special is Amaterasu", str((moves.get("special", {}) as Dictionary).get("name", "")), "Amaterasu")
+	t.eq("ultimate is the Totsuka Blade Seal",
+		str((moves.get("ultimate", {}) as Dictionary).get("name", "")), "Susanoo: Totsuka Blade Seal")
+	t.ok("Tsukuyomi is declared as a form", forms.has("tsukuyomi"))
+
+	var arena = CombatManagerScript.new()
+	t.tree.root.add_child(arena)
+	var attacker = _spawn_test_fighter(arena, moveset, 600.0)
+	var target = _spawn_test_fighter(arena, moveset, 900.0)
+	attacker.facing = 1
+	target.facing = -1
+	await t.wait_ticks(4)
+
+	# --- Amaterasu ------------------------------------------------------------
+	attacker.special_energy = 100.0
+	var before: int = arena.projectiles.size()
+	t.ok("Amaterasu starts", attacker.start_move("special"))
+	t.eq("Amaterasu costs 40", int(attacker.special_energy), 60)
+	await t.wait_ticks(18)
+	t.eq("Amaterasu spawned one flame", arena.projectiles.size(), before + 1)
+	if arena.projectiles.size() > before:
+		var flame = arena.projectiles[arena.projectiles.size() - 1]
+		t.eq("flame uses the amaterasu visual", str(flame.visual_kind), "amaterasu")
+		t.eq("Itachi's flame does not travel", float(flame.speed), 0.0)
+		t.ok("Itachi's flame burns longer", flame.lifetime_ticks >= 200, str(flame.lifetime_ticks))
+	await t.wait_ticks(40)
+	attacker.current_move = {}
+	attacker.current_move_id = ""
+	attacker.enter_neutral()
+	await t.wait_ticks(2)
+
+	# --- Tsukuyomi ------------------------------------------------------------
+	attacker.special_energy = 100.0
+	t.ok("Tsukuyomi starts", attacker.start_form())
+	t.eq("Tsukuyomi costs 45", int(attacker.special_energy), 55)
+	t.ok("Tsukuyomi grants a long invulnerable window",
+		int((forms.get("tsukuyomi", {}) as Dictionary).get("invulnerable_frames", 0)) >= 20)
+	t.ok("Tsukuyomi boosts damage hard", attacker.form_damage_multiplier() >= 1.25,
+		str(attacker.form_damage_multiplier()))
+	attacker.form_ticks = 1
+	await t.wait_ticks(30)
+
+	# --- Susanoo: Totsuka Blade Seal -----------------------------------------
+	attacker.ultimate_meter = 100.0
+	var shots: int = arena.projectiles.size()
+	t.ok("ultimate starts with a full meter", attacker.start_move("ultimate"))
+	await t.wait_ticks(28)
+	t.eq("ultimate spawned one blade", arena.projectiles.size(), shots + 1)
+	if arena.projectiles.size() > shots:
+		var blade = arena.projectiles[arena.projectiles.size() - 1]
+		t.eq("blade uses the totsuka visual", str(blade.visual_kind), "totsuka_blade")
+		var blade_x: float = blade.global_position.x
+		await t.wait_ticks(8)
+		t.ok("blade travels forward", blade.global_position.x > blade_x)
+
 	target.hp = 0
 	arena.clear()
 	arena.queue_free()

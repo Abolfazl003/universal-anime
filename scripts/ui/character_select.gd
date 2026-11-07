@@ -76,6 +76,8 @@ func _build() -> void:
 		["001_naruto", "NARUTO UZUMAKI"],
 		["002_sasuke", "SASUKE UCHIHA"],
 		["003_sakura", "SAKURA HARUNO"],
+		["004_kakashi", "KAKASHI HATAKE"],
+		["005_itachi", "ITACHI UCHIHA"],
 	]
 	for pair in lab_entries:
 		var key: String = str(pair[0])

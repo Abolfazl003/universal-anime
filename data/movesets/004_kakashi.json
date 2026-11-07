@@ -1,0 +1,179 @@
+{
+  "movesetId": "004_kakashi",
+  "characterId": 4,
+  "displayName": "KAKASHI HATAKE",
+  "temporary": true,
+  "note": "Moveset for character id 4. Power names verbatim from the dataset: signature 'Sharingan / Kamui' and the ultimate 'Kamui: Wrinkle-Dimension Slash'. Design unapproved, visuals procedural, TEMP tag stays on.",
+  "stats": {
+    "hp": 71,
+    "atk": 62,
+    "def": 53,
+    "spd": 73,
+    "tech": 93,
+    "build": 90,
+    "power_level": 74
+  },
+  "fighter": {
+    "hp": 82,
+    "walk_speed": 290.0,
+    "run_speed": 466.0,
+    "jump_velocity": -748.0,
+    "hurtbox_width": 48.0,
+    "hurtbox_height": 124.0,
+    "weight": 1.0,
+    "primary": "#2f3a44",
+    "secondary": "#141a1e",
+    "accent": "#c9d6e2"
+  },
+  "moves": {
+    "light_attack": {
+      "id": "light_attack",
+      "animation_id": "light_attack",
+      "startup": 4,
+      "active": 2,
+      "recovery": 8,
+      "damage": 5,
+      "hitstun": 10,
+      "blockstun": 6,
+      "knockback": {
+        "x": 100.0,
+        "y": -14.0
+      },
+      "energy_cost": 0.0,
+      "energy_gain": 5.0,
+      "ultimate_gain": 4.0,
+      "cooldown": 0,
+      "hitbox": {
+        "offset_x": 52.0,
+        "offset_y": -70.0,
+        "size_x": 68.0,
+        "size_y": 32.0
+      },
+      "cancel_windows": [
+        {
+          "from_frame": 6,
+          "to_frame": 13,
+          "into": [
+            "light_attack",
+            "heavy_attack"
+          ],
+          "requires_hit": true
+        }
+      ]
+    },
+    "heavy_attack": {
+      "id": "heavy_attack",
+      "animation_id": "heavy_attack",
+      "startup": 10,
+      "active": 4,
+      "recovery": 15,
+      "damage": 12,
+      "hitstun": 18,
+      "blockstun": 10,
+      "knockback": {
+        "x": 260.0,
+        "y": -95.0
+      },
+      "energy_cost": 0.0,
+      "energy_gain": 8.0,
+      "ultimate_gain": 7.0,
+      "cooldown": 0,
+      "hitbox": {
+        "offset_x": 62.0,
+        "offset_y": -72.0,
+        "size_x": 90.0,
+        "size_y": 44.0
+      },
+      "cancel_windows": [
+        {
+          "from_frame": 22,
+          "to_frame": 29,
+          "into": [
+            "special"
+          ],
+          "requires_hit": true
+        }
+      ]
+    },
+    "special": {
+      "id": "special",
+      "name": "Sharingan / Kamui",
+      "animation_id": "special",
+      "type": "rush",
+      "startup": 12,
+      "active": 5,
+      "recovery": 20,
+      "damage": 18,
+      "hitstun": 24,
+      "blockstun": 12,
+      "knockback": {
+        "x": 260.0,
+        "y": -80.0
+      },
+      "energy_cost": 35.0,
+      "ultimate_gain": 5.0,
+      "cooldown": 50,
+      "invulnerable_frames": 12,
+      "move_speed": 700.0,
+      "hitbox": {
+        "offset_x": 60.0,
+        "offset_y": -72.0,
+        "size_x": 90.0,
+        "size_y": 56.0
+      }
+    },
+    "ultimate": {
+      "id": "ultimate",
+      "name": "Kamui: Wrinkle-Dimension Slash",
+      "animation_id": "ultimate",
+      "type": "projectile",
+      "startup": 24,
+      "active": 3,
+      "recovery": 30,
+      "damage": 42,
+      "chip_damage": 8,
+      "hitstun": 30,
+      "blockstun": 18,
+      "knockback": {
+        "x": 420.0,
+        "y": -140.0
+      },
+      "energy_cost": 0.0,
+      "meter_required": 100.0,
+      "ultimate_gain": 0.0,
+      "cooldown": 0,
+      "invulnerable_frames": 14,
+      "hitbox": {
+        "offset_x": 64.0,
+        "offset_y": -72.0,
+        "size_x": 70.0,
+        "size_y": 70.0
+      },
+      "projectile": {
+        "speed": 780.0,
+        "range": 1200.0,
+        "radius": 56.0,
+        "spawn_offset_x": 80.0,
+        "spawn_offset_y": -68.0,
+        "visual": "kamui_slash"
+      }
+    }
+  },
+  "forms": {
+    "sharingan": {
+      "id": "sharingan",
+      "name": "Sharingan",
+      "animation_id": "form_activation",
+      "cast_frames": 16,
+      "duration_frames": 420,
+      "energy_cost": 30.0,
+      "invulnerable_frames": 6,
+      "speed_multiplier": 1.2,
+      "damage_multiplier": 1.15,
+      "aura": "sharingan",
+      "aura_color": "#b23b34",
+      "requires_separate_reference_approval": true,
+      "note": "Mechanics only: a read/dodge window as brief invulnerability plus speed and damage. Eye design needs its own approved reference."
+    }
+  }
+}

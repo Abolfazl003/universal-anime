@@ -22,6 +22,7 @@ func run(t) -> void:
 	await _test_versus_scene(t)
 	await _test_naruto_scene(t)
 	await _test_uchiha_haruno_scene(t)
+	await _test_lab_roster(t)
 
 
 func _test_save_roundtrip(t) -> void:
@@ -212,3 +213,16 @@ func _test_uchiha_haruno_scene(t) -> void:
 	t.ok("byakugo heals in a live match", scene.p2.hp > hp_before, "hp %d -> %d" % [hp_before, scene.p2.hp])
 	scene.queue_free()
 	await t.wait_ticks(2)
+
+
+func _test_lab_roster(t) -> void:
+	t.suite("ui / temporary lab roster")
+	var ids: Array = ["lab_dummy_a", "lab_dummy_b", "001_naruto", "002_sasuke", "003_sakura",
+		"004_kakashi", "005_itachi"]
+	for key in ids:
+		var entry: Dictionary = Session.lab_entry(str(key), str(key).to_upper())
+		var moveset: Dictionary = GameData.lab_moveset(str(key))
+		t.ok("lab entry %s resolves to a moveset" % key, not moveset.is_empty())
+		t.ok("lab entry %s stays TEMP" % key, bool(moveset.get("temporary", false)))
+	var naruto: Dictionary = GameData.lab_moveset("004_kakashi")
+	t.eq("kakashi keeps his dataset stats", int((naruto.get("stats", {}) as Dictionary).get("tech", 0)), 93)

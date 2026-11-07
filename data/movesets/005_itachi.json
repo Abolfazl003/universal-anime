@@ -1,0 +1,186 @@
+{
+  "movesetId": "005_itachi",
+  "characterId": 5,
+  "displayName": "ITACHI UCHIHA",
+  "temporary": true,
+  "note": "Moveset for character id 5. Power names verbatim from the dataset: signature 'Mangekyo: Tsukuyomi & Amaterasu' and the ultimate 'Susanoo: Totsuka Blade Seal'. Tsukuyomi is implemented as a short, hard-to-hit form; Amaterasu as the special. Design unapproved, visuals procedural.",
+  "stats": {
+    "hp": 58,
+    "atk": 91,
+    "def": 62,
+    "spd": 94,
+    "tech": 63,
+    "build": 56,
+    "power_level": 71
+  },
+  "fighter": {
+    "hp": 67,
+    "walk_speed": 298.0,
+    "run_speed": 478.0,
+    "jump_velocity": -768.0,
+    "hurtbox_width": 48.0,
+    "hurtbox_height": 124.0,
+    "weight": 1.0,
+    "primary": "#33202e",
+    "secondary": "#120c12",
+    "accent": "#e0728d"
+  },
+  "moves": {
+    "light_attack": {
+      "id": "light_attack",
+      "animation_id": "light_attack",
+      "startup": 3,
+      "active": 2,
+      "recovery": 7,
+      "damage": 5,
+      "hitstun": 9,
+      "blockstun": 6,
+      "knockback": {
+        "x": 90.0,
+        "y": -12.0
+      },
+      "energy_cost": 0.0,
+      "energy_gain": 5.0,
+      "ultimate_gain": 4.0,
+      "cooldown": 0,
+      "hitbox": {
+        "offset_x": 50.0,
+        "offset_y": -70.0,
+        "size_x": 62.0,
+        "size_y": 30.0
+      },
+      "cancel_windows": [
+        {
+          "from_frame": 5,
+          "to_frame": 12,
+          "into": [
+            "light_attack",
+            "heavy_attack"
+          ],
+          "requires_hit": true
+        }
+      ]
+    },
+    "heavy_attack": {
+      "id": "heavy_attack",
+      "animation_id": "heavy_attack",
+      "startup": 8,
+      "active": 4,
+      "recovery": 13,
+      "damage": 13,
+      "hitstun": 18,
+      "blockstun": 10,
+      "knockback": {
+        "x": 240.0,
+        "y": -85.0
+      },
+      "energy_cost": 0.0,
+      "energy_gain": 8.0,
+      "ultimate_gain": 7.0,
+      "cooldown": 0,
+      "hitbox": {
+        "offset_x": 60.0,
+        "offset_y": -72.0,
+        "size_x": 84.0,
+        "size_y": 42.0
+      },
+      "cancel_windows": [
+        {
+          "from_frame": 19,
+          "to_frame": 26,
+          "into": [
+            "special"
+          ],
+          "requires_hit": false
+        }
+      ]
+    },
+    "special": {
+      "id": "special",
+      "name": "Amaterasu",
+      "animation_id": "special",
+      "type": "projectile",
+      "startup": 16,
+      "active": 2,
+      "recovery": 24,
+      "damage": 19,
+      "hitstun": 24,
+      "blockstun": 12,
+      "knockback": {
+        "x": 110.0,
+        "y": -26.0
+      },
+      "energy_cost": 40.0,
+      "ultimate_gain": 5.0,
+      "cooldown": 60,
+      "hitbox": {
+        "offset_x": 70.0,
+        "offset_y": -70.0,
+        "size_x": 44.0,
+        "size_y": 44.0
+      },
+      "projectile": {
+        "speed": 0.0,
+        "range": 0.0,
+        "radius": 52.0,
+        "spawn_offset_x": 120.0,
+        "spawn_offset_y": -30.0,
+        "visual": "amaterasu",
+        "lifetime_ticks": 210
+      }
+    },
+    "ultimate": {
+      "id": "ultimate",
+      "name": "Susanoo: Totsuka Blade Seal",
+      "animation_id": "ultimate",
+      "type": "projectile",
+      "startup": 26,
+      "active": 3,
+      "recovery": 32,
+      "damage": 46,
+      "chip_damage": 9,
+      "hitstun": 34,
+      "blockstun": 20,
+      "knockback": {
+        "x": 460.0,
+        "y": -160.0
+      },
+      "energy_cost": 0.0,
+      "meter_required": 100.0,
+      "ultimate_gain": 0.0,
+      "cooldown": 0,
+      "invulnerable_frames": 18,
+      "hitbox": {
+        "offset_x": 66.0,
+        "offset_y": -74.0,
+        "size_x": 76.0,
+        "size_y": 76.0
+      },
+      "projectile": {
+        "speed": 620.0,
+        "range": 1150.0,
+        "radius": 48.0,
+        "spawn_offset_x": 86.0,
+        "spawn_offset_y": -72.0,
+        "visual": "totsuka_blade"
+      }
+    }
+  },
+  "forms": {
+    "tsukuyomi": {
+      "id": "tsukuyomi",
+      "name": "Tsukuyomi",
+      "animation_id": "form_activation",
+      "cast_frames": 20,
+      "duration_frames": 360,
+      "energy_cost": 45.0,
+      "invulnerable_frames": 20,
+      "speed_multiplier": 1.1,
+      "damage_multiplier": 1.25,
+      "aura": "tsukuyomi",
+      "aura_color": "#8a4b8f",
+      "requires_separate_reference_approval": true,
+      "note": "Mechanics only: 20 invulnerable frames model the eye contact, then a short damage window. The genjutsu scene itself is out of scope until approved art exists."
+    }
+  }
+}

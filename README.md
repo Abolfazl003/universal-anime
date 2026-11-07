@@ -13,11 +13,11 @@ Strictly 2D anime fighting game in **Godot 4.4 / GDScript** with two modes:
 > **500 records, 90 series, 500 complete, 0 duplicate ids** — and **0 playable**,
 > because every record is still `DATA_ONLY`. Nothing from any anime is
 > implemented, approved or playable; the reference gate for Naruto is open (one
-> proposal shown, unapproved). Three characters (ids 1–3) now have their
+> proposal shown, unapproved). Five characters (ids 1–5) now have their
 > abilities implemented as data with placeholder visuals. See `docs/00_PHASE0_AUDIT.md`.
 >
 > Verified on 2026-11-07 with a locally compiled Godot 4.4.1: the headless suite
-> reports `PASSED: 377 FAILED: 0`, exit code `0` (`docs/03_TEST_REPORT.md`).
+> reports `PASSED: 429 FAILED: 0`, exit code `0` (`docs/03_TEST_REPORT.md`).
 > The first run also exposed five real defects — dead state transitions, an
 > unregistered combat manager, unavailable data on direct scene starts, a
 > validator miscount, and two bad test assertions — all fixed and listed there.
@@ -59,6 +59,8 @@ any failed check.
 | Character 001 abilities: Rasengan dash, Kurama Chakra Mode timed form, Tailed Beast Rasenshuriken ultimate, plus a smooth pose-blended rig | **mechanics + placeholder visuals** — playable from the LAB row as `NARUTO UZUMAKI [TEMP]`; design still unapproved (`docs/04_NARUTO_ABILITIES.md`) |
 | Character 002 abilities: Amaterasu stationary flame, Sharingan timed form, Indra's Arrow: Perfect Susanoo ultimate | **mechanics + placeholder visuals** — LAB row `SASUKE UCHIHA [TEMP]` (`docs/05_SASUKE_AND_SAKURA_ABILITIES.md`) |
 | Character 003 abilities: Byakugo Super Strength punch, Byakugo healing form, Strength of a Hundred: Cherry Blossom Impact rush ultimate | **mechanics + placeholder visuals** — LAB row `SAKURA HARUNO [TEMP]` (`docs/05_SASUKE_AND_SAKURA_ABILITIES.md`) |
+| Character 004 abilities: Sharingan / Kamui warp dash, Sharingan form, Kamui: Wrinkle-Dimension Slash ultimate | **mechanics + placeholder visuals** — LAB row `KAKASHI HATAKE [TEMP]` (`docs/06_KAKASHI_AND_ITACHI_ABILITIES.md`) |
+| Character 005 abilities: Amaterasu flame, Tsukuyomi form, Susanoo: Totsuka Blade Seal ultimate | **mechanics + placeholder visuals** — LAB row `ITACHI UCHIHA [TEMP]` (`docs/06_KAKASHI_AND_ITACHI_ABILITIES.md`) |
 | Stat-driven damage, support (heal) moves, timed projectiles | working — dataset `atk` scales damage, forms add a multiplier, `heal` cannot overheal |
 | Rounds, rounds-to-win, optional timer, K.O./time-up, winner, rematch, return to menu | working |
 | AI opponent (approach, spacing, attack, block, meter usage) with delayed perception | working |

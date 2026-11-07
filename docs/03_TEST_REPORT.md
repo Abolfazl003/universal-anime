@@ -202,6 +202,30 @@ all fixed:
     to `user://moveset_fixture` made the older "deliberately broken" fixture fail
     the new load. New fixtures get their own directory now.
 
+## Fifth run — 2026-11-07 (characters 004 and 005)
+
+Kakashi and Itachi bring the warp dash, the second Amaterasu (a longer-burning
+one) and the first two projectiles with their own art: `kamui_slash` and
+`totsuka_blade`, both drawn procedurally and both time-based.
+
+```console
+$ godot --headless --path . res://tests/test_runner.tscn
+PASSED: 429   FAILED: 0   TOTAL: 429      exit 0
+```
+
+52 new checks: 19 for Kakashi, 18 for Itachi, 15 for the lab roster
+(`docs/06_KAKASHI_AND_ITACHI_ABILITIES.md`). Two failures were investigated and
+both turned out to be **test bugs**, not product bugs:
+
+15. **A dash tested beyond its own reach.** Kakashi's warp was started 340 px from
+    the dummy; a 700 px/s dash inside 12/5/20 frames cannot cover that, so the
+    test failed while the move was working. The spacing was wrong, not the data.
+16. **A projectile fired into an occupied spawn point.** The test dummy had
+    walked forward, so the ultimate spawned *inside* its hurtbox: the rift hit on
+    its first frame and despawned, which made "one projectile spawned" look false.
+    The engine was right; the test now resets spacing first. Worth remembering
+    when authoring tests — spawn offsets matter as much as ranges.
+
 ## What is still unverified
 
 * **Anything visual.** No renderer, no window, no screenshot. Layout, palette,
@@ -220,7 +244,7 @@ all fixed:
 
 ## Next
 
-Abilities for ids 1–3 are done to the same standard; the next batch is id 4 and
-onward, one character at a time. The art gate is unchanged and still blocked on
+Abilities for ids 1–5 are done to the same standard; the next batch starts at id 6
+(`Jiraiya`), one character at a time. The art gate is unchanged and still blocked on
 you: `characters.json` is still absent, no design is approved, and no final
 animation frame exists for any character.

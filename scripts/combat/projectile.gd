@@ -75,6 +75,12 @@ func _draw() -> void:
 	if visual_kind == "susanoo_arrow":
 		_draw_susanoo_arrow()
 		return
+	if visual_kind == "kamui_slash":
+		_draw_kamui_slash()
+		return
+	if visual_kind == "totsuka_blade":
+		_draw_totsuka_blade()
+		return
 	var big: bool = visual_kind == "big_orb"
 	var core := Color("cfe0ff") if not big else Color("ffdca8")
 	var glow := Color("4f8cff") if not big else Color("f5a623")
@@ -139,3 +145,42 @@ func _draw_susanoo_arrow() -> void:
 	var base_b: Vector2 = forward * radius * 0.9 - Vector2(0.0, radius * 0.55)
 	draw_colored_polygon(PackedVector2Array([tip, base_a, base_b]), Color(0.72, 0.5, 1.0, 0.9))
 	draw_circle(Vector2.ZERO, radius * 0.55, Color(0.9, 0.82, 1.0, 0.55))
+
+
+## Kamui placeholder: a jagged vertical rift with a bright core, spinning slowly
+## in place while the shot travels.
+func _draw_kamui_slash() -> void:
+	var clock: float = Time.get_ticks_msec() / 1000.0
+	var spin: float = clock * 2.4
+	var points := PackedVector2Array()
+	var steps: int = 12
+	for i in range(steps):
+		var angle: float = spin + TAU * float(i) / float(steps)
+		var wobble: float = 0.7 + 0.3 * sin(clock * 11.0 + float(i))
+		points.append(Vector2(cos(angle) * radius * 0.35 * wobble, sin(angle) * radius * wobble))
+	draw_colored_polygon(points, Color(0.16, 0.05, 0.28, 0.85))
+	var outer := PackedVector2Array()
+	for i in range(steps):
+		var angle: float = spin + TAU * float(i) / float(steps)
+		var wobble: float = 0.9 + 0.35 * sin(clock * 7.0 + float(i) * 1.7)
+		outer.append(Vector2(cos(angle) * radius * 0.9 * wobble, sin(angle) * radius * 1.15 * wobble))
+	draw_colored_polygon(outer, Color(0.55, 0.28, 0.95, 0.28))
+	draw_circle(Vector2.ZERO, radius * 0.3, Color(0.95, 0.92, 1.0, 0.85))
+
+
+## Totsuka Blade placeholder: a long sealing blade with a crimson edge and a
+## faint spiral of sealing light along the shaft.
+func _draw_totsuka_blade() -> void:
+	var clock: float = Time.get_ticks_msec() / 1000.0
+	var facing: float = float(direction)
+	var tip := Vector2(facing * radius * 3.0, -radius * 0.15)
+	var hilt := Vector2(-facing * radius * 1.6, radius * 0.1)
+	draw_line(hilt, tip, Color(0.95, 0.55, 0.25, 0.45), 14.0)
+	draw_line(hilt, tip, Color(1.0, 0.85, 0.6, 0.95), 5.0)
+	var guard := Vector2(-facing * radius * 1.4, 0.0)
+	draw_line(guard + Vector2(0.0, -radius * 0.5), guard + Vector2(0.0, radius * 0.5),
+		Color(0.6, 0.15, 0.2, 0.9), 4.0)
+	for i in range(3):
+		var phase: float = fmod(clock * 1.4 + float(i) / 3.0, 1.0)
+		var at: Vector2 = hilt.lerp(tip, phase)
+		draw_circle(at, 3.0 + 2.0 * sin(phase * PI), Color(1.0, 0.9, 0.75, 0.55))
