@@ -17,3 +17,7 @@ tests/output/
 
 # Local image-search cache (external, copyrighted references - never committed)
 image-search/
+
+# Raw generated state frames (one file is ~1 MB). The normalised frames that the
+# game ships are written next to them and are committed; the originals are not.
+assets/characters/states/*/_source/
