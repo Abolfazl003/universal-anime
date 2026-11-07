@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "kind": "art_approvals",
+  "note": "Human art approvals are recorded here, in the repository, and never in the player save. An entry means the user saw the artifact and approved its look; it does not mean the engine already draws it.",
+  "approvals": [
+    {
+      "id": "001_naruto_state_frames_v1",
+      "characterId": 1,
+      "characterName": "Naruto Uzumaki",
+      "scope": "state_frames",
+      "states": ["walk", "run", "special", "form", "ultimate"],
+      "alsoApproves": ["assets/characters/concepts/001_naruto_v2.png"],
+      "approvedOn": "2026-11-08",
+      "approvedBy": "user",
+      "statement": "تصاویر تایید شدن",
+      "statementLanguage": "fa",
+      "note": "Covers the look of the five state frame sets and the concept they all share. It does NOT cover in-game art: the engine still draws the procedural rig, which keeps its TEMP tag until these frames are rebuilt into a sprite set and approved as sprites."
+    }
+  ]
+}

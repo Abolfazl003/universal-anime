@@ -1,25 +1,36 @@
 {
   "characterId": 1,
   "characterName": "Naruto Uzumaki",
-  "status": "REFERENCE_PENDING",
+  "status": "STATE_FRAMES_APPROVED",
   "version": "Naruto Shippuden (Part II), default outfit — proposed, unconfirmed",
   "imagesReviewed": true,
   "referenceImagesPresent": 0,
-  "designLocked": false,
-  "designApprovedBy": null,
-  "designApprovedOn": null,
-  "animationBlocked": true,
-  "movesetBound": false,
+  "designLocked": true,
+  "designApprovedBy": "user",
+  "designApprovedOn": "2026-11-08",
+  "animationBlocked": false,
+  "movesetBound": true,
   "stageOwned": "konoha_pending (PENDING, not approved)",
   "notes": [
     "Two external reference images were downloaded and viewed in full on 2026-11-07 (see docs/02_REFERENCE_NARUTO.md and data/references.json); they are kept outside the repository, so referenceImagesPresent stays 0.",
     "Gap: the turnaround I saw is the blank-period (The Last) outfit; the Shippuden costume was read from a foreshortened colour render, so the proposal extrapolates between them.",
-    "A design proposal image has been shown to the user; it is NOT approved and NOT final.",
     "Approval metadata is kept here, in the repository, and never in the player save.",
-    "Proposal v1 was generated and displayed; my own review lists nine off-model corrections in proposals/README.md. No approval has been given, so nothing is locked."
+    "Proposal v1 was generated and displayed; my own review lists nine off-model corrections in proposals/README.md. No approval has been given, so nothing is locked.",
+    "Approved 2026-11-08: the user answered 'تصاویر تایید شدن' after seeing the five state frame sets (walk, run, special, form, ultimate) built from concept v2. Recorded in assets/characters/approvals.json and docs/08_APPROVALS.md.",
+    "Approval covers the LOOK of the frames and the concept they share. The engine still draws the procedural rig, so the in-game TEMP tag stays until a sprite set is built from these frames and approved as sprites."
   ],
   "proposalShown": true,
   "proposalVersion": 1,
   "proposalFile": "assets/characters/001_naruto/proposals/proposal_v1.png",
-  "proposalApproved": false
+  "approvedArtifacts": [
+    "assets/characters/states/001_naruto/walk/",
+    "assets/characters/states/001_naruto/run/",
+    "assets/characters/states/001_naruto/special/",
+    "assets/characters/states/001_naruto/form/",
+    "assets/characters/states/001_naruto/ultimate/",
+    "assets/characters/concepts/001_naruto_v2.png"
+  ],
+  "approvalId": "001_naruto_state_frames_v1",
+  "inGameArtStatus": "PROCEDURAL_RIG_STILL_TEMP",
+  "proposalApproved": true
 }

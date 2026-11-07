@@ -20,6 +20,7 @@ ROOT = Path(__file__).resolve().parent.parent
 STATES_DIR = ROOT / "assets" / "characters" / "states"
 INDEX = STATES_DIR / "index.json"
 MOVESETS = ROOT / "data" / "movesets"
+APPROVALS = ROOT / "assets" / "characters" / "approvals.json"
 
 # state folder -> moveset move/for it describes, or None for locomotion
 STATE_MOVES = {
@@ -43,6 +44,24 @@ STATE_LABELS = {
 }
 
 
+def load_approvals() -> dict[int, list[dict]]:
+    """Character id -> list of approval records (empty when nothing is approved)."""
+    if not APPROVALS.exists():
+        return {}
+    data = json.loads(APPROVALS.read_text(encoding="utf-8"))
+    by_character: dict[int, list[dict]] = {}
+    for entry in data.get("approvals", []):
+        by_character.setdefault(int(entry.get("characterId", 0)), []).append(entry)
+    return by_character
+
+
+def approval_for(records: list[dict], state: str) -> dict | None:
+    for record in records:
+        if state in record.get("states", []):
+            return record
+    return None
+
+
 def character_name(character_dir: str) -> str:
     parts = character_dir.split("_", 1)
     return parts[1].replace("_", " ").title() if len(parts) > 1 else character_dir
@@ -56,6 +75,7 @@ def moveset_for(character_dir: str) -> dict:
 
 
 def build() -> dict:
+    approvals = load_approvals()
     characters = []
     for character_dir in sorted(p for p in STATES_DIR.iterdir() if p.is_dir()):
         states = {}
@@ -78,6 +98,7 @@ def build() -> dict:
                 timing = {"kind": "move", "move": move_key,
                           "startup": move.get("startup"), "active": move.get("active"),
                           "recovery": move.get("recovery")}
+            granted = approval_for(approvals.get(int(character_dir.name.split("_", 1)[0]), []), state)
             states[state] = {
                 "label": STATE_LABELS.get(state, state),
                 "frames": [str(f.relative_to(ROOT)) for f in frames],
@@ -87,13 +108,24 @@ def build() -> dict:
                 "preview": (f"{state_dir.relative_to(ROOT)}/{state}_preview.gif"
                             if len(frames) > 1 else None),
                 "movesetTiming": timing,
-                "status": "PROPOSAL_V1",
-                "designLocked": False,
-                "animationBlocked": True,
+                "status": "APPROVED_V1" if granted else "PROPOSAL_V1",
+                "designLocked": bool(granted),
+                "animationBlocked": not bool(granted),
+                "approvedOn": granted.get("approvedOn") if granted else None,
+                "approvedBy": granted.get("approvedBy") if granted else None,
+                "approvalId": granted.get("id") if granted else None,
+                "header": (
+                    f"APPROVED v1 - {granted.get('approvedOn')} - {state.upper()} FRAMES "
+                    f"(user approval: {granted.get('id')})"
+                    if granted
+                    else f"TEMP / NOT APPROVED - {state.upper()} FRAMES (PROPOSAL v1)"
+                ),
             }
         if states:
+            overview = character_dir / "state_overview.png"
             characters.append({
                 "characterId": int(character_dir.name.split("_", 1)[0]),
+                "overview": str(overview.relative_to(ROOT)) if overview.exists() else None,
                 "characterName": character_name(character_dir.name),
                 "moveset": f"data/movesets/{character_dir.name}.json",
                 "states": states,
@@ -116,6 +148,8 @@ def validate(data: dict) -> list[str]:
     """Every file the index promises has to exist, and nothing may claim approval."""
     problems: list[str] = []
     for character in data["characters"]:
+        if character.get("overview") and not (ROOT / character["overview"]).exists():
+            problems.append(f"missing overview: {character['overview']}")
         for state, entry in character["states"].items():
             for frame in entry["frames"]:
                 if not (ROOT / frame).exists():
@@ -128,8 +162,10 @@ def validate(data: dict) -> list[str]:
                 problems.append(f"missing preview: {entry['preview']}")
             if entry["frameCount"] > 1 and not entry["preview"]:
                 problems.append(f"{character['characterId']}/{state}: animation has no preview")
-            if entry["designLocked"] or not entry["animationBlocked"]:
-                problems.append(f"{character['characterId']}/{state}: claims approval it does not have")
+            if entry["designLocked"] and not entry.get("approvalId"):
+                problems.append(f"{character['characterId']}/{state}: locked without an approval record")
+            if not entry["designLocked"] and not entry["animationBlocked"]:
+                problems.append(f"{character['characterId']}/{state}: animation unblocked without approval")
     return problems
 
 

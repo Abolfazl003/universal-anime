@@ -31,7 +31,7 @@ DIR="$TARGET"
 
 BG="#a7998d"          # the shared studio background of every state frame
 FRAME_H=660           # every character is normalised to this height in pixels
-CELL_W=420
+CELL_W=900            # wide enough that attack effects are not cut off
 CELL_H=700
 FPS_DELAY=6           # hundredths of a second per frame in the preview
 MORPH=2               # in-between frames generated between two key frames
@@ -46,11 +46,65 @@ normalise() { # normalise <in> <out>
   # The generated frames have a faint gradient in the studio background, which
   # leaves a visible rectangle when a frame is pasted onto a flat canvas. Flood
   # fill from the corner makes it transparent (only the connected region, so
-  # nothing inside the character is touched), then the frame is trimmed, scaled
-  # to the shared height and placed on the shared ground line.
-  convert "$1" -alpha set -fuzz 12% -fill none -draw 'matte 0,0 floodfill' \
-    -trim +repage -resize "x${FRAME_H}" \
-    -background "$BG" -gravity South -extent "${CELL_W}x${CELL_H}" -flatten "$2"
+  # nothing inside the character is touched).
+  # Four corner fills, not one: when an attack effect loops around the body it
+  # touches the border and cuts the background into regions that a single corner
+  # fill never reaches (that is what left visible rectangles in the first pass).
+  local sw_raw sh_raw draw
+  sw_raw=$(identify -format "%w" "$1")
+  sh_raw=$(identify -format "%h" "$1")
+  draw="matte 0,0 floodfill matte $((sw_raw - 1)),0 floodfill"
+  draw+=" matte 0,$((sh_raw - 1)) floodfill matte $((sw_raw - 1)),$((sh_raw - 1)) floodfill"
+  convert "$1" -alpha set -fuzz 20% -fill none -draw "$draw" \
+    -fuzz 8% -fill "$BG" -opaque 'srgb(167,153,141)' \
+    -trim +repage "$TMP/t.png"
+  # NB: `read < <(...)` returns non-zero at EOF (identify prints no newline) and
+  # would kill the script under `set -e`, so sizes are read with command
+  # substitution instead.
+  local w h
+  w=$(identify -format "%w" "$TMP/t.png")
+  h=$(identify -format "%h" "$TMP/t.png")
+
+  # Anchor on the FEET, not on the bounding box: attack frames carry a wide
+  # effect on one side, so box-centring would slide the body sideways between
+  # frames and the flipbook would jitter. The bottom eighth of the drawing is
+  # the feet; its centre is the anchor that keeps the character planted.
+  local strip_h=$(( h / 8 ))
+  (( strip_h < 6 )) && strip_h=6
+  convert "$TMP/t.png" -gravity South -crop "${w}x${strip_h}+0+0" +repage "$TMP/feet.png"
+  local feet_geom feet_w feet_x
+  feet_geom=$(convert "$TMP/feet.png" -fuzz 12% -trim -format "%wx%h%O" info:)
+  feet_w=${feet_geom%%x*}
+  feet_x=$(echo "$feet_geom" | sed -E 's/^[0-9]+x[0-9]+\+([0-9]+)\+.*/\1/')
+  local feet_centre=$(( feet_x + feet_w / 2 ))
+
+  convert "$TMP/t.png" -resize "x${FRAME_H}" "$TMP/scaled.png"
+  local sh ox oy
+  sh=$(identify -format "%h" "$TMP/scaled.png")
+  ox=$(( CELL_W / 2 - feet_centre * sh / h ))
+  oy=$(( CELL_H - sh ))
+  convert -size "${CELL_W}x${CELL_H}" xc:"$BG" "$TMP/scaled.png" \
+    -geometry "+${ox}+${oy}" -composite "$2"
+}
+
+header_for() { # header_for <state> -> banner text from index.json (TEMP unless approved)
+  local index
+  index="$(dirname "$DIR")/index.json"
+  if [[ -f "$index" ]]; then
+    python3 - "$index" "$DIR" "$1" <<'PY2' 2>/dev/null || true
+import json, os, sys
+index, char_dir, state = sys.argv[1], os.path.normpath(sys.argv[2]), sys.argv[3]
+data = json.load(open(index, encoding="utf-8"))
+for character in data.get("characters", []):
+    for key, entry in character.get("states", {}).items():
+        if key == state and entry.get("header"):
+            print(entry["header"])
+            raise SystemExit
+print(f"TEMP / NOT APPROVED - {state.upper()} FRAMES (PROPOSAL v1)")
+PY2
+  else
+    echo "TEMP / NOT APPROVED - $(echo "$1" | tr '[:lower:]' '[:upper:]') FRAMES (PROPOSAL v1)"
+  fi
 }
 
 states=("$@")
@@ -87,22 +141,42 @@ for state in "${states[@]}"; do
   done
 
   # 2. ordered contact sheet with frame numbers and an explicit TEMP banner
+  # The normalised frames share one wide 900 px cell so attack effects are never
+  # cut off and the ground line is identical. For the sheet that leaves a lot of
+  # dead space, so each cell is cropped horizontally to its content (full height
+  # kept, so the ground line stays put) before being laid out.
+  tight=()
+  for f in "${clean[@]}"; do
+    trim_geom=$(convert "$f" -fuzz 12% -trim -format "%wx%h%O" info:)
+    trim_w=${trim_geom%%x*}
+    trim_x=$(echo "$trim_geom" | sed -E 's/^[0-9]+x[0-9]+\+([0-9]+)\+.*/\1/')
+    pad=30
+    crop_w=$(( trim_w + pad * 2 ))
+    crop_x=$(( trim_x - pad ))
+    (( crop_x < 0 )) && crop_x=0
+    (( crop_x + crop_w > CELL_W )) && crop_w=$(( CELL_W - crop_x ))
+    convert "$f" -crop "${crop_w}x${CELL_H}+${crop_x}+0" +repage "$TMP/tight_$(basename "$f")"
+    tight+=("$TMP/tight_$(basename "$f")")
+  done
+
   # -label must sit directly in front of the image it belongs to, otherwise
   # montage applies the last label to every cell.
   labeled=()
   i=0
-  for f in "${clean[@]}"; do
+  for f in "${tight[@]}"; do
     i=$((i + 1))
     labeled+=(-label "$(printf 'FRAME %02d' "$i")" "$f")
   done
   montage "${labeled[@]}" -tile "${#clean[@]}x1" \
-    -geometry "${CELL_W}x${CELL_H}+12+18" -background "$BG" \
+    -geometry "+12+18" -background "$BG" \
     -fill '#f3ece2' -font DejaVu-Sans-Bold -pointsize 26 \
     "$TMP/sheet_body.png"
+  banner=$(header_for "$state")
+  accent=
+  if [[ "$banner" == APPROVED* ]]; then accent='#7fd6a0'; else accent='#ffb347'; fi
   convert -size "$(identify -format '%w' "$TMP/sheet_body.png")"x64 xc:'#1d1a17' \
-    -gravity West -fill '#ffb347' -font DejaVu-Sans-Bold -pointsize 30 \
-    -annotate +20+0 "TEMP / NOT APPROVED - $(echo "$state" | tr '[:lower:]' '[:upper:]') FRAMES (PROPOSAL v1)" \
-    "$TMP/sheet_header.png"
+    -gravity West -fill "$accent" -font DejaVu-Sans-Bold -pointsize 30 \
+    -annotate +20+0 "$banner" "$TMP/sheet_header.png"
   # 8-bit palette keeps the sheets readable and a quarter of the size; line art
   # with flat fills does not need 16-bit truecolour.
   convert "$TMP/sheet_header.png" "$TMP/sheet_body.png" -append -depth 8 -colors 192 \
@@ -122,3 +196,22 @@ for state in "${states[@]}"; do
 
   echo "built ${state}: ${#clean[@]} frames -> ${state}_frames.png, ${state}_preview.gif"
 done
+
+# ---------------------------------------------------------------------------
+# One overview per character: every state sheet stacked, so the whole state set
+# can be judged in one look. Only built when at least two state sheets exist.
+# ---------------------------------------------------------------------------
+# Order matters: the overview reads in game order, not alphabetically.
+sheets=()
+for state in walk run light heavy special form ultimate; do
+  [[ -f "$DIR/$state/${state}_frames.png" ]] && sheets+=("$DIR/$state/${state}_frames.png")
+done
+if [[ ${#sheets[@]} -ge 2 ]]; then
+  parts=()
+  for sheet in "${sheets[@]}"; do
+    convert "$sheet" -resize 1600x -bordercolor '#1d1a17' -border 0x6 "$TMP/ov_$(basename "$sheet")"
+    parts+=("$TMP/ov_$(basename "$sheet")")
+  done
+  convert "${parts[@]}" -append -depth 8 -colors 192 "PNG8:$DIR/state_overview.png"
+  echo "overview: $DIR/state_overview.png (${#sheets[@]} state sheets)"
+fi
