@@ -1,0 +1,179 @@
+{
+  "movesetId": "003_sakura",
+  "characterId": 3,
+  "displayName": "SAKURA HARUNO",
+  "temporary": true,
+  "note": "Moveset for character id 3. Power names verbatim from the dataset: 'Byakugo Super Strength' plus the ultimate 'Strength of a Hundred: Cherry Blossom Impact'. Byakugo is implemented as a healing form. Design unapproved, visuals procedural.",
+  "stats": {
+    "hp": 87,
+    "atk": 80,
+    "def": 77,
+    "spd": 49,
+    "tech": 49,
+    "build": 62,
+    "power_level": 67
+  },
+  "fighter": {
+    "hp": 100,
+    "walk_speed": 262.0,
+    "run_speed": 418.0,
+    "jump_velocity": -720.0,
+    "hurtbox_width": 48.0,
+    "hurtbox_height": 124.0,
+    "weight": 1.0,
+    "primary": "#c8445a",
+    "secondary": "#2a1c26",
+    "accent": "#f2a7bb"
+  },
+  "moves": {
+    "light_attack": {
+      "id": "light_attack",
+      "animation_id": "light_attack",
+      "startup": 5,
+      "active": 3,
+      "recovery": 9,
+      "damage": 6,
+      "hitstun": 11,
+      "blockstun": 7,
+      "knockback": {
+        "x": 120.0,
+        "y": -20.0
+      },
+      "energy_cost": 0.0,
+      "energy_gain": 5.0,
+      "ultimate_gain": 4.0,
+      "cooldown": 0,
+      "hitbox": {
+        "offset_x": 52.0,
+        "offset_y": -70.0,
+        "size_x": 68.0,
+        "size_y": 36.0
+      },
+      "cancel_windows": [
+        {
+          "from_frame": 8,
+          "to_frame": 15,
+          "into": [
+            "light_attack",
+            "heavy_attack"
+          ],
+          "requires_hit": true
+        }
+      ]
+    },
+    "heavy_attack": {
+      "id": "heavy_attack",
+      "animation_id": "heavy_attack",
+      "startup": 13,
+      "active": 5,
+      "recovery": 18,
+      "damage": 17,
+      "hitstun": 20,
+      "blockstun": 12,
+      "knockback": {
+        "x": 320.0,
+        "y": -110.0
+      },
+      "energy_cost": 0.0,
+      "energy_gain": 9.0,
+      "ultimate_gain": 8.0,
+      "cooldown": 0,
+      "hitbox": {
+        "offset_x": 62.0,
+        "offset_y": -70.0,
+        "size_x": 96.0,
+        "size_y": 58.0
+      },
+      "cancel_windows": [
+        {
+          "from_frame": 28,
+          "to_frame": 36,
+          "into": [
+            "special"
+          ],
+          "requires_hit": true
+        }
+      ]
+    },
+    "special": {
+      "id": "special",
+      "name": "Byakugo Super Strength",
+      "animation_id": "special",
+      "type": "melee",
+      "startup": 15,
+      "active": 4,
+      "recovery": 24,
+      "damage": 26,
+      "hitstun": 28,
+      "blockstun": 16,
+      "knockback": {
+        "x": 420.0,
+        "y": -200.0
+      },
+      "energy_cost": 25.0,
+      "ultimate_gain": 6.0,
+      "cooldown": 40,
+      "hitbox": {
+        "offset_x": 68.0,
+        "offset_y": -66.0,
+        "size_x": 104.0,
+        "size_y": 82.0
+      },
+      "effect": {
+        "kind": "impact",
+        "hand": "front"
+      }
+    },
+    "ultimate": {
+      "id": "ultimate",
+      "name": "Strength of a Hundred: Cherry Blossom Impact",
+      "animation_id": "ultimate",
+      "type": "rush",
+      "startup": 22,
+      "active": 6,
+      "recovery": 30,
+      "damage": 40,
+      "chip_damage": 8,
+      "hitstun": 34,
+      "blockstun": 18,
+      "knockback": {
+        "x": 520.0,
+        "y": -220.0
+      },
+      "energy_cost": 0.0,
+      "meter_required": 100.0,
+      "ultimate_gain": 0.0,
+      "cooldown": 0,
+      "invulnerable_frames": 14,
+      "move_speed": 560.0,
+      "hitbox": {
+        "offset_x": 70.0,
+        "offset_y": -64.0,
+        "size_x": 120.0,
+        "size_y": 96.0
+      },
+      "effect": {
+        "kind": "impact",
+        "hand": "front"
+      }
+    }
+  },
+  "forms": {
+    "byakugo": {
+      "id": "byakugo",
+      "name": "Byakugo",
+      "animation_id": "form_activation",
+      "cast_frames": 22,
+      "duration_frames": 600,
+      "energy_cost": 45.0,
+      "invulnerable_frames": 10,
+      "speed_multiplier": 1.0,
+      "damage_multiplier": 1.15,
+      "heal_per_second": 6.0,
+      "aura": "byakugo",
+      "aura_color": "#7fd6c0",
+      "requires_separate_reference_approval": true,
+      "note": "Mechanics only: regeneration plus a damage bump. The forehead seal and chakra markings need their own approved reference."
+    }
+  }
+}

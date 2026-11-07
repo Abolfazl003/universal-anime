@@ -70,7 +70,14 @@ func _build() -> void:
 	var lab_row := UIKit.hbox(10)
 	column.add_child(lab_row)
 	lab_row.add_child(UIKit.label("TEMPORARY LAB ENTITIES", 0.8, UIKit.WARN))
-	for pair in [["lab_dummy_a", "LAB DUMMY A"], ["lab_dummy_b", "LAB DUMMY B"], ["001_naruto", "NARUTO UZUMAKI"]]:
+	var lab_entries: Array = [
+		["lab_dummy_a", "LAB DUMMY A"],
+		["lab_dummy_b", "LAB DUMMY B"],
+		["001_naruto", "NARUTO UZUMAKI"],
+		["002_sasuke", "SASUKE UCHIHA"],
+		["003_sakura", "SAKURA HARUNO"],
+	]
+	for pair in lab_entries:
 		var key: String = str(pair[0])
 		var label: String = str(pair[1])
 		lab_row.add_child(UIKit.tiny_button("%s [%s]" % [label, Loc.t("common.temporary")],

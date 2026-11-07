@@ -13,6 +13,10 @@ var instance_id: int = 0
 var visual_kind: String = "orb"
 var traveled: float = 0.0
 var alive: bool = true
+## Lingering fields (Amaterasu) have no travel and disappear on a timer instead of
+## on range. 0 means "range only", which is the original behaviour.
+var lifetime_ticks: int = 0
+var _ticks_alive: int = 0
 
 var _previous_position: Vector2 = Vector2.ZERO
 
@@ -27,6 +31,7 @@ func setup(p_owner, p_move: Dictionary, p_direction: int, p_instance: int) -> vo
 	max_range = float(projectile.get("range", 700.0))
 	radius = float(projectile.get("radius", 24.0))
 	visual_kind = str(projectile.get("visual", "orb"))
+	lifetime_ticks = int(projectile.get("lifetime_ticks", 0))
 	global_position = p_owner.global_position + Vector2(
 		float(projectile.get("spawn_offset_x", 60.0)) * p_direction,
 		float(projectile.get("spawn_offset_y", -70.0))
@@ -37,10 +42,15 @@ func setup(p_owner, p_move: Dictionary, p_direction: int, p_instance: int) -> vo
 func _physics_process(delta: float) -> void:
 	if not alive:
 		return
+	_ticks_alive += 1
 	var step: float = speed * delta
 	global_position.x += step * direction
 	traveled += step
-	if traveled >= max_range:
+	if lifetime_ticks > 0:
+		if _ticks_alive >= lifetime_ticks:
+			despawn()
+			return
+	elif traveled >= max_range:
 		despawn()
 		return
 	queue_redraw()
@@ -58,6 +68,12 @@ func despawn() -> void:
 func _draw() -> void:
 	if visual_kind == "rasenshuriken":
 		_draw_rasenshuriken()
+		return
+	if visual_kind == "amaterasu":
+		_draw_amaterasu()
+		return
+	if visual_kind == "susanoo_arrow":
+		_draw_susanoo_arrow()
 		return
 	var big: bool = visual_kind == "big_orb"
 	var core := Color("cfe0ff") if not big else Color("ffdca8")
@@ -88,3 +104,38 @@ func _draw_rasenshuriken() -> void:
 		draw_colored_polygon(PackedVector2Array([tip * 0.98, left * 0.62, right * 0.62]), Color(core.r, core.g, core.b, 0.45))
 	draw_circle(Vector2.ZERO, radius * 0.55, Color(core.r, core.g, core.b, 0.85))
 	draw_circle(Vector2.ZERO, radius * 0.34, core)
+
+
+## Amaterasu placeholder: black flame with a hot rim, flickering on wall-clock time
+## so the linger reads as alive instead of a static circle.
+func _draw_amaterasu() -> void:
+	var clock: float = Time.get_ticks_msec() / 1000.0
+	var flicker: float = 0.85 + 0.15 * sin(clock * 11.0)
+	draw_circle(Vector2.ZERO, radius * 1.05 * flicker, Color(0.05, 0.03, 0.06, 0.55))
+	draw_circle(Vector2.ZERO, radius * 0.82 * flicker, Color(0.02, 0.01, 0.03, 0.9))
+	for ring in range(3):
+		var spin: float = clock * (2.0 + float(ring)) + float(ring) * 1.7
+		draw_arc(Vector2.ZERO, radius * (0.62 + 0.14 * float(ring)), spin, spin + 3.4, 14,
+			Color(0.55, 0.12, 0.06, 0.5), 2.0)
+	var tips: int = 7
+	for index in range(tips):
+		var angle: float = clock * 1.6 + TAU * float(index) / float(tips)
+		var tip: Vector2 = Vector2(cos(angle), sin(angle)) * radius * (1.05 + 0.12 * sin(clock * 7.0 + float(index)))
+		draw_line(Vector2.ZERO, tip, Color(0.16, 0.05, 0.04, 0.35), 3.0)
+
+
+## Perfect Susanoo arrow placeholder: a long violet shaft with a glowing tip,
+## aimed along the travel direction.
+func _draw_susanoo_arrow() -> void:
+	var clock: float = Time.get_ticks_msec() / 1000.0
+	var pulse: float = 0.85 + 0.15 * sin(clock * 9.0)
+	var forward := Vector2(float(direction), 0.0)
+	var tail: Vector2 = -forward * radius * 2.6
+	draw_line(tail, forward * radius * 1.4, Color(0.12, 0.04, 0.22, 0.55), 16.0 * pulse)
+	draw_line(tail, forward * radius * 1.4, Color(0.45, 0.22, 0.85, 0.75), 9.0 * pulse)
+	draw_line(tail * 0.7, forward * radius * 1.1, Color(0.85, 0.72, 1.0, 0.8), 3.0)
+	var tip: Vector2 = forward * radius * 1.9
+	var base_a: Vector2 = forward * radius * 0.9 + Vector2(0.0, radius * 0.55)
+	var base_b: Vector2 = forward * radius * 0.9 - Vector2(0.0, radius * 0.55)
+	draw_colored_polygon(PackedVector2Array([tip, base_a, base_b]), Color(0.72, 0.5, 1.0, 0.9))
+	draw_circle(Vector2.ZERO, radius * 0.55, Color(0.9, 0.82, 1.0, 0.55))

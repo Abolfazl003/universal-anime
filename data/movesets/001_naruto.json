@@ -26,14 +26,30 @@
       "damage": 5,
       "hitstun": 10,
       "blockstun": 6,
-      "knockback": {"x": 110.0, "y": -18.0},
+      "knockback": {
+        "x": 110.0,
+        "y": -18.0
+      },
       "energy_cost": 0.0,
       "energy_gain": 5.0,
       "ultimate_gain": 4.0,
       "cooldown": 0,
-      "hitbox": {"offset_x": 50.0, "offset_y": -70.0, "size_x": 62.0, "size_y": 34.0},
+      "hitbox": {
+        "offset_x": 50.0,
+        "offset_y": -70.0,
+        "size_x": 62.0,
+        "size_y": 34.0
+      },
       "cancel_windows": [
-        {"from_frame": 7, "to_frame": 14, "into": ["light_attack", "heavy_attack"], "requires_hit": true}
+        {
+          "from_frame": 7,
+          "to_frame": 14,
+          "into": [
+            "light_attack",
+            "heavy_attack"
+          ],
+          "requires_hit": true
+        }
       ]
     },
     "heavy_attack": {
@@ -45,18 +61,41 @@
       "damage": 12,
       "hitstun": 18,
       "blockstun": 10,
-      "knockback": {"x": 280.0, "y": -120.0},
+      "knockback": {
+        "x": 280.0,
+        "y": -120.0
+      },
       "energy_cost": 0.0,
       "energy_gain": 8.0,
       "ultimate_gain": 7.0,
       "cooldown": 0,
-      "hitbox": {"offset_x": 62.0, "offset_y": -74.0, "size_x": 88.0, "size_y": 48.0},
+      "hitbox": {
+        "offset_x": 62.0,
+        "offset_y": -74.0,
+        "size_x": 88.0,
+        "size_y": 48.0
+      },
       "multi_hit": [
-        {"start": 10, "length": 2, "damage": 7},
-        {"start": 13, "length": 2, "damage": 7}
+        {
+          "start": 10,
+          "length": 2,
+          "damage": 7
+        },
+        {
+          "start": 13,
+          "length": 2,
+          "damage": 7
+        }
       ],
       "cancel_windows": [
-        {"from_frame": 24, "to_frame": 32, "into": ["special"], "requires_hit": false}
+        {
+          "from_frame": 24,
+          "to_frame": 32,
+          "into": [
+            "special"
+          ],
+          "requires_hit": false
+        }
       ]
     },
     "special": {
@@ -70,13 +109,26 @@
       "damage": 22,
       "hitstun": 26,
       "blockstun": 14,
-      "knockback": {"x": 380.0, "y": -180.0},
+      "knockback": {
+        "x": 380.0,
+        "y": -180.0
+      },
       "energy_cost": 30.0,
       "ultimate_gain": 6.0,
       "cooldown": 50,
       "move_speed": 640.0,
-      "hitbox": {"offset_x": 66.0, "offset_y": -72.0, "size_x": 84.0, "size_y": 74.0},
-      "effect": {"kind": "rasengan", "hand": "front", "grow_frames": 12, "spin": true}
+      "hitbox": {
+        "offset_x": 66.0,
+        "offset_y": -72.0,
+        "size_x": 84.0,
+        "size_y": 74.0
+      },
+      "effect": {
+        "kind": "rasengan",
+        "hand": "front",
+        "grow_frames": 12,
+        "spin": true
+      }
     },
     "ultimate": {
       "id": "ultimate",
@@ -90,13 +142,21 @@
       "chip_damage": 6,
       "hitstun": 34,
       "blockstun": 18,
-      "knockback": {"x": 460.0, "y": -140.0},
+      "knockback": {
+        "x": 460.0,
+        "y": -140.0
+      },
       "energy_cost": 0.0,
       "meter_required": 100.0,
       "ultimate_gain": 0.0,
       "cooldown": 0,
       "invulnerable_frames": 12,
-      "hitbox": {"offset_x": 64.0, "offset_y": -74.0, "size_x": 70.0, "size_y": 70.0},
+      "hitbox": {
+        "offset_x": 64.0,
+        "offset_y": -74.0,
+        "size_x": 70.0,
+        "size_y": 70.0
+      },
       "projectile": {
         "speed": 560.0,
         "range": 1100.0,
@@ -122,5 +182,14 @@
       "requires_separate_reference_approval": true,
       "note": "Mechanics only. The Kurama Chakra Mode look (yellow shroud, six magatama collar, horn-like hair locks) needs its own reference sheet and explicit approval before any final art or animation is produced."
     }
+  },
+  "stats": {
+    "hp": 91,
+    "atk": 91,
+    "def": 82,
+    "spd": 68,
+    "tech": 50,
+    "build": 72,
+    "power_level": 76
   }
 }

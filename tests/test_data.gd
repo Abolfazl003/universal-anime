@@ -172,6 +172,37 @@ func _test_movesets(t) -> void:
 	t.ok("lab movesets are not bound to a character id", lab_a.get("character_id", null) == null)
 
 	var broken: MovesetLoader = MovesetLoader.new()
+	# Support moves carry no hitbox by design; projectile moves can expire on a timer.
+	DirAccess.make_dir_recursive_absolute("user://moveset_support_fixture")
+	var support_file := FileAccess.open("user://moveset_support_fixture/support.json", FileAccess.WRITE)
+	support_file.store_string(JSON.stringify({
+		"movesetId": "support_fixture",
+		"temporary": true,
+		"moves": {
+			"special": {
+				"id": "special", "animation_id": "special", "type": "support", "name": "Field Medic",
+				"startup": 10, "active": 2, "recovery": 12, "heal": 14,
+			},
+			"ultimate": {
+				"id": "ultimate", "animation_id": "ultimate", "type": "projectile", "name": "Lingering Shot",
+				"startup": 8, "active": 2, "recovery": 10, "damage": 9,
+				"hitstun": 10, "blockstun": 6,
+				"hitbox": {"offset_x": 40.0, "offset_y": -40.0, "size_x": 30.0, "size_y": 30.0},
+				"projectile": {"speed": 0.0, "range": 0.0, "radius": 20.0, "lifetime_ticks": 90},
+			},
+		},
+	}))
+	support_file.close()
+	var support_loader = MovesetLoader.new()
+	var support_report: Dictionary = support_loader.load_all("user://moveset_support_fixture")
+	t.ok("support moves load without a hitbox", bool(support_report["ok"]), str(support_report["errors"]))
+	var support_move: Dictionary = support_loader.get_moveset("support_fixture").get("moves", {}).get("special", {})
+	t.eq("support move keeps its heal amount", int(support_move.get("heal", 0)), 14)
+	t.eq("support move has no hitbox width", float(support_move.get("hitbox_size_x", 0.0)), 0.0)
+	var timer_move: Dictionary = support_loader.get_moveset("support_fixture").get("moves", {}).get("ultimate", {})
+	t.eq("projectile lifetime survives the loader",
+		int((timer_move.get("projectile", {}) as Dictionary).get("lifetime_ticks", 0)), 90)
+
 	DirAccess.make_dir_recursive_absolute("user://moveset_fixture")
 	var file := FileAccess.open("user://moveset_fixture/broken.json", FileAccess.WRITE)
 	file.store_string("{\"movesetId\": \"broken\", \"moves\": {\"x\": {\"id\": \"x\"}}}")

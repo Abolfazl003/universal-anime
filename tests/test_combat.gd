@@ -45,6 +45,8 @@ func run(t) -> void:
 	await _test_energy_and_meter(t)
 	await _test_grounding(t)
 	await _test_character_abilities(t)
+	await _test_sasuke_abilities(t)
+	await _test_sakura_abilities(t)
 	_teardown()
 
 
@@ -364,3 +366,173 @@ func _spawn_test_fighter(parent, moveset: Dictionary, x: float):
 	fighter.set_active(true)
 	fighter.enter_neutral()
 	return fighter
+
+
+func _test_sasuke_abilities(t) -> void:
+	t.suite("combat / character 002 abilities")
+	var moveset: Dictionary = GameData.lab_moveset("002_sasuke")
+	t.ok("moveset 002_sasuke loads", not moveset.is_empty())
+	if moveset.is_empty():
+		return
+	var moves: Dictionary = moveset.get("moves", {})
+	var forms: Dictionary = moveset.get("forms", {})
+	t.eq("Amaterasu is the special", str((moves.get("special", {}) as Dictionary).get("name", "")), "Amaterasu")
+	t.eq("ultimate is Indra's Arrow", str((moves.get("ultimate", {}) as Dictionary).get("name", "")),
+		"Indra's Arrow: Perfect Susanoo")
+	t.ok("Sharingan is declared as a form", forms.has("sharingan"))
+	t.ok("the Sharingan is flagged as needing its own approval",
+		bool((forms.get("sharingan", {}) as Dictionary).get("requires_separate_reference_approval", false)))
+	t.ok("Sasuke's dataset stats reached the moveset", (moveset.get("stats", {}) as Dictionary).has("atk"))
+
+	var arena = CombatManagerScript.new()
+	t.tree.root.add_child(arena)
+	var attacker = _spawn_test_fighter(arena, moveset, 600.0)
+	var target = _spawn_test_fighter(arena, moveset, 940.0)
+	if attacker == null or target == null:
+		t.ok("ability fighters spawned", false)
+		return
+	attacker.facing = 1
+	target.facing = -1
+	await t.wait_ticks(4)
+
+	# --- Amaterasu: a stationary flame, not a travelling shot -----------------
+	t.ok("Sasuke's attack stat scales his damage", attacker.damage_scale > 1.0, str(attacker.damage_scale))
+	attacker.special_energy = 100.0
+	var shots_before: int = arena.projectiles.size()
+	t.ok("Amaterasu starts", attacker.start_move("special"))
+	t.eq("Amaterasu spent its energy", int(attacker.special_energy), 65)
+	await t.wait_ticks(20)
+	t.eq("Amaterasu spawned one projectile", arena.projectiles.size(), shots_before + 1)
+	if arena.projectiles.size() > shots_before:
+		var flame = arena.projectiles[arena.projectiles.size() - 1]
+		t.eq("flame uses the amaterasu visual", str(flame.visual_kind), "amaterasu")
+		t.eq("flame does not travel", float(flame.speed), 0.0)
+		var flame_x: float = flame.global_position.x
+		await t.wait_ticks(30)
+		t.ok("flame stays put", is_equal_approx(flame.global_position.x, flame_x), str(flame.global_position.x))
+		t.ok("flame is still burning", flame.alive)
+	await t.wait_ticks(40)
+	attacker.special_energy = 100.0
+	attacker.current_move = {}
+	attacker.current_move_id = ""
+	attacker.enter_neutral()
+	await t.wait_ticks(2)
+
+	# --- Sharingan -----------------------------------------------------------
+	t.ok("Sharingan starts with energy", attacker.start_form())
+	t.eq("Sharingan spent its energy", int(attacker.special_energy), 60)
+	t.ok("Sharingan is active", attacker.is_form_active())
+	t.ok("Sharingan grants speed", attacker.form_speed_multiplier() > 1.0)
+	t.ok("Sharingan grants damage", attacker.form_damage_multiplier() > 1.0)
+	t.ok("Sharingan multiplies the stat-scaled damage",
+		attacker.damage_multiplier() > attacker.damage_scale)
+	attacker.form_ticks = 1
+	await t.wait_ticks(30)
+	t.ok("Sharingan expires and reopens the base multiplier",
+		is_equal_approx(attacker.damage_multiplier(), attacker.damage_scale))
+
+	# --- Indra's Arrow: Perfect Susanoo --------------------------------------
+	attacker.ultimate_meter = 0.0
+	t.ok("ultimate refused without meter", not attacker.start_move("ultimate"))
+	attacker.ultimate_meter = 100.0
+	var before: int = arena.projectiles.size()
+	t.ok("ultimate starts", attacker.start_move("ultimate"))
+	t.eq("ultimate consumed the meter", int(attacker.ultimate_meter), 0)
+	await t.wait_ticks(28)
+	t.eq("ultimate spawned one projectile", arena.projectiles.size(), before + 1)
+	if arena.projectiles.size() > before:
+		var arrow = arena.projectiles[arena.projectiles.size() - 1]
+		t.eq("arrow uses the susanoo visual", str(arrow.visual_kind), "susanoo_arrow")
+		t.ok("arrow travels", float(arrow.speed) > 400.0, str(arrow.speed))
+		var start_x: float = arrow.global_position.x
+		await t.wait_ticks(10)
+		t.ok("arrow moves forward", arrow.global_position.x > start_x, str(arrow.global_position.x - start_x))
+
+	# --- Cleanup -------------------------------------------------------------
+	target.hp = 0
+	arena.clear()
+	arena.queue_free()
+
+
+func _test_sakura_abilities(t) -> void:
+	t.suite("combat / character 003 abilities")
+	var moveset: Dictionary = GameData.lab_moveset("003_sakura")
+	t.ok("moveset 003_sakura loads", not moveset.is_empty())
+	if moveset.is_empty():
+		return
+	var moves: Dictionary = moveset.get("moves", {})
+	var forms: Dictionary = moveset.get("forms", {})
+	t.eq("special is Byakugo Super Strength", str((moves.get("special", {}) as Dictionary).get("name", "")),
+		"Byakugo Super Strength")
+	t.eq("ultimate is the Cherry Blossom Impact",
+		str((moves.get("ultimate", {}) as Dictionary).get("name", "")),
+		"Strength of a Hundred: Cherry Blossom Impact")
+	t.ok("Byakugo is declared as a form", forms.has("byakugo"))
+	t.eq("Byakugo regenerates health", float((forms.get("byakugo", {}) as Dictionary).get("heal_per_second", 0.0)),
+		6.0)
+
+	var arena = CombatManagerScript.new()
+	t.tree.root.add_child(arena)
+	var attacker = _spawn_test_fighter(arena, moveset, 600.0)
+	var target = _spawn_test_fighter(arena, moveset, 720.0)
+	if attacker == null or target == null:
+		t.ok("ability fighters spawned", false)
+		return
+	attacker.facing = 1
+	target.facing = -1
+	await t.wait_ticks(4)
+
+	# --- Helpers -------------------------------------------------------------
+	t.eq("heal never exceeds max hp", attacker.heal(9999), 0)
+	target.hp = int(target.max_hp / 2)
+	var healed: int = target.heal(10)
+	t.eq("heal restores exactly what it can", healed, 10)
+	t.eq("heal is reflected on the fighter", target.hp, int(target.max_hp / 2) + 10)
+	var dead_check = _spawn_test_fighter(arena, moveset, 1400.0)
+	dead_check.hp = 0
+	t.eq("heal refuses a downed fighter", dead_check.heal(20), 0)
+	dead_check.queue_free()
+
+	# --- Byakugo Super Strength ---------------------------------------------
+	attacker.special_energy = 100.0
+	t.ok("cherry blossom punch starts", attacker.start_move("special"))
+	t.eq("punch spent its energy", int(attacker.special_energy), 75)
+	target.hp = int(target.max_hp)
+	await t.wait_ticks(30)
+	t.ok("punch lands damage", target.hp < target.max_hp, "hp %d" % target.hp)
+	t.ok("punch knocks the target back", target.velocity.x > 100.0 or target.state == States.State.HITSTUN,
+		States.name_of(target.state))
+	await t.wait_ticks(50)
+
+	# --- Byakugo (regeneration) ---------------------------------------------
+	attacker.hp = int(attacker.max_hp / 2)
+	t.ok("Byakugo starts with energy", attacker.start_form())
+	attacker.special_energy = 0.0
+	t.eq("Byakugo has a casting state", attacker.state, States.State.FORM)
+	var hp_before: int = attacker.hp
+	await t.wait_ticks(70)
+	t.ok("Byakugo regenerates health over time", attacker.hp > hp_before, "hp %d -> %d" % [hp_before, attacker.hp])
+	t.ok("Byakugo still boosts damage", attacker.form_damage_multiplier() > 1.0)
+
+	# --- Strength of a Hundred: Cherry Blossom Impact -------------------------
+	attacker.ultimate_meter = 100.0
+	target.hp = int(target.max_hp)
+	target.global_position = Vector2(900.0, 600.0)
+	var start_x: float = attacker.global_position.x
+	t.ok("ultimate starts with a full meter", attacker.start_move("ultimate"))
+	if attacker.state != States.State.ULTIMATE:
+		# The form cast must finish first; the rush is only legal once actionable.
+		await t.wait_ticks(30)
+		attacker.ultimate_meter = 100.0
+		t.ok("ultimate starts after the form cast", attacker.start_move("ultimate"))
+	t.eq("ultimate consumed the meter", int(attacker.ultimate_meter), 0)
+	await t.wait_ticks(24)
+	t.ok("ultimate rushes forward", attacker.global_position.x > start_x + 30.0,
+		"moved %.1f" % (attacker.global_position.x - start_x))
+	await t.wait_ticks(40)
+	t.ok("ultimate lands heavy damage", target.hp <= target.max_hp - 30, "hp %d" % target.hp)
+
+	# --- Cleanup -------------------------------------------------------------
+	target.hp = 0
+	arena.clear()
+	arena.queue_free()

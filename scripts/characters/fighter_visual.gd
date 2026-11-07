@@ -111,6 +111,9 @@ func _draw_form_aura(shoulder: Vector2, accent: Color) -> void:
 	var pulse: float = 0.5 + 0.5 * sin(float(Time.get_ticks_msec()) / 90.0)
 	var centre: Vector2 = Vector2(0, shoulder.y + 46.0)
 	var glow := Color("ffcf3d")
+	var form: Dictionary = fighter.form_data() if fighter.has_method("form_data") else {}
+	if form.has("aura_color"):
+		glow = Color(str(form["aura_color"]))
 	draw_circle(centre, 62.0 + pulse * 5.0, Color(glow.r, glow.g, glow.b, 0.10))
 	draw_circle(centre, 52.0 + pulse * 3.0, Color(glow.r, glow.g, glow.b, 0.14))
 	draw_circle(Vector2(0, shoulder.y + 6.0), 17.0, Color(glow.r, glow.g, glow.b, 0.16))
@@ -124,10 +127,17 @@ func _draw_form_aura(shoulder: Vector2, accent: Color) -> void:
 ## Rasengan placeholder: a spinning sphere in the front hand that grows during
 ## startup. Sized and timed from the move data, never from a frame counter.
 func _draw_move_effect(shoulder: Vector2, arm_angle: float, facing: int) -> void:
-	if fighter == null or fighter.current_move_id != "special":
+	if fighter == null:
 		return
 	var move: Dictionary = fighter.current_move
 	if move.is_empty():
+		return
+	var effect: Dictionary = move.get("effect", {})
+	var kind: String = str(effect.get("kind", "rasengan" if fighter.current_move_id == "special" else ""))
+	if kind == "impact":
+		_draw_impact_charge(shoulder, arm_angle, facing)
+		return
+	if kind != "rasengan":
 		return
 	var startup: int = maxi(1, int(move.get("startup", 1)))
 	var progress: float = clampf(float(fighter.state_tick) / float(startup), 0.0, 1.0)
@@ -145,6 +155,22 @@ func _draw_move_effect(shoulder: Vector2, arm_angle: float, facing: int) -> void
 		var start_angle: float = spin + float(ring) * 2.1
 		draw_arc(hand, radius * (0.9 + 0.18 * float(ring)), start_angle, start_angle + 2.0, 10,
 			Color(core.r, core.g, core.b, 0.75), 1.5)
+
+
+## Charged-fist placeholder used by strength moves: a tightening ring around the
+## hand that snaps closed on the active frames.
+func _draw_impact_charge(shoulder: Vector2, arm_angle: float, facing: int) -> void:
+	var move: Dictionary = fighter.current_move
+	var startup: int = maxi(1, int(move.get("startup", 1)))
+	var progress: float = clampf(float(fighter.state_tick) / float(startup), 0.0, 1.0)
+	if progress <= 0.05:
+		return
+	var hand: Vector2 = _hand_of(shoulder, arm_angle, facing)
+	var radius: float = lerpf(26.0, 10.0, _ease(progress))
+	var glow := Color("ff8fa3")
+	draw_circle(hand, radius, Color(glow.r, glow.g, glow.b, 0.18))
+	draw_arc(hand, radius, 0.0, TAU, 20, Color(glow.r, glow.g, glow.b, 0.75), 2.5)
+	draw_circle(hand, 5.0 + 3.0 * _ease(progress), Color(1.0, 0.95, 0.92, 0.9))
 
 
 func _draw_leg(hip: Vector2, angle: float, color: Color, outline: Color, facing: int) -> void:

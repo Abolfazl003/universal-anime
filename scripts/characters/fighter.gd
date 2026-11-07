@@ -58,6 +58,8 @@ var attack_instance: int = 0
 var attack_hit_confirmed: bool = false
 var current_phase: int = 0
 var _projectile_fired: bool = false
+var _support_fired: bool = false
+var _heal_accumulator: float = 0.0
 
 var hitstun_ticks: int = 0
 var blockstun_ticks: int = 0
@@ -70,6 +72,9 @@ var cooldowns: Dictionary = {}
 ## Data-driven forms (transformations). A form is not a move: it is a timed
 ## state of the fighter with its own multipliers, entered through the "form"
 ## intent and ended by its duration. Nothing here knows a character's name.
+## Derived from the dataset's own "stats.atk" so characters differ without
+## hand-tuned per-move numbers. Dummies have no stats and keep 1.0.
+var damage_scale: float = 1.0
 var forms: Dictionary = {}
 var form_id: String = ""
 var form_ticks: int = 0
@@ -104,6 +109,9 @@ func setup(p_moveset: Dictionary, entry: Dictionary, p_player_index: int, p_inte
 	temporary = bool(entry.get("temporary", p_moveset.get("temporary", true)))
 	player_index = p_player_index
 	intent_source = p_intent
+	var stats: Dictionary = p_moveset.get("stats", {})
+	var attack_stat: float = float(stats.get("atk", 0.0))
+	damage_scale = clampf(0.8 + attack_stat / 250.0, 0.8, 1.4) if attack_stat > 0.0 else 1.0
 	max_hp = int(config.get("hp", Consts.DEFAULT_HP))
 	hp = max_hp
 	buffer = InputBuffer.new()
@@ -143,8 +151,10 @@ func respawn(x: float) -> void:
 	current_move_id = ""
 	current_phase = 0
 	_projectile_fired = false
+	_support_fired = false
 	form_ticks = 0
 	form_id = ""
+	_heal_accumulator = 0.0
 	grounded = true
 	if buffer != null:
 		buffer.clear()
@@ -343,6 +353,12 @@ func form_damage_multiplier() -> float:
 	return float(form_data().get("damage_multiplier", 1.0))
 
 
+## Everything that scales outgoing damage, in one place: the character's stats and
+## the active form. Hitboxes and projectiles both use it.
+func damage_multiplier() -> float:
+	return damage_scale * form_damage_multiplier()
+
+
 ## Enters the first declared form. Costs energy, locks the fighter for the
 ## form's cast frames, and expires on its own after duration_frames.
 func start_form(form_key: String = "") -> bool:
@@ -379,6 +395,13 @@ func _process_form() -> void:
 func _tick_form() -> void:
 	if form_ticks <= 0:
 		return
+	var regen: float = float(form_data().get("heal_per_second", 0.0))
+	if regen > 0.0 and hp > 0:
+		_heal_accumulator += regen / 60.0
+		var whole: int = int(floor(_heal_accumulator))
+		if whole > 0:
+			_heal_accumulator -= float(whole)
+			heal(whole)
 	form_ticks -= 1
 	if form_ticks == 0:
 		var ended: String = form_id
@@ -403,6 +426,10 @@ func _process_move(intent: Dictionary) -> void:
 	var active: int = int(move.get("active", 1))
 	var total: int = int(move.get("total_frames", startup + active + int(move.get("recovery", 0))))
 
+	if not _support_fired and state_tick >= startup and int(move.get("heal", 0)) > 0:
+		_support_fired = true
+		heal(int(move.get("heal", 0)))
+
 	if not _projectile_fired and (move.get("projectile", {}) as Dictionary).size() > 0 and state_tick >= startup:
 		_projectile_fired = true
 		projectile_requested.emit(_scaled_projectile_move(move), attack_instance)
@@ -421,7 +448,7 @@ func _process_move(intent: Dictionary) -> void:
 ## Projectiles carry their own damage, so the form multiplier has to travel with
 ## the move instead of being applied by the target.
 func _scaled_projectile_move(move: Dictionary) -> Dictionary:
-	var multiplier: float = form_damage_multiplier()
+	var multiplier: float = damage_multiplier()
 	if is_equal_approx(multiplier, 1.0):
 		return move
 	var copy: Dictionary = move.duplicate(true)
@@ -535,7 +562,7 @@ func active_hit() -> Dictionary:
 	if state_tick < startup:
 		return {}
 
-	var damage: int = int(round(float(move.get("damage", 0)) * form_damage_multiplier()))
+	var damage: int = int(round(float(move.get("damage", 0)) * damage_multiplier()))
 	var phase_index: int = 0
 	var phases: Array = move.get("multi_hit", [])
 	if phases.is_empty():
@@ -548,7 +575,7 @@ func active_hit() -> Dictionary:
 			var start: int = int(phase.get("start", 0))
 			var length: int = int(phase.get("length", 1))
 			if state_tick >= start and state_tick < start + length:
-				damage = int(round(float(phase.get("damage", damage)) * form_damage_multiplier()))
+				damage = int(round(float(phase.get("damage", damage)) * damage_multiplier()))
 				phase_index = index
 				found = true
 				break
@@ -660,6 +687,18 @@ func gain_on_hit(move: Dictionary) -> void:
 	special_energy = minf(special_max, special_energy + float(move.get("energy_gain", 0.0)))
 	ultimate_meter = minf(ultimate_max, ultimate_meter + float(move.get("ultimate_gain", 0.0)))
 	energy_changed.emit(special_energy, ultimate_meter)
+
+
+## Restores HP without ever exceeding the maximum. Kept separate from damage so
+## healing cannot be double-counted by the combat manager.
+func heal(amount: int) -> int:
+	if amount <= 0 or hp <= 0:
+		return 0
+	var before: int = hp
+	hp = mini(max_hp, hp + amount)
+	if hp != before:
+		hp_changed.emit(hp, max_hp)
+	return hp - before
 
 
 func notify_hit_confirmed() -> void:

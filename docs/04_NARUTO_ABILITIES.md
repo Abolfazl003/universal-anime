@@ -65,7 +65,11 @@ grants both multipliers, refuses to stack, expires, restores normal multipliers,
 leaves the fighter actionable, and the ultimate consumes the meter and spawns
 exactly one projectile with the `rasenshuriken` visual and a large radius.
 
-Full suite: **314 checks, 0 failures, exit 0** (`docs/03_TEST_REPORT.md`).
+Later batches made his dataset stats part of the moveset, so his attack value now
+scales his damage the same way it does for every other character. Re-verified with
+characters 002 and 003; the checks below are unchanged.
+
+Full suite: **377 checks, 0 failures, exit 0** (`docs/03_TEST_REPORT.md`).
 
 ## Still required before this can be called finished
 

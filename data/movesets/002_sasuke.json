@@ -1,0 +1,186 @@
+{
+  "movesetId": "002_sasuke",
+  "characterId": 2,
+  "displayName": "SASUKE UCHIHA",
+  "temporary": true,
+  "note": "Moveset for character id 2. Power names come verbatim from the dataset: 'Sharingan / Amaterasu / Susanoo' and the ultimate 'Indra's Arrow: Perfect Susanoo'. Design unapproved, visuals procedural, so temporary:true keeps the on-screen TEMP tag.",
+  "stats": {
+    "hp": 64,
+    "atk": 89,
+    "def": 50,
+    "spd": 95,
+    "tech": 64,
+    "build": 57,
+    "power_level": 70
+  },
+  "fighter": {
+    "hp": 74,
+    "walk_speed": 300.0,
+    "run_speed": 480.0,
+    "jump_velocity": -770.0,
+    "hurtbox_width": 48.0,
+    "hurtbox_height": 124.0,
+    "weight": 1.0,
+    "primary": "#2a3350",
+    "secondary": "#12141c",
+    "accent": "#8fa8d8"
+  },
+  "moves": {
+    "light_attack": {
+      "id": "light_attack",
+      "animation_id": "light_attack",
+      "startup": 3,
+      "active": 2,
+      "recovery": 7,
+      "damage": 5,
+      "hitstun": 9,
+      "blockstun": 6,
+      "knockback": {
+        "x": 95.0,
+        "y": -12.0
+      },
+      "energy_cost": 0.0,
+      "energy_gain": 5.0,
+      "ultimate_gain": 4.0,
+      "cooldown": 0,
+      "hitbox": {
+        "offset_x": 52.0,
+        "offset_y": -70.0,
+        "size_x": 66.0,
+        "size_y": 32.0
+      },
+      "cancel_windows": [
+        {
+          "from_frame": 5,
+          "to_frame": 12,
+          "into": [
+            "light_attack",
+            "heavy_attack"
+          ],
+          "requires_hit": true
+        }
+      ]
+    },
+    "heavy_attack": {
+      "id": "heavy_attack",
+      "animation_id": "heavy_attack",
+      "startup": 9,
+      "active": 4,
+      "recovery": 14,
+      "damage": 12,
+      "hitstun": 17,
+      "blockstun": 10,
+      "knockback": {
+        "x": 250.0,
+        "y": -90.0
+      },
+      "energy_cost": 0.0,
+      "energy_gain": 8.0,
+      "ultimate_gain": 7.0,
+      "cooldown": 0,
+      "hitbox": {
+        "offset_x": 64.0,
+        "offset_y": -74.0,
+        "size_x": 92.0,
+        "size_y": 44.0
+      },
+      "cancel_windows": [
+        {
+          "from_frame": 20,
+          "to_frame": 27,
+          "into": [
+            "special"
+          ],
+          "requires_hit": false
+        }
+      ]
+    },
+    "special": {
+      "id": "special",
+      "name": "Amaterasu",
+      "animation_id": "special",
+      "type": "projectile",
+      "startup": 18,
+      "active": 2,
+      "recovery": 22,
+      "damage": 16,
+      "hitstun": 22,
+      "blockstun": 12,
+      "knockback": {
+        "x": 120.0,
+        "y": -30.0
+      },
+      "energy_cost": 35.0,
+      "ultimate_gain": 5.0,
+      "cooldown": 55,
+      "hitbox": {
+        "offset_x": 70.0,
+        "offset_y": -70.0,
+        "size_x": 40.0,
+        "size_y": 40.0
+      },
+      "projectile": {
+        "speed": 0.0,
+        "range": 0.0,
+        "radius": 46.0,
+        "spawn_offset_x": 110.0,
+        "spawn_offset_y": -34.0,
+        "visual": "amaterasu",
+        "lifetime_ticks": 180
+      }
+    },
+    "ultimate": {
+      "id": "ultimate",
+      "name": "Indra's Arrow: Perfect Susanoo",
+      "animation_id": "ultimate",
+      "type": "projectile",
+      "startup": 26,
+      "active": 3,
+      "recovery": 32,
+      "damage": 44,
+      "chip_damage": 7,
+      "hitstun": 32,
+      "blockstun": 18,
+      "knockback": {
+        "x": 480.0,
+        "y": -150.0
+      },
+      "energy_cost": 0.0,
+      "meter_required": 100.0,
+      "ultimate_gain": 0.0,
+      "cooldown": 0,
+      "invulnerable_frames": 16,
+      "hitbox": {
+        "offset_x": 66.0,
+        "offset_y": -74.0,
+        "size_x": 72.0,
+        "size_y": 72.0
+      },
+      "projectile": {
+        "speed": 900.0,
+        "range": 1400.0,
+        "radius": 40.0,
+        "spawn_offset_x": 68.0,
+        "spawn_offset_y": -74.0,
+        "visual": "susanoo_arrow"
+      }
+    }
+  },
+  "forms": {
+    "sharingan": {
+      "id": "sharingan",
+      "name": "Sharingan",
+      "animation_id": "form_activation",
+      "cast_frames": 18,
+      "duration_frames": 480,
+      "energy_cost": 40.0,
+      "invulnerable_frames": 8,
+      "speed_multiplier": 1.15,
+      "damage_multiplier": 1.2,
+      "aura": "sharingan",
+      "aura_color": "#c8342f",
+      "requires_separate_reference_approval": true,
+      "note": "Mechanics only: read/dodge window modelled as brief invulnerability plus speed and damage. The Sharingan eye design needs its own approved reference."
+    }
+  }
+}

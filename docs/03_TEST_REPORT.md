@@ -172,6 +172,36 @@ Three defects found while wiring the abilities, all fixed:
     became actionable the instant the buff expired, which is wrong; the cast
     animation still has to finish.
 
+## Fourth run — 2026-11-07 (characters 002 and 003)
+
+Sasuke and Sakura moved from "record in the dataset" to "playable abilities", and
+the engine gained the pieces their moves need: dataset `atk` scaling damage,
+support (heal) moves, healing forms, and projectiles that expire on a timer
+instead of on range.
+
+```console
+$ godot --headless --path . res://tests/test_runner.tscn
+PASSED: 377   FAILED: 0   TOTAL: 377      exit 0
+```
+
+63 new checks: 28 for Sasuke, 21 for Sakura, 10 for the duo in a live VERSUS
+scene, and 4 in the data layer for support moves and timed projectiles
+(`docs/05_SASUKE_AND_SAKURA_ABILITIES.md`). Four defects were found on the way,
+all fixed:
+
+11. **Support moves were impossible to author.** The loader demanded `hitbox`,
+    `damage`, `hitstun` and `blockstun` from every move, so a pure heal could
+    never validate. Those four fields are now optional when `type` is `"support"`.
+12. **`heal()` could over-report.** It now returns the HP actually restored, caps
+    at `max_hp`, and refuses a fighter already at 0 HP — otherwise a healing form
+    would have kept a corpse alive.
+13. **`start_form()` requires solid ground.** A live-match test failed because the
+    AI had jumped on that exact tick; the fighter correctly refused. The test now
+    settles the fighter first — the behaviour is intended, the test was wrong.
+14. **A fixture leaked into a shared directory.** Adding a second moveset fixture
+    to `user://moveset_fixture` made the older "deliberately broken" fixture fail
+    the new load. New fixtures get their own directory now.
+
 ## What is still unverified
 
 * **Anything visual.** No renderer, no window, no screenshot. Layout, palette,
@@ -182,12 +212,15 @@ Three defects found while wiring the abilities, all fixed:
   label/persistence, never by actual key events.
 * **Physical feel.** Hitstop, screen shake (default off), knockback tuning and
   the AI's difficulty are numbers in data, not experiences.
+* **Balance.** Damage scaling from stats is new. Sasuke (atk 89) and Sakura
+  (atk 80) hit harder than the stat-less dummies by design, but no human has
+  played a round to say whether that feels right.
 * **Persian rendering.** `fa.json` has full key parity, but the bundled font has
   no Arabic-script coverage, so those labels would render as boxes.
 
 ## Next
 
-Phase 3 (Naruto reference docket) is unchanged and still blocked on you: I have
-read text sources but **no image has been viewed or generated**, so no design
-exists, let alone an approved or animated one. `characters.json` is still absent,
-so the playable roster is 0.
+Abilities for ids 1–3 are done to the same standard; the next batch is id 4 and
+onward, one character at a time. The art gate is unchanged and still blocked on
+you: `characters.json` is still absent, no design is approved, and no final
+animation frame exists for any character.

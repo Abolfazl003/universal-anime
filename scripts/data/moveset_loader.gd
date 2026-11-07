@@ -38,6 +38,8 @@ const DEFAULT_MOVE: Dictionary = {
 	"invulnerable_frames": 0,
 	"move_speed": 0.0,
 	"air_ok": false,
+	"heal": 0,
+	"energy_gain_on_cast": 0.0,
 }
 
 var movesets: Dictionary = {}
@@ -99,6 +101,7 @@ func _register(raw: Dictionary, path: String) -> void:
 		"fighter": raw.get("fighter", {}),
 		"moves": moves,
 		"forms": raw.get("forms", {}),
+		"stats": raw.get("stats", {}),
 		"source": path,
 	}
 
@@ -106,15 +109,26 @@ func _register(raw: Dictionary, path: String) -> void:
 func _normalize_move(key: String, raw: Dictionary, moveset_id: String) -> Dictionary:
 	var move: Dictionary = DEFAULT_MOVE.duplicate(true)
 	move["id"] = str(raw.get("id", key))
+	var declared_type: String = str(raw.get("type", "melee"))
 	for field in REQUIRED_MOVE_FIELDS:
+		# Support moves (heals, self-buffs) never hit anything, so a hitbox,
+		# damage and hitstun are all optional for them.
+		if declared_type == "support" and field in ["hitbox", "damage", "hitstun", "blockstun"]:
+			continue
 		if not raw.has(field):
 			errors.append("Moveset '%s' move '%s' is missing required field '%s'." % [moveset_id, key, field])
 			return {}
 
+	var move_type: String = str(raw.get("type", "melee"))
 	var hitbox_raw: Variant = raw.get("hitbox")
 	if typeof(hitbox_raw) != TYPE_DICTIONARY:
-		errors.append("Moveset '%s' move '%s' has an invalid hitbox." % [moveset_id, key])
-		return {}
+		# Support moves (heals, buffs) have nothing to hit, so a hitbox is optional
+		# for them. Everything that can damage still needs a real box.
+		if move_type == "support":
+			hitbox_raw = {}
+		else:
+			errors.append("Moveset '%s' move '%s' has an invalid hitbox." % [moveset_id, key])
+			return {}
 	var hitbox: Dictionary = hitbox_raw as Dictionary
 
 	move["animation_id"] = str(raw.get("animation_id", ""))
@@ -137,6 +151,8 @@ func _normalize_move(key: String, raw: Dictionary, moveset_id: String) -> Dictio
 	move["invulnerable_frames"] = maxi(0, int(raw.get("invulnerable_frames", 0)))
 	move["move_speed"] = float(raw.get("move_speed", 0.0))
 	move["air_ok"] = bool(raw.get("air_ok", false))
+	move["heal"] = maxi(0, int(raw.get("heal", 0)))
+	move["energy_gain_on_cast"] = float(raw.get("energy_gain_on_cast", 0.0))
 	move["hitbox_offset_x"] = float(hitbox.get("offset_x", 0.0))
 	move["hitbox_offset_y"] = float(hitbox.get("offset_y", 0.0))
 	move["hitbox_size_x"] = float(hitbox.get("size_x", 0.0))
@@ -147,7 +163,7 @@ func _normalize_move(key: String, raw: Dictionary, moveset_id: String) -> Dictio
 		move["knockback_x"] = float((knockback as Dictionary).get("x", 0.0))
 		move["knockback_y"] = float((knockback as Dictionary).get("y", 0.0))
 
-	if move["hitbox_size_x"] <= 0.0 or move["hitbox_size_y"] <= 0.0:
+	if move["type"] != "support" and (move["hitbox_size_x"] <= 0.0 or move["hitbox_size_y"] <= 0.0):
 		errors.append("Moveset '%s' move '%s' hitbox size must be positive." % [moveset_id, key])
 		return {}
 
@@ -168,6 +184,7 @@ func _normalize_move(key: String, raw: Dictionary, moveset_id: String) -> Dictio
 	if typeof(projectile) == TYPE_DICTIONARY and not (projectile as Dictionary).is_empty():
 		var proj: Dictionary = projectile as Dictionary
 		move["projectile"] = {
+			"lifetime_ticks": maxi(0, int(proj.get("lifetime_ticks", 0))),
 			"speed": float(proj.get("speed", 700.0)),
 			"range": float(proj.get("range", 600.0)),
 			"radius": float(proj.get("radius", 26.0)),

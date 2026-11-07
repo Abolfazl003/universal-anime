@@ -21,6 +21,7 @@ func run(t) -> void:
 	await _test_character_select_capacity(t)
 	await _test_versus_scene(t)
 	await _test_naruto_scene(t)
+	await _test_uchiha_haruno_scene(t)
 
 
 func _test_save_roundtrip(t) -> void:
@@ -170,5 +171,44 @@ func _test_naruto_scene(t) -> void:
 	var started: bool = scene.p1.start_form()
 	t.ok("form can be used in a live match", started)
 	t.eq("form put the fighter in FORM", int(scene.p1.state), States.State.FORM)
+	scene.queue_free()
+	await t.wait_ticks(2)
+
+
+func _test_uchiha_haruno_scene(t) -> void:
+	t.suite("ui / characters 002 and 003 in a live match")
+	Session.mode = Consts.Mode.LAB
+	Session.p1 = Session.lab_entry("002_sasuke", "SASUKE UCHIHA")
+	Session.p2 = Session.lab_entry("003_sakura", "SAKURA HARUNO")
+	Session.p1_control = Consts.PlayerControl.HUMAN
+	Session.p2_control = Consts.PlayerControl.AI
+	Session.stage_id = "lab_arena"
+	Session.rounds_to_win = 2
+	Session.timer_enabled = false
+	var scene = VERSUS_SCENE.instantiate()
+	t.tree.root.add_child(scene)
+	await t.wait_ticks(6)
+	await t.wait_ticks(90)
+	t.eq("fight phase reached for the duo", scene.phase, 1)
+	t.eq("sasuke moveset bound", str(scene.p1.moveset.get("id", "")), "002_sasuke")
+	t.eq("sakura moveset bound", str(scene.p2.moveset.get("id", "")), "003_sakura")
+	t.ok("both carry named abilities",
+		str((scene.p1.moves["special"] as Dictionary).get("name", "")) == "Amaterasu" and
+		str((scene.p2.moves["special"] as Dictionary).get("name", "")) == "Byakugo Super Strength")
+	t.ok("both still show the TEMP tag", bool(scene.p1.temporary) and bool(scene.p2.temporary))
+	t.ok("both use their dataset stats", scene.p1.damage_scale > 1.0 and scene.p2.damage_scale > 1.0)
+	scene.p1.enter_neutral()
+	scene.p1.special_energy = 100.0
+	t.ok("sharingan can be used in a live match", scene.p1.start_form())
+	t.ok("sharingan is burning in a live match", scene.p1.is_form_active())
+	scene.p2.velocity = Vector2.ZERO
+	scene.p2.grounded = true
+	scene.p2.enter_neutral()
+	scene.p2.hp = int(scene.p2.max_hp / 2)
+	scene.p2.special_energy = 100.0
+	var hp_before: int = scene.p2.hp
+	t.ok("byakugo can be used in a live match", scene.p2.start_form())
+	await t.wait_ticks(40)
+	t.ok("byakugo heals in a live match", scene.p2.hp > hp_before, "hp %d -> %d" % [hp_before, scene.p2.hp])
 	scene.queue_free()
 	await t.wait_ticks(2)
