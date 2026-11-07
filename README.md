@@ -62,7 +62,7 @@ any failed check.
 | Character 004 abilities: Sharingan / Kamui warp dash, Sharingan form, Kamui: Wrinkle-Dimension Slash ultimate | **mechanics + placeholder visuals** — LAB row `KAKASHI HATAKE [TEMP]` (`docs/06_KAKASHI_AND_ITACHI_ABILITIES.md`) |
 | Character 005 abilities: Amaterasu flame, Tsukuyomi form, Susanoo: Totsuka Blade Seal ultimate | **mechanics + placeholder visuals** — LAB row `ITACHI UCHIHA [TEMP]` (`docs/06_KAKASHI_AND_ITACHI_ABILITIES.md`) |
 | Stat-driven damage, support (heal) moves, timed projectiles | working — dataset `atk` scales damage, forms add a multiplier, `heal` cannot overheal |
-| State frames (walk / run / special / form / ultimate) with normalised frame sheets and looping previews | **proposal art, NOT approved** — 19 frames across 5 states for character 001; the 2026-11-08 approval was revoked the same day by the user (`docs/07_STATE_FRAMES.md`, `docs/08_APPROVALS.md`) |
+| State frames (walk / run / special / form / ultimate) with normalised frame sheets and looping previews | **proposal art, NOT approved** — 24 frames across 5 states for character 001 (walk 8, run 5, special 4, form 3, ultimate 4); the 2026-11-08 approval was revoked the same day by the user (`docs/07_STATE_FRAMES.md`, `docs/08_APPROVALS.md`) |
 | Rounds, rounds-to-win, optional timer, K.O./time-up, winner, rematch, return to menu | working |
 | AI opponent (approach, spacing, attack, block, meter usage) with delayed perception | working |
 | Dungeon: seeded layout, connectivity validation, rooms, doors that lock during fights, trap with telegraph, loot, rest pad, boss with 3 readable patterns, win/lose/restart | working (temporary shapes) |

@@ -24,11 +24,12 @@ rebuilt into sprites and those sprites are approved.
 ```
 assets/characters/states/
   001_naruto/
-    walk/     frame_01..04.png  walk_frames.png      walk_preview.gif
-    run/      frame_01..04.png  run_frames.png       run_preview.gif
+    walk/     frame_01..08.png  walk_frames.png      walk_preview.gif   (8, closed cycle)
+    run/      frame_01..05.png  run_frames.png       run_preview.gif    (5 of 8)
     special/  frame_01..04.png  special_frames.png   special_preview.gif
     form/     frame_01..03.png  form_frames.png      form_preview.gif
     ultimate/ frame_01..04.png  ultimate_frames.png  ultimate_preview.gif
+    state_overview.png          (all state sheets stacked, in game order)
   index.json          <- generated manifest, see tools/build_state_index.py
 ```
 
@@ -82,11 +83,31 @@ The sheets are art, but their *intent* is the timing already in
 
 | State | Frames now | Engine timing it must cover |
 |---|---|---|
-| walk | 4 (loop) | `walk_speed` 285 px/s, ground locomotion |
-| run | 4 (loop) | `run_speed` 455 px/s |
+| walk | **8 (loop)** | `walk_speed` 285 px/s, ground locomotion |
+| run | **5 of 8** | `run_speed` 455 px/s |
 | special (Rasengan) | 4 | 16 startup / 6 active / 20 recovery |
 | form (Kurama Chakra Mode) | 3 | 26 cast frames, 600-tick duration |
 | ultimate (Rasenshuriken) | 4 | 24 startup / 3 active / 32 recovery |
+
+### In-betweens: what changed after the rejection
+
+The first version had four *key* poses per cycle and nothing between them, and the
+user rejected exactly that: «تصویرای انیمیشن تایید نشد» — it does not read as
+motion. The fix is not "generate more images" but **how** the middle frames are
+drawn:
+
+* A fresh drawing from the concept always came back as a neutral standing pose,
+  because the model had no idea where in the cycle it was. Asking for a subtle
+  in-between from a text description does not work.
+* An in-between is therefore generated as an **edit of the keyframe it follows**:
+  the keyframe is the image input, and the prompt lists three numeric deltas
+  ("lower the hips by 4% of body height", "peel the back heel off the floor",
+  "arms hang slightly lower"). The model then keeps the character, costume,
+  framing and line work and only shifts the pose, which is what an in-between is.
+
+The walk cycle is now the standard 8-frame pattern and closes properly:
+contact R → down → passing (L knee up) → up (reaching) → contact L → down →
+passing (R knee up) → up (reaching) → loop.
 
 Chronology matters and is not the order the images happen to be generated in.
 Both ability sets were **reordered** after a first pass: the "sphere already
@@ -105,11 +126,10 @@ Verified by eye this turn:
   forward) → passing (left knee lifted, only the right foot down) → contact
   (opposite arm swing) → passing (right knee lifted, only the left foot down).
   The sheet and loop are in `walk/`.
-* **Run cycle is fixed.** The first pass produced two frames that were almost
-  identical to the flight poses; both were re-drawn with much harder wording
-  ("the right foot is planted flat under the hip, the knee bent 60°, the left
-  heel tucked to the buttock") and now the four frames alternate push-off →
-  planted contact → opposite flight → opposite contact.
+* **Run cycle is half-way to eight.** It has 5 frames (contact R → compression R
+  → push-off R → flight → contact L); the mirrored compression, push-off and
+  flight for the left side were not generated because the 10-image turn limit ran
+  out. Next batch finishes it.
 * **All three ability states are animated now**: Rasengan 4 frames, Kurama
   Chakra Mode 3 frames, Rasenshuriken 4 frames, each with a contact sheet and a
   looping preview.
@@ -138,15 +158,17 @@ Verified by eye this turn:
    is verified instead by `tools/build_state_index.py --check`, which fails on a
    missing frame, sheet or preview, a frame-count mismatch, or any approval
    claim that is not backed by `approvals.json`.
-5. **Approval ≠ engine.** No strips are approved. Even when one is, turning it
+5. **Turn budget.** Ten generated images per turn is the hard ceiling, which is
+   why an 8-frame cycle costs most of a turn and why the run cycle is 5 of 8.
+6. **Approval ≠ engine.** No strips are approved. Even when one is, turning it
    into sprites (fixed pixel grid, per-frame hold times from the moveset numbers,
    hit-frame alignment) is a separate stage, and that is what would finally let
    the in-game `TEMP` tag come off.
 
 ## Next
 
-1. Revise character 001's state frames until they are approvable (the user has
-   not said what to change yet), then re-submit them for approval.
+1. Finish the run cycle to 8 frames, then bring `special`, `form` and `ultimate`
+   up to 6–8 frames each so the ability states read as motion too.
 2. Repeat the state frame pipeline for characters 002–005 (each has a concept to
    draw against), one character at a time, and get each approved the same way.
 3. Build the engine-side gallery so these sheets can be reviewed inside the game

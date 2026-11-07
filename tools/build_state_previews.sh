@@ -50,7 +50,13 @@ normalise() { # normalise <in> <out>
   # Four corner fills, not one: when an attack effect loops around the body it
   # touches the border and cuts the background into regions that a single corner
   # fill never reaches (that is what left visible rectangles in the first pass).
+  # Some generations draw a thin "floor" line at the very bottom edge. It is not
+  # part of the character, it lands at a different height in every frame, and it
+  # shows up as a stray horizontal rule in the cell - so shave the outer pixels
+  # before anything else.
   local sw_raw sh_raw draw
+  convert "$1" -shave 2x4 "$TMP/shaved.png"
+  set -- "$TMP/shaved.png" "$2"
   sw_raw=$(identify -format "%w" "$1")
   sh_raw=$(identify -format "%h" "$1")
   draw="matte 0,0 floodfill matte $((sw_raw - 1)),0 floodfill"
